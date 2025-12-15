@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="procrastinate.Pages.StatsPage"
+             Title="Stats">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+            <Label Text="📊 Your Procrastination Stats" 
+                   FontSize="28" 
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+            
+            <Label Text="Be proud of your accomplishments!"
+                   FontSize="16"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"/>
+
+            <Frame BackgroundColor="#2B2B2B" CornerRadius="10" Padding="20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="🚫 Tasks Avoided" FontSize="16" TextColor="Gray"/>
+                    <Label x:Name="TasksAvoidedLabel" Text="0" FontSize="40" FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="#2B2B2B" CornerRadius="10" Padding="20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="☕ Breaks Taken" FontSize="16" TextColor="Gray"/>
+                    <Label x:Name="BreaksTakenLabel" Text="0" FontSize="40" FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="#2B2B2B" CornerRadius="10" Padding="20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="🎭 Excuses Generated" FontSize="16" TextColor="Gray"/>
+                    <Label x:Name="ExcusesLabel" Text="0" FontSize="40" FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="#2B2B2B" CornerRadius="10" Padding="20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="🎮 Games Played" FontSize="16" TextColor="Gray"/>
+                    <Label x:Name="GamesPlayedLabel" Text="0" FontSize="40" FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="#3D2B2B" CornerRadius="10" Padding="20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="🏆 Achievement Unlocked" FontSize="18" FontAttributes="Bold"/>
+                    <Label x:Name="AchievementLabel" 
+                           Text="Loading achievement..."
+                           FontSize="16"/>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

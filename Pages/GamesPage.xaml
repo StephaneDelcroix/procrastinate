@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="procrastinate.Pages.GamesPage"
+             Title="Mini-Games">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+            <Label Text="🎮 Mini-Games" 
+                   FontSize="32" 
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+            
+            <Label Text="Because productivity is overrated!"
+                   FontSize="16"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"/>
+
+            <!-- Simon Says Game -->
+            <Frame BackgroundColor="#2B2B2B" CornerRadius="10" Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="🔴🟢🔵🟡 Simon Says" FontSize="22" FontAttributes="Bold"/>
+                    <Label Text="Watch the pattern and repeat it!" TextColor="Gray"/>
+                    
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" 
+                          HeightRequest="200" WidthRequest="200"
+                          HorizontalOptions="Center">
+                        <Button x:Name="RedBtn" BackgroundColor="#8B0000" 
+                                Grid.Row="0" Grid.Column="0" Margin="5"
+                                Clicked="OnSimonButtonClicked"/>
+                        <Button x:Name="GreenBtn" BackgroundColor="#006400" 
+                                Grid.Row="0" Grid.Column="1" Margin="5"
+                                Clicked="OnSimonButtonClicked"/>
+                        <Button x:Name="BlueBtn" BackgroundColor="#00008B" 
+                                Grid.Row="1" Grid.Column="0" Margin="5"
+                                Clicked="OnSimonButtonClicked"/>
+                        <Button x:Name="YellowBtn" BackgroundColor="#8B8B00" 
+                                Grid.Row="1" Grid.Column="1" Margin="5"
+                                Clicked="OnSimonButtonClicked"/>
+                    </Grid>
+                    
+                    <Label x:Name="SimonScoreLabel" Text="Score: 0" 
+                           HorizontalOptions="Center" FontSize="18"/>
+                    <Button x:Name="SimonStartBtn" Text="Start Game" 
+                            Clicked="OnSimonStartClicked"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Click Speed Game -->
+            <Frame BackgroundColor="#2B2B2B" CornerRadius="10" Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="⚡ Click Speed Challenge" FontSize="22" FontAttributes="Bold"/>
+                    <Label Text="How many times can you click in 5 seconds?" TextColor="Gray"/>
+                    
+                    <Button x:Name="ClickGameBtn" Text="Click Me!" 
+                            HeightRequest="100" FontSize="24"
+                            Clicked="OnClickGameClicked"/>
+                    <Label x:Name="ClickScoreLabel" Text="Clicks: 0" 
+                           HorizontalOptions="Center" FontSize="18"/>
+                    <Button x:Name="ClickStartBtn" Text="Start Challenge" 
+                            Clicked="OnClickStartClicked"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Reaction Time Game -->
+            <Frame BackgroundColor="#2B2B2B" CornerRadius="10" Padding="20">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="🎯 Reaction Time" FontSize="22" FontAttributes="Bold"/>
+                    <Label Text="Wait for green, then tap as fast as you can!" TextColor="Gray"/>
+                    
+                    <Button x:Name="ReactionBtn" Text="Wait..." 
+                            HeightRequest="100" FontSize="24"
+                            BackgroundColor="Red"
+                            Clicked="OnReactionClicked"/>
+                    <Label x:Name="ReactionLabel" Text="Tap 'Start' to begin" 
+                           HorizontalOptions="Center" FontSize="18"/>
+                    <Button x:Name="ReactionStartBtn" Text="Start" 
+                            Clicked="OnReactionStartClicked"/>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

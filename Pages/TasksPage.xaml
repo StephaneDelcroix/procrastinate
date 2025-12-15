@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="procrastinate.Pages.TasksPage"
+             Title="Today's Tasks">
+
+    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+        <Label Text="📋 Today's Tasks" 
+               FontSize="32" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+        
+        <Frame BackgroundColor="#2B2B2B" 
+               CornerRadius="10" 
+               Padding="20"
+               HasShadow="True">
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Your productivity list:" 
+                       FontSize="18" 
+                       TextColor="Gray"/>
+                
+                <HorizontalStackLayout Spacing="10">
+                    <CheckBox x:Name="TaskCheckBox" 
+                              CheckedChanged="OnTaskChecked"/>
+                    <Label Text="☕ Take a break" 
+                           FontSize="20" 
+                           VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+        
+        <Label x:Name="MotivationLabel"
+               Text="You're doing great! Only 1 task today!"
+               FontSize="16"
+               TextColor="Gray"
+               HorizontalOptions="Center"/>
+        
+        <Button x:Name="AddTaskBtn"
+                Text="➕ Add More Tasks"
+                Clicked="OnAddTaskClicked"
+                BackgroundColor="#4A4A4A"/>
+    </VerticalStackLayout>
+</ContentPage>

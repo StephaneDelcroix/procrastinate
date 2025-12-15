@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="procrastinate.Pages.ExcusePage"
+             Title="Excuse Generator">
+
+    <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="Center">
+        <Label Text="🎭 Excuse Generator" 
+               FontSize="32" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+        
+        <Label Text="Need a reason to not do something? We got you!"
+               FontSize="16"
+               TextColor="Gray"
+               HorizontalOptions="Center"/>
+        
+        <Frame BackgroundColor="#2B2B2B" 
+               CornerRadius="15" 
+               Padding="25"
+               MinimumHeightRequest="150">
+            <Label x:Name="ExcuseLabel"
+                   Text="Tap the button for a fresh excuse!"
+                   FontSize="20"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="Center"/>
+        </Frame>
+        
+        <Button x:Name="GenerateBtn"
+                Text="🎲 Generate Excuse"
+                FontSize="20"
+                HeightRequest="60"
+                Clicked="OnGenerateClicked"/>
+        
+        <Button x:Name="CopyBtn"
+                Text="📋 Copy to Clipboard"
+                BackgroundColor="#4A4A4A"
+                Clicked="OnCopyClicked"/>
+        
+        <Label x:Name="CounterLabel"
+               Text="Excuses generated today: 0"
+               FontSize="14"
+               TextColor="Gray"
+               HorizontalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>
