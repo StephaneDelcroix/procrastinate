@@ -1,5 +1,6 @@
 using Microsoft.Maui.Controls.Shapes;
 using procrastinate.Pages.Games;
+using procrastinate.Resources.Strings;
 using procrastinate.Services;
 
 namespace procrastinate.Pages;
@@ -32,6 +33,19 @@ public partial class GamesPage : ContentPage
             game.OnGamePlayed = () => _statsService.IncrementGamesPlayed();
 
         ShuffleGames();
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        UpdateLabels();
+    }
+
+    private void UpdateLabels()
+    {
+        TitleLabel.Text = AppStrings.Get("MiniGames");
+        SubtitleLabel.Text = AppStrings.Get("ProductivityOverrated");
+        ShuffleBtn.Text = $"\uf074  {AppStrings.Get("ShuffleGames")}";
     }
 
     private async void OnSettingsClicked(object? sender, EventArgs e)

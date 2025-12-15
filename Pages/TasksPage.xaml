@@ -7,7 +7,8 @@
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto">
-            <Label Text="Today's Tasks" 
+            <Label x:Name="NavTitleLabel"
+                   Text="Today's Tasks" 
                    FontSize="18" FontAttributes="Bold" 
                    TextColor="{StaticResource Gray100}"
                    VerticalOptions="Center"/>
@@ -27,7 +28,8 @@
                FontSize="48" 
                TextColor="{StaticResource Primary}"
                HorizontalOptions="Center"/>
-        <Label Text="Today's Tasks" 
+        <Label x:Name="TitleLabel"
+               Text="Today's Tasks" 
                FontSize="28" 
                FontAttributes="Bold"
                TextColor="{StaticResource Primary}"
@@ -41,7 +43,8 @@
                 <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
             </Border.Shadow>
             <VerticalStackLayout Spacing="16">
-                <Label Text="Your productivity list:" 
+                <Label x:Name="ProductivityListLabel"
+                       Text="Your productivity list:" 
                        FontSize="14" 
                        TextColor="{StaticResource Gray400}"/>
                 
@@ -59,7 +62,8 @@
                                    FontSize="18" 
                                    TextColor="{StaticResource Gray300}"
                                    VerticalOptions="Center"/>
-                            <Label Text="Take a break" 
+                            <Label x:Name="TakeBreakLabel"
+                                   Text="Take a break" 
                                    FontSize="18" 
                                    TextColor="{StaticResource Gray100}"
                                    VerticalOptions="Center"/>

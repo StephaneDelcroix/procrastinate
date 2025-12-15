@@ -7,7 +7,8 @@
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto">
-            <Label Text="Excuse Generator" 
+            <Label x:Name="NavTitleLabel"
+                   Text="Excuse Generator" 
                    FontSize="18" FontAttributes="Bold" 
                    TextColor="{StaticResource Gray100}"
                    VerticalOptions="Center"/>
@@ -27,13 +28,15 @@
                FontSize="48" 
                TextColor="{StaticResource Tertiary}"
                HorizontalOptions="Center"/>
-        <Label Text="Excuse Generator" 
+        <Label x:Name="TitleLabel"
+               Text="Excuse Generator" 
                FontSize="28" 
                FontAttributes="Bold"
                TextColor="{StaticResource Tertiary}"
                HorizontalOptions="Center"/>
         
-        <Label Text="Need a reason to not do something? We got you!"
+        <Label x:Name="SubtitleLabel"
+               Text="Need a reason to not do something? We got you!"
                FontSize="14"
                TextColor="{StaticResource Gray400}"
                HorizontalOptions="Center"
