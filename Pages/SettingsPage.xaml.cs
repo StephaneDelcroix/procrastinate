@@ -1,3 +1,5 @@
+using procrastinate.Resources.Strings;
+
 namespace procrastinate.Pages;
 
 public partial class SettingsPage : ContentPage
@@ -10,9 +12,44 @@ public partial class SettingsPage : ContentPage
 
     private void LoadSettings()
     {
+        // Load language picker
+        foreach (var lang in AppStrings.SupportedLanguages)
+            LanguagePicker.Items.Add(lang.Value);
+        
+        var currentLang = AppStrings.CurrentLanguage;
+        var langIndex = AppStrings.SupportedLanguages.Keys.ToList().IndexOf(currentLang);
+        LanguagePicker.SelectedIndex = langIndex >= 0 ? langIndex : 0;
+
+        // Load high contrast
         var isHighContrast = Preferences.Get("HighContrastMode", false);
         HighContrastSwitch.IsToggled = isHighContrast;
         UpdatePreview(isHighContrast);
+        
+        UpdateLabels();
+    }
+
+    private void OnLanguageChanged(object? sender, EventArgs e)
+    {
+        if (LanguagePicker.SelectedIndex < 0) return;
+        
+        var langCode = AppStrings.SupportedLanguages.Keys.ElementAt(LanguagePicker.SelectedIndex);
+        AppStrings.CurrentLanguage = langCode;
+        UpdateLabels();
+    }
+
+    private void UpdateLabels()
+    {
+        SettingsTitle.Text = AppStrings.Get("Settings");
+        LanguageTitle.Text = AppStrings.Get("Language");
+        AccessibilityTitle.Text = AppStrings.Get("Accessibility");
+        HighContrastLabel.Text = AppStrings.Get("HighContrastMode");
+        HighContrastDesc.Text = AppStrings.Get("HighContrastDesc");
+        ThemePreviewTitle.Text = AppStrings.Get("ThemePreview");
+        ChangesApplyLabel.Text = AppStrings.Get("ChangesApply");
+        
+        var isHighContrast = Preferences.Get("HighContrastMode", false);
+        var themeName = isHighContrast ? AppStrings.Get("HighContrast") : AppStrings.Get("DefaultTheme");
+        ThemeLabel.Text = AppStrings.Get("CurrentTheme", themeName);
     }
 
     private void OnHighContrastToggled(object? sender, ToggledEventArgs e)
@@ -20,6 +57,7 @@ public partial class SettingsPage : ContentPage
         Preferences.Set("HighContrastMode", e.Value);
         UpdatePreview(e.Value);
         ApplyTheme(e.Value);
+        UpdateLabels();
     }
 
     private void UpdatePreview(bool highContrast)
@@ -30,7 +68,6 @@ public partial class SettingsPage : ContentPage
             PreviewSecondary.BackgroundColor = Color.FromArgb("#00FFFF");
             PreviewTertiary.BackgroundColor = Color.FromArgb("#FF00FF");
             PreviewAccent.BackgroundColor = Color.FromArgb("#00FF00");
-            ThemeLabel.Text = "Current: High Contrast Theme";
         }
         else
         {
@@ -38,7 +75,6 @@ public partial class SettingsPage : ContentPage
             PreviewSecondary.BackgroundColor = Color.FromArgb("#14B8A6");
             PreviewTertiary.BackgroundColor = Color.FromArgb("#8B5CF6");
             PreviewAccent.BackgroundColor = Color.FromArgb("#5EEAD4");
-            ThemeLabel.Text = "Current: Default Theme";
         }
     }
 
@@ -49,15 +85,14 @@ public partial class SettingsPage : ContentPage
 
         if (highContrast)
         {
-            // High contrast: bright colors on dark background
-            resources["Primary"] = Color.FromArgb("#FFFF00");           // Yellow
+            resources["Primary"] = Color.FromArgb("#FFFF00");
             resources["PrimaryDark"] = Color.FromArgb("#FFFF66");
-            resources["Secondary"] = Color.FromArgb("#00FFFF");          // Cyan
+            resources["Secondary"] = Color.FromArgb("#00FFFF");
             resources["SecondaryDarkText"] = Color.FromArgb("#00FFFF");
-            resources["Tertiary"] = Color.FromArgb("#FF00FF");           // Magenta
-            resources["AccentLight"] = Color.FromArgb("#00FF00");        // Green
+            resources["Tertiary"] = Color.FromArgb("#FF00FF");
+            resources["AccentLight"] = Color.FromArgb("#00FF00");
             resources["Accent"] = Color.FromArgb("#00FF00");
-            resources["CardBackground"] = Color.FromArgb("#000000");     // Pure black
+            resources["CardBackground"] = Color.FromArgb("#000000");
             resources["CardBackgroundAlt"] = Color.FromArgb("#1A1A1A");
             resources["SurfaceBackground"] = Color.FromArgb("#000000");
             resources["Gray100"] = Color.FromArgb("#FFFFFF");
@@ -68,7 +103,6 @@ public partial class SettingsPage : ContentPage
         }
         else
         {
-            // Default theme
             resources["Primary"] = Color.FromArgb("#F59E0B");
             resources["PrimaryDark"] = Color.FromArgb("#FBBF24");
             resources["Secondary"] = Color.FromArgb("#14B8A6");

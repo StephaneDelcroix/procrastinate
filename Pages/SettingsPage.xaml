@@ -5,96 +5,128 @@
              Title="Settings"
              BackgroundColor="{StaticResource SurfaceBackground}">
 
-    <VerticalStackLayout Padding="24" Spacing="24">
-        <Label Text="&#xf013;" 
-               FontFamily="FontAwesomeSolid"
-               FontSize="48" 
-               TextColor="{StaticResource Gray300}"
-               HorizontalOptions="Center"/>
-        <Label Text="Settings" 
-               FontSize="28" 
-               FontAttributes="Bold"
-               TextColor="{StaticResource Gray100}"
-               HorizontalOptions="Center"/>
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="24">
+            <Label Text="&#xf013;" 
+                   FontFamily="FontAwesomeSolid"
+                   FontSize="48" 
+                   TextColor="{StaticResource Gray300}"
+                   HorizontalOptions="Center"/>
+            <Label x:Name="SettingsTitle"
+                   Text="Settings" 
+                   FontSize="28" 
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource Gray100}"
+                   HorizontalOptions="Center"/>
 
-        <Border BackgroundColor="{StaticResource CardBackground}" 
-                StrokeShape="RoundRectangle 16"
-                Stroke="Transparent"
-                Padding="20">
-            <VerticalStackLayout Spacing="16">
-                <HorizontalStackLayout Spacing="10">
-                    <Label Text="&#xf29a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{StaticResource Secondary}"/>
-                    <Label Text="Accessibility" 
-                           FontSize="18" 
-                           FontAttributes="Bold"
-                           TextColor="{StaticResource Gray200}"/>
-                </HorizontalStackLayout>
-                
-                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
-                    <VerticalStackLayout Grid.Column="0" Spacing="4">
-                        <Label Text="High Contrast Mode" 
-                               FontSize="16" 
-                               TextColor="{StaticResource Gray100}"/>
-                        <Label Text="Use higher contrast colors for better visibility" 
-                               FontSize="13" 
-                               TextColor="{StaticResource Gray400}"/>
-                    </VerticalStackLayout>
-                    <Switch x:Name="HighContrastSwitch" 
-                            Grid.Column="1"
-                            OnColor="{StaticResource Primary}"
-                            Toggled="OnHighContrastToggled"
-                            VerticalOptions="Center"/>
-                </Grid>
-            </VerticalStackLayout>
-        </Border>
+            <!-- Language -->
+            <Border BackgroundColor="{StaticResource CardBackground}" 
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="Transparent"
+                    Padding="20">
+                <VerticalStackLayout Spacing="16">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="&#xf1ab;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{StaticResource Primary}"/>
+                        <Label x:Name="LanguageTitle"
+                               Text="Language" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Gray200}"/>
+                    </HorizontalStackLayout>
+                    
+                    <Picker x:Name="LanguagePicker"
+                            TextColor="{StaticResource Gray100}"
+                            BackgroundColor="{StaticResource CardBackgroundAlt}"
+                            SelectedIndexChanged="OnLanguageChanged"/>
+                </VerticalStackLayout>
+            </Border>
 
-        <Border BackgroundColor="{StaticResource CardBackground}" 
-                StrokeShape="RoundRectangle 16"
-                Stroke="Transparent"
-                Padding="20">
-            <VerticalStackLayout Spacing="16">
-                <HorizontalStackLayout Spacing="10">
-                    <Label Text="&#xf53f;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{StaticResource Tertiary}"/>
-                    <Label Text="Theme Preview" 
-                           FontSize="18" 
-                           FontAttributes="Bold"
-                           TextColor="{StaticResource Gray200}"/>
-                </HorizontalStackLayout>
-                
-                <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
-                    <Border x:Name="PreviewPrimary" 
-                            BackgroundColor="{StaticResource Primary}"
-                            StrokeShape="RoundRectangle 8"
-                            Stroke="Transparent"
-                            WidthRequest="50" HeightRequest="50"/>
-                    <Border x:Name="PreviewSecondary" 
-                            BackgroundColor="{StaticResource Secondary}"
-                            StrokeShape="RoundRectangle 8"
-                            Stroke="Transparent"
-                            WidthRequest="50" HeightRequest="50"/>
-                    <Border x:Name="PreviewTertiary" 
-                            BackgroundColor="{StaticResource Tertiary}"
-                            StrokeShape="RoundRectangle 8"
-                            Stroke="Transparent"
-                            WidthRequest="50" HeightRequest="50"/>
-                    <Border x:Name="PreviewAccent" 
-                            BackgroundColor="{StaticResource AccentLight}"
-                            StrokeShape="RoundRectangle 8"
-                            Stroke="Transparent"
-                            WidthRequest="50" HeightRequest="50"/>
-                </HorizontalStackLayout>
-                
-                <Label x:Name="ThemeLabel"
-                       Text="Current: Default Theme"
-                       FontSize="14"
-                       TextColor="{StaticResource Gray400}"
-                       HorizontalOptions="Center"/>
-            </VerticalStackLayout>
-        </Border>
+            <!-- Accessibility -->
+            <Border BackgroundColor="{StaticResource CardBackground}" 
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="Transparent"
+                    Padding="20">
+                <VerticalStackLayout Spacing="16">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="&#xf29a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{StaticResource Secondary}"/>
+                        <Label x:Name="AccessibilityTitle"
+                               Text="Accessibility" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Gray200}"/>
+                    </HorizontalStackLayout>
+                    
+                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label x:Name="HighContrastLabel"
+                                   Text="High Contrast Mode" 
+                                   FontSize="16" 
+                                   TextColor="{StaticResource Gray100}"/>
+                            <Label x:Name="HighContrastDesc"
+                                   Text="Use higher contrast colors for better visibility" 
+                                   FontSize="13" 
+                                   TextColor="{StaticResource Gray400}"/>
+                        </VerticalStackLayout>
+                        <Switch x:Name="HighContrastSwitch" 
+                                Grid.Column="1"
+                                OnColor="{StaticResource Primary}"
+                                Toggled="OnHighContrastToggled"
+                                VerticalOptions="Center"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
 
-        <Label Text="Changes apply immediately"
-               FontSize="13"
-               TextColor="{StaticResource Gray500}"
-               HorizontalOptions="Center"/>
-    </VerticalStackLayout>
+            <!-- Theme Preview -->
+            <Border BackgroundColor="{StaticResource CardBackground}" 
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="Transparent"
+                    Padding="20">
+                <VerticalStackLayout Spacing="16">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="&#xf53f;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{StaticResource Tertiary}"/>
+                        <Label x:Name="ThemePreviewTitle"
+                               Text="Theme Preview" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Gray200}"/>
+                    </HorizontalStackLayout>
+                    
+                    <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+                        <Border x:Name="PreviewPrimary" 
+                                BackgroundColor="{StaticResource Primary}"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="Transparent"
+                                WidthRequest="50" HeightRequest="50"/>
+                        <Border x:Name="PreviewSecondary" 
+                                BackgroundColor="{StaticResource Secondary}"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="Transparent"
+                                WidthRequest="50" HeightRequest="50"/>
+                        <Border x:Name="PreviewTertiary" 
+                                BackgroundColor="{StaticResource Tertiary}"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="Transparent"
+                                WidthRequest="50" HeightRequest="50"/>
+                        <Border x:Name="PreviewAccent" 
+                                BackgroundColor="{StaticResource AccentLight}"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="Transparent"
+                                WidthRequest="50" HeightRequest="50"/>
+                    </HorizontalStackLayout>
+                    
+                    <Label x:Name="ThemeLabel"
+                           Text="Current: Default Theme"
+                           FontSize="14"
+                           TextColor="{StaticResource Gray400}"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <Label x:Name="ChangesApplyLabel"
+                   Text="Changes apply immediately"
+                   FontSize="13"
+                   TextColor="{StaticResource Gray500}"
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
