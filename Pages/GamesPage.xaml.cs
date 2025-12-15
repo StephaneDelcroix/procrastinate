@@ -1,3 +1,5 @@
+using Microsoft.Maui.Controls.Shapes;
+using procrastinate.Pages.Games;
 using procrastinate.Services;
 
 namespace procrastinate.Pages;
@@ -5,29 +7,31 @@ namespace procrastinate.Pages;
 public partial class GamesPage : ContentPage
 {
     private readonly StatsService _statsService;
-    
-    // Simon Says
-    private readonly List<int> _simonSequence = [];
-    private int _simonIndex;
-    private bool _simonPlayerTurn;
-    private int _simonScore;
-    
-    // Click Speed
-    private int _clickCount;
-    private bool _clickGameActive;
-    
-    // Reaction Time
-    private DateTime _reactionStartTime;
-    private bool _reactionWaiting;
-    private bool _reactionReady;
-    private CancellationTokenSource? _reactionCts;
+    private readonly List<MiniGame> _allGames;
+    private readonly List<MiniGame> _currentGames = [];
 
     public GamesPage(StatsService statsService)
     {
         InitializeComponent();
         _statsService = statsService;
-        ClickGameBtn.IsEnabled = false;
-        ReactionBtn.IsEnabled = false;
+
+        _allGames =
+        [
+            new SimonSaysGame(),
+            new ClickSpeedGame(),
+            new ReactionTimeGame(),
+            new TicTacToeGame(),
+            new MinesweeperGame(),
+            new SnakeGame(),
+            new MemoryMatchGame(),
+            new NumberGuessingGame(),
+            new WhackAMoleGame()
+        ];
+
+        foreach (var game in _allGames)
+            game.OnGamePlayed = () => _statsService.IncrementGamesPlayed();
+
+        ShuffleGames();
     }
 
     private async void OnSettingsClicked(object? sender, EventArgs e)
@@ -35,177 +39,95 @@ public partial class GamesPage : ContentPage
         await Shell.Current.GoToAsync(nameof(SettingsPage));
     }
 
-    #region Simon Says
-    private async void OnSimonStartClicked(object? sender, EventArgs e)
+    private void OnShuffleClicked(object? sender, EventArgs e)
     {
-        _statsService.IncrementGamesPlayed();
-        _simonSequence.Clear();
-        _simonScore = 0;
-        SimonScoreLabel.Text = "Score: 0";
-        SimonStartBtn.IsEnabled = false;
-        await AddToSimonSequence();
+        // Stop current games
+        foreach (var game in _currentGames)
+            game.StopGame();
+
+        ShuffleGames();
     }
 
-    private async Task AddToSimonSequence()
+    private void ShuffleGames()
     {
-        _simonSequence.Add(Random.Shared.Next(4));
-        await PlaySimonSequence();
-    }
+        _currentGames.Clear();
+        GamesContainer.Children.Clear();
 
-    private async Task PlaySimonSequence()
-    {
-        _simonPlayerTurn = false;
-        SetSimonButtonsEnabled(false);
-        
-        await Task.Delay(500);
-        
-        foreach (var color in _simonSequence)
+        // Pick 3 random games
+        var shuffled = _allGames.OrderBy(_ => Random.Shared.Next()).Take(3).ToList();
+        _currentGames.AddRange(shuffled);
+
+        foreach (var game in _currentGames)
         {
-            var btn = GetSimonButton(color);
-            var originalColor = btn.BackgroundColor;
-            btn.BackgroundColor = GetBrightColor(color);
-            await Task.Delay(400);
-            btn.BackgroundColor = originalColor;
-            await Task.Delay(200);
+            var card = CreateGameCard(game);
+            GamesContainer.Children.Add(card);
         }
-        
-        _simonPlayerTurn = true;
-        _simonIndex = 0;
-        SetSimonButtonsEnabled(true);
     }
 
-    private async void OnSimonButtonClicked(object? sender, EventArgs e)
+    private Border CreateGameCard(MiniGame game)
     {
-        if (!_simonPlayerTurn || sender is not Button btn) return;
-        
-        // Visual feedback - flash the button
-        var originalColor = btn.BackgroundColor;
-        var pressed = GetButtonIndex(btn);
-        btn.BackgroundColor = GetBrightColor(pressed);
-        await Task.Delay(150);
-        btn.BackgroundColor = originalColor;
-        
-        if (pressed == _simonSequence[_simonIndex])
+        var iconLabel = new Label
         {
-            _simonIndex++;
-            if (_simonIndex >= _simonSequence.Count)
+            Text = game.Icon,
+            FontFamily = "FontAwesomeSolid",
+            FontSize = 20,
+            TextColor = Color.FromArgb(game.IconColor)
+        };
+
+        var titleLabel = new Label
+        {
+            Text = game.Name,
+            FontSize = 20,
+            FontAttributes = FontAttributes.Bold,
+            TextColor = Color.FromArgb("#F1F5F9")
+        };
+
+        var header = new HorizontalStackLayout
+        {
+            Spacing = 10,
+            HorizontalOptions = LayoutOptions.Center,
+            Children = { iconLabel, titleLabel }
+        };
+
+        var descLabel = new Label
+        {
+            Text = game.Description,
+            FontSize = 14,
+            TextColor = Color.FromArgb("#94A3B8"),
+            HorizontalOptions = LayoutOptions.Center
+        };
+
+        var gameView = game.CreateGameView();
+
+        var content = new VerticalStackLayout
+        {
+            Spacing = 16,
+            Children = { header, descLabel, gameView }
+        };
+
+        var border = new Border
+        {
+            BackgroundColor = Color.FromArgb("#1E293B"),
+            StrokeShape = new RoundRectangle { CornerRadius = 16 },
+            Stroke = Colors.Transparent,
+            Padding = 20,
+            Content = content,
+            Shadow = new Shadow
             {
-                _simonScore++;
-                SimonScoreLabel.Text = $"Score: {_simonScore}";
-                await Task.Delay(500);
-                _ = AddToSimonSequence();
+                Brush = new SolidColorBrush(Color.FromArgb("#40000000")),
+                Offset = new Point(0, 4),
+                Radius = 12,
+                Opacity = 0.3f
             }
-        }
-        else
-        {
-            SimonScoreLabel.Text = $"Game Over! Final Score: {_simonScore}";
-            SimonStartBtn.IsEnabled = true;
-            SetSimonButtonsEnabled(false);
-        }
+        };
+
+        return border;
     }
 
-    private Button GetSimonButton(int index) => index switch
+    protected override void OnDisappearing()
     {
-        0 => RedBtn, 1 => GreenBtn, 2 => BlueBtn, _ => YellowBtn
-    };
-
-    private int GetButtonIndex(Button btn)
-    {
-        if (btn == RedBtn) return 0;
-        if (btn == GreenBtn) return 1;
-        if (btn == BlueBtn) return 2;
-        return 3;
+        base.OnDisappearing();
+        foreach (var game in _currentGames)
+            game.StopGame();
     }
-
-    private static Color GetBrightColor(int index) => index switch
-    {
-        0 => Colors.Red, 1 => Colors.Lime, 2 => Colors.Blue, _ => Colors.Yellow
-    };
-
-    private void SetSimonButtonsEnabled(bool enabled)
-    {
-        RedBtn.IsEnabled = enabled;
-        GreenBtn.IsEnabled = enabled;
-        BlueBtn.IsEnabled = enabled;
-        YellowBtn.IsEnabled = enabled;
-    }
-    #endregion
-
-    #region Click Speed
-    private async void OnClickStartClicked(object? sender, EventArgs e)
-    {
-        _statsService.IncrementGamesPlayed();
-        _clickCount = 0;
-        ClickScoreLabel.Text = "Clicks: 0";
-        ClickStartBtn.IsEnabled = false;
-        ClickGameBtn.IsEnabled = true;
-        _clickGameActive = true;
-        
-        await Task.Delay(5000);
-        
-        _clickGameActive = false;
-        ClickGameBtn.IsEnabled = false;
-        ClickStartBtn.IsEnabled = true;
-        ClickScoreLabel.Text = $"Final: {_clickCount} clicks! ({_clickCount / 5.0:F1}/sec)";
-    }
-
-    private void OnClickGameClicked(object? sender, EventArgs e)
-    {
-        if (!_clickGameActive) return;
-        _clickCount++;
-        ClickScoreLabel.Text = $"Clicks: {_clickCount}";
-    }
-    #endregion
-
-    #region Reaction Time
-    private async void OnReactionStartClicked(object? sender, EventArgs e)
-    {
-        _statsService.IncrementGamesPlayed();
-        _reactionCts?.Cancel();
-        _reactionCts = new CancellationTokenSource();
-        
-        ReactionStartBtn.IsEnabled = false;
-        ReactionBtn.IsEnabled = true;
-        ReactionBtn.BackgroundColor = Colors.Red;
-        ReactionBtn.Text = "Wait...";
-        ReactionLabel.Text = "Wait for green!";
-        _reactionWaiting = true;
-        _reactionReady = false;
-        
-        var delay = Random.Shared.Next(2000, 5000);
-        try
-        {
-            await Task.Delay(delay, _reactionCts.Token);
-            _reactionWaiting = false;
-            _reactionReady = true;
-            _reactionStartTime = DateTime.Now;
-            ReactionBtn.BackgroundColor = Colors.Green;
-            ReactionBtn.Text = "TAP NOW!";
-        }
-        catch (TaskCanceledException) { }
-    }
-
-    private void OnReactionClicked(object? sender, EventArgs e)
-    {
-        if (_reactionWaiting)
-        {
-            _reactionCts?.Cancel();
-            ReactionLabel.Text = "Too early! Try again.";
-            ReactionBtn.BackgroundColor = Colors.Orange;
-            ReactionBtn.Text = "Too soon!";
-            ReactionStartBtn.IsEnabled = true;
-            ReactionBtn.IsEnabled = false;
-        }
-        else if (_reactionReady)
-        {
-            var reactionTime = (DateTime.Now - _reactionStartTime).TotalMilliseconds;
-            ReactionLabel.Text = $"Reaction time: {reactionTime:F0}ms";
-            ReactionBtn.BackgroundColor = Colors.Gray;
-            ReactionBtn.Text = "Done!";
-            ReactionStartBtn.IsEnabled = true;
-            ReactionBtn.IsEnabled = false;
-            _reactionReady = false;
-        }
-    }
-    #endregion
 }
