@@ -5,6 +5,20 @@
              Title="Excuse Generator"
              BackgroundColor="{StaticResource SurfaceBackground}">
 
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="*,Auto">
+            <Label Text="Excuse Generator" 
+                   FontSize="18" FontAttributes="Bold" 
+                   TextColor="{StaticResource Gray100}"
+                   VerticalOptions="Center"/>
+            <Button Grid.Column="1" Text="⚙️" 
+                    BackgroundColor="Transparent"
+                    FontSize="22"
+                    Clicked="OnSettingsClicked"
+                    VerticalOptions="Center"/>
+        </Grid>
+    </Shell.TitleView>
+
     <VerticalStackLayout Padding="24" Spacing="24" VerticalOptions="Center">
         <Label Text="🎭" 
                FontSize="48" 

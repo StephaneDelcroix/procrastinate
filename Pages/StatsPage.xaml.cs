@@ -23,6 +23,11 @@ public partial class StatsPage : ContentPage
         _statsService = statsService;
     }
 
+    private async void OnSettingsClicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(SettingsPage));
+    }
+
     protected override void OnAppearing()
     {
         base.OnAppearing();

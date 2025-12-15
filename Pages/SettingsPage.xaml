@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="procrastinate.Pages.SettingsPage"
+             Title="Settings"
+             BackgroundColor="{StaticResource SurfaceBackground}">
+
+    <VerticalStackLayout Padding="24" Spacing="24">
+        <Label Text="⚙️" 
+               FontSize="48" 
+               HorizontalOptions="Center"/>
+        <Label Text="Settings" 
+               FontSize="28" 
+               FontAttributes="Bold"
+               TextColor="{StaticResource Gray100}"
+               HorizontalOptions="Center"/>
+
+        <Border BackgroundColor="{StaticResource CardBackground}" 
+                StrokeShape="RoundRectangle 16"
+                Stroke="Transparent"
+                Padding="20">
+            <VerticalStackLayout Spacing="16">
+                <Label Text="Accessibility" 
+                       FontSize="18" 
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource Gray200}"/>
+                
+                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+                    <VerticalStackLayout Grid.Column="0" Spacing="4">
+                        <Label Text="High Contrast Mode" 
+                               FontSize="16" 
+                               TextColor="{StaticResource Gray100}"/>
+                        <Label Text="Use higher contrast colors for better visibility" 
+                               FontSize="13" 
+                               TextColor="{StaticResource Gray400}"/>
+                    </VerticalStackLayout>
+                    <Switch x:Name="HighContrastSwitch" 
+                            Grid.Column="1"
+                            OnColor="{StaticResource Primary}"
+                            Toggled="OnHighContrastToggled"
+                            VerticalOptions="Center"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+
+        <Border BackgroundColor="{StaticResource CardBackground}" 
+                StrokeShape="RoundRectangle 16"
+                Stroke="Transparent"
+                Padding="20">
+            <VerticalStackLayout Spacing="16">
+                <Label Text="Theme Preview" 
+                       FontSize="18" 
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource Gray200}"/>
+                
+                <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+                    <Border x:Name="PreviewPrimary" 
+                            BackgroundColor="{StaticResource Primary}"
+                            StrokeShape="RoundRectangle 8"
+                            Stroke="Transparent"
+                            WidthRequest="50" HeightRequest="50"/>
+                    <Border x:Name="PreviewSecondary" 
+                            BackgroundColor="{StaticResource Secondary}"
+                            StrokeShape="RoundRectangle 8"
+                            Stroke="Transparent"
+                            WidthRequest="50" HeightRequest="50"/>
+                    <Border x:Name="PreviewTertiary" 
+                            BackgroundColor="{StaticResource Tertiary}"
+                            StrokeShape="RoundRectangle 8"
+                            Stroke="Transparent"
+                            WidthRequest="50" HeightRequest="50"/>
+                    <Border x:Name="PreviewAccent" 
+                            BackgroundColor="{StaticResource AccentLight}"
+                            StrokeShape="RoundRectangle 8"
+                            Stroke="Transparent"
+                            WidthRequest="50" HeightRequest="50"/>
+                </HorizontalStackLayout>
+                
+                <Label x:Name="ThemeLabel"
+                       Text="Current: Default Theme"
+                       FontSize="14"
+                       TextColor="{StaticResource Gray400}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Border>
+
+        <Label Text="Changes apply immediately"
+               FontSize="13"
+               TextColor="{StaticResource Gray500}"
+               HorizontalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>

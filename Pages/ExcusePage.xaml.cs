@@ -48,6 +48,11 @@ public partial class ExcusePage : ContentPage
         _statsService = statsService;
     }
 
+    private async void OnSettingsClicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(SettingsPage));
+    }
+
     private void OnGenerateClicked(object? sender, EventArgs e)
     {
         var starter = _starters[Random.Shared.Next(_starters.Length)];

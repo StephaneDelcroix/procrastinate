@@ -5,6 +5,20 @@
              Title="Mini-Games"
              BackgroundColor="{StaticResource SurfaceBackground}">
 
+    <Shell.TitleView>
+        <Grid ColumnDefinitions="*,Auto">
+            <Label Text="Mini-Games" 
+                   FontSize="18" FontAttributes="Bold" 
+                   TextColor="{StaticResource Gray100}"
+                   VerticalOptions="Center"/>
+            <Button Grid.Column="1" Text="⚙️" 
+                    BackgroundColor="Transparent"
+                    FontSize="22"
+                    Clicked="OnSettingsClicked"
+                    VerticalOptions="Center"/>
+        </Grid>
+    </Shell.TitleView>
+
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="20">
             <Label Text="🎮" 

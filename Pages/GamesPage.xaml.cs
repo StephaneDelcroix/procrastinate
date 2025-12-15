@@ -30,6 +30,11 @@ public partial class GamesPage : ContentPage
         ReactionBtn.IsEnabled = false;
     }
 
+    private async void OnSettingsClicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(SettingsPage));
+    }
+
     #region Simon Says
     private async void OnSimonStartClicked(object? sender, EventArgs e)
     {

@@ -22,6 +22,11 @@ public partial class TasksPage : ContentPage
         _statsService = statsService;
     }
 
+    private async void OnSettingsClicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(SettingsPage));
+    }
+
     private async void OnTaskChecked(object? sender, CheckedChangedEventArgs e)
     {
         if (e.Value)

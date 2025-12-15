@@ -7,6 +7,20 @@
     xmlns:pages="clr-namespace:procrastinate.Pages"
     Title="Procrastinator's Helper">
 
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Shell" ApplyToDerivedTypes="True">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource SurfaceBackground}"/>
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource Gray100}"/>
+                <Setter Property="Shell.TitleColor" Value="{StaticResource Gray100}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource CardBackground}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource Gray400}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource Gray400}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource Gray500}"/>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+
     <TabBar>
         <ShellContent Title="📋 Tasks" ContentTemplate="{DataTemplate pages:TasksPage}" Route="TasksPage"/>
         <ShellContent Title="🎮 Games" ContentTemplate="{DataTemplate pages:GamesPage}" Route="GamesPage"/>
