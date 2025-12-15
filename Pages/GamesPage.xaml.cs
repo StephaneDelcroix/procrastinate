@@ -74,11 +74,17 @@ public partial class GamesPage : ContentPage
         SetSimonButtonsEnabled(true);
     }
 
-    private void OnSimonButtonClicked(object? sender, EventArgs e)
+    private async void OnSimonButtonClicked(object? sender, EventArgs e)
     {
         if (!_simonPlayerTurn || sender is not Button btn) return;
         
+        // Visual feedback - flash the button
+        var originalColor = btn.BackgroundColor;
         var pressed = GetButtonIndex(btn);
+        btn.BackgroundColor = GetBrightColor(pressed);
+        await Task.Delay(150);
+        btn.BackgroundColor = originalColor;
+        
         if (pressed == _simonSequence[_simonIndex])
         {
             _simonIndex++;
