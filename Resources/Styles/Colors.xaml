@@ -3,29 +3,36 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
-
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="PrimaryDark">#ac99ea</Color>
-    <Color x:Key="PrimaryDarkText">#242424</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="SecondaryDarkText">#9880e5</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <!-- Procrastinate Theme - Warm & Chill -->
+    <Color x:Key="Primary">#F59E0B</Color>
+    <Color x:Key="PrimaryDark">#FBBF24</Color>
+    <Color x:Key="PrimaryDarkText">#1E293B</Color>
+    <Color x:Key="Secondary">#14B8A6</Color>
+    <Color x:Key="SecondaryDarkText">#5EEAD4</Color>
+    <Color x:Key="Tertiary">#8B5CF6</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
-    <Color x:Key="Magenta">#D600AA</Color>
-    <Color x:Key="MidnightBlue">#190649</Color>
-    <Color x:Key="OffBlack">#1f1f1f</Color>
+    <Color x:Key="Magenta">#EC4899</Color>
+    <Color x:Key="MidnightBlue">#0F172A</Color>
+    <Color x:Key="OffBlack">#0F172A</Color>
 
-    <Color x:Key="Gray100">#E1E1E1</Color>
-    <Color x:Key="Gray200">#C8C8C8</Color>
-    <Color x:Key="Gray300">#ACACAC</Color>
-    <Color x:Key="Gray400">#919191</Color>
-    <Color x:Key="Gray500">#6E6E6E</Color>
-    <Color x:Key="Gray600">#404040</Color>
-    <Color x:Key="Gray900">#212121</Color>
-    <Color x:Key="Gray950">#141414</Color>
+    <!-- Card and surface colors -->
+    <Color x:Key="CardBackground">#1E293B</Color>
+    <Color x:Key="CardBackgroundAlt">#334155</Color>
+    <Color x:Key="SurfaceBackground">#0F172A</Color>
+    <Color x:Key="Accent">#14B8A6</Color>
+    <Color x:Key="AccentLight">#5EEAD4</Color>
+    <Color x:Key="Warm">#FEF3C7</Color>
+
+    <Color x:Key="Gray100">#F1F5F9</Color>
+    <Color x:Key="Gray200">#E2E8F0</Color>
+    <Color x:Key="Gray300">#CBD5E1</Color>
+    <Color x:Key="Gray400">#94A3B8</Color>
+    <Color x:Key="Gray500">#64748B</Color>
+    <Color x:Key="Gray600">#475569</Color>
+    <Color x:Key="Gray900">#1E293B</Color>
+    <Color x:Key="Gray950">#0F172A</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>

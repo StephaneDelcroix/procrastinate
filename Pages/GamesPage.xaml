@@ -2,82 +2,108 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="procrastinate.Pages.GamesPage"
-             Title="Mini-Games">
+             Title="Mini-Games"
+             BackgroundColor="{StaticResource SurfaceBackground}">
 
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="20">
-            <Label Text="🎮 Mini-Games" 
-                   FontSize="32" 
+        <VerticalStackLayout Padding="24" Spacing="20">
+            <Label Text="🎮" 
+                   FontSize="48" 
+                   HorizontalOptions="Center"/>
+            <Label Text="Mini-Games" 
+                   FontSize="28" 
                    FontAttributes="Bold"
+                   TextColor="{StaticResource Secondary}"
                    HorizontalOptions="Center"/>
             
             <Label Text="Because productivity is overrated!"
-                   FontSize="16"
-                   TextColor="Gray"
+                   FontSize="14"
+                   TextColor="{StaticResource Gray400}"
                    HorizontalOptions="Center"/>
 
             <!-- Simon Says Game -->
-            <Frame BackgroundColor="#2B2B2B" CornerRadius="10" Padding="20">
-                <VerticalStackLayout Spacing="15">
-                    <Label Text="🔴🟢🔵🟡 Simon Says" FontSize="22" FontAttributes="Bold"/>
-                    <Label Text="Watch the pattern and repeat it!" TextColor="Gray"/>
+            <Border BackgroundColor="{StaticResource CardBackground}" 
+                    StrokeShape="RoundRectangle 16" Stroke="Transparent" Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="🔴🟢🔵🟡 Simon Says" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Gray100}"/>
+                    <Label Text="Watch the pattern and repeat it!" TextColor="{StaticResource Gray400}" FontSize="14"/>
                     
-                    <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" 
-                          HeightRequest="200" WidthRequest="200"
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="80,80" 
+                          WidthRequest="200"
                           HorizontalOptions="Center">
-                        <Button x:Name="RedBtn" BackgroundColor="#8B0000" 
-                                Grid.Row="0" Grid.Column="0" Margin="5"
+                        <Button x:Name="RedBtn" BackgroundColor="#EF4444" 
+                                Grid.Row="0" Grid.Column="0" Margin="4" CornerRadius="12"
                                 Clicked="OnSimonButtonClicked"/>
-                        <Button x:Name="GreenBtn" BackgroundColor="#006400" 
-                                Grid.Row="0" Grid.Column="1" Margin="5"
+                        <Button x:Name="GreenBtn" BackgroundColor="#22C55E" 
+                                Grid.Row="0" Grid.Column="1" Margin="4" CornerRadius="12"
                                 Clicked="OnSimonButtonClicked"/>
-                        <Button x:Name="BlueBtn" BackgroundColor="#00008B" 
-                                Grid.Row="1" Grid.Column="0" Margin="5"
+                        <Button x:Name="BlueBtn" BackgroundColor="#3B82F6" 
+                                Grid.Row="1" Grid.Column="0" Margin="4" CornerRadius="12"
                                 Clicked="OnSimonButtonClicked"/>
-                        <Button x:Name="YellowBtn" BackgroundColor="#8B8B00" 
-                                Grid.Row="1" Grid.Column="1" Margin="5"
+                        <Button x:Name="YellowBtn" BackgroundColor="#EAB308" 
+                                Grid.Row="1" Grid.Column="1" Margin="4" CornerRadius="12"
                                 Clicked="OnSimonButtonClicked"/>
                     </Grid>
                     
                     <Label x:Name="SimonScoreLabel" Text="Score: 0" 
-                           HorizontalOptions="Center" FontSize="18"/>
+                           HorizontalOptions="Center" FontSize="16" TextColor="{StaticResource Gray300}"/>
                     <Button x:Name="SimonStartBtn" Text="Start Game" 
+                            BackgroundColor="{StaticResource Secondary}" TextColor="{StaticResource SurfaceBackground}"
+                            CornerRadius="12" HeightRequest="44"
                             Clicked="OnSimonStartClicked"/>
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
 
             <!-- Click Speed Game -->
-            <Frame BackgroundColor="#2B2B2B" CornerRadius="10" Padding="20">
-                <VerticalStackLayout Spacing="15">
-                    <Label Text="⚡ Click Speed Challenge" FontSize="22" FontAttributes="Bold"/>
-                    <Label Text="How many times can you click in 5 seconds?" TextColor="Gray"/>
+            <Border BackgroundColor="{StaticResource CardBackground}" 
+                    StrokeShape="RoundRectangle 16" Stroke="Transparent" Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="⚡ Click Speed Challenge" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Gray100}"/>
+                    <Label Text="How many times can you click in 5 seconds?" TextColor="{StaticResource Gray400}" FontSize="14"/>
                     
                     <Button x:Name="ClickGameBtn" Text="Click Me!" 
-                            HeightRequest="100" FontSize="24"
+                            HeightRequest="80" FontSize="22"
+                            BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource SurfaceBackground}"
+                            CornerRadius="16"
                             Clicked="OnClickGameClicked"/>
                     <Label x:Name="ClickScoreLabel" Text="Clicks: 0" 
-                           HorizontalOptions="Center" FontSize="18"/>
+                           HorizontalOptions="Center" FontSize="16" TextColor="{StaticResource Gray300}"/>
                     <Button x:Name="ClickStartBtn" Text="Start Challenge" 
+                            BackgroundColor="{StaticResource CardBackgroundAlt}" TextColor="{StaticResource Gray200}"
+                            CornerRadius="12" HeightRequest="44"
                             Clicked="OnClickStartClicked"/>
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
 
             <!-- Reaction Time Game -->
-            <Frame BackgroundColor="#2B2B2B" CornerRadius="10" Padding="20">
-                <VerticalStackLayout Spacing="15">
-                    <Label Text="🎯 Reaction Time" FontSize="22" FontAttributes="Bold"/>
-                    <Label Text="Wait for green, then tap as fast as you can!" TextColor="Gray"/>
+            <Border BackgroundColor="{StaticResource CardBackground}" 
+                    StrokeShape="RoundRectangle 16" Stroke="Transparent" Padding="20">
+                <Border.Shadow>
+                    <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="🎯 Reaction Time" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Gray100}"/>
+                    <Label Text="Wait for green, then tap as fast as you can!" TextColor="{StaticResource Gray400}" FontSize="14"/>
                     
                     <Button x:Name="ReactionBtn" Text="Wait..." 
-                            HeightRequest="100" FontSize="24"
-                            BackgroundColor="Red"
+                            HeightRequest="80" FontSize="22"
+                            BackgroundColor="#EF4444" TextColor="White"
+                            CornerRadius="16"
                             Clicked="OnReactionClicked"/>
                     <Label x:Name="ReactionLabel" Text="Tap 'Start' to begin" 
-                           HorizontalOptions="Center" FontSize="18"/>
+                           HorizontalOptions="Center" FontSize="16" TextColor="{StaticResource Gray300}"/>
                     <Button x:Name="ReactionStartBtn" Text="Start" 
+                            BackgroundColor="{StaticResource CardBackgroundAlt}" TextColor="{StaticResource Gray200}"
+                            CornerRadius="12" HeightRequest="44"
                             Clicked="OnReactionStartClicked"/>
                 </VerticalStackLayout>
-            </Frame>
+            </Border>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

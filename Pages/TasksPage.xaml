@@ -2,42 +2,61 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="procrastinate.Pages.TasksPage"
-             Title="Today's Tasks">
+             Title="Today's Tasks"
+             BackgroundColor="{StaticResource SurfaceBackground}">
 
-    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
-        <Label Text="📋 Today's Tasks" 
-               FontSize="32" 
+    <VerticalStackLayout Padding="24" Spacing="24" VerticalOptions="Center">
+        <Label Text="📋" 
+               FontSize="48" 
+               HorizontalOptions="Center"/>
+        <Label Text="Today's Tasks" 
+               FontSize="28" 
                FontAttributes="Bold"
+               TextColor="{StaticResource Primary}"
                HorizontalOptions="Center"/>
         
-        <Frame BackgroundColor="#2B2B2B" 
-               CornerRadius="10" 
-               Padding="20"
-               HasShadow="True">
-            <VerticalStackLayout Spacing="15">
+        <Border BackgroundColor="{StaticResource CardBackground}" 
+                StrokeShape="RoundRectangle 16"
+                Stroke="Transparent"
+                Padding="24">
+            <Border.Shadow>
+                <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
+            </Border.Shadow>
+            <VerticalStackLayout Spacing="16">
                 <Label Text="Your productivity list:" 
-                       FontSize="18" 
-                       TextColor="Gray"/>
+                       FontSize="14" 
+                       TextColor="{StaticResource Gray400}"/>
                 
-                <HorizontalStackLayout Spacing="10">
-                    <CheckBox x:Name="TaskCheckBox" 
-                              CheckedChanged="OnTaskChecked"/>
-                    <Label Text="☕ Take a break" 
-                           FontSize="20" 
-                           VerticalOptions="Center"/>
-                </HorizontalStackLayout>
+                <Border BackgroundColor="{StaticResource CardBackgroundAlt}"
+                        StrokeShape="RoundRectangle 12"
+                        Stroke="Transparent"
+                        Padding="16">
+                    <HorizontalStackLayout Spacing="12">
+                        <CheckBox x:Name="TaskCheckBox" 
+                                  Color="{StaticResource Primary}"
+                                  CheckedChanged="OnTaskChecked"/>
+                        <Label Text="☕ Take a break" 
+                               FontSize="18" 
+                               TextColor="{StaticResource Gray100}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </Border>
             </VerticalStackLayout>
-        </Frame>
+        </Border>
         
         <Label x:Name="MotivationLabel"
                Text="You're doing great! Only 1 task today!"
-               FontSize="16"
-               TextColor="Gray"
+               FontSize="14"
+               TextColor="{StaticResource Gray400}"
                HorizontalOptions="Center"/>
         
         <Button x:Name="AddTaskBtn"
                 Text="➕ Add More Tasks"
                 Clicked="OnAddTaskClicked"
-                BackgroundColor="#4A4A4A"/>
+                BackgroundColor="{StaticResource CardBackgroundAlt}"
+                TextColor="{StaticResource Gray200}"
+                FontSize="16"
+                HeightRequest="50"
+                CornerRadius="12"/>
     </VerticalStackLayout>
 </ContentPage>
