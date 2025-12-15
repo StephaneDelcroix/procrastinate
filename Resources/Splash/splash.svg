@@ -1,27 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-  <!-- Sloth face -->
-  <ellipse cx="128" cy="140" rx="80" ry="70" fill="#8B7355"/>
-  <!-- Face mask (lighter area) -->
-  <ellipse cx="128" cy="145" rx="55" ry="50" fill="#D4C4A8"/>
-  <!-- Left eye patch -->
-  <ellipse cx="100" cy="130" rx="25" ry="20" fill="#4A3728"/>
-  <!-- Right eye patch -->
-  <ellipse cx="156" cy="130" rx="25" ry="20" fill="#4A3728"/>
-  <!-- Left eye -->
-  <ellipse cx="100" cy="130" rx="8" ry="10" fill="#1a1a1a"/>
-  <ellipse cx="102" cy="128" rx="3" ry="4" fill="#ffffff"/>
-  <!-- Right eye (sleepy/closed) -->
-  <path d="M148 130 Q156 125 164 130" stroke="#1a1a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <!-- Nose -->
-  <ellipse cx="128" cy="155" rx="12" ry="8" fill="#4A3728"/>
-  <!-- Smile -->
-  <path d="M115 170 Q128 182 141 170" stroke="#4A3728" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <!-- Ears -->
-  <circle cx="55" cy="110" r="20" fill="#8B7355"/>
-  <circle cx="201" cy="110" r="20" fill="#8B7355"/>
-  <!-- Zzz (sleeping) -->
-  <text x="175" y="85" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#F59E0B">z</text>
-  <text x="195" y="65" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#F59E0B">z</text>
-  <text x="220" y="40" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#F59E0B">Z</text>
+  <text x="128" y="160" font-size="140" text-anchor="middle" dominant-baseline="middle">🦥</text>
 </svg>
