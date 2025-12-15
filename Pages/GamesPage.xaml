@@ -11,9 +11,11 @@
                    FontSize="18" FontAttributes="Bold" 
                    TextColor="{StaticResource Gray100}"
                    VerticalOptions="Center"/>
-            <Button Grid.Column="1" Text="⚙️" 
+            <Button Grid.Column="1" Text="&#xf013;" 
+                    FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
-                    FontSize="22"
+                    TextColor="{StaticResource Gray300}"
+                    FontSize="20"
                     Clicked="OnSettingsClicked"
                     VerticalOptions="Center"/>
         </Grid>
@@ -21,8 +23,10 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="20">
-            <Label Text="🎮" 
+            <Label Text="&#xf11b;" 
+                   FontFamily="FontAwesomeSolid"
                    FontSize="48" 
+                   TextColor="{StaticResource Secondary}"
                    HorizontalOptions="Center"/>
             <Label Text="Mini-Games" 
                    FontSize="28" 
@@ -42,8 +46,14 @@
                     <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
                 </Border.Shadow>
                 <VerticalStackLayout Spacing="16">
-                    <Label Text="🔴🟢🔵🟡 Simon Says" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Gray100}"/>
-                    <Label Text="Watch the pattern and repeat it!" TextColor="{StaticResource Gray400}" FontSize="14"/>
+                    <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Label Text="&#xf111;" FontFamily="FontAwesomeSolid" FontSize="16" TextColor="#EF4444"/>
+                        <Label Text="&#xf111;" FontFamily="FontAwesomeSolid" FontSize="16" TextColor="#22C55E"/>
+                        <Label Text="&#xf111;" FontFamily="FontAwesomeSolid" FontSize="16" TextColor="#3B82F6"/>
+                        <Label Text="&#xf111;" FontFamily="FontAwesomeSolid" FontSize="16" TextColor="#EAB308"/>
+                        <Label Text="Simon Says" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Gray100}"/>
+                    </HorizontalStackLayout>
+                    <Label Text="Watch the pattern and repeat it!" TextColor="{StaticResource Gray400}" FontSize="14" HorizontalOptions="Center"/>
                     
                     <Grid ColumnDefinitions="*,*" RowDefinitions="80,80" 
                           WidthRequest="200"
@@ -78,8 +88,11 @@
                     <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
                 </Border.Shadow>
                 <VerticalStackLayout Spacing="16">
-                    <Label Text="⚡ Click Speed Challenge" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Gray100}"/>
-                    <Label Text="How many times can you click in 5 seconds?" TextColor="{StaticResource Gray400}" FontSize="14"/>
+                    <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Label Text="&#xf0e7;" FontFamily="FontAwesomeSolid" FontSize="20" TextColor="{StaticResource Primary}"/>
+                        <Label Text="Click Speed Challenge" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Gray100}"/>
+                    </HorizontalStackLayout>
+                    <Label Text="How many times can you click in 5 seconds?" TextColor="{StaticResource Gray400}" FontSize="14" HorizontalOptions="Center"/>
                     
                     <Button x:Name="ClickGameBtn" Text="Click Me!" 
                             HeightRequest="80" FontSize="22"
@@ -102,8 +115,11 @@
                     <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
                 </Border.Shadow>
                 <VerticalStackLayout Spacing="16">
-                    <Label Text="🎯 Reaction Time" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Gray100}"/>
-                    <Label Text="Wait for green, then tap as fast as you can!" TextColor="{StaticResource Gray400}" FontSize="14"/>
+                    <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Label Text="&#xf192;" FontFamily="FontAwesomeSolid" FontSize="20" TextColor="#EF4444"/>
+                        <Label Text="Reaction Time" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Gray100}"/>
+                    </HorizontalStackLayout>
+                    <Label Text="Wait for green, then tap as fast as you can!" TextColor="{StaticResource Gray400}" FontSize="14" HorizontalOptions="Center"/>
                     
                     <Button x:Name="ReactionBtn" Text="Wait..." 
                             HeightRequest="80" FontSize="22"

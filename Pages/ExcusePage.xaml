@@ -11,17 +11,21 @@
                    FontSize="18" FontAttributes="Bold" 
                    TextColor="{StaticResource Gray100}"
                    VerticalOptions="Center"/>
-            <Button Grid.Column="1" Text="⚙️" 
+            <Button Grid.Column="1" Text="&#xf013;" 
+                    FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
-                    FontSize="22"
+                    TextColor="{StaticResource Gray300}"
+                    FontSize="20"
                     Clicked="OnSettingsClicked"
                     VerticalOptions="Center"/>
         </Grid>
     </Shell.TitleView>
 
     <VerticalStackLayout Padding="24" Spacing="24" VerticalOptions="Center">
-        <Label Text="🎭" 
+        <Label Text="&#xf630;" 
+               FontFamily="FontAwesomeSolid"
                FontSize="48" 
+               TextColor="{StaticResource Tertiary}"
                HorizontalOptions="Center"/>
         <Label Text="Excuse Generator" 
                FontSize="28" 
@@ -52,21 +56,35 @@
         </Border>
         
         <Button x:Name="GenerateBtn"
-                Text="🎲 Generate Excuse"
                 FontSize="18"
                 HeightRequest="56"
                 BackgroundColor="{StaticResource Tertiary}"
                 TextColor="White"
                 CornerRadius="14"
-                Clicked="OnGenerateClicked"/>
+                Clicked="OnGenerateClicked">
+            <Button.ContentLayout>
+                <ButtonContentLayout Position="Left" Spacing="10"/>
+            </Button.ContentLayout>
+            <Button.ImageSource>
+                <FontImageSource Glyph="&#xf522;" FontFamily="FontAwesomeSolid" Color="White" Size="18"/>
+            </Button.ImageSource>
+            <Button.Text>Generate Excuse</Button.Text>
+        </Button>
         
         <Button x:Name="CopyBtn"
-                Text="📋 Copy to Clipboard"
                 BackgroundColor="{StaticResource CardBackgroundAlt}"
                 TextColor="{StaticResource Gray200}"
                 HeightRequest="48"
                 CornerRadius="12"
-                Clicked="OnCopyClicked"/>
+                Clicked="OnCopyClicked">
+            <Button.ContentLayout>
+                <ButtonContentLayout Position="Left" Spacing="10"/>
+            </Button.ContentLayout>
+            <Button.ImageSource>
+                <FontImageSource Glyph="&#xf0c5;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray300}" Size="16"/>
+            </Button.ImageSource>
+            <Button.Text>Copy to Clipboard</Button.Text>
+        </Button>
         
         <Label x:Name="CounterLabel"
                Text="Excuses generated today: 0"

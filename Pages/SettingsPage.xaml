@@ -6,8 +6,10 @@
              BackgroundColor="{StaticResource SurfaceBackground}">
 
     <VerticalStackLayout Padding="24" Spacing="24">
-        <Label Text="⚙️" 
+        <Label Text="&#xf013;" 
+               FontFamily="FontAwesomeSolid"
                FontSize="48" 
+               TextColor="{StaticResource Gray300}"
                HorizontalOptions="Center"/>
         <Label Text="Settings" 
                FontSize="28" 
@@ -20,10 +22,13 @@
                 Stroke="Transparent"
                 Padding="20">
             <VerticalStackLayout Spacing="16">
-                <Label Text="Accessibility" 
-                       FontSize="18" 
-                       FontAttributes="Bold"
-                       TextColor="{StaticResource Gray200}"/>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="&#xf29a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{StaticResource Secondary}"/>
+                    <Label Text="Accessibility" 
+                           FontSize="18" 
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Gray200}"/>
+                </HorizontalStackLayout>
                 
                 <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
                     <VerticalStackLayout Grid.Column="0" Spacing="4">
@@ -48,10 +53,13 @@
                 Stroke="Transparent"
                 Padding="20">
             <VerticalStackLayout Spacing="16">
-                <Label Text="Theme Preview" 
-                       FontSize="18" 
-                       FontAttributes="Bold"
-                       TextColor="{StaticResource Gray200}"/>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="&#xf53f;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{StaticResource Tertiary}"/>
+                    <Label Text="Theme Preview" 
+                           FontSize="18" 
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource Gray200}"/>
+                </HorizontalStackLayout>
                 
                 <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
                     <Border x:Name="PreviewPrimary" 

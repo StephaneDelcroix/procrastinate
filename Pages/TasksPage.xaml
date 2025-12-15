@@ -11,17 +11,21 @@
                    FontSize="18" FontAttributes="Bold" 
                    TextColor="{StaticResource Gray100}"
                    VerticalOptions="Center"/>
-            <Button Grid.Column="1" Text="⚙️" 
+            <Button Grid.Column="1" Text="&#xf013;" 
+                    FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
-                    FontSize="22"
+                    TextColor="{StaticResource Gray300}"
+                    FontSize="20"
                     Clicked="OnSettingsClicked"
                     VerticalOptions="Center"/>
         </Grid>
     </Shell.TitleView>
 
     <VerticalStackLayout Padding="24" Spacing="24" VerticalOptions="Center">
-        <Label Text="📋" 
+        <Label Text="&#xf46d;" 
+               FontFamily="FontAwesomeSolid"
                FontSize="48" 
+               TextColor="{StaticResource Primary}"
                HorizontalOptions="Center"/>
         <Label Text="Today's Tasks" 
                FontSize="28" 
@@ -49,10 +53,17 @@
                         <CheckBox x:Name="TaskCheckBox" 
                                   Color="{StaticResource Primary}"
                                   CheckedChanged="OnTaskChecked"/>
-                        <Label Text="☕ Take a break" 
-                               FontSize="18" 
-                               TextColor="{StaticResource Gray100}"
-                               VerticalOptions="Center"/>
+                        <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                            <Label Text="&#xf0f4;" 
+                                   FontFamily="FontAwesomeSolid"
+                                   FontSize="18" 
+                                   TextColor="{StaticResource Gray300}"
+                                   VerticalOptions="Center"/>
+                            <Label Text="Take a break" 
+                                   FontSize="18" 
+                                   TextColor="{StaticResource Gray100}"
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
                     </HorizontalStackLayout>
                 </Border>
             </VerticalStackLayout>
@@ -65,12 +76,19 @@
                HorizontalOptions="Center"/>
         
         <Button x:Name="AddTaskBtn"
-                Text="➕ Add More Tasks"
                 Clicked="OnAddTaskClicked"
                 BackgroundColor="{StaticResource CardBackgroundAlt}"
                 TextColor="{StaticResource Gray200}"
                 FontSize="16"
                 HeightRequest="50"
-                CornerRadius="12"/>
+                CornerRadius="12">
+            <Button.ContentLayout>
+                <ButtonContentLayout Position="Left" Spacing="8"/>
+            </Button.ContentLayout>
+            <Button.ImageSource>
+                <FontImageSource Glyph="&#xf067;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray300}" Size="16"/>
+            </Button.ImageSource>
+            <Button.Text>Add More Tasks</Button.Text>
+        </Button>
     </VerticalStackLayout>
 </ContentPage>
