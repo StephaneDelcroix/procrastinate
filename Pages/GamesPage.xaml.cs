@@ -32,20 +32,19 @@ public partial class GamesPage : ContentPage
         foreach (var game in _allGames)
             game.OnGamePlayed = () => _statsService.IncrementGamesPlayed();
 
+        UpdateShuffleButton();
         ShuffleGames();
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        UpdateLabels();
+        UpdateShuffleButton();
     }
 
-    private void UpdateLabels()
+    private void UpdateShuffleButton()
     {
-        TitleLabel.Text = AppStrings.Get("MiniGames");
-        SubtitleLabel.Text = AppStrings.Get("ProductivityOverrated");
-        ShuffleBtn.Text = $"\uf074  {AppStrings.Get("ShuffleGames")}";
+        ShuffleBtn.Text = $"\uf074  {AppStrings.GetString("ShuffleGames")}";
     }
 
     private async void OnSettingsClicked(object? sender, EventArgs e)
@@ -55,7 +54,6 @@ public partial class GamesPage : ContentPage
 
     private void OnShuffleClicked(object? sender, EventArgs e)
     {
-        // Stop current games
         foreach (var game in _currentGames)
             game.StopGame();
 
@@ -67,7 +65,6 @@ public partial class GamesPage : ContentPage
         _currentGames.Clear();
         GamesContainer.Children.Clear();
 
-        // Weighted selection: favorites have 3x higher chance
         var weightedGames = new List<MiniGame>();
         foreach (var game in _allGames)
         {
@@ -79,7 +76,6 @@ public partial class GamesPage : ContentPage
             }
         }
 
-        // Pick 3 unique games with weighted randomness
         var selected = new List<MiniGame>();
         var shuffled = weightedGames.OrderBy(_ => Random.Shared.Next()).ToList();
         foreach (var game in shuffled)
@@ -119,10 +115,9 @@ public partial class GamesPage : ContentPage
             VerticalOptions = LayoutOptions.Center
         };
 
-        // Favorite button
         var favBtn = new Button
         {
-            Text = game.IsFavorite ? "\uf004" : "\uf08a", // solid heart vs outline
+            Text = game.IsFavorite ? "\uf004" : "\uf08a",
             FontFamily = "FontAwesomeSolid",
             FontSize = 18,
             BackgroundColor = Colors.Transparent,

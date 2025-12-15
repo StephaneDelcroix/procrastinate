@@ -62,4 +62,14 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\Strings\AppResources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Strings\AppResources.*.resx">
+			<DependentUpon>AppResources.resx</DependentUpon>
+		</EmbeddedResource>
+	</ItemGroup>
+
 </Project>

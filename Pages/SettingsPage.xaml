@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.SettingsPage"
-             Title="Settings"
+             Title="{Binding Settings, Source={x:Static strings:AppStrings.Instance}}"
              BackgroundColor="{StaticResource SurfaceBackground}">
 
     <ScrollView>
@@ -12,8 +13,7 @@
                    FontSize="48" 
                    TextColor="{StaticResource Gray300}"
                    HorizontalOptions="Center"/>
-            <Label x:Name="SettingsTitle"
-                   Text="Settings" 
+            <Label Text="{Binding Settings, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="28" 
                    FontAttributes="Bold"
                    TextColor="{StaticResource Gray100}"
@@ -27,8 +27,7 @@
                 <VerticalStackLayout Spacing="16">
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="&#xf1ab;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{StaticResource Primary}"/>
-                        <Label x:Name="LanguageTitle"
-                               Text="Language" 
+                        <Label Text="{Binding Language, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="18" 
                                FontAttributes="Bold"
                                TextColor="{StaticResource Gray200}"/>
@@ -49,8 +48,7 @@
                 <VerticalStackLayout Spacing="16">
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="&#xf29a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{StaticResource Secondary}"/>
-                        <Label x:Name="AccessibilityTitle"
-                               Text="Accessibility" 
+                        <Label Text="{Binding Accessibility, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="18" 
                                FontAttributes="Bold"
                                TextColor="{StaticResource Gray200}"/>
@@ -58,12 +56,10 @@
                     
                     <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
                         <VerticalStackLayout Grid.Column="0" Spacing="4">
-                            <Label x:Name="HighContrastLabel"
-                                   Text="High Contrast Mode" 
+                            <Label Text="{Binding HighContrastMode, Source={x:Static strings:AppStrings.Instance}}" 
                                    FontSize="16" 
                                    TextColor="{StaticResource Gray100}"/>
-                            <Label x:Name="HighContrastDesc"
-                                   Text="Use higher contrast colors for better visibility" 
+                            <Label Text="{Binding HighContrastDesc, Source={x:Static strings:AppStrings.Instance}}" 
                                    FontSize="13" 
                                    TextColor="{StaticResource Gray400}"/>
                         </VerticalStackLayout>
@@ -84,8 +80,7 @@
                 <VerticalStackLayout Spacing="16">
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="&#xf53f;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{StaticResource Tertiary}"/>
-                        <Label x:Name="ThemePreviewTitle"
-                               Text="Theme Preview" 
+                        <Label Text="{Binding ThemePreview, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="18" 
                                FontAttributes="Bold"
                                TextColor="{StaticResource Gray200}"/>
@@ -122,8 +117,7 @@
                 </VerticalStackLayout>
             </Border>
 
-            <Label x:Name="ChangesApplyLabel"
-                   Text="Changes apply immediately"
+            <Label Text="{Binding ChangesApply, Source={x:Static strings:AppStrings.Instance}}"
                    FontSize="13"
                    TextColor="{StaticResource Gray500}"
                    HorizontalOptions="Center"/>

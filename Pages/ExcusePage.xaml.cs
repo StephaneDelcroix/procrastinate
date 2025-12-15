@@ -12,22 +12,18 @@ public partial class ExcusePage : ContentPage
     {
         InitializeComponent();
         _statsService = statsService;
+        UpdateCounterLabel();
     }
 
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        UpdateLabels();
+        UpdateCounterLabel();
     }
 
-    private void UpdateLabels()
+    private void UpdateCounterLabel()
     {
-        TitleLabel.Text = AppStrings.Get("ExcuseGenerator");
-        SubtitleLabel.Text = AppStrings.Get("NeedAReason");
-        ExcuseLabel.Text = AppStrings.Get("TapForExcuse");
-        GenerateBtn.Text = AppStrings.Get("GenerateExcuse");
-        CopyBtn.Text = AppStrings.Get("CopyToClipboard");
-        CounterLabel.Text = AppStrings.Get("ExcusesGenerated", _statsService.ExcusesGenerated);
+        CounterLabel.Text = AppStrings.GetString("ExcusesGenerated", _statsService.ExcusesGenerated);
     }
 
     private async void OnSettingsClicked(object? sender, EventArgs e)
@@ -46,7 +42,7 @@ public partial class ExcusePage : ContentPage
         ExcuseLabel.Text = _currentExcuse;
         
         _statsService.IncrementExcusesGenerated();
-        CounterLabel.Text = AppStrings.Get("ExcusesGenerated", _statsService.ExcusesGenerated);
+        UpdateCounterLabel();
     }
 
     private async void OnCopyClicked(object? sender, EventArgs e)
@@ -54,9 +50,9 @@ public partial class ExcusePage : ContentPage
         if (string.IsNullOrEmpty(_currentExcuse)) return;
         
         await Clipboard.SetTextAsync(_currentExcuse);
-        CopyBtn.Text = $"✓ {AppStrings.Get("Copied")}";
+        CopyBtn.Text = $"✓ {AppStrings.GetString("Copied")}";
         await Task.Delay(1500);
-        CopyBtn.Text = AppStrings.Get("CopyToClipboard");
+        CopyBtn.Text = AppStrings.GetString("CopyToClipboard");
     }
 
     private (string[], string[], string[]) GetLocalizedExcuseParts()

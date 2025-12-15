@@ -13,21 +13,6 @@ public partial class TasksPage : ContentPage
         _statsService = statsService;
     }
 
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-        UpdateLabels();
-    }
-
-    private void UpdateLabels()
-    {
-        TitleLabel.Text = AppStrings.Get("TodaysTasks");
-        ProductivityListLabel.Text = AppStrings.Get("YourProductivityList");
-        TakeBreakLabel.Text = AppStrings.Get("TakeABreak");
-        MotivationLabel.Text = AppStrings.Get("DoingGreat");
-        AddTaskBtn.Text = AppStrings.Get("AddMoreTasks");
-    }
-
     private async void OnSettingsClicked(object? sender, EventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(SettingsPage));
@@ -38,10 +23,10 @@ public partial class TasksPage : ContentPage
         if (e.Value)
         {
             _statsService.IncrementBreaksTaken();
-            MotivationLabel.Text = AppStrings.Get("Congratulations");
+            MotivationLabel.Text = AppStrings.GetString("Congratulations");
             await Task.Delay(2000);
             TaskCheckBox.IsChecked = false;
-            MotivationLabel.Text = AppStrings.Get("NeedAnotherBreak");
+            MotivationLabel.Text = AppStrings.GetString("NeedAnotherBreak");
         }
     }
 

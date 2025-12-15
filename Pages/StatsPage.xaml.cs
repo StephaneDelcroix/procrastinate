@@ -21,19 +21,7 @@ public partial class StatsPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        UpdateLabels();
         RefreshStats();
-    }
-
-    private void UpdateLabels()
-    {
-        TitleLabel.Text = AppStrings.Get("YourStats");
-        SubtitleLabel.Text = AppStrings.Get("BeProud");
-        TasksAvoidedTitle.Text = AppStrings.Get("TasksAvoided");
-        BreaksTakenTitle.Text = AppStrings.Get("BreaksTaken");
-        ExcusesTitle.Text = AppStrings.Get("ExcusesGeneratedStat");
-        GamesPlayedTitle.Text = AppStrings.Get("GamesPlayed");
-        AchievementTitle.Text = AppStrings.Get("AchievementUnlocked");
     }
 
     private void RefreshStats()
@@ -48,10 +36,10 @@ public partial class StatsPage : ContentPage
         
         AchievementLabel.Text = totalActivity switch
         {
-            0 => $"{AppStrings.Get("GettingStarted")} ✅",
-            < 5 => $"{AppStrings.Get("BeginnerProcrastinator")} 🐣",
+            0 => $"{AppStrings.GetString("GettingStarted")} ✅",
+            < 5 => $"{AppStrings.GetString("BeginnerProcrastinator")} 🐣",
             < 15 => GetRandomAchievement(),
-            _ => $"🌟 {AppStrings.Get("LegendaryProcrastinator")} 🌟"
+            _ => $"🌟 {AppStrings.GetString("LegendaryProcrastinator")} 🌟"
         };
     }
 

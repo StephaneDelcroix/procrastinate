@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.ExcusePage"
-             Title="Excuse Generator"
+             Title="{Binding ExcuseGenerator, Source={x:Static strings:AppStrings.Instance}}"
              BackgroundColor="{StaticResource SurfaceBackground}">
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto">
-            <Label x:Name="NavTitleLabel"
-                   Text="Excuse Generator" 
+            <Label Text="{Binding ExcuseGenerator, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="18" FontAttributes="Bold" 
                    TextColor="{StaticResource Gray100}"
                    VerticalOptions="Center"/>
@@ -28,15 +28,13 @@
                FontSize="48" 
                TextColor="{StaticResource Tertiary}"
                HorizontalOptions="Center"/>
-        <Label x:Name="TitleLabel"
-               Text="Excuse Generator" 
+        <Label Text="{Binding ExcuseGenerator, Source={x:Static strings:AppStrings.Instance}}" 
                FontSize="28" 
                FontAttributes="Bold"
                TextColor="{StaticResource Tertiary}"
                HorizontalOptions="Center"/>
         
-        <Label x:Name="SubtitleLabel"
-               Text="Need a reason to not do something? We got you!"
+        <Label Text="{Binding NeedAReason, Source={x:Static strings:AppStrings.Instance}}"
                FontSize="14"
                TextColor="{StaticResource Gray400}"
                HorizontalOptions="Center"
@@ -51,7 +49,7 @@
                 <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
             </Border.Shadow>
             <Label x:Name="ExcuseLabel"
-                   Text="Tap the button for a fresh excuse!"
+                   Text="{Binding TapForExcuse, Source={x:Static strings:AppStrings.Instance}}"
                    FontSize="18"
                    TextColor="{StaticResource Gray200}"
                    HorizontalTextAlignment="Center"
@@ -59,25 +57,25 @@
         </Border>
         
         <Button x:Name="GenerateBtn"
+                Text="{Binding GenerateExcuse, Source={x:Static strings:AppStrings.Instance}}"
                 FontSize="18"
                 HeightRequest="56"
                 BackgroundColor="{StaticResource Tertiary}"
                 TextColor="White"
                 CornerRadius="14"
-                Clicked="OnGenerateClicked"
-                Text="Generate Excuse">
+                Clicked="OnGenerateClicked">
             <Button.ImageSource>
                 <FontImageSource Glyph="&#xf522;" FontFamily="FontAwesomeSolid" Color="White" Size="18"/>
             </Button.ImageSource>
         </Button>
         
         <Button x:Name="CopyBtn"
+                Text="{Binding CopyToClipboard, Source={x:Static strings:AppStrings.Instance}}"
                 BackgroundColor="{StaticResource CardBackgroundAlt}"
                 TextColor="{StaticResource Gray200}"
                 HeightRequest="48"
                 CornerRadius="12"
-                Clicked="OnCopyClicked"
-                Text="Copy to Clipboard">
+                Clicked="OnCopyClicked">
             <Button.ImageSource>
                 <FontImageSource Glyph="&#xf0c5;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray300}" Size="16"/>
             </Button.ImageSource>

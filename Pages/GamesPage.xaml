@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.GamesPage"
-             Title="Mini-Games"
+             Title="{Binding MiniGames, Source={x:Static strings:AppStrings.Instance}}"
              BackgroundColor="{StaticResource SurfaceBackground}">
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto">
-            <Label x:Name="NavTitleLabel"
-                   Text="Mini-Games" 
+            <Label Text="{Binding MiniGames, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="18" FontAttributes="Bold" 
                    TextColor="{StaticResource Gray100}"
                    VerticalOptions="Center"/>
@@ -29,21 +29,18 @@
                    FontSize="48" 
                    TextColor="{StaticResource Secondary}"
                    HorizontalOptions="Center"/>
-            <Label x:Name="TitleLabel"
-                   Text="Mini-Games" 
+            <Label Text="{Binding MiniGames, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="28" 
                    FontAttributes="Bold"
                    TextColor="{StaticResource Secondary}"
                    HorizontalOptions="Center"/>
             
-            <Label x:Name="SubtitleLabel"
-                   Text="Because productivity is overrated!"
+            <Label Text="{Binding ProductivityOverrated, Source={x:Static strings:AppStrings.Instance}}"
                    FontSize="14"
                    TextColor="{StaticResource Gray400}"
                    HorizontalOptions="Center"/>
 
             <Button x:Name="ShuffleBtn" 
-                    Text="&#xf074;  Shuffle Games"
                     FontSize="16"
                     BackgroundColor="{StaticResource CardBackgroundAlt}"
                     TextColor="{StaticResource Gray200}"

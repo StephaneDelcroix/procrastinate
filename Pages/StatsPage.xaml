@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.StatsPage"
-             Title="Stats"
+             Title="{Binding YourStats, Source={x:Static strings:AppStrings.Instance}}"
              BackgroundColor="{StaticResource SurfaceBackground}">
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto">
-            <Label x:Name="NavTitleLabel"
-                   Text="Your Stats" 
+            <Label Text="{Binding YourStats, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="18" FontAttributes="Bold" 
                    TextColor="{StaticResource Gray100}"
                    VerticalOptions="Center"/>
@@ -29,15 +29,13 @@
                    FontSize="48" 
                    TextColor="{StaticResource AccentLight}"
                    HorizontalOptions="Center"/>
-            <Label x:Name="TitleLabel"
-                   Text="Your Stats" 
+            <Label Text="{Binding YourStats, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="28" 
                    FontAttributes="Bold"
                    TextColor="{StaticResource AccentLight}"
                    HorizontalOptions="Center"/>
             
-            <Label x:Name="SubtitleLabel"
-                   Text="Be proud of your accomplishments!"
+            <Label Text="{Binding BeProud, Source={x:Static strings:AppStrings.Instance}}"
                    FontSize="14"
                    TextColor="{StaticResource Gray400}"
                    HorizontalOptions="Center"/>
@@ -48,7 +46,7 @@
                         Grid.Row="0" Grid.Column="0">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="&#xf05e;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{StaticResource Primary}"/>
-                        <Label x:Name="TasksAvoidedTitle" Text="Tasks Avoided" FontSize="12" TextColor="{StaticResource Gray400}"/>
+                        <Label Text="{Binding TasksAvoided, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{StaticResource Gray400}"/>
                         <Label x:Name="TasksAvoidedLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Primary}"/>
                     </VerticalStackLayout>
                 </Border>
@@ -58,7 +56,7 @@
                         Grid.Row="0" Grid.Column="1">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="&#xf0f4;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{StaticResource Secondary}"/>
-                        <Label x:Name="BreaksTakenTitle" Text="Breaks Taken" FontSize="12" TextColor="{StaticResource Gray400}"/>
+                        <Label Text="{Binding BreaksTaken, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{StaticResource Gray400}"/>
                         <Label x:Name="BreaksTakenLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Secondary}"/>
                     </VerticalStackLayout>
                 </Border>
@@ -68,7 +66,7 @@
                         Grid.Row="1" Grid.Column="0">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="&#xf630;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{StaticResource Tertiary}"/>
-                        <Label x:Name="ExcusesTitle" Text="Excuses Generated" FontSize="12" TextColor="{StaticResource Gray400}"/>
+                        <Label Text="{Binding ExcusesGeneratedStat, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{StaticResource Gray400}"/>
                         <Label x:Name="ExcusesLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Tertiary}"/>
                     </VerticalStackLayout>
                 </Border>
@@ -78,7 +76,7 @@
                         Grid.Row="1" Grid.Column="1">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="&#xf11b;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{StaticResource AccentLight}"/>
-                        <Label x:Name="GamesPlayedTitle" Text="Games Played" FontSize="12" TextColor="{StaticResource Gray400}"/>
+                        <Label Text="{Binding GamesPlayed, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{StaticResource Gray400}"/>
                         <Label x:Name="GamesPlayedLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource AccentLight}"/>
                     </VerticalStackLayout>
                 </Border>
@@ -92,7 +90,7 @@
                 <HorizontalStackLayout Spacing="16">
                     <Label Text="&#xf091;" FontFamily="FontAwesomeSolid" FontSize="36" TextColor="{StaticResource Warm}" VerticalOptions="Center"/>
                     <VerticalStackLayout Spacing="4" VerticalOptions="Center">
-                        <Label x:Name="AchievementTitle" Text="Achievement Unlocked" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Warm}"/>
+                        <Label Text="{Binding AchievementUnlocked, Source={x:Static strings:AppStrings.Instance}}" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Warm}"/>
                         <Label x:Name="AchievementLabel" 
                                Text="Loading achievement..."
                                FontSize="14"

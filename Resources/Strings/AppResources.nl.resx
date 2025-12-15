@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <data name="AppName" xml:space="preserve"><value>Uitstellen</value></data>
+  <data name="Settings" xml:space="preserve"><value>Instellingen</value></data>
+  <data name="Accessibility" xml:space="preserve"><value>Toegankelijkheid</value></data>
+  <data name="HighContrastMode" xml:space="preserve"><value>Hoog contrast modus</value></data>
+  <data name="HighContrastDesc" xml:space="preserve"><value>Gebruik kleuren met hoger contrast</value></data>
+  <data name="ThemePreview" xml:space="preserve"><value>Thema voorbeeld</value></data>
+  <data name="CurrentTheme" xml:space="preserve"><value>Huidig: {0} Thema</value></data>
+  <data name="DefaultTheme" xml:space="preserve"><value>Standaard</value></data>
+  <data name="HighContrast" xml:space="preserve"><value>Hoog contrast</value></data>
+  <data name="ChangesApply" xml:space="preserve"><value>Wijzigingen worden direct toegepast</value></data>
+  <data name="Language" xml:space="preserve"><value>Taal</value></data>
+  
+  <data name="TodaysTasks" xml:space="preserve"><value>Taken van vandaag</value></data>
+  <data name="YourProductivityList" xml:space="preserve"><value>Je productiviteitslijst:</value></data>
+  <data name="TakeABreak" xml:space="preserve"><value>Neem een pauze</value></data>
+  <data name="DoingGreat" xml:space="preserve"><value>Je doet het geweldig! Maar 1 taak vandaag!</value></data>
+  <data name="AddMoreTasks" xml:space="preserve"><value>Meer taken toevoegen</value></data>
+  <data name="Congratulations" xml:space="preserve"><value>🎉 Gefeliciteerd! Je hebt AL je taken voltooid!</value></data>
+  <data name="NeedAnotherBreak" xml:space="preserve"><value>Wacht... je hebt nog een pauze nodig!</value></data>
+  
+  <data name="MiniGames" xml:space="preserve"><value>Mini-Spelletjes</value></data>
+  <data name="ProductivityOverrated" xml:space="preserve"><value>Omdat productiviteit overschat wordt!</value></data>
+  <data name="ShuffleGames" xml:space="preserve"><value>Spelletjes shuffelen</value></data>
+  <data name="Score" xml:space="preserve"><value>Score: {0}</value></data>
+  <data name="GameOver" xml:space="preserve"><value>Game Over! Eindscore: {0}</value></data>
+  <data name="StartGame" xml:space="preserve"><value>Starten</value></data>
+  <data name="NewGame" xml:space="preserve"><value>Nieuw spel</value></data>
+  <data name="YourTurn" xml:space="preserve"><value>Jouw beurt (X)</value></data>
+  <data name="AIThinking" xml:space="preserve"><value>AI denkt na...</value></data>
+  <data name="YouWin" xml:space="preserve"><value>Je hebt gewonnen! 🎉</value></data>
+  <data name="AIWins" xml:space="preserve"><value>AI wint! 🤖</value></data>
+  <data name="Draw" xml:space="preserve"><value>Gelijkspel!</value></data>
+  <data name="Clicks" xml:space="preserve"><value>Klikken: {0}</value></data>
+  <data name="StartChallenge" xml:space="preserve"><value>Start uitdaging</value></data>
+  <data name="WaitForGreen" xml:space="preserve"><value>Wacht op groen!</value></data>
+  <data name="TapNow" xml:space="preserve"><value>TIK NU!</value></data>
+  <data name="TooEarly" xml:space="preserve"><value>Te vroeg! Probeer opnieuw.</value></data>
+  <data name="ReactionTime" xml:space="preserve"><value>Reactietijd: {0}ms</value></data>
+  <data name="TapStartToBegin" xml:space="preserve"><value>Tik op 'Starten' om te beginnen</value></data>
+  
+  <data name="ExcuseGenerator" xml:space="preserve"><value>Excuusgenerator</value></data>
+  <data name="NeedAReason" xml:space="preserve"><value>Een reden nodig om iets niet te doen? Wij helpen!</value></data>
+  <data name="TapForExcuse" xml:space="preserve"><value>Tik voor een nieuw excuus!</value></data>
+  <data name="GenerateExcuse" xml:space="preserve"><value>Genereer excuus</value></data>
+  <data name="CopyToClipboard" xml:space="preserve"><value>Kopiëren</value></data>
+  <data name="Copied" xml:space="preserve"><value>Gekopieerd!</value></data>
+  <data name="ExcusesGenerated" xml:space="preserve"><value>Excuses gegenereerd vandaag: {0}</value></data>
+  
+  <data name="YourStats" xml:space="preserve"><value>Jouw statistieken</value></data>
+  <data name="BeProud" xml:space="preserve"><value>Wees trots op je prestaties!</value></data>
+  <data name="TasksAvoided" xml:space="preserve"><value>Taken vermeden</value></data>
+  <data name="BreaksTaken" xml:space="preserve"><value>Pauzes genomen</value></data>
+  <data name="ExcusesGeneratedStat" xml:space="preserve"><value>Excuses gegenereerd</value></data>
+  <data name="GamesPlayed" xml:space="preserve"><value>Spelletjes gespeeld</value></data>
+  <data name="AchievementUnlocked" xml:space="preserve"><value>Prestatie ontgrendeld</value></data>
+  <data name="GettingStarted" xml:space="preserve"><value>Begin: Open de app!</value></data>
+  <data name="BeginnerProcrastinator" xml:space="preserve"><value>Beginner uitstelaar</value></data>
+  <data name="LegendaryProcrastinator" xml:space="preserve"><value>LEGENDARISCHE UITSTELAAR</value></data>
+  
+  <data name="SimonSays" xml:space="preserve"><value>Simon zegt</value></data>
+  <data name="SimonSaysDesc" xml:space="preserve"><value>Kijk naar het patroon en herhaal!</value></data>
+  <data name="ClickSpeed" xml:space="preserve"><value>Kliksnelheid</value></data>
+  <data name="ClickSpeedDesc" xml:space="preserve"><value>Hoeveel klikken in 5 seconden?</value></data>
+  <data name="ReactionTimeGame" xml:space="preserve"><value>Reactietijd</value></data>
+  <data name="ReactionTimeDesc" xml:space="preserve"><value>Wacht op groen en tik!</value></data>
+  <data name="TicTacToe" xml:space="preserve"><value>Boter-kaas-en-eieren</value></data>
+  <data name="TicTacToeDesc" xml:space="preserve"><value>Het klassieke X en O spel!</value></data>
+  <data name="Minesweeper" xml:space="preserve"><value>Mijnenveger</value></data>
+  <data name="MinesweeperDesc" xml:space="preserve"><value>Vind alle veilige cellen!</value></data>
+  <data name="TiltSnake" xml:space="preserve"><value>Kantel slang</value></data>
+  <data name="TiltSnakeDesc" xml:space="preserve"><value>Kantel je telefoon om de slang te leiden!</value></data>
+  <data name="MemoryMatch" xml:space="preserve"><value>Memory</value></data>
+  <data name="MemoryMatchDesc" xml:space="preserve"><value>Vind de paren!</value></data>
+  <data name="NumberGuess" xml:space="preserve"><value>Raad het getal</value></data>
+  <data name="NumberGuessDesc" xml:space="preserve"><value>Raad het getal 1-100!</value></data>
+  <data name="WhackAMole" xml:space="preserve"><value>Mep de mol</value></data>
+  <data name="WhackAMoleDesc" xml:space="preserve"><value>Mep de mollen zo snel mogelijk!</value></data>
+</root>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- General -->
+  <data name="AppName" xml:space="preserve"><value>Procrastinate</value></data>
+  <data name="Settings" xml:space="preserve"><value>Settings</value></data>
+  <data name="Accessibility" xml:space="preserve"><value>Accessibility</value></data>
+  <data name="HighContrastMode" xml:space="preserve"><value>High Contrast Mode</value></data>
+  <data name="HighContrastDesc" xml:space="preserve"><value>Use higher contrast colors for better visibility</value></data>
+  <data name="ThemePreview" xml:space="preserve"><value>Theme Preview</value></data>
+  <data name="CurrentTheme" xml:space="preserve"><value>Current: {0} Theme</value></data>
+  <data name="DefaultTheme" xml:space="preserve"><value>Default</value></data>
+  <data name="HighContrast" xml:space="preserve"><value>High Contrast</value></data>
+  <data name="ChangesApply" xml:space="preserve"><value>Changes apply immediately</value></data>
+  <data name="Language" xml:space="preserve"><value>Language</value></data>
+  
+  <!-- Tasks -->
+  <data name="TodaysTasks" xml:space="preserve"><value>Today's Tasks</value></data>
+  <data name="YourProductivityList" xml:space="preserve"><value>Your productivity list:</value></data>
+  <data name="TakeABreak" xml:space="preserve"><value>Take a break</value></data>
+  <data name="DoingGreat" xml:space="preserve"><value>You're doing great! Only 1 task today!</value></data>
+  <data name="AddMoreTasks" xml:space="preserve"><value>Add More Tasks</value></data>
+  <data name="Congratulations" xml:space="preserve"><value>🎉 Congratulations! You completed ALL your tasks!</value></data>
+  <data name="NeedAnotherBreak" xml:space="preserve"><value>Wait... you still need another break!</value></data>
+  
+  <!-- Games -->
+  <data name="MiniGames" xml:space="preserve"><value>Mini-Games</value></data>
+  <data name="ProductivityOverrated" xml:space="preserve"><value>Because productivity is overrated!</value></data>
+  <data name="ShuffleGames" xml:space="preserve"><value>Shuffle Games</value></data>
+  <data name="Score" xml:space="preserve"><value>Score: {0}</value></data>
+  <data name="GameOver" xml:space="preserve"><value>Game Over! Final Score: {0}</value></data>
+  <data name="StartGame" xml:space="preserve"><value>Start Game</value></data>
+  <data name="NewGame" xml:space="preserve"><value>New Game</value></data>
+  <data name="YourTurn" xml:space="preserve"><value>Your turn (X)</value></data>
+  <data name="AIThinking" xml:space="preserve"><value>AI thinking...</value></data>
+  <data name="YouWin" xml:space="preserve"><value>You win! 🎉</value></data>
+  <data name="AIWins" xml:space="preserve"><value>AI wins! 🤖</value></data>
+  <data name="Draw" xml:space="preserve"><value>It's a draw!</value></data>
+  <data name="Clicks" xml:space="preserve"><value>Clicks: {0}</value></data>
+  <data name="StartChallenge" xml:space="preserve"><value>Start Challenge</value></data>
+  <data name="WaitForGreen" xml:space="preserve"><value>Wait for green!</value></data>
+  <data name="TapNow" xml:space="preserve"><value>TAP NOW!</value></data>
+  <data name="TooEarly" xml:space="preserve"><value>Too early! Try again.</value></data>
+  <data name="ReactionTime" xml:space="preserve"><value>Reaction time: {0}ms</value></data>
+  <data name="TapStartToBegin" xml:space="preserve"><value>Tap 'Start' to begin</value></data>
+  
+  <!-- Excuses -->
+  <data name="ExcuseGenerator" xml:space="preserve"><value>Excuse Generator</value></data>
+  <data name="NeedAReason" xml:space="preserve"><value>Need a reason to not do something? We got you!</value></data>
+  <data name="TapForExcuse" xml:space="preserve"><value>Tap the button for a fresh excuse!</value></data>
+  <data name="GenerateExcuse" xml:space="preserve"><value>Generate Excuse</value></data>
+  <data name="CopyToClipboard" xml:space="preserve"><value>Copy to Clipboard</value></data>
+  <data name="Copied" xml:space="preserve"><value>Copied!</value></data>
+  <data name="ExcusesGenerated" xml:space="preserve"><value>Excuses generated today: {0}</value></data>
+  
+  <!-- Stats -->
+  <data name="YourStats" xml:space="preserve"><value>Your Stats</value></data>
+  <data name="BeProud" xml:space="preserve"><value>Be proud of your accomplishments!</value></data>
+  <data name="TasksAvoided" xml:space="preserve"><value>Tasks Avoided</value></data>
+  <data name="BreaksTaken" xml:space="preserve"><value>Breaks Taken</value></data>
+  <data name="ExcusesGeneratedStat" xml:space="preserve"><value>Excuses Generated</value></data>
+  <data name="GamesPlayed" xml:space="preserve"><value>Games Played</value></data>
+  <data name="AchievementUnlocked" xml:space="preserve"><value>Achievement Unlocked</value></data>
+  <data name="GettingStarted" xml:space="preserve"><value>Getting Started: Open the app!</value></data>
+  <data name="BeginnerProcrastinator" xml:space="preserve"><value>Beginner Procrastinator</value></data>
+  <data name="LegendaryProcrastinator" xml:space="preserve"><value>LEGENDARY PROCRASTINATOR</value></data>
+  
+  <!-- Game names -->
+  <data name="SimonSays" xml:space="preserve"><value>Simon Says</value></data>
+  <data name="SimonSaysDesc" xml:space="preserve"><value>Watch the pattern and repeat it!</value></data>
+  <data name="ClickSpeed" xml:space="preserve"><value>Click Speed</value></data>
+  <data name="ClickSpeedDesc" xml:space="preserve"><value>How many clicks in 5 seconds?</value></data>
+  <data name="ReactionTimeGame" xml:space="preserve"><value>Reaction Time</value></data>
+  <data name="ReactionTimeDesc" xml:space="preserve"><value>Wait for green, then tap!</value></data>
+  <data name="TicTacToe" xml:space="preserve"><value>Tic Tac Toe</value></data>
+  <data name="TicTacToeDesc" xml:space="preserve"><value>Classic X and O game!</value></data>
+  <data name="Minesweeper" xml:space="preserve"><value>Minesweeper</value></data>
+  <data name="MinesweeperDesc" xml:space="preserve"><value>Find all safe cells!</value></data>
+  <data name="TiltSnake" xml:space="preserve"><value>Tilt Snake</value></data>
+  <data name="TiltSnakeDesc" xml:space="preserve"><value>Tilt your phone to guide the snake!</value></data>
+  <data name="MemoryMatch" xml:space="preserve"><value>Memory Match</value></data>
+  <data name="MemoryMatchDesc" xml:space="preserve"><value>Find matching pairs!</value></data>
+  <data name="NumberGuess" xml:space="preserve"><value>Number Guess</value></data>
+  <data name="NumberGuessDesc" xml:space="preserve"><value>Guess the number 1-100!</value></data>
+  <data name="WhackAMole" xml:space="preserve"><value>Whack-a-Mole</value></data>
+  <data name="WhackAMoleDesc" xml:space="preserve"><value>Tap the moles as fast as you can!</value></data>
+</root>

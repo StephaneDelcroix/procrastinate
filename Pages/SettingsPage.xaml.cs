@@ -24,8 +24,7 @@ public partial class SettingsPage : ContentPage
         var isHighContrast = Preferences.Get("HighContrastMode", false);
         HighContrastSwitch.IsToggled = isHighContrast;
         UpdatePreview(isHighContrast);
-        
-        UpdateLabels();
+        UpdateThemeLabel(isHighContrast);
     }
 
     private void OnLanguageChanged(object? sender, EventArgs e)
@@ -34,22 +33,13 @@ public partial class SettingsPage : ContentPage
         
         var langCode = AppStrings.SupportedLanguages.Keys.ElementAt(LanguagePicker.SelectedIndex);
         AppStrings.CurrentLanguage = langCode;
-        UpdateLabels();
+        UpdateThemeLabel(Preferences.Get("HighContrastMode", false));
     }
 
-    private void UpdateLabels()
+    private void UpdateThemeLabel(bool isHighContrast)
     {
-        SettingsTitle.Text = AppStrings.Get("Settings");
-        LanguageTitle.Text = AppStrings.Get("Language");
-        AccessibilityTitle.Text = AppStrings.Get("Accessibility");
-        HighContrastLabel.Text = AppStrings.Get("HighContrastMode");
-        HighContrastDesc.Text = AppStrings.Get("HighContrastDesc");
-        ThemePreviewTitle.Text = AppStrings.Get("ThemePreview");
-        ChangesApplyLabel.Text = AppStrings.Get("ChangesApply");
-        
-        var isHighContrast = Preferences.Get("HighContrastMode", false);
-        var themeName = isHighContrast ? AppStrings.Get("HighContrast") : AppStrings.Get("DefaultTheme");
-        ThemeLabel.Text = AppStrings.Get("CurrentTheme", themeName);
+        var themeName = isHighContrast ? AppStrings.GetString("HighContrast") : AppStrings.GetString("DefaultTheme");
+        ThemeLabel.Text = AppStrings.GetString("CurrentTheme", themeName);
     }
 
     private void OnHighContrastToggled(object? sender, ToggledEventArgs e)
@@ -57,7 +47,7 @@ public partial class SettingsPage : ContentPage
         Preferences.Set("HighContrastMode", e.Value);
         UpdatePreview(e.Value);
         ApplyTheme(e.Value);
-        UpdateLabels();
+        UpdateThemeLabel(e.Value);
     }
 
     private void UpdatePreview(bool highContrast)
