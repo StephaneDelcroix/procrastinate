@@ -81,14 +81,11 @@
                 TextColor="{StaticResource Gray200}"
                 FontSize="16"
                 HeightRequest="50"
-                CornerRadius="12">
-            <Button.ContentLayout>
-                <ButtonContentLayout Position="Left" Spacing="8"/>
-            </Button.ContentLayout>
+                CornerRadius="12"
+                Text="Add More Tasks">
             <Button.ImageSource>
                 <FontImageSource Glyph="&#xf067;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray300}" Size="16"/>
             </Button.ImageSource>
-            <Button.Text>Add More Tasks</Button.Text>
         </Button>
     </VerticalStackLayout>
 </ContentPage>

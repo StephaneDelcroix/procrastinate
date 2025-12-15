@@ -61,14 +61,11 @@
                 BackgroundColor="{StaticResource Tertiary}"
                 TextColor="White"
                 CornerRadius="14"
-                Clicked="OnGenerateClicked">
-            <Button.ContentLayout>
-                <ButtonContentLayout Position="Left" Spacing="10"/>
-            </Button.ContentLayout>
+                Clicked="OnGenerateClicked"
+                Text="Generate Excuse">
             <Button.ImageSource>
                 <FontImageSource Glyph="&#xf522;" FontFamily="FontAwesomeSolid" Color="White" Size="18"/>
             </Button.ImageSource>
-            <Button.Text>Generate Excuse</Button.Text>
         </Button>
         
         <Button x:Name="CopyBtn"
@@ -76,14 +73,11 @@
                 TextColor="{StaticResource Gray200}"
                 HeightRequest="48"
                 CornerRadius="12"
-                Clicked="OnCopyClicked">
-            <Button.ContentLayout>
-                <ButtonContentLayout Position="Left" Spacing="10"/>
-            </Button.ContentLayout>
+                Clicked="OnCopyClicked"
+                Text="Copy to Clipboard">
             <Button.ImageSource>
                 <FontImageSource Glyph="&#xf0c5;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray300}" Size="16"/>
             </Button.ImageSource>
-            <Button.Text>Copy to Clipboard</Button.Text>
         </Button>
         
         <Label x:Name="CounterLabel"
