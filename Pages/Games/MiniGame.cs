@@ -13,4 +13,13 @@ public abstract class MiniGame
     public abstract void StopGame();
     
     public Action? OnGamePlayed { get; set; }
+    public Action<MiniGame>? OnFavoriteToggled { get; set; }
+    
+    public string Id => GetType().Name;
+    
+    public bool IsFavorite
+    {
+        get => Preferences.Get($"favorite_{Id}", false);
+        set => Preferences.Set($"favorite_{Id}", value);
+    }
 }

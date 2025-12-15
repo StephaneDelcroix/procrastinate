@@ -53,9 +53,31 @@ public partial class GamesPage : ContentPage
         _currentGames.Clear();
         GamesContainer.Children.Clear();
 
-        // Pick 3 random games
-        var shuffled = _allGames.OrderBy(_ => Random.Shared.Next()).Take(3).ToList();
-        _currentGames.AddRange(shuffled);
+        // Weighted selection: favorites have 3x higher chance
+        var weightedGames = new List<MiniGame>();
+        foreach (var game in _allGames)
+        {
+            weightedGames.Add(game);
+            if (game.IsFavorite)
+            {
+                weightedGames.Add(game);
+                weightedGames.Add(game);
+            }
+        }
+
+        // Pick 3 unique games with weighted randomness
+        var selected = new List<MiniGame>();
+        var shuffled = weightedGames.OrderBy(_ => Random.Shared.Next()).ToList();
+        foreach (var game in shuffled)
+        {
+            if (!selected.Contains(game))
+            {
+                selected.Add(game);
+                if (selected.Count >= 3) break;
+            }
+        }
+
+        _currentGames.AddRange(selected);
 
         foreach (var game in _currentGames)
         {
@@ -79,14 +101,34 @@ public partial class GamesPage : ContentPage
             Text = game.Name,
             FontSize = 20,
             FontAttributes = FontAttributes.Bold,
-            TextColor = Color.FromArgb("#F1F5F9")
+            TextColor = Color.FromArgb("#F1F5F9"),
+            VerticalOptions = LayoutOptions.Center
+        };
+
+        // Favorite button
+        var favBtn = new Button
+        {
+            Text = game.IsFavorite ? "\uf004" : "\uf08a", // solid heart vs outline
+            FontFamily = "FontAwesomeSolid",
+            FontSize = 18,
+            BackgroundColor = Colors.Transparent,
+            TextColor = game.IsFavorite ? Color.FromArgb("#EF4444") : Color.FromArgb("#64748B"),
+            WidthRequest = 40,
+            HeightRequest = 40,
+            Padding = 0
+        };
+        favBtn.Clicked += (s, e) =>
+        {
+            game.IsFavorite = !game.IsFavorite;
+            favBtn.Text = game.IsFavorite ? "\uf004" : "\uf08a";
+            favBtn.TextColor = game.IsFavorite ? Color.FromArgb("#EF4444") : Color.FromArgb("#64748B");
         };
 
         var header = new HorizontalStackLayout
         {
             Spacing = 10,
             HorizontalOptions = LayoutOptions.Center,
-            Children = { iconLabel, titleLabel }
+            Children = { iconLabel, titleLabel, favBtn }
         };
 
         var descLabel = new Label
