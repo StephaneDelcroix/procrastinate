@@ -22,10 +22,26 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="📋 Tasks" ContentTemplate="{DataTemplate pages:TasksPage}" Route="TasksPage"/>
-        <ShellContent Title="🎮 Games" ContentTemplate="{DataTemplate pages:GamesPage}" Route="GamesPage"/>
-        <ShellContent Title="🎭 Excuses" ContentTemplate="{DataTemplate pages:ExcusePage}" Route="ExcusePage"/>
-        <ShellContent Title="📊 Stats" ContentTemplate="{DataTemplate pages:StatsPage}" Route="StatsPage"/>
+        <ShellContent Title="Tasks" ContentTemplate="{DataTemplate pages:TasksPage}" Route="TasksPage">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xf46d;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="Games" ContentTemplate="{DataTemplate pages:GamesPage}" Route="GamesPage">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xf11b;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="Excuses" ContentTemplate="{DataTemplate pages:ExcusePage}" Route="ExcusePage">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xf630;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="Stats" ContentTemplate="{DataTemplate pages:StatsPage}" Route="StatsPage">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xf201;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+            </ShellContent.Icon>
+        </ShellContent>
     </TabBar>
 
 </Shell>
