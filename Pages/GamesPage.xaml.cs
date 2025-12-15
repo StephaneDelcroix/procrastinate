@@ -92,6 +92,7 @@ public partial class GamesPage : ContentPage
             {
                 _simonScore++;
                 SimonScoreLabel.Text = $"Score: {_simonScore}";
+                await Task.Delay(500);
                 _ = AddToSimonSequence();
             }
         }
