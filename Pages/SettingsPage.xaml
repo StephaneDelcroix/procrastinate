@@ -26,11 +26,12 @@
                     Padding="20">
                 <VerticalStackLayout Spacing="16">
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="&#xf1ab;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Primary}"/>
+                        <Label Text="&#xf1ab;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Primary}" VerticalOptions="Center"/>
                         <Label Text="{Binding Language, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="18" 
                                FontAttributes="Bold"
-                               TextColor="{DynamicResource Gray200}"/>
+                               TextColor="{DynamicResource Gray200}"
+                               VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                     
                     <Picker x:Name="LanguagePicker"
@@ -47,11 +48,12 @@
                     Padding="20">
                 <VerticalStackLayout Spacing="16">
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="&#xf29a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Secondary}"/>
+                        <Label Text="&#xf29a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Secondary}" VerticalOptions="Center"/>
                         <Label Text="{Binding Accessibility, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="18" 
                                FontAttributes="Bold"
-                               TextColor="{DynamicResource Gray200}"/>
+                               TextColor="{DynamicResource Gray200}"
+                               VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                     
                     <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
@@ -95,11 +97,12 @@
                     Padding="20">
                 <VerticalStackLayout Spacing="16">
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="&#xf53f;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Tertiary}"/>
+                        <Label Text="&#xf53f;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Tertiary}" VerticalOptions="Center"/>
                         <Label Text="{Binding ThemePreview, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="18" 
                                FontAttributes="Bold"
-                               TextColor="{DynamicResource Gray200}"/>
+                               TextColor="{DynamicResource Gray200}"
+                               VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                     
                     <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
