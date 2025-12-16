@@ -58,10 +58,16 @@ When asked to "do a release" or "release checklist":
    - Upload to App Store Connect via Transporter or `xcrun altool`
    - Add release notes in TestFlight
 
-9. **Plan Party & Send Invites** 🎉
+9. **Plan Party & Send Invites**
    - Create calendar event
    - Send Slack/Teams/email announcement
    - Prepare celebratory GIFs
+
+10. **Attend the Party** 🎉
+    - Show up (optional: on time)
+    - Celebrate the release
+    - Take credit for everyone's work
+    - Procrastinate on the next release
 
 ## iOS Simulator Interaction (macOS)
 
