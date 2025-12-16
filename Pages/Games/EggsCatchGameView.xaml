@@ -6,22 +6,11 @@
     <VerticalStackLayout Spacing="12">
         <!-- Game area -->
         <Grid x:Name="GameArea" 
+              ColumnDefinitions="*,*,*,*" RowDefinitions="*,*,*,40"
               WidthRequest="280" 
               HeightRequest="200" 
               BackgroundColor="{DynamicResource CardBackgroundAlt}"
               HorizontalOptions="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="40"/>
-            </Grid.RowDefinitions>
             
             <!-- Egg positions (4 columns x 3 rows for falling eggs) -->
             <Label x:Name="Egg00" Grid.Row="0" Grid.Column="0" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>

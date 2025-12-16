@@ -4,17 +4,7 @@
              xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.Games.TicTacToeGameView">
     <VerticalStackLayout Spacing="16">
-        <Grid x:Name="GameGrid" ColumnSpacing="4" RowSpacing="4" HorizontalOptions="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="60"/>
-                <ColumnDefinition Width="60"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="60"/>
-            </Grid.RowDefinitions>
+        <Grid x:Name="GameGrid" ColumnDefinitions="60,60,60" RowDefinitions="60,60,60" ColumnSpacing="4" RowSpacing="4" HorizontalOptions="Center">
         </Grid>
         <Label x:Name="StatusLabel" 
                Text="{Binding YourTurn, Source={x:Static strings:AppStrings.Instance}}" 

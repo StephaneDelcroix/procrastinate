@@ -4,15 +4,7 @@
              xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.Games.SimonSaysGameView">
     <VerticalStackLayout Spacing="16">
-        <Grid ColumnSpacing="8" RowSpacing="8" HorizontalOptions="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="95"/>
-                <ColumnDefinition Width="95"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="95"/>
-                <RowDefinition Height="95"/>
-            </Grid.RowDefinitions>
+        <Grid ColumnDefinitions="95,95" RowDefinitions="95,95" ColumnSpacing="8" RowSpacing="8" HorizontalOptions="Center">
             <Button x:Name="RedBtn" Grid.Row="0" Grid.Column="0" 
                     BackgroundColor="#EF4444" CornerRadius="12" 
                     WidthRequest="90" HeightRequest="90"

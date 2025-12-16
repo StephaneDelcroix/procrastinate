@@ -4,17 +4,7 @@
              xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.Games.WhackAMoleGameView">
     <VerticalStackLayout Spacing="16">
-        <Grid x:Name="GameGrid" ColumnSpacing="8" RowSpacing="8" HorizontalOptions="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-                <RowDefinition Height="80"/>
-            </Grid.RowDefinitions>
+        <Grid x:Name="GameGrid" ColumnDefinitions="80,80,80" RowDefinitions="80,80,80" ColumnSpacing="8" RowSpacing="8" HorizontalOptions="Center">
         </Grid>
         <Label x:Name="ScoreLabel" 
                Text="Score: 0 | Misses: 0" 

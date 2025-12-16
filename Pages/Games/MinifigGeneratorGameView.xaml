@@ -15,12 +15,7 @@
                 <!-- Face -->
                 <Label x:Name="FaceLabel" Text=":)" FontSize="28" HorizontalOptions="Center" TextColor="#FBBF24"/>
                 <!-- Torso -->
-                <Grid HorizontalOptions="Center">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20"/>
-                        <ColumnDefinition Width="40"/>
-                        <ColumnDefinition Width="20"/>
-                    </Grid.ColumnDefinitions>
+                <Grid ColumnDefinitions="20,40,20" HorizontalOptions="Center">
                     <Label x:Name="LeftArmLabel" Grid.Column="0" Text="/" FontSize="24" HorizontalOptions="End" TextColor="{DynamicResource Gray200}"/>
                     <Label x:Name="TorsoLabel" Grid.Column="1" Text="[  ]" FontSize="24" HorizontalOptions="Center"/>
                     <Label x:Name="RightArmLabel" Grid.Column="2" Text="\" FontSize="24" HorizontalOptions="Start" TextColor="{DynamicResource Gray200}"/>
