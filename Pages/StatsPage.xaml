@@ -94,6 +94,30 @@
                 </Border>
             </Grid>
 
+            <!-- Weekly Activity Chart -->
+            <Border BackgroundColor="{DynamicResource CardBackground}" 
+                    StrokeShape="RoundRectangle 16" 
+                    Stroke="Transparent"
+                    Padding="20">
+                <VerticalStackLayout Spacing="12">
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="&#xf080;" FontFamily="FontAwesomeSolid" FontSize="24" TextColor="{DynamicResource Secondary}"/>
+                        <Label x:Name="ChartTitleLabel" Text="Last 7 Days" FontSize="18" FontAttributes="Bold" TextColor="{DynamicResource Gray100}" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                    <Grid x:Name="ChartGrid" HeightRequest="120" ColumnSpacing="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
             <!-- High Scores Section -->
             <Border BackgroundColor="{DynamicResource CardBackground}" 
                     StrokeShape="RoundRectangle 16" 

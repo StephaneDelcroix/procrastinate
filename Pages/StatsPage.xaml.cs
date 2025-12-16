@@ -22,6 +22,7 @@ public partial class StatsPage : ContentPage
     {
         base.OnAppearing();
         RefreshStats();
+        RefreshChart();
     }
 
     private void RefreshStats()
@@ -46,6 +47,74 @@ public partial class StatsPage : ContentPage
         };
     }
 
+    private void RefreshChart()
+    {
+        ChartTitleLabel.Text = AppStrings.GetString("Last7Days");
+        ChartGrid.Children.Clear();
+
+        var dailyStats = _statsService.GetDailyStats(7);
+        var maxTotal = dailyStats.Max(d => d.Stats.Total);
+        if (maxTotal == 0) maxTotal = 1;
+
+        for (int i = 0; i < dailyStats.Count; i++)
+        {
+            var (date, stats) = dailyStats[i];
+            var heightPercent = (double)stats.Total / maxTotal;
+            
+            var barContainer = new Grid
+            {
+                RowDefinitions = [new RowDefinition(GridLength.Star), new RowDefinition(GridLength.Auto)]
+            };
+
+            var bar = new BoxView
+            {
+                Color = GetBarColor(i),
+                CornerRadius = 4,
+                HeightRequest = Math.Max(4, 80 * heightPercent),
+                VerticalOptions = LayoutOptions.End
+            };
+
+            var dayLabel = new Label
+            {
+                Text = date.ToString("ddd")[..2],
+                FontSize = 10,
+                TextColor = (Color)Application.Current!.Resources["Gray400"],
+                HorizontalOptions = LayoutOptions.Center
+            };
+
+            var countLabel = new Label
+            {
+                Text = stats.Total > 0 ? stats.Total.ToString() : "",
+                FontSize = 9,
+                TextColor = (Color)Application.Current!.Resources["Gray300"],
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.End,
+                Margin = new Thickness(0, 0, 0, 4)
+            };
+
+            barContainer.Add(bar, 0, 0);
+            barContainer.Add(countLabel, 0, 0);
+            barContainer.Add(dayLabel, 0, 1);
+            
+            ChartGrid.Add(barContainer, i, 0);
+        }
+    }
+
+    private static Color GetBarColor(int index)
+    {
+        var colors = new[]
+        {
+            Color.FromArgb("#14B8A6"),
+            Color.FromArgb("#F59E0B"),
+            Color.FromArgb("#8B5CF6"),
+            Color.FromArgb("#EC4899"),
+            Color.FromArgb("#3B82F6"),
+            Color.FromArgb("#10B981"),
+            Color.FromArgb("#F97316")
+        };
+        return colors[index % colors.Length];
+    }
+
     private void RefreshHighScores()
     {
         var highScores = _statsService.GameHighScores;
@@ -58,7 +127,6 @@ public partial class StatsPage : ContentPage
 
         NoHighScoresLabel.IsVisible = false;
         
-        // Clear existing scores (except the NoHighScoresLabel)
         var toRemove = HighScoresStack.Children.Where(c => c != NoHighScoresLabel).ToList();
         foreach (var child in toRemove)
             HighScoresStack.Children.Remove(child);

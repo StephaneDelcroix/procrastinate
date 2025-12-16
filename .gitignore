@@ -10,3 +10,5 @@ obj/
 
 # macOS
 .DS_Store
+*.keystore
+*.jks
