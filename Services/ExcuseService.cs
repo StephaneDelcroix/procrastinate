@@ -11,7 +11,8 @@ public class ExcuseService
         _generators = new Dictionary<string, IExcuseGenerator>
         {
             { "random", new RandomExcuseGenerator() },
-            { "cloud", new CloudExcuseGenerator() }
+            { "cloud", new CloudExcuseGenerator() },
+            { "ondevice", new OnDeviceAIExcuseGenerator() }
         };
     }
 
@@ -24,7 +25,8 @@ public class ExcuseService
     public static readonly Dictionary<string, string> AvailableModes = new()
     {
         { "random", "Random Generator" },
-        { "cloud", "Cloud AI (Groq)" }
+        { "cloud", "Cloud AI (Groq)" },
+        { "ondevice", "On-Device AI (Apple)" }
     };
 
     public IExcuseGenerator GetCurrentGenerator()
@@ -36,18 +38,19 @@ public class ExcuseService
     public async Task<string> GenerateExcuseAsync(string language)
     {
         var generator = GetCurrentGenerator();
-        var usingCloud = CurrentMode == "cloud" && generator.IsAvailable;
+        var usingAI = (CurrentMode == "cloud" || CurrentMode == "ondevice") && generator.IsAvailable;
         
-        // Fallback to random if cloud is not available
+        // For cloud AI, fallback to random if not available (no API key)
+        // For on-device AI, let it generate an error message explaining why
         if (!generator.IsAvailable && CurrentMode == "cloud")
         {
             generator = _generators["random"];
-            usingCloud = false;
+            usingAI = false;
         }
         
         var result = await generator.GenerateExcuseAsync(language);
         
-        if (usingCloud)
+        if (usingAI)
         {
             _stats.IncrementAIExcuseCalls();
         }

@@ -193,4 +193,8 @@ public class AppStrings : INotifyPropertyChanged
     public string GroqApiKeyLabel => this["GroqApiKeyLabel"];
     public string GroqApiKeyPlaceholder => this["GroqApiKeyPlaceholder"];
     public string GroqGetKeyHint => this["GroqGetKeyHint"];
+    public string OnDeviceAI => this["OnDeviceAI"];
+    public string OnDeviceAIHint => this["OnDeviceAIHint"];
+    public string OnDeviceAIAvailable => this["OnDeviceAIAvailable"];
+    public string OnDeviceAIUnavailable => this["OnDeviceAIUnavailable"];
 }

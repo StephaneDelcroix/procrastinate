@@ -132,4 +132,8 @@
   <data name="GroqApiKeyLabel" xml:space="preserve"><value>Groq API-sleutel</value></data>
   <data name="GroqApiKeyPlaceholder" xml:space="preserve"><value>Voer uw Groq API-sleutel in</value></data>
   <data name="GroqGetKeyHint" xml:space="preserve"><value>Haal uw gratis sleutel op console.groq.com</value></data>
+  <data name="OnDeviceAI" xml:space="preserve"><value>On-Device AI (Apple)</value></data>
+  <data name="OnDeviceAIHint" xml:space="preserve"><value>Gebruikt Apple Intelligence op iOS 26+. Geen internet nodig, volledig privé.</value></data>
+  <data name="OnDeviceAIAvailable" xml:space="preserve"><value>Apple Intelligence is klaar!</value></data>
+  <data name="OnDeviceAIUnavailable" xml:space="preserve"><value>Vereist iOS 26+ met Apple Intelligence ingeschakeld</value></data>
 </root>

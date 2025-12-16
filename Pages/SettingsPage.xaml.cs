@@ -40,7 +40,7 @@ public partial class SettingsPage : ContentPage
 
         GroqApiKeyEntry.Text = Preferences.Get("GroqApiKey", "");
         GroqModelEntry.Text = Preferences.Get("GroqModel", "llama-3.3-70b-versatile");
-        UpdateCloudSettingsVisibility();
+        UpdateAISettingsVisibility();
 
         // Display version
         var version = AppInfo.VersionString;
@@ -82,12 +82,33 @@ public partial class SettingsPage : ContentPage
         
         var modeKey = ExcuseService.AvailableModes.Keys.ElementAt(ExcuseModePicker.SelectedIndex);
         ExcuseService.CurrentMode = modeKey;
-        UpdateCloudSettingsVisibility();
+        UpdateAISettingsVisibility();
     }
 
-    private void UpdateCloudSettingsVisibility()
+    private void UpdateAISettingsVisibility()
     {
         CloudSettingsPanel.IsVisible = ExcuseService.CurrentMode == "cloud";
+        OnDeviceAISettingsPanel.IsVisible = ExcuseService.CurrentMode == "ondevice";
+        
+        if (ExcuseService.CurrentMode == "ondevice")
+        {
+            UpdateOnDeviceAIStatus();
+        }
+    }
+
+    private void UpdateOnDeviceAIStatus()
+    {
+        var generator = new OnDeviceAIExcuseGenerator();
+        if (generator.IsAvailable)
+        {
+            OnDeviceAIStatusLabel.Text = AppStrings.Instance.OnDeviceAIAvailable;
+            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#14B8A6"); // Secondary/teal
+        }
+        else
+        {
+            OnDeviceAIStatusLabel.Text = AppStrings.Instance.OnDeviceAIUnavailable;
+            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#F59E0B"); // Primary/amber warning
+        }
     }
 
     private void OnGroqApiKeyChanged(object? sender, TextChangedEventArgs e)

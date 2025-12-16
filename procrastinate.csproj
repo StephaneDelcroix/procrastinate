@@ -17,6 +17,7 @@
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
 		<!-- Display name -->
 		<ApplicationTitle>procrastinate</ApplicationTitle>
@@ -71,6 +72,14 @@
 		<EmbeddedResource Update="Resources\Strings\AppResources.*.resx">
 			<DependentUpon>AppResources.resx</DependentUpon>
 		</EmbeddedResource>
+	</ItemGroup>
+
+	<!-- Native iOS Framework for Foundation Models wrapper -->
+	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+		<NativeReference Include="Platforms\iOS\FMWrapper.xcframework">
+			<Kind>Framework</Kind>
+			<SmartLink>true</SmartLink>
+		</NativeReference>
 	</ItemGroup>
 
 </Project>

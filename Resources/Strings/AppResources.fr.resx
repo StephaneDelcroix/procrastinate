@@ -132,4 +132,8 @@
   <data name="GroqApiKeyLabel" xml:space="preserve"><value>Clé API Groq</value></data>
   <data name="GroqApiKeyPlaceholder" xml:space="preserve"><value>Entrez votre clé API Groq</value></data>
   <data name="GroqGetKeyHint" xml:space="preserve"><value>Obtenez votre clé gratuite sur console.groq.com</value></data>
+  <data name="OnDeviceAI" xml:space="preserve"><value>IA sur l'appareil (Apple)</value></data>
+  <data name="OnDeviceAIHint" xml:space="preserve"><value>Utilise Apple Intelligence sur iOS 26+. Aucune connexion internet requise, totalement privé.</value></data>
+  <data name="OnDeviceAIAvailable" xml:space="preserve"><value>Apple Intelligence est prêt!</value></data>
+  <data name="OnDeviceAIUnavailable" xml:space="preserve"><value>Nécessite iOS 26+ avec Apple Intelligence activé</value></data>
 </root>

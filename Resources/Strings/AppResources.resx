@@ -154,6 +154,10 @@
   <data name="GroqApiKeyLabel" xml:space="preserve"><value>Groq API Key</value></data>
   <data name="GroqApiKeyPlaceholder" xml:space="preserve"><value>Enter your Groq API key</value></data>
   <data name="GroqGetKeyHint" xml:space="preserve"><value>Get your free API key at console.groq.com</value></data>
+  <data name="OnDeviceAI" xml:space="preserve"><value>On-Device AI (Apple)</value></data>
+  <data name="OnDeviceAIHint" xml:space="preserve"><value>Uses Apple Intelligence on iOS 26+. No internet required, completely private.</value></data>
+  <data name="OnDeviceAIAvailable" xml:space="preserve"><value>Apple Intelligence is ready!</value></data>
+  <data name="OnDeviceAIUnavailable" xml:space="preserve"><value>Requires iOS 26+ with Apple Intelligence enabled</value></data>
   
   <!-- Stats - AI and High Scores -->
   <data name="AIExcuseCalls" xml:space="preserve"><value>AI API Calls</value></data>

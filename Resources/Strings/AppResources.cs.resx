@@ -132,4 +132,8 @@
   <data name="GroqApiKeyLabel" xml:space="preserve"><value>Groq API klíč</value></data>
   <data name="GroqApiKeyPlaceholder" xml:space="preserve"><value>Zadejte svůj Groq API klíč</value></data>
   <data name="GroqGetKeyHint" xml:space="preserve"><value>Získejte svůj klíč zdarma na console.groq.com</value></data>
+  <data name="OnDeviceAI" xml:space="preserve"><value>AI na zařízení (Apple)</value></data>
+  <data name="OnDeviceAIHint" xml:space="preserve"><value>Používá Apple Intelligence na iOS 26+. Bez internetu, zcela soukromé.</value></data>
+  <data name="OnDeviceAIAvailable" xml:space="preserve"><value>Apple Intelligence je připravena!</value></data>
+  <data name="OnDeviceAIUnavailable" xml:space="preserve"><value>Vyžaduje iOS 26+ s povolenou Apple Intelligence</value></data>
 </root>

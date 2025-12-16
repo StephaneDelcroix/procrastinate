@@ -143,6 +143,22 @@
                                FontSize="12" 
                                TextColor="{DynamicResource Gray500}"/>
                     </VerticalStackLayout>
+
+                    <VerticalStackLayout x:Name="OnDeviceAISettingsPanel" Spacing="12" IsVisible="False">
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="&#xf538;" 
+                                   FontFamily="FontAwesomeSolid" 
+                                   FontSize="16" 
+                                   TextColor="{DynamicResource Secondary}"
+                                   VerticalOptions="Center"/>
+                            <Label x:Name="OnDeviceAIStatusLabel"
+                                   FontSize="14" 
+                                   TextColor="{DynamicResource Gray300}"/>
+                        </HorizontalStackLayout>
+                        <Label Text="{Binding OnDeviceAIHint, Source={x:Static strings:AppStrings.Instance}}" 
+                               FontSize="12" 
+                               TextColor="{DynamicResource Gray500}"/>
+                    </VerticalStackLayout>
                 </VerticalStackLayout>
             </Border>
 
