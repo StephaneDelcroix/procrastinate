@@ -85,11 +85,11 @@ public partial class SnakeGameView : ContentView
             var head = _snake[0];
             var newHead = (r: head.r + _direction.dr, c: head.c + _direction.dc);
 
-            if (newHead.r < 0 || newHead.r >= GridSize || newHead.c < 0 || newHead.c >= GridSize)
-            {
-                GameOver();
-                return;
-            }
+            // Wrap around walls instead of dying
+            if (newHead.r < 0) newHead.r = GridSize - 1;
+            else if (newHead.r >= GridSize) newHead.r = 0;
+            if (newHead.c < 0) newHead.c = GridSize - 1;
+            else if (newHead.c >= GridSize) newHead.c = 0;
 
             if (_snake.Contains(newHead))
             {

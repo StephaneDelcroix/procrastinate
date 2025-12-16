@@ -25,7 +25,7 @@
 - ~~clickspeed: ScoreLabel should use a binding to update~~
 - ~~simon game: use sound~~
 - whack-a-mole: revert to hole-emojo and mouse-emoji (or others)
-- snake: do not die when hitting a wall, but continue on the opposite side
+- ~~snake: do not die when hitting a wall, but continue on the opposite side~~
 
 ## Tasks Page
 - ~~I don't like the box in box feeling~~
