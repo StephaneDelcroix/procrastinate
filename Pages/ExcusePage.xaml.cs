@@ -7,13 +7,15 @@ public partial class ExcusePage : ContentPage
 {
     private readonly StatsService _statsService;
     private readonly ExcuseService _excuseService;
+    private readonly ImageGeneratorService _imageService;
     private string _currentExcuse = "";
 
-    public ExcusePage(StatsService statsService, ExcuseService excuseService)
+    public ExcusePage(StatsService statsService, ExcuseService excuseService, ImageGeneratorService imageService)
     {
         InitializeComponent();
         _statsService = statsService;
         _excuseService = excuseService;
+        _imageService = imageService;
         UpdateCounterLabel();
     }
 
@@ -38,6 +40,10 @@ public partial class ExcusePage : ContentPage
         // Refresh zalgo randomness on button click
         AppStrings.Refresh();
         
+        // Reset image state
+        ExcuseImage.IsVisible = false;
+        GenerateImageBtn.IsVisible = false;
+        
         // Show loading state
         GenerateBtn.IsEnabled = false;
         ExcuseLabel.Text = AppStrings.GetString("Generating");
@@ -51,6 +57,9 @@ public partial class ExcusePage : ContentPage
             
             _statsService.IncrementExcusesGenerated();
             UpdateCounterLabel();
+            
+            // Show the generate image button
+            GenerateImageBtn.IsVisible = true;
         }
         catch (Exception ex)
         {
@@ -59,6 +68,40 @@ public partial class ExcusePage : ContentPage
         finally
         {
             GenerateBtn.IsEnabled = true;
+        }
+    }
+
+    private async void OnGenerateImageClicked(object? sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(_currentExcuse)) return;
+
+        GenerateImageBtn.IsEnabled = false;
+        ImageLoadingIndicator.IsVisible = true;
+        ImageLoadingIndicator.IsRunning = true;
+
+        try
+        {
+            var imageStream = await _imageService.GenerateImageAsync(_currentExcuse);
+            
+            if (imageStream != null)
+            {
+                ExcuseImage.Source = ImageSource.FromStream(() => imageStream);
+                ExcuseImage.IsVisible = true;
+            }
+            else
+            {
+                await DisplayAlert("Oops", AppStrings.GetString("ImageGenerationFailed"), "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", ex.Message, "OK");
+        }
+        finally
+        {
+            ImageLoadingIndicator.IsVisible = false;
+            ImageLoadingIndicator.IsRunning = false;
+            GenerateImageBtn.IsEnabled = true;
         }
     }
 

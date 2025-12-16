@@ -160,4 +160,6 @@
   <data name="Share" xml:space="preserve"><value>Compartilhar</value></data>
   <data name="ShareExcuse" xml:space="preserve"><value>Compartilhar esta desculpa</value></data>
   <data name="Last7Days" xml:space="preserve"><value>Últimos 7 Dias</value></data>
+  <data name="GenerateCartoon" xml:space="preserve"><value>Gerar desenho</value></data>
+  <data name="ImageGenerationFailed" xml:space="preserve"><value>Não foi possível gerar a imagem. Tente novamente mais tarde.</value></data>
 </root>

@@ -49,12 +49,22 @@
             <Border.Shadow>
                 <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
             </Border.Shadow>
-            <Label x:Name="ExcuseLabel"
-                   Text="{Binding TapForExcuse, Source={x:Static strings:AppStrings.Instance}}"
-                   FontSize="18"
-                   TextColor="{DynamicResource Gray200}"
-                   HorizontalTextAlignment="Center"
-                   VerticalOptions="Center"/>
+            <VerticalStackLayout Spacing="16">
+                <Label x:Name="ExcuseLabel"
+                       Text="{Binding TapForExcuse, Source={x:Static strings:AppStrings.Instance}}"
+                       FontSize="18"
+                       TextColor="{DynamicResource Gray200}"
+                       HorizontalTextAlignment="Center"
+                       VerticalOptions="Center"/>
+                <Image x:Name="ExcuseImage"
+                       IsVisible="False"
+                       HeightRequest="200"
+                       Aspect="AspectFit"/>
+                <ActivityIndicator x:Name="ImageLoadingIndicator"
+                                   IsVisible="False"
+                                   IsRunning="False"
+                                   Color="{DynamicResource Tertiary}"/>
+            </VerticalStackLayout>
         </Border>
         
         <Button x:Name="GenerateBtn"
@@ -79,6 +89,19 @@
                 Clicked="OnShareClicked">
             <Button.ImageSource>
                 <FontImageSource Glyph="&#xf1e0;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray300}" Size="16"/>
+            </Button.ImageSource>
+        </Button>
+
+        <Button x:Name="GenerateImageBtn"
+                Text="{Binding GenerateCartoon, Source={x:Static strings:AppStrings.Instance}}"
+                BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                TextColor="{DynamicResource Gray200}"
+                HeightRequest="48"
+                CornerRadius="12"
+                IsVisible="False"
+                Clicked="OnGenerateImageClicked">
+            <Button.ImageSource>
+                <FontImageSource Glyph="&#xf03e;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray300}" Size="16"/>
             </Button.ImageSource>
         </Button>
         

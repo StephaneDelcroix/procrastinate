@@ -17,7 +17,7 @@
 - ~~settings still doesn't close on changing tab~~
 - ~~there's a shorthand to declare Grid Row/Col Definitions~~
 - ~~I'm too lazy to set the language. use system default by default. allow overriding in the settings~~
-- keep stats accross sessions, total per day, per week, month... with a nice chart
+- ~~keep stats accross sessions, total per day, per week, month... with a nice chart~~
 - ~~randomly enable zalgo 15% of the time~~
 - ~~Zalgo randomness should recompute on navigation, on button clicks, etc...~~
 
