@@ -1,5 +1,9 @@
 # Copilot Instructions for Procrastinate
 
+## TODO List Location
+
+The TODO list is at `.github/TODO.md` - always check there when asked to "work on the TODO".
+
 ## Working on TODO Tasks
 
 When asked to work on the TODO list (`.github/TODO.md`):

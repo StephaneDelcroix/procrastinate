@@ -11,7 +11,10 @@ public class CloudExcuseGenerator : IExcuseGenerator
     private static string ApiKey => Preferences.Get("GroqApiKey", "");
     private static string ApiEndpoint => Preferences.Get("GroqApiEndpoint", "https://api.groq.com/openai/v1/chat/completions");
     private static string Model => Preferences.Get("GroqModel", "llama-3.3-70b-versatile");
-    private static readonly HttpClient _httpClient = new() { Timeout = TimeSpan.FromSeconds(30) };
+    private const int MaxRetries = 3;
+    
+    private static readonly Lazy<HttpClient> _httpClient = new(() => 
+        new HttpClient { Timeout = TimeSpan.FromSeconds(30) });
 
     public async Task<string> GenerateExcuseAsync(string language)
     {
@@ -42,19 +45,39 @@ public class CloudExcuseGenerator : IExcuseGenerator
             };
 
             var json = JsonSerializer.Serialize(request);
-            var httpRequest = new HttpRequestMessage(HttpMethod.Post, ApiEndpoint)
+            
+            Exception? lastException = null;
+            for (int retry = 0; retry < MaxRetries; retry++)
             {
-                Content = new StringContent(json, System.Text.Encoding.UTF8, "application/json")
-            };
-            httpRequest.Headers.Add("Authorization", $"Bearer {ApiKey}");
-            
-            var response = await _httpClient.SendAsync(httpRequest);
-            response.EnsureSuccessStatusCode();
+                try
+                {
+                    var httpRequest = new HttpRequestMessage(HttpMethod.Post, ApiEndpoint)
+                    {
+                        Content = new StringContent(json, System.Text.Encoding.UTF8, "application/json")
+                    };
+                    httpRequest.Headers.Add("Authorization", $"Bearer {ApiKey}");
+                    
+                    var response = await _httpClient.Value.SendAsync(httpRequest);
+                    
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        var errorBody = await response.Content.ReadAsStringAsync();
+                        return $"API error ({response.StatusCode}): {errorBody}";
+                    }
 
-            var responseBody = await response.Content.ReadAsStringAsync();
-            var result = JsonSerializer.Deserialize<GroqResponse>(responseBody);
+                    var responseBody = await response.Content.ReadAsStringAsync();
+                    var result = JsonSerializer.Deserialize<GroqResponse>(responseBody);
+                    
+                    return result?.Choices?.FirstOrDefault()?.Message?.Content?.Trim() ?? "The AI is also procrastinating...";
+                }
+                catch (Exception ex) when (retry < MaxRetries - 1)
+                {
+                    lastException = ex;
+                    await Task.Delay(1000 * (retry + 1)); // Exponential backoff
+                }
+            }
             
-            return result?.Choices?.FirstOrDefault()?.Message?.Content?.Trim() ?? "The AI is also procrastinating...";
+            return $"Connection failed: {lastException?.Message ?? "Unknown error"}";
         }
         catch (Exception ex)
         {

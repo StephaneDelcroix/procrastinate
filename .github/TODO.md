@@ -21,3 +21,10 @@
 - ~~add a game like "game & Watch" "mickey mouse" (aka eggs) game~~ (removed - didn't work)
 - ~~add a game that randomly creates a LEGO minifigure~~ (removed - didn't work)
 - ~~clickspeed: ScoreLabel should use a binding to update~~
+- ~~simon game: use sound~~
+
+## Tasks Page
+- I don't like the box in box feeling
+
+## Stats Page
+- give info about API usage for AI excuses, keep scores on games

@@ -1,3 +1,4 @@
+using Plugin.Maui.Audio;
 using procrastinate.Resources.Strings;
 
 namespace procrastinate.Pages.Games;
@@ -8,6 +9,7 @@ public partial class SimonSaysGameView : ContentView
     private int _index;
     private bool _playerTurn;
     private int _score;
+    private readonly Dictionary<int, IAudioPlayer?> _sounds = [];
     
     public Action? OnGamePlayed { get; set; }
 
@@ -15,6 +17,36 @@ public partial class SimonSaysGameView : ContentView
     {
         InitializeComponent();
         UpdateScoreLabel();
+        _ = LoadSoundsAsync();
+    }
+
+    private async Task LoadSoundsAsync()
+    {
+        var audioManager = AudioManager.Current;
+        var soundFiles = new[] { "simon_red.wav", "simon_green.wav", "simon_blue.wav", "simon_yellow.wav" };
+        
+        for (int i = 0; i < soundFiles.Length; i++)
+        {
+            try
+            {
+                var stream = await FileSystem.OpenAppPackageFileAsync(soundFiles[i]);
+                _sounds[i] = audioManager.CreatePlayer(stream);
+            }
+            catch
+            {
+                _sounds[i] = null;
+            }
+        }
+    }
+
+    private void PlaySound(int color)
+    {
+        if (_sounds.TryGetValue(color, out var player) && player != null)
+        {
+            player.Stop();
+            player.Seek(0);
+            player.Play();
+        }
     }
 
     private void UpdateScoreLabel()
@@ -49,6 +81,7 @@ public partial class SimonSaysGameView : ContentView
             var btn = GetButton(color);
             var original = btn.BackgroundColor;
             btn.BackgroundColor = GetBrightColor(color);
+            PlaySound(color);
             await Task.Delay(400);
             btn.BackgroundColor = original;
             await Task.Delay(200);
@@ -71,6 +104,7 @@ public partial class SimonSaysGameView : ContentView
         var btn = GetButton(color);
         var original = btn.BackgroundColor;
         btn.BackgroundColor = GetBrightColor(color);
+        PlaySound(color);
         await Task.Delay(150);
         btn.BackgroundColor = original;
 

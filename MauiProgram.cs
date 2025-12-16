@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Plugin.Maui.Audio;
 using procrastinate.Pages;
 using procrastinate.Services;
 
@@ -19,6 +20,7 @@ public static class MauiProgram
 			});
 
 		// Services
+		builder.Services.AddSingleton(AudioManager.Current);
 		builder.Services.AddSingleton<StatsService>();
 		builder.Services.AddSingleton<ExcuseService>();
 		
