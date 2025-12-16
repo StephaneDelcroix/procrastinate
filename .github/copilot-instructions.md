@@ -39,4 +39,18 @@ Take screenshot: `xcrun simctl io <UDID> screenshot output.png`
 1. Build and run: `dotnet build -f net10.0-ios && xcrun simctl install <UDID> bin/Debug/net10.0-ios/iossimulator-arm64/procrastinate.app && xcrun simctl launch <UDID> com.companyname.procrastinate`
 2. Use AppleScript clicks to navigate between tabs
 3. Use `xcrun simctl io <UDID> screenshot` for each page
-4. Create collage with Python/Pillow (see screenshots_collage.png)
+4. Create collage with Python/Pillow
+
+## Collage Style Preferences
+
+- **Layout**: Horizontal, all 4 pages in a row
+- **Background**: Dark blue-gray (#1A202C)
+- **Header**: 
+  - Title "Procrastinate" in golden orange
+  - Subtitle "The Ultimate Anti-Productivity App"
+  - Multi-language tagline (English, French, Spanish, Portuguese, Dutch & Czech)
+- **Screenshots**: All 4 tabs (Tasks, Games, Excuses, Stats) scaled ~20%
+- **Footer**:
+  - Feature labels under each screenshot
+  - Funny user testimonial with 5-star rating
+- **No emojis** (they don't render properly in Pillow with system fonts)
