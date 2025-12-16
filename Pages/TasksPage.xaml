@@ -35,41 +35,36 @@
                TextColor="{DynamicResource Primary}"
                HorizontalOptions="Center"/>
         
-        <Border BackgroundColor="{DynamicResource CardBackground}" 
-                StrokeShape="RoundRectangle 16"
-                Stroke="Transparent"
-                Padding="24">
-            <Border.Shadow>
-                <Shadow Brush="#40000000" Offset="0,4" Radius="12" Opacity="0.3"/>
-            </Border.Shadow>
-            <VerticalStackLayout Spacing="16">
-                <Label Text="{Binding YourProductivityList, Source={x:Static strings:AppStrings.Instance}}" 
-                       FontSize="14" 
-                       TextColor="{DynamicResource Gray400}"/>
-                
-                <Border BackgroundColor="{DynamicResource CardBackgroundAlt}"
-                        StrokeShape="RoundRectangle 12"
-                        Stroke="Transparent"
-                        Padding="16">
-                    <HorizontalStackLayout Spacing="12">
-                        <CheckBox x:Name="TaskCheckBox" 
-                                  Color="{DynamicResource Primary}"
-                                  CheckedChanged="OnTaskChecked"/>
-                        <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
-                            <Label Text="&#xf0f4;" 
-                                   FontFamily="FontAwesomeSolid"
-                                   FontSize="18" 
-                                   TextColor="{DynamicResource Gray300}"
-                                   VerticalOptions="Center"/>
-                            <Label Text="{Binding TakeABreak, Source={x:Static strings:AppStrings.Instance}}" 
-                                   FontSize="18" 
-                                   TextColor="{DynamicResource Gray100}"
-                                   VerticalOptions="Center"/>
-                        </HorizontalStackLayout>
+        <VerticalStackLayout Spacing="12">
+            <Label Text="{Binding YourProductivityList, Source={x:Static strings:AppStrings.Instance}}" 
+                   FontSize="14" 
+                   TextColor="{DynamicResource Gray400}"/>
+            
+            <Border BackgroundColor="{DynamicResource CardBackground}"
+                    StrokeShape="RoundRectangle 12"
+                    Stroke="Transparent"
+                    Padding="16">
+                <Border.Shadow>
+                    <Shadow Brush="#40000000" Offset="0,2" Radius="8" Opacity="0.2"/>
+                </Border.Shadow>
+                <HorizontalStackLayout Spacing="12">
+                    <CheckBox x:Name="TaskCheckBox" 
+                              Color="{DynamicResource Primary}"
+                              CheckedChanged="OnTaskChecked"/>
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                        <Label Text="&#xf0f4;" 
+                               FontFamily="FontAwesomeSolid"
+                               FontSize="18" 
+                               TextColor="{DynamicResource Gray300}"
+                               VerticalOptions="Center"/>
+                        <Label Text="{Binding TakeABreak, Source={x:Static strings:AppStrings.Instance}}" 
+                               FontSize="18" 
+                               TextColor="{DynamicResource Gray100}"
+                               VerticalOptions="Center"/>
                     </HorizontalStackLayout>
-                </Border>
-            </VerticalStackLayout>
-        </Border>
+                </HorizontalStackLayout>
+            </Border>
+        </VerticalStackLayout>
         
         <Label x:Name="MotivationLabel"
                Text="{Binding DoingGreat, Source={x:Static strings:AppStrings.Instance}}"
