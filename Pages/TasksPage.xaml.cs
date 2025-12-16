@@ -35,7 +35,10 @@ public partial class TasksPage : ContentPage
         _statsService.IncrementTasksAvoided();
         var excuses = GetLocalizedExcuses();
         var excuse = excuses[Random.Shared.Next(excuses.Length)];
-        await DisplayAlertAsync("❌", excuse, "OK");
+        
+        // Apply Zalgo if enabled
+        var displayExcuse = AppStrings.IsZalgoMode ? AppStrings.Zalgoify(excuse) : excuse;
+        await DisplayAlertAsync("❌", displayExcuse, "OK");
     }
 
     private string[] GetLocalizedExcuses()
