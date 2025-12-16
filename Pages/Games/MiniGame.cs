@@ -13,6 +13,7 @@ public abstract class MiniGame
     public abstract void StopGame();
     
     public Action? OnGamePlayed { get; set; }
+    public Action<string, int>? OnHighScore { get; set; }
     public Action<MiniGame>? OnFavoriteToggled { get; set; }
     
     public string Id => GetType().Name;

@@ -14,6 +14,7 @@ public partial class SnakeGameView : ContentView
     private readonly BoxView[,] _cells = new BoxView[GridSize, GridSize];
     
     public Action? OnGamePlayed { get; set; }
+    public Action<int>? OnHighScore { get; set; }
 
     public SnakeGameView()
     {
@@ -147,6 +148,7 @@ public partial class SnakeGameView : ContentView
         try { Accelerometer.Stop(); } catch { }
         Accelerometer.ReadingChanged -= OnAccelerometerReading;
         StatusLabel.Text = AppStrings.GetString("GameOverScore", _score);
+        OnHighScore?.Invoke(_score);
         StartBtn.IsEnabled = true;
     }
 

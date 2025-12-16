@@ -12,6 +12,7 @@ public partial class WhackAMoleGameView : ContentView
     private CancellationTokenSource? _cts;
     
     public Action? OnGamePlayed { get; set; }
+    public Action<int>? OnHighScore { get; set; }
 
     public WhackAMoleGameView()
     {
@@ -84,6 +85,7 @@ public partial class WhackAMoleGameView : ContentView
         _running = false;
         StartBtn.IsEnabled = true;
         ScoreLabel.Text = AppStrings.GetString("GameOverScore", _score);
+        OnHighScore?.Invoke(_score);
     }
 
     private void OnHoleClicked(int row, int col)

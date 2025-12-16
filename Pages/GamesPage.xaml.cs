@@ -30,7 +30,10 @@ public partial class GamesPage : ContentPage
         ];
 
         foreach (var game in _allGames)
+        {
             game.OnGamePlayed = () => _statsService.IncrementGamesPlayed();
+            game.OnHighScore = (name, score) => _statsService.UpdateHighScore(name, score);
+        }
 
         UpdateShuffleButton();
         ShuffleGames();

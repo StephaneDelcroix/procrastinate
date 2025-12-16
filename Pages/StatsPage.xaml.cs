@@ -30,6 +30,9 @@ public partial class StatsPage : ContentPage
         BreaksTakenLabel.Text = _statsService.BreaksTaken.ToString();
         ExcusesLabel.Text = _statsService.ExcusesGenerated.ToString();
         GamesPlayedLabel.Text = _statsService.GamesPlayed.ToString();
+        AICallsLabel.Text = _statsService.AIExcuseCalls.ToString();
+
+        RefreshHighScores();
 
         var totalActivity = _statsService.TasksAvoided + _statsService.BreaksTaken + 
                            _statsService.ExcusesGenerated + _statsService.GamesPlayed;
@@ -41,6 +44,35 @@ public partial class StatsPage : ContentPage
             < 15 => GetRandomAchievement(),
             _ => $"🌟 {AppStrings.GetString("LegendaryProcrastinator")} 🌟"
         };
+    }
+
+    private void RefreshHighScores()
+    {
+        var highScores = _statsService.GameHighScores;
+        
+        if (highScores.Count == 0)
+        {
+            NoHighScoresLabel.IsVisible = true;
+            return;
+        }
+
+        NoHighScoresLabel.IsVisible = false;
+        
+        // Clear existing scores (except the NoHighScoresLabel)
+        var toRemove = HighScoresStack.Children.Where(c => c != NoHighScoresLabel).ToList();
+        foreach (var child in toRemove)
+            HighScoresStack.Children.Remove(child);
+
+        foreach (var (game, score) in highScores.OrderByDescending(x => x.Value))
+        {
+            var scoreLabel = new Label
+            {
+                Text = $"{game}: {score}",
+                FontSize = 16,
+                TextColor = (Color)Application.Current!.Resources["Gray200"]
+            };
+            HighScoresStack.Children.Add(scoreLabel);
+        }
     }
 
     private string GetRandomAchievement()

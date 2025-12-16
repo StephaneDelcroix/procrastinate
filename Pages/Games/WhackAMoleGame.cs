@@ -15,7 +15,8 @@ public class WhackAMoleGame : MiniGame
     {
         _gameView = new WhackAMoleGameView
         {
-            OnGamePlayed = () => OnGamePlayed?.Invoke()
+            OnGamePlayed = () => OnGamePlayed?.Invoke(),
+            OnHighScore = score => OnHighScore?.Invoke(Name, score)
         };
         return _gameView;
     }

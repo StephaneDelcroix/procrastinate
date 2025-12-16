@@ -15,7 +15,8 @@ public class SnakeGame : MiniGame
     {
         _gameView = new SnakeGameView
         {
-            OnGamePlayed = () => OnGamePlayed?.Invoke()
+            OnGamePlayed = () => OnGamePlayed?.Invoke(),
+            OnHighScore = score => OnHighScore?.Invoke(Name, score)
         };
         return _gameView;
     }

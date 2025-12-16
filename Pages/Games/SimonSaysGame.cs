@@ -15,7 +15,8 @@ public class SimonSaysGame : MiniGame
     {
         _gameView = new SimonSaysGameView
         {
-            OnGamePlayed = () => OnGamePlayed?.Invoke()
+            OnGamePlayed = () => OnGamePlayed?.Invoke(),
+            OnHighScore = score => OnHighScore?.Invoke(Name, score)
         };
         return _gameView;
     }

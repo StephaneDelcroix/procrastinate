@@ -27,4 +27,4 @@
 - ~~I don't like the box in box feeling~~
 
 ## Stats Page
-- give info about API usage for AI excuses, keep scores on games
+- ~~give info about API usage for AI excuses, keep scores on games~~

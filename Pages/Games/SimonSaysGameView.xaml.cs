@@ -12,6 +12,7 @@ public partial class SimonSaysGameView : ContentView
     private readonly Dictionary<int, IAudioPlayer?> _sounds = [];
     
     public Action? OnGamePlayed { get; set; }
+    public Action<int>? OnHighScore { get; set; }
 
     public SimonSaysGameView()
     {
@@ -122,6 +123,7 @@ public partial class SimonSaysGameView : ContentView
         else
         {
             ScoreLabel.Text = AppStrings.GetString("GameOver", _score);
+            OnHighScore?.Invoke(_score);
             StartBtn.IsEnabled = true;
             SetButtonsEnabled(false);
         }

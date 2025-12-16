@@ -154,4 +154,9 @@
   <data name="GroqApiKeyLabel" xml:space="preserve"><value>Groq API Key</value></data>
   <data name="GroqApiKeyPlaceholder" xml:space="preserve"><value>Enter your Groq API key</value></data>
   <data name="GroqGetKeyHint" xml:space="preserve"><value>Get your free API key at console.groq.com</value></data>
+  
+  <!-- Stats - AI and High Scores -->
+  <data name="AIExcuseCalls" xml:space="preserve"><value>AI API Calls</value></data>
+  <data name="HighScores" xml:space="preserve"><value>High Scores</value></data>
+  <data name="NoHighScoresYet" xml:space="preserve"><value>No high scores yet. Play some games!</value></data>
 </root>

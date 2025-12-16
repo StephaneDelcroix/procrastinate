@@ -3,9 +3,11 @@ namespace procrastinate.Services;
 public class ExcuseService
 {
     private readonly Dictionary<string, IExcuseGenerator> _generators;
+    private readonly StatsService _stats;
     
-    public ExcuseService()
+    public ExcuseService(StatsService stats)
     {
+        _stats = stats;
         _generators = new Dictionary<string, IExcuseGenerator>
         {
             { "random", new RandomExcuseGenerator() },
@@ -34,13 +36,22 @@ public class ExcuseService
     public async Task<string> GenerateExcuseAsync(string language)
     {
         var generator = GetCurrentGenerator();
+        var usingCloud = CurrentMode == "cloud" && generator.IsAvailable;
         
         // Fallback to random if cloud is not available
         if (!generator.IsAvailable && CurrentMode == "cloud")
         {
             generator = _generators["random"];
+            usingCloud = false;
         }
         
-        return await generator.GenerateExcuseAsync(language);
+        var result = await generator.GenerateExcuseAsync(language);
+        
+        if (usingCloud)
+        {
+            _stats.IncrementAIExcuseCalls();
+        }
+        
+        return result;
     }
 }

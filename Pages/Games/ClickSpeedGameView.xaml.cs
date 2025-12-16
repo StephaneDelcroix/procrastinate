@@ -11,6 +11,7 @@ public partial class ClickSpeedGameView : ContentView, INotifyPropertyChanged
     private string _scoreText = "";
     
     public Action? OnGamePlayed { get; set; }
+    public Action<int>? OnHighScore { get; set; }
 
     public string ScoreText
     {
@@ -40,6 +41,7 @@ public partial class ClickSpeedGameView : ContentView, INotifyPropertyChanged
         ClickBtn.IsEnabled = false;
         StartBtn.IsEnabled = true;
         ScoreText = AppStrings.GetString("FinalClicks", _clickCount, _clickCount / 5.0);
+        OnHighScore?.Invoke(_clickCount);
     }
 
     private void OnClickBtnClicked(object? sender, EventArgs e)
