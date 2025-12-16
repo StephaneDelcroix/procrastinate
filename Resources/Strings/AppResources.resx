@@ -27,8 +27,8 @@
   <data name="Accessibility" xml:space="preserve"><value>Accessibility</value></data>
   <data name="HighContrastMode" xml:space="preserve"><value>High Contrast Mode</value></data>
   <data name="HighContrastDesc" xml:space="preserve"><value>Use higher contrast colors for better visibility</value></data>
-  <data name="ZalgoMode" xml:space="preserve"><value>Zalgo Mode</value></data>
-  <data name="ZalgoModeDesc" xml:space="preserve"><value>H̵̨e̷ ̶c̵o̴m̵e̷s̴</value></data>
+  <data name="ZalgoMode" xml:space="preserve"><value>Zalgo Randomly</value></data>
+  <data name="ZalgoModeDesc" xml:space="preserve"><value>Chaos appears when you least expect it</value></data>
   <data name="ThemePreview" xml:space="preserve"><value>Theme Preview</value></data>
   <data name="CurrentTheme" xml:space="preserve"><value>Current: {0} Theme</value></data>
   <data name="DefaultTheme" xml:space="preserve"><value>Default</value></data>
