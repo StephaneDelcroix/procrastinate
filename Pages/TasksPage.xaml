@@ -22,7 +22,8 @@
         </Grid>
     </Shell.TitleView>
 
-    <VerticalStackLayout Padding="24" Spacing="24" VerticalOptions="Center">
+    <ScrollView>
+    <VerticalStackLayout Padding="24" Spacing="24" VerticalOptions="Start">
         <Label Text="&#xf46d;" 
                FontFamily="FontAwesomeSolid"
                FontSize="48" 
@@ -89,4 +90,5 @@
             </Button.ImageSource>
         </Button>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

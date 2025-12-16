@@ -3,8 +3,8 @@
 ## UI
 - ~~minigames: game icon not vertically aligned with text~~
 - ~~when navigating tabs, settings page should close, if it's open~~
-- theme isn't applied on already created pages. use {DynamicResource}
-- mini-games views should leverage XAML
+- ~~theme isn't applied on already created pages. use {DynamicResource}~~
+- mini-games views should leverage XAML (skipped - large refactoring)
 - all pages: if there's no scrolling, top-align (not center)
 - simon mini-game: make the button square (they're rectangle) with a small gutter
 - generated excuses aren't zalgo if zalgo setting is picked

@@ -22,7 +22,8 @@
         </Grid>
     </Shell.TitleView>
 
-    <VerticalStackLayout Padding="24" Spacing="24" VerticalOptions="Center">
+    <ScrollView>
+    <VerticalStackLayout Padding="24" Spacing="24" VerticalOptions="Start">
         <Label Text="&#xf630;" 
                FontFamily="FontAwesomeSolid"
                FontSize="48" 
@@ -87,4 +88,5 @@
                TextColor="{DynamicResource Gray500}"
                HorizontalOptions="Center"/>
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
