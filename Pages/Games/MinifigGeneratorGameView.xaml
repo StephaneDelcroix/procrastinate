@@ -4,26 +4,42 @@
              xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.Games.MinifigGeneratorGameView">
     <VerticalStackLayout Spacing="16">
-        <!-- Minifigure Display -->
+        <!-- Minifigure Display with Images -->
         <Border BackgroundColor="{DynamicResource CardBackgroundAlt}" 
                 StrokeShape="RoundRectangle 16" 
                 Padding="20"
                 HorizontalOptions="Center">
-            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+            <VerticalStackLayout Spacing="-10" HorizontalOptions="Center">
                 <!-- Hair/Hat -->
-                <Label x:Name="HairLabel" Text="^" FontSize="32" HorizontalOptions="Center" TextColor="{DynamicResource Gray200}"/>
-                <!-- Face -->
-                <Label x:Name="FaceLabel" Text=":)" FontSize="28" HorizontalOptions="Center" TextColor="#FBBF24"/>
+                <Image x:Name="HairImage" 
+                       Source="hair_flat.png" 
+                       HeightRequest="50" 
+                       WidthRequest="80"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"/>
+                <!-- Head/Face -->
+                <Image x:Name="HeadImage" 
+                       Source="head_yellow.png" 
+                       HeightRequest="60" 
+                       WidthRequest="60"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"/>
                 <!-- Torso -->
-                <Grid ColumnDefinitions="20,40,20" HorizontalOptions="Center">
-                    <Label x:Name="LeftArmLabel" Grid.Column="0" Text="/" FontSize="24" HorizontalOptions="End" TextColor="{DynamicResource Gray200}"/>
-                    <Label x:Name="TorsoLabel" Grid.Column="1" Text="[  ]" FontSize="24" HorizontalOptions="Center"/>
-                    <Label x:Name="RightArmLabel" Grid.Column="2" Text="\" FontSize="24" HorizontalOptions="Start" TextColor="{DynamicResource Gray200}"/>
-                </Grid>
+                <Image x:Name="TorsoImage" 
+                       Source="torso_red_plain.png" 
+                       HeightRequest="70" 
+                       WidthRequest="90"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"/>
                 <!-- Legs -->
-                <Label x:Name="LegsLabel" Text="| |" FontSize="24" HorizontalOptions="Center"/>
-                <!-- Accessory (held item) -->
-                <Label x:Name="AccessoryLabel" Text="" FontSize="18" HorizontalOptions="Center" TextColor="{DynamicResource Tertiary}"/>
+                <Image x:Name="LegsImage" 
+                       Source="legs_blue.png" 
+                       HeightRequest="60" 
+                       WidthRequest="70"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"/>
+                <!-- Accessory text -->
+                <Label x:Name="AccessoryLabel" Text="" FontSize="16" HorizontalOptions="Center" TextColor="{DynamicResource Tertiary}" Margin="0,10,0,0"/>
             </VerticalStackLayout>
         </Border>
         

@@ -22,4 +22,4 @@
 - ~~add a game that randomly creates a LEGO minifigure~~
 - ~~clickspeed: ScoreLabel should use a binding to update~~
 - ~~egg catch: only one egg lands at a time~~
-- ~~minifig: improved LEGO-style parts~~
+- ~~minifig: improve graphics with Bricklink images~~
