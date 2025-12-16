@@ -1,5 +1,19 @@
 # Copilot Instructions for Procrastinate
 
+## Working on TODO Tasks
+
+When asked to work on the TODO list (`.github/TODO.md`):
+
+1. Read the TODO.md file
+2. Work on each task **one by one**
+3. After completing each task:
+   - Build and verify the fix works
+   - Regenerate the collage (if UI changed)
+   - Commit with a descriptive message
+   - Push to remote
+   - Strike through the completed task in TODO.md (use `~~task~~`)
+4. Move to the next task
+
 ## iOS Simulator Interaction (macOS)
 
 To click/tap in iOS Simulator when `simctl io tap` doesn't exist, use AppleScript:
