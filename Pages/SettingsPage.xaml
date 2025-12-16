@@ -87,6 +87,42 @@
                                 Toggled="OnZalgoToggled"
                                 VerticalOptions="Center"/>
                     </Grid>
+                    
+                    <!-- Theme Preview -->
+                    <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray600}" Margin="0,8,0,8"/>
+                    
+                    <Label Text="{Binding ThemePreview, Source={x:Static strings:AppStrings.Instance}}" 
+                           FontSize="14" 
+                           TextColor="{DynamicResource Gray300}"/>
+                    
+                    <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+                        <Border x:Name="PreviewPrimary" 
+                                BackgroundColor="{DynamicResource Primary}"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="Transparent"
+                                WidthRequest="50" HeightRequest="50"/>
+                        <Border x:Name="PreviewSecondary" 
+                                BackgroundColor="{DynamicResource Secondary}"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="Transparent"
+                                WidthRequest="50" HeightRequest="50"/>
+                        <Border x:Name="PreviewTertiary" 
+                                BackgroundColor="{DynamicResource Tertiary}"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="Transparent"
+                                WidthRequest="50" HeightRequest="50"/>
+                        <Border x:Name="PreviewAccent" 
+                                BackgroundColor="{DynamicResource AccentLight}"
+                                StrokeShape="RoundRectangle 8"
+                                Stroke="Transparent"
+                                WidthRequest="50" HeightRequest="50"/>
+                    </HorizontalStackLayout>
+                    
+                    <Label x:Name="ThemeLabel"
+                           Text="Current: Default Theme"
+                           FontSize="14"
+                           TextColor="{DynamicResource Gray400}"
+                           HorizontalOptions="Center"/>
                 </VerticalStackLayout>
             </Border>
 
@@ -158,52 +194,6 @@
                                FontSize="12" 
                                TextColor="{DynamicResource Gray500}"/>
                     </VerticalStackLayout>
-                </VerticalStackLayout>
-            </Border>
-
-            <!-- Theme Preview -->
-            <Border BackgroundColor="{DynamicResource CardBackground}" 
-                    StrokeShape="RoundRectangle 16"
-                    Stroke="Transparent"
-                    Padding="20">
-                <VerticalStackLayout Spacing="16">
-                    <HorizontalStackLayout Spacing="10">
-                        <Label Text="&#xf53f;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Tertiary}" VerticalOptions="Center"/>
-                        <Label Text="{Binding ThemePreview, Source={x:Static strings:AppStrings.Instance}}" 
-                               FontSize="18" 
-                               FontAttributes="Bold"
-                               TextColor="{DynamicResource Gray200}"
-                               VerticalOptions="Center"/>
-                    </HorizontalStackLayout>
-                    
-                    <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
-                        <Border x:Name="PreviewPrimary" 
-                                BackgroundColor="{DynamicResource Primary}"
-                                StrokeShape="RoundRectangle 8"
-                                Stroke="Transparent"
-                                WidthRequest="50" HeightRequest="50"/>
-                        <Border x:Name="PreviewSecondary" 
-                                BackgroundColor="{DynamicResource Secondary}"
-                                StrokeShape="RoundRectangle 8"
-                                Stroke="Transparent"
-                                WidthRequest="50" HeightRequest="50"/>
-                        <Border x:Name="PreviewTertiary" 
-                                BackgroundColor="{DynamicResource Tertiary}"
-                                StrokeShape="RoundRectangle 8"
-                                Stroke="Transparent"
-                                WidthRequest="50" HeightRequest="50"/>
-                        <Border x:Name="PreviewAccent" 
-                                BackgroundColor="{DynamicResource AccentLight}"
-                                StrokeShape="RoundRectangle 8"
-                                Stroke="Transparent"
-                                WidthRequest="50" HeightRequest="50"/>
-                    </HorizontalStackLayout>
-                    
-                    <Label x:Name="ThemeLabel"
-                           Text="Current: Default Theme"
-                           FontSize="14"
-                           TextColor="{DynamicResource Gray400}"
-                           HorizontalOptions="Center"/>
                 </VerticalStackLayout>
             </Border>
 
