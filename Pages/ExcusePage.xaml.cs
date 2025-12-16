@@ -62,13 +62,14 @@ public partial class ExcusePage : ContentPage
         }
     }
 
-    private async void OnCopyClicked(object? sender, EventArgs e)
+    private async void OnShareClicked(object? sender, EventArgs e)
     {
         if (string.IsNullOrEmpty(_currentExcuse)) return;
         
-        await Clipboard.SetTextAsync(_currentExcuse);
-        CopyBtn.Text = $"✓ {AppStrings.GetString("Copied")}";
-        await Task.Delay(1500);
-        CopyBtn.Text = AppStrings.GetString("CopyToClipboard");
+        await Share.Default.RequestAsync(new ShareTextRequest
+        {
+            Text = _currentExcuse,
+            Title = AppStrings.GetString("ShareExcuse")
+        });
     }
 }

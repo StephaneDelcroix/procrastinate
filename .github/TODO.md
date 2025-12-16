@@ -19,7 +19,7 @@
 - ~~I'm too lazy to set the language. use system default by default. allow overriding in the settings~~
 - keep stats accross sessions, total per day, per week, month... with a nice chart
 - ~~randomly enable zalgo 15% of the time~~
-- Zalgo randomness should recompute on navigation, on button clicks, etc...
+- ~~Zalgo randomness should recompute on navigation, on button clicks, etc...~~
 
 ## Games
 - ~~add a game like "game & Watch" "mickey mouse" (aka eggs) game~~ (removed - didn't work)

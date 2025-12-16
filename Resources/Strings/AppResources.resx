@@ -184,4 +184,6 @@
   <data name="Author" xml:space="preserve">
     <value>Made by Stephane Delcroix</value>
   </data>
+  <data name="Share" xml:space="preserve"><value>Share</value></data>
+  <data name="ShareExcuse" xml:space="preserve"><value>Share this excuse</value></data>
 </root>

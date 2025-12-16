@@ -157,4 +157,6 @@
   <data name="Author" xml:space="preserve">
     <value>Gemaakt door Stephane Delcroix</value>
   </data>
+  <data name="Share" xml:space="preserve"><value>Delen</value></data>
+  <data name="ShareExcuse" xml:space="preserve"><value>Deel dit excuus</value></data>
 </root>

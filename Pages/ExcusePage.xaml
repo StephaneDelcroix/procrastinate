@@ -70,15 +70,15 @@
             </Button.ImageSource>
         </Button>
         
-        <Button x:Name="CopyBtn"
-                Text="{Binding CopyToClipboard, Source={x:Static strings:AppStrings.Instance}}"
+        <Button x:Name="ShareBtn"
+                Text="{Binding Share, Source={x:Static strings:AppStrings.Instance}}"
                 BackgroundColor="{DynamicResource CardBackgroundAlt}"
                 TextColor="{DynamicResource Gray200}"
                 HeightRequest="48"
                 CornerRadius="12"
-                Clicked="OnCopyClicked">
+                Clicked="OnShareClicked">
             <Button.ImageSource>
-                <FontImageSource Glyph="&#xf0c5;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray300}" Size="16"/>
+                <FontImageSource Glyph="&#xf1e0;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray300}" Size="16"/>
             </Button.ImageSource>
         </Button>
         
