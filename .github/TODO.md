@@ -25,6 +25,8 @@
 
 ## Tasks Page
 - ~~I don't like the box in box feeling~~
+- ~~clicking anywhere on the box (the checkbox or the label) should toggle the check~~
+- ~~more messages in the popup~~
 
 ## Stats Page
 - ~~give info about API usage for AI excuses, keep scores on games~~

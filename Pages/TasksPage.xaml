@@ -47,6 +47,9 @@
                 <Border.Shadow>
                     <Shadow Brush="#40000000" Offset="0,2" Radius="8" Opacity="0.2"/>
                 </Border.Shadow>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnTaskCardTapped"/>
+                </Border.GestureRecognizers>
                 <HorizontalStackLayout Spacing="12">
                     <CheckBox x:Name="TaskCheckBox" 
                               Color="{DynamicResource Primary}"
