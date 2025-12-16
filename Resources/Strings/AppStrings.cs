@@ -74,7 +74,7 @@ public class AppStrings : INotifyPropertyChanged
 
     public string this[string key] => GetString(key);
 
-    private static string Zalgoify(string text)
+    public static string Zalgoify(string text)
     {
         if (string.IsNullOrEmpty(text)) return text;
         

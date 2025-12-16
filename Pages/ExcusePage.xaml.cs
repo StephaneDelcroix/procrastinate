@@ -39,7 +39,9 @@ public partial class ExcusePage : ContentPage
         var ending = endings[Random.Shared.Next(endings.Length)];
 
         _currentExcuse = $"{starter} {middle} {ending}";
-        ExcuseLabel.Text = _currentExcuse;
+        
+        // Apply Zalgo if enabled
+        ExcuseLabel.Text = AppStrings.IsZalgoMode ? AppStrings.Zalgoify(_currentExcuse) : _currentExcuse;
         
         _statsService.IncrementExcusesGenerated();
         UpdateCounterLabel();
