@@ -37,6 +37,9 @@ public partial class TasksPage : ContentPage
 
     private async void OnAddTaskClicked(object? sender, EventArgs e)
     {
+        // Refresh zalgo randomness on button click
+        AppStrings.Refresh();
+        
         _statsService.IncrementTasksAvoided();
         var excuses = GetLocalizedExcuses();
         var excuse = excuses[Random.Shared.Next(excuses.Length)];

@@ -19,6 +19,7 @@
 - ~~I'm too lazy to set the language. use system default by default. allow overriding in the settings~~
 - keep stats accross sessions, total per day, per week, month... with a nice chart
 - ~~randomly enable zalgo 15% of the time~~
+- Zalgo randomness should recompute on navigation, on button clicks, etc...
 
 ## Games
 - ~~add a game like "game & Watch" "mickey mouse" (aka eggs) game~~ (removed - didn't work)
@@ -41,7 +42,12 @@
 
 ## excuses page
 - ~~the settings for CloudAI should have a dropdown list with the models~~
+- when the excuse is generated, add the option to generate a cartoon-like image matching the excuse
+- replace the "copy" button by a "share", so we can copy, share by message, whatsapp, etc
 
 ## settings
 - ~~create an about section, with author, where to find source, etc~~
 - ~~the Theme Preview should be in the same box as Accessibility~~
+
+## others
+- take note in the instruction. make sur to update the README when you update the Changelog

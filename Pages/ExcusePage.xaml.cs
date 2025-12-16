@@ -35,6 +35,9 @@ public partial class ExcusePage : ContentPage
 
     private async void OnGenerateClicked(object? sender, EventArgs e)
     {
+        // Refresh zalgo randomness on button click
+        AppStrings.Refresh();
+        
         // Show loading state
         GenerateBtn.IsEnabled = false;
         ExcuseLabel.Text = AppStrings.GetString("Generating");

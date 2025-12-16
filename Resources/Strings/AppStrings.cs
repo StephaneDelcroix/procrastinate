@@ -149,6 +149,15 @@ public class AppStrings : INotifyPropertyChanged
     public static string Get(string key) => GetString(key);
     public static string Get(string key, params object[] args) => GetString(key, args);
 
+    /// <summary>
+    /// Refresh all string bindings to recompute zalgo randomness
+    /// Call this on navigation, button clicks, etc.
+    /// </summary>
+    public static void Refresh()
+    {
+        Instance.OnPropertyChanged(null);
+    }
+
     protected void OnPropertyChanged(string? propertyName)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

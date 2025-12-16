@@ -1,4 +1,5 @@
 using procrastinate.Pages;
+using procrastinate.Resources.Strings;
 
 namespace procrastinate;
 
@@ -27,6 +28,9 @@ public partial class AppShell : Shell
 		
 		// Extract the tab name (e.g., "//TasksPage" -> "TasksPage")
 		var currentTab = currentLocation.TrimStart('/').Split('/')[0];
+		
+		// Refresh strings to recompute zalgo randomness on navigation
+		AppStrings.Refresh();
 		
 		// If we're on the same tab but navigated (e.g., pushed settings then came back), 
 		// don't pop - we might have just opened settings

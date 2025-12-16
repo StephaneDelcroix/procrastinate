@@ -23,7 +23,7 @@
 		<ApplicationTitle>procrastinate</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.procrastinate</ApplicationId>
+		<ApplicationId>org.reblochon.procrastinate</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>2.0.0</ApplicationDisplayVersion>
