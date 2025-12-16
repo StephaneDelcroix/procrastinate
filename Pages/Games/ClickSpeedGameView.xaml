@@ -14,7 +14,7 @@
                 IsEnabled="False"
                 Clicked="OnClickBtnClicked"/>
         <Label x:Name="ScoreLabel" 
-               Text="Clicks: 0" 
+               Text="{Binding ScoreText}" 
                HorizontalOptions="Center" 
                FontSize="16" 
                TextColor="{DynamicResource Gray300}"/>

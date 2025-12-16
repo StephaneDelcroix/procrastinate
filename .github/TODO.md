@@ -15,7 +15,7 @@
 - ~~popup shown on 'add more task' isn't zalgo, if zalgo is set~~
 - ~~in settings page: icons and title (like accessibility) aren't vertically aligned~~
 - ~~settings still doesn't close on changing tab~~
-- there's a shortcut to declare Grid Row/Col Definitions, with a converter
+- ~~there's a shorthand to declare Grid Row/Col Definitions~~
 
 ## Games
 - ~~add a game like "game & Watch" "mickey mouse" (aka eggs) game~~

@@ -1,30 +1,35 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using procrastinate.Resources.Strings;
 
 namespace procrastinate.Pages.Games;
 
-public partial class ClickSpeedGameView : ContentView
+public partial class ClickSpeedGameView : ContentView, INotifyPropertyChanged
 {
     private int _clickCount;
     private bool _active;
+    private string _scoreText = "";
     
     public Action? OnGamePlayed { get; set; }
+
+    public string ScoreText
+    {
+        get => _scoreText;
+        set { _scoreText = value; OnPropertyChanged(); }
+    }
 
     public ClickSpeedGameView()
     {
         InitializeComponent();
-        UpdateScoreLabel();
-    }
-
-    private void UpdateScoreLabel()
-    {
-        ScoreLabel.Text = AppStrings.GetString("Clicks", _clickCount);
+        BindingContext = this;
+        ScoreText = AppStrings.GetString("Clicks", 0);
     }
 
     private async void OnStartClicked(object? sender, EventArgs e)
     {
         OnGamePlayed?.Invoke();
         _clickCount = 0;
-        UpdateScoreLabel();
+        ScoreText = AppStrings.GetString("Clicks", 0);
         StartBtn.IsEnabled = false;
         ClickBtn.IsEnabled = true;
         _active = true;
@@ -34,18 +39,22 @@ public partial class ClickSpeedGameView : ContentView
         _active = false;
         ClickBtn.IsEnabled = false;
         StartBtn.IsEnabled = true;
-        ScoreLabel.Text = AppStrings.GetString("FinalClicks", _clickCount, _clickCount / 5.0);
+        ScoreText = AppStrings.GetString("FinalClicks", _clickCount, _clickCount / 5.0);
     }
 
     private void OnClickBtnClicked(object? sender, EventArgs e)
     {
         if (!_active) return;
         _clickCount++;
-        UpdateScoreLabel();
+        ScoreText = AppStrings.GetString("Clicks", _clickCount);
     }
 
     public void Stop()
     {
         _active = false;
     }
+
+    public new event PropertyChangedEventHandler? PropertyChanged;
+    protected void OnPropertyChanged([CallerMemberName] string? name = null)
+        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 }
