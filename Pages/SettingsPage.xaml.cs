@@ -41,6 +41,11 @@ public partial class SettingsPage : ContentPage
         GroqApiKeyEntry.Text = Preferences.Get("GroqApiKey", "");
         GroqModelEntry.Text = Preferences.Get("GroqModel", "llama-3.3-70b-versatile");
         UpdateCloudSettingsVisibility();
+
+        // Display version
+        var version = AppInfo.VersionString;
+        var build = AppInfo.BuildString;
+        VersionLabel.Text = $"Procrastinate v{version} (build {build})";
     }
 
     private void OnLanguageChanged(object? sender, EventArgs e)

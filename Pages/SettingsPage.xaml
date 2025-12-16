@@ -196,6 +196,13 @@
                    FontSize="13"
                    TextColor="{DynamicResource Gray500}"
                    HorizontalOptions="Center"/>
+
+            <!-- Version -->
+            <Label x:Name="VersionLabel"
+                   FontSize="12"
+                   TextColor="{DynamicResource Gray600}"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
