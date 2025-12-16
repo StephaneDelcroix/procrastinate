@@ -18,8 +18,6 @@
 - ~~there's a shorthand to declare Grid Row/Col Definitions~~
 
 ## Games
-- ~~add a game like "game & Watch" "mickey mouse" (aka eggs) game~~
-- ~~add a game that randomly creates a LEGO minifigure~~
+- ~~add a game like "game & Watch" "mickey mouse" (aka eggs) game~~ (removed - didn't work)
+- ~~add a game that randomly creates a LEGO minifigure~~ (removed - didn't work)
 - ~~clickspeed: ScoreLabel should use a binding to update~~
-- ~~egg catch: only one egg lands at a time~~
-- ~~minifig: improve graphics with Bricklink images~~
