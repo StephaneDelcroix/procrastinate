@@ -1,11 +1,13 @@
+using procrastinate.Resources.Strings;
+
 namespace procrastinate.Pages.Games;
 
 public class SimonSaysGame : MiniGame
 {
-    public override string Name => "Simon Says";
+    public override string Name => AppStrings.GetString("SimonSays");
     public override string Icon => "\uf111";
     public override string IconColor => "#EF4444";
-    public override string Description => "Watch the pattern and repeat it!";
+    public override string Description => AppStrings.GetString("SimonSaysDesc");
 
     private readonly List<int> _sequence = [];
     private int _index;
@@ -17,8 +19,8 @@ public class SimonSaysGame : MiniGame
 
     public override View CreateGameView()
     {
-        _scoreLabel = new Label { Text = "Score: 0", HorizontalOptions = LayoutOptions.Center, FontSize = 16, TextColor = Color.FromArgb("#CBD5E1") };
-        _startBtn = new Button { Text = "Start Game", BackgroundColor = Color.FromArgb("#14B8A6"), TextColor = Color.FromArgb("#0F172A"), CornerRadius = 12, HeightRequest = 44 };
+        _scoreLabel = new Label { Text = AppStrings.GetString("Score", 0), HorizontalOptions = LayoutOptions.Center, FontSize = 16, TextColor = Color.FromArgb("#CBD5E1") };
+        _startBtn = new Button { Text = AppStrings.GetString("StartGame"), BackgroundColor = Color.FromArgb("#14B8A6"), TextColor = Color.FromArgb("#0F172A"), CornerRadius = 12, HeightRequest = 44 };
         _startBtn.Clicked += OnStartClicked;
 
         _redBtn = new Button { BackgroundColor = Color.FromArgb("#EF4444"), CornerRadius = 12 };
@@ -56,7 +58,7 @@ public class SimonSaysGame : MiniGame
         OnGamePlayed?.Invoke();
         _sequence.Clear();
         _score = 0;
-        _scoreLabel!.Text = "Score: 0";
+        _scoreLabel!.Text = AppStrings.GetString("Score", 0);
         _startBtn!.IsEnabled = false;
         await AddToSequence();
     }
@@ -104,14 +106,14 @@ public class SimonSaysGame : MiniGame
             if (_index >= _sequence.Count)
             {
                 _score++;
-                _scoreLabel!.Text = $"Score: {_score}";
+                _scoreLabel!.Text = AppStrings.GetString("Score", _score);
                 await Task.Delay(500);
                 _ = AddToSequence();
             }
         }
         else
         {
-            _scoreLabel!.Text = $"Game Over! Final Score: {_score}";
+            _scoreLabel!.Text = AppStrings.GetString("GameOver", _score);
             _startBtn!.IsEnabled = true;
             SetButtonsEnabled(false);
         }

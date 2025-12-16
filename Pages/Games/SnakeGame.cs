@@ -1,11 +1,13 @@
+using procrastinate.Resources.Strings;
+
 namespace procrastinate.Pages.Games;
 
 public class SnakeGame : MiniGame
 {
-    public override string Name => "Tilt Snake";
+    public override string Name => AppStrings.GetString("TiltSnake");
     public override string Icon => "\uf7a0";
     public override string IconColor => "#14B8A6";
-    public override string Description => "Tilt your phone to guide the snake!";
+    public override string Description => AppStrings.GetString("TiltSnakeDesc");
 
     private const int GridSize = 10;
     private const int CellSize = 28;
@@ -21,9 +23,9 @@ public class SnakeGame : MiniGame
 
     public override View CreateGameView()
     {
-        _scoreLabel = new Label { Text = "Score: 0", HorizontalOptions = LayoutOptions.Center, FontSize = 16, TextColor = Color.FromArgb("#CBD5E1") };
-        _statusLabel = new Label { Text = "Tilt phone to move!", HorizontalOptions = LayoutOptions.Center, FontSize = 12, TextColor = Color.FromArgb("#64748B") };
-        _startBtn = new Button { Text = "Start Game", BackgroundColor = Color.FromArgb("#14B8A6"), TextColor = Color.FromArgb("#0F172A"), CornerRadius = 12, HeightRequest = 44 };
+        _scoreLabel = new Label { Text = AppStrings.GetString("Score", 0), HorizontalOptions = LayoutOptions.Center, FontSize = 16, TextColor = Color.FromArgb("#CBD5E1") };
+        _statusLabel = new Label { Text = AppStrings.GetString("TiltToMove"), HorizontalOptions = LayoutOptions.Center, FontSize = 12, TextColor = Color.FromArgb("#64748B") };
+        _startBtn = new Button { Text = AppStrings.GetString("StartGame"), BackgroundColor = Color.FromArgb("#14B8A6"), TextColor = Color.FromArgb("#0F172A"), CornerRadius = 12, HeightRequest = 44 };
         _startBtn.Clicked += OnStartClicked;
 
         _gameGrid = new Grid { ColumnSpacing = 1, RowSpacing = 1, HorizontalOptions = LayoutOptions.Center, BackgroundColor = Color.FromArgb("#1E293B") };
@@ -58,7 +60,7 @@ public class SnakeGame : MiniGame
         _snake.Add((GridSize / 2, GridSize / 2));
         _direction = (0, 1);
         _score = 0;
-        _scoreLabel!.Text = "Score: 0";
+        _scoreLabel!.Text = AppStrings.GetString("Score", 0);
         _running = true;
         _startBtn!.IsEnabled = false;
 
@@ -66,7 +68,7 @@ public class SnakeGame : MiniGame
         Accelerometer.ReadingChanged += OnAccelerometerReading;
 
         try { Accelerometer.Start(SensorSpeed.Game); }
-        catch { _statusLabel!.Text = "Accelerometer not available"; }
+        catch { _statusLabel!.Text = AppStrings.GetString("AccelerometerNotAvailable"); }
 
         await GameLoop();
     }
@@ -114,7 +116,7 @@ public class SnakeGame : MiniGame
             if (newHead == _food)
             {
                 _score++;
-                _scoreLabel!.Text = $"Score: {_score}";
+                _scoreLabel!.Text = AppStrings.GetString("Score", _score);
                 SpawnFood();
             }
             else
@@ -159,7 +161,7 @@ public class SnakeGame : MiniGame
         _running = false;
         try { Accelerometer.Stop(); } catch { }
         Accelerometer.ReadingChanged -= OnAccelerometerReading;
-        _statusLabel!.Text = $"Game Over! Score: {_score}";
+        _statusLabel!.Text = AppStrings.GetString("GameOverScore", _score);
         _startBtn!.IsEnabled = true;
     }
 

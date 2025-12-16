@@ -94,4 +94,29 @@
   <data name="NumberGuessDesc" xml:space="preserve"><value>Adivinhe o número 1-100!</value></data>
   <data name="WhackAMole" xml:space="preserve"><value>Acerte a toupeira</value></data>
   <data name="WhackAMoleDesc" xml:space="preserve"><value>Acerte as toupeiras o mais rápido possível!</value></data>
+  
+  <!-- Additional game strings -->
+  <data name="ClickMe" xml:space="preserve"><value>Clique em mim!</value></data>
+  <data name="FinalClicks" xml:space="preserve"><value>Final: {0} cliques! ({1:F1}/seg)</value></data>
+  <data name="Wait" xml:space="preserve"><value>Aguarde...</value></data>
+  <data name="Start" xml:space="preserve"><value>Iniciar</value></data>
+  <data name="TooSoon" xml:space="preserve"><value>Muito cedo!</value></data>
+  <data name="Done" xml:space="preserve"><value>Pronto!</value></data>
+  <data name="FindSafeCells" xml:space="preserve"><value>Encontre as células seguras! ({0} minas)</value></data>
+  <data name="BoomGameOver" xml:space="preserve"><value>Boom! Fim de jogo 💥</value></data>
+  <data name="TiltToMove" xml:space="preserve"><value>Incline para mover!</value></data>
+  <data name="AccelerometerNotAvailable" xml:space="preserve"><value>Acelerômetro não disponível</value></data>
+  <data name="GameOverScore" xml:space="preserve"><value>Fim de jogo! Pontuação: {0}</value></data>
+  <data name="MovesAndPairs" xml:space="preserve"><value>Movimentos: {0} | Pares: {1}/{2}</value></data>
+  <data name="WinInMoves" xml:space="preserve"><value>Você ganhou em {0} movimentos! 🎉</value></data>
+  <data name="ThinkingOfNumber" xml:space="preserve"><value>Estou pensando em um número 1-100...</value></data>
+  <data name="Attempts" xml:space="preserve"><value>Tentativas: {0}</value></data>
+  <data name="EnterGuess" xml:space="preserve"><value>Digite seu palpite</value></data>
+  <data name="Guess" xml:space="preserve"><value>Adivinhar!</value></data>
+  <data name="EnterNumber1to100" xml:space="preserve"><value>Digite um número 1-100</value></data>
+  <data name="Correct" xml:space="preserve"><value>🎉 Correto! Era {0}!</value></data>
+  <data name="TooLow" xml:space="preserve"><value>📈 {0} é muito BAIXO!</value></data>
+  <data name="TooHigh" xml:space="preserve"><value>📉 {0} é muito ALTO!</value></data>
+  <data name="ScoreAndMisses" xml:space="preserve"><value>Pontuação: {0} | Erros: {1}</value></data>
+  <data name="StartGame30s" xml:space="preserve"><value>Iniciar Jogo (30s)</value></data>
 </root>

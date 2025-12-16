@@ -9,14 +9,30 @@ Why be productive when you can procrastinate in style? This app helps you embrac
 ## ✨ Features
 
 - **📋 Tasks** - Track all the things you're definitely going to do... later
-- **🎮 Games** - Play games instead of working (it's called "mental breaks")
+- **🎮 Mini-Games** - 9 addictive games including Simon Says, Minesweeper, Tic Tac Toe, Snake, and more! Favorite your best games for priority shuffling
 - **🎭 Excuses** - Generate creative excuses for why you didn't finish that thing
 - **📊 Stats** - View your procrastination statistics and feel accomplished about doing nothing
+- **♿ Accessibility** - High contrast mode for better visibility
+- **⚙️ Settings** - Customize your procrastination experience
+
+## 🌍 Available in 6 Languages
+
+Procrastinate like a local! The app is fully translated in:
+
+| Language | Flag |
+|----------|------|
+| English | 🇬🇧 |
+| Français | 🇫🇷 |
+| Español | 🇪🇸 |
+| Português | 🇧🇷 |
+| Nederlands | 🇳🇱 |
+| Čeština | 🇨🇿 |
 
 ## 🛠️ Built With
 
 - [.NET MAUI](https://dotnet.microsoft.com/apps/maui) - Cross-platform framework
 - C# - Because even procrastinators have standards
+- FontAwesome - For beautiful icons
 
 ## 📱 Platforms
 
@@ -42,7 +58,7 @@ dotnet build -f net10.0-android
 
 ## 📄 License
 
-Do whatever you want with this. We were going to add a proper license, but... you know... later.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 

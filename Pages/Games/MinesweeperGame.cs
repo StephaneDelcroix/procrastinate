@@ -1,11 +1,13 @@
+using procrastinate.Resources.Strings;
+
 namespace procrastinate.Pages.Games;
 
 public class MinesweeperGame : MiniGame
 {
-    public override string Name => "Minesweeper";
+    public override string Name => AppStrings.GetString("Minesweeper");
     public override string Icon => "\uf1e2";
     public override string IconColor => "#22C55E";
-    public override string Description => "Find all safe cells!";
+    public override string Description => AppStrings.GetString("MinesweeperDesc");
 
     private const int Size = 6;
     private const int Mines = 5;
@@ -19,8 +21,8 @@ public class MinesweeperGame : MiniGame
 
     public override View CreateGameView()
     {
-        _statusLabel = new Label { Text = $"Find the safe cells! ({Mines} mines)", HorizontalOptions = LayoutOptions.Center, FontSize = 14, TextColor = Color.FromArgb("#CBD5E1") };
-        _resetBtn = new Button { Text = "New Game", BackgroundColor = Color.FromArgb("#22C55E"), TextColor = Color.FromArgb("#0F172A"), CornerRadius = 12, HeightRequest = 44 };
+        _statusLabel = new Label { Text = AppStrings.GetString("FindSafeCells", Mines), HorizontalOptions = LayoutOptions.Center, FontSize = 14, TextColor = Color.FromArgb("#CBD5E1") };
+        _resetBtn = new Button { Text = AppStrings.GetString("NewGame"), BackgroundColor = Color.FromArgb("#22C55E"), TextColor = Color.FromArgb("#0F172A"), CornerRadius = 12, HeightRequest = 44 };
         _resetBtn.Clicked += (s, e) => ResetGame();
 
         var grid = new Grid { ColumnSpacing = 2, RowSpacing = 2, HorizontalOptions = LayoutOptions.Center };
@@ -76,7 +78,7 @@ public class MinesweeperGame : MiniGame
             }
         }
 
-        _statusLabel!.Text = $"Find the safe cells! ({Mines} mines)";
+        _statusLabel!.Text = AppStrings.GetString("FindSafeCells", Mines);
     }
 
     private void PlaceMines(int safeRow, int safeCol)
@@ -175,7 +177,7 @@ public class MinesweeperGame : MiniGame
     private void GameOver(bool won)
     {
         _gameOver = true;
-        _statusLabel!.Text = won ? "You win! 🎉" : "Boom! Game over 💥";
+        _statusLabel!.Text = won ? AppStrings.GetString("YouWin") : AppStrings.GetString("BoomGameOver");
 
         // Reveal all mines
         for (int r = 0; r < Size; r++)

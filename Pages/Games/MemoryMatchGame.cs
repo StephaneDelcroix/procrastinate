@@ -1,11 +1,13 @@
+using procrastinate.Resources.Strings;
+
 namespace procrastinate.Pages.Games;
 
 public class MemoryMatchGame : MiniGame
 {
-    public override string Name => "Memory Match";
+    public override string Name => AppStrings.GetString("MemoryMatch");
     public override string Icon => "\uf5fd";
     public override string IconColor => "#EC4899";
-    public override string Description => "Find matching pairs!";
+    public override string Description => AppStrings.GetString("MemoryMatchDesc");
 
     private readonly string[] _symbols = ["🍎", "🍊", "🍋", "🍇", "🍓", "🍒", "🥝", "🍑"];
     private readonly Button[] _cards = new Button[16];
@@ -21,8 +23,8 @@ public class MemoryMatchGame : MiniGame
 
     public override View CreateGameView()
     {
-        _statusLabel = new Label { Text = "Moves: 0 | Pairs: 0/8", HorizontalOptions = LayoutOptions.Center, FontSize = 14, TextColor = Color.FromArgb("#CBD5E1") };
-        _resetBtn = new Button { Text = "New Game", BackgroundColor = Color.FromArgb("#EC4899"), TextColor = Colors.White, CornerRadius = 12, HeightRequest = 44 };
+        _statusLabel = new Label { Text = AppStrings.GetString("MovesAndPairs", 0, 0, 8), HorizontalOptions = LayoutOptions.Center, FontSize = 14, TextColor = Color.FromArgb("#CBD5E1") };
+        _resetBtn = new Button { Text = AppStrings.GetString("NewGame"), BackgroundColor = Color.FromArgb("#EC4899"), TextColor = Colors.White, CornerRadius = 12, HeightRequest = 44 };
         _resetBtn.Clicked += (s, e) => ResetGame();
 
         var grid = new Grid
@@ -119,7 +121,7 @@ public class MemoryMatchGame : MiniGame
                 UpdateStatus();
 
                 if (_pairsFound == 8)
-                    _statusLabel!.Text = $"You win in {_moves} moves! 🎉";
+                    _statusLabel!.Text = AppStrings.GetString("WinInMoves", _moves);
             }
             else
             {
@@ -137,7 +139,7 @@ public class MemoryMatchGame : MiniGame
 
     private void UpdateStatus()
     {
-        _statusLabel!.Text = $"Moves: {_moves} | Pairs: {_pairsFound}/8";
+        _statusLabel!.Text = AppStrings.GetString("MovesAndPairs", _moves, _pairsFound, 8);
     }
 
     public override void StartGame() => ResetGame();

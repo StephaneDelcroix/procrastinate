@@ -1,11 +1,13 @@
+using procrastinate.Resources.Strings;
+
 namespace procrastinate.Pages.Games;
 
 public class TicTacToeGame : MiniGame
 {
-    public override string Name => "Tic Tac Toe";
+    public override string Name => AppStrings.GetString("TicTacToe");
     public override string Icon => "\uf00a";
     public override string IconColor => "#8B5CF6";
-    public override string Description => "Classic X and O game!";
+    public override string Description => AppStrings.GetString("TicTacToeDesc");
 
     private readonly Button[] _cells = new Button[9];
     private readonly string[] _board = new string[9];
@@ -16,8 +18,8 @@ public class TicTacToeGame : MiniGame
 
     public override View CreateGameView()
     {
-        _statusLabel = new Label { Text = "Your turn (X)", HorizontalOptions = LayoutOptions.Center, FontSize = 16, TextColor = Color.FromArgb("#CBD5E1") };
-        _resetBtn = new Button { Text = "New Game", BackgroundColor = Color.FromArgb("#8B5CF6"), TextColor = Colors.White, CornerRadius = 12, HeightRequest = 44 };
+        _statusLabel = new Label { Text = AppStrings.GetString("YourTurn"), HorizontalOptions = LayoutOptions.Center, FontSize = 16, TextColor = Color.FromArgb("#CBD5E1") };
+        _resetBtn = new Button { Text = AppStrings.GetString("NewGame"), BackgroundColor = Color.FromArgb("#8B5CF6"), TextColor = Colors.White, CornerRadius = 12, HeightRequest = 44 };
         _resetBtn.Clicked += (s, e) => ResetGame();
 
         var grid = new Grid
@@ -64,7 +66,7 @@ public class TicTacToeGame : MiniGame
         }
         _playerTurn = true;
         _gameOver = false;
-        _statusLabel!.Text = "Your turn (X)";
+        _statusLabel!.Text = AppStrings.GetString("YourTurn");
     }
 
     private async void OnCellClicked(int idx)
@@ -77,20 +79,20 @@ public class TicTacToeGame : MiniGame
 
         if (CheckWin("X"))
         {
-            _statusLabel!.Text = "You win! 🎉";
+            _statusLabel!.Text = AppStrings.GetString("YouWin");
             _gameOver = true;
             return;
         }
 
         if (IsBoardFull())
         {
-            _statusLabel!.Text = "It's a draw!";
+            _statusLabel!.Text = AppStrings.GetString("Draw");
             _gameOver = true;
             return;
         }
 
         _playerTurn = false;
-        _statusLabel!.Text = "AI thinking...";
+        _statusLabel!.Text = AppStrings.GetString("AIThinking");
         await Task.Delay(500);
 
         // Simple AI: pick random empty cell
@@ -104,21 +106,21 @@ public class TicTacToeGame : MiniGame
 
             if (CheckWin("O"))
             {
-                _statusLabel.Text = "AI wins! 🤖";
+                _statusLabel.Text = AppStrings.GetString("AIWins");
                 _gameOver = true;
                 return;
             }
 
             if (IsBoardFull())
             {
-                _statusLabel.Text = "It's a draw!";
+                _statusLabel.Text = AppStrings.GetString("Draw");
                 _gameOver = true;
                 return;
             }
         }
 
         _playerTurn = true;
-        _statusLabel.Text = "Your turn (X)";
+        _statusLabel.Text = AppStrings.GetString("YourTurn");
     }
 
     private bool CheckWin(string player)

@@ -1,11 +1,13 @@
+using procrastinate.Resources.Strings;
+
 namespace procrastinate.Pages.Games;
 
 public class WhackAMoleGame : MiniGame
 {
-    public override string Name => "Whack-a-Mole";
+    public override string Name => AppStrings.GetString("WhackAMole");
     public override string Icon => "\uf6d3";
     public override string IconColor => "#A855F7";
-    public override string Description => "Tap the moles as fast as you can!";
+    public override string Description => AppStrings.GetString("WhackAMoleDesc");
 
     private const int GridSize = 3;
     private readonly Button[,] _holes = new Button[GridSize, GridSize];
@@ -18,8 +20,8 @@ public class WhackAMoleGame : MiniGame
 
     public override View CreateGameView()
     {
-        _scoreLabel = new Label { Text = "Score: 0 | Misses: 0", HorizontalOptions = LayoutOptions.Center, FontSize = 16, TextColor = Color.FromArgb("#CBD5E1") };
-        _startBtn = new Button { Text = "Start Game (30s)", BackgroundColor = Color.FromArgb("#A855F7"), TextColor = Colors.White, CornerRadius = 12, HeightRequest = 44 };
+        _scoreLabel = new Label { Text = AppStrings.GetString("ScoreAndMisses", 0, 0), HorizontalOptions = LayoutOptions.Center, FontSize = 16, TextColor = Color.FromArgb("#CBD5E1") };
+        _startBtn = new Button { Text = AppStrings.GetString("StartGame30s"), BackgroundColor = Color.FromArgb("#A855F7"), TextColor = Colors.White, CornerRadius = 12, HeightRequest = 44 };
         _startBtn.Clicked += OnStartClicked;
 
         var grid = new Grid { ColumnSpacing = 8, RowSpacing = 8, HorizontalOptions = LayoutOptions.Center };
@@ -101,7 +103,7 @@ public class WhackAMoleGame : MiniGame
 
         _running = false;
         _startBtn.IsEnabled = true;
-        _scoreLabel!.Text = $"Game Over! Final Score: {_score}";
+        _scoreLabel!.Text = AppStrings.GetString("GameOverScore", _score);
     }
 
     private void OnHoleClicked(int row, int col)
@@ -126,7 +128,7 @@ public class WhackAMoleGame : MiniGame
 
     private void UpdateScore()
     {
-        _scoreLabel!.Text = $"Score: {_score} | Misses: {_misses}";
+        _scoreLabel!.Text = AppStrings.GetString("ScoreAndMisses", _score, _misses);
     }
 
     public override void StartGame() { }

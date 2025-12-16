@@ -100,4 +100,29 @@
   <data name="NumberGuessDesc" xml:space="preserve"><value>Guess the number 1-100!</value></data>
   <data name="WhackAMole" xml:space="preserve"><value>Whack-a-Mole</value></data>
   <data name="WhackAMoleDesc" xml:space="preserve"><value>Tap the moles as fast as you can!</value></data>
+  
+  <!-- Additional game strings -->
+  <data name="ClickMe" xml:space="preserve"><value>Click Me!</value></data>
+  <data name="FinalClicks" xml:space="preserve"><value>Final: {0} clicks! ({1:F1}/sec)</value></data>
+  <data name="Wait" xml:space="preserve"><value>Wait...</value></data>
+  <data name="Start" xml:space="preserve"><value>Start</value></data>
+  <data name="TooSoon" xml:space="preserve"><value>Too soon!</value></data>
+  <data name="Done" xml:space="preserve"><value>Done!</value></data>
+  <data name="FindSafeCells" xml:space="preserve"><value>Find the safe cells! ({0} mines)</value></data>
+  <data name="BoomGameOver" xml:space="preserve"><value>Boom! Game over 💥</value></data>
+  <data name="TiltToMove" xml:space="preserve"><value>Tilt phone to move!</value></data>
+  <data name="AccelerometerNotAvailable" xml:space="preserve"><value>Accelerometer not available</value></data>
+  <data name="GameOverScore" xml:space="preserve"><value>Game Over! Score: {0}</value></data>
+  <data name="MovesAndPairs" xml:space="preserve"><value>Moves: {0} | Pairs: {1}/{2}</value></data>
+  <data name="WinInMoves" xml:space="preserve"><value>You win in {0} moves! 🎉</value></data>
+  <data name="ThinkingOfNumber" xml:space="preserve"><value>I'm thinking of a number 1-100...</value></data>
+  <data name="Attempts" xml:space="preserve"><value>Attempts: {0}</value></data>
+  <data name="EnterGuess" xml:space="preserve"><value>Enter your guess</value></data>
+  <data name="Guess" xml:space="preserve"><value>Guess!</value></data>
+  <data name="EnterNumber1to100" xml:space="preserve"><value>Please enter a number 1-100</value></data>
+  <data name="Correct" xml:space="preserve"><value>🎉 Correct! It was {0}!</value></data>
+  <data name="TooLow" xml:space="preserve"><value>📈 {0} is too LOW!</value></data>
+  <data name="TooHigh" xml:space="preserve"><value>📉 {0} is too HIGH!</value></data>
+  <data name="ScoreAndMisses" xml:space="preserve"><value>Score: {0} | Misses: {1}</value></data>
+  <data name="StartGame30s" xml:space="preserve"><value>Start Game (30s)</value></data>
 </root>
