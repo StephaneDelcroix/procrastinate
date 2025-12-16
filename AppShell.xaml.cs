@@ -8,24 +8,28 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 		Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
+		
+		// Close settings page when tab changes
+		Navigated += OnShellNavigated;
 	}
 
-	protected override void OnNavigating(ShellNavigatingEventArgs args)
+	private async void OnShellNavigated(object? sender, ShellNavigatedEventArgs e)
 	{
-		base.OnNavigating(args);
-		
-		// If navigating to a root tab (starts with //), pop any modal pages
-		if (args.Target?.Location?.OriginalString?.StartsWith("//") == true)
+		// If we navigated to a root tab, pop any pages on the stack
+		if (e.Current?.Location?.OriginalString?.StartsWith("//") == true)
 		{
-			// Use MainThread to ensure we pop after navigation completes
-			MainThread.BeginInvokeOnMainThread(async () =>
+			try
 			{
 				var nav = Current?.CurrentPage?.Navigation;
 				if (nav?.NavigationStack?.Count > 1)
 				{
 					await nav.PopToRootAsync(false);
 				}
-			});
+			}
+			catch
+			{
+				// Ignore navigation errors
+			}
 		}
 	}
 }
