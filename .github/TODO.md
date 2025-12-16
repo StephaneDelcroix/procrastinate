@@ -15,8 +15,9 @@
 - ~~popup shown on 'add more task' isn't zalgo, if zalgo is set~~
 - ~~in settings page: icons and title (like accessibility) aren't vertically aligned~~
 - ~~settings still doesn't close on changing tab~~
+- there's a shortcut to declare Grid Row/Col Definitions, with a converter
 
 ## Games
-- add a game like "game & Watch" "mickey mouse" (aka eggs) game
-- add a game that randomly creates a LEGO minifigure
+- ~~add a game like "game & Watch" "mickey mouse" (aka eggs) game~~
+- ~~add a game that randomly creates a LEGO minifigure~~
 - clickspeed: ScoreLabel should use a binding to update, without a trigger from code. same for most games using UpdateXXX methods to update labels

@@ -179,4 +179,5 @@ public class AppStrings : INotifyPropertyChanged
     public string YourTurn => this["YourTurn"];
     public string TiltToMove => this["TiltToMove"];
     public string StartGame30s => this["StartGame30s"];
+    public string Generate => this["Generate"];
 }
