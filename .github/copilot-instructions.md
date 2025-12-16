@@ -67,10 +67,12 @@ Take screenshot: `xcrun simctl io <UDID> screenshot output.png`
   - Title "Procrastinate" in golden orange
   - Subtitle "The Ultimate Anti-Productivity App"
   - Multi-language tagline (English, French, Spanish, Portuguese, Dutch & Czech)
+  - Version number (read from procrastinate.csproj ApplicationDisplayVersion)
 - **Screenshots**: All 4 tabs (Tasks, Games, Excuses, Stats) scaled ~20%
   - **Language**: English
   - **Zalgo mode**: OFF
 - **Footer**:
   - Feature labels under each screenshot
+  - Highlight AI features: "Cloud AI (Groq) or On-Device AI (Apple Intelligence)"
   - Funny user testimonial with 5-star rating
 - **No emojis** (they don't render properly in Pillow with system fonts)
