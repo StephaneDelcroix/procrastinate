@@ -5,6 +5,35 @@ All notable changes to Procrastinate will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2025-12-16
+
+### Added
+
+- **On-Device AI Excuses** - Generate excuses using Apple Intelligence (Foundation Models) on iOS 26+
+- **About Section** - Credits, app description, and GitHub link in Settings
+- **System Default Language** - App now uses system locale by default, with manual override option
+- **AI Model Picker** - Dropdown to select Groq AI model instead of text entry
+- **Random Task Variations** - "Take a break" now randomly shows as "Take a nap", "Grab a coffee", "Stretch a bit", or "Stare at the ceiling"
+
+### Changed
+
+- **Whack-a-Mole** - Now uses emojis: 🕳️ (hole), 🐭 (mole), 💥 (hit)
+- **Snake Game** - Snake now wraps around walls instead of dying (only dies when hitting itself)
+- **Zalgo Mode** - Renamed to "Zalgo Randomly" - now applies chaos 15% of the time even when "off"
+- **Settings UI** - Theme Preview moved into Accessibility section for cleaner layout
+- **Cloud AI Errors** - Now shows actual error message instead of silently falling back to random
+
+### Fixed
+
+- Cloud AI no longer silently falls back to random generator on errors
+
+### Developer
+
+- Added release checklist to copilot instructions
+- Updated collage to show version number and AI features
+
+---
+
 ## [1.0.0] - 2025-12-16
 
 ### Added
