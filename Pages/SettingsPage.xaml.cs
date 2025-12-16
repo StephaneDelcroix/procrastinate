@@ -17,8 +17,8 @@ public partial class SettingsPage : ContentPage
         foreach (var lang in AppStrings.SupportedLanguages)
             LanguagePicker.Items.Add(lang.Value);
         
-        var currentLang = AppStrings.CurrentLanguage;
-        var langIndex = AppStrings.SupportedLanguages.Keys.ToList().IndexOf(currentLang);
+        var savedLang = Preferences.Get("AppLanguage", "");
+        var langIndex = AppStrings.SupportedLanguages.Keys.ToList().IndexOf(savedLang);
         LanguagePicker.SelectedIndex = langIndex >= 0 ? langIndex : 0;
 
         // Load high contrast

@@ -16,17 +16,28 @@
 - ~~in settings page: icons and title (like accessibility) aren't vertically aligned~~
 - ~~settings still doesn't close on changing tab~~
 - ~~there's a shorthand to declare Grid Row/Col Definitions~~
+- ~~I'm too lazy to set the language. use system default by default. allow overriding in the settings~~
+- keep stats accross sessions, total per day, per week, month... with a nice chart
 
 ## Games
 - ~~add a game like "game & Watch" "mickey mouse" (aka eggs) game~~ (removed - didn't work)
 - ~~add a game that randomly creates a LEGO minifigure~~ (removed - didn't work)
 - ~~clickspeed: ScoreLabel should use a binding to update~~
 - ~~simon game: use sound~~
+- whack-a-mole: revert to hole-emojo and mouse-emoji (or others)
+- snake: do not die when hitting a wall, but continue on the opposite side
 
 ## Tasks Page
 - ~~I don't like the box in box feeling~~
 - ~~clicking anywhere on the box (the checkbox or the label) should toggle the check~~
 - ~~more messages in the popup~~
+- randomly change the Task "take a break" to "do a nap" or things simlar
 
 ## Stats Page
 - ~~give info about API usage for AI excuses, keep scores on games~~
+
+## excuses page
+- the settings for CloudAI should have a dropdown list with the models
+
+## settings
+- create an about section, with author, where to find source, etc

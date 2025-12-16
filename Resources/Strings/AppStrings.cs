@@ -35,6 +35,7 @@ public class AppStrings : INotifyPropertyChanged
 
     public static readonly Dictionary<string, string> SupportedLanguages = new()
     {
+        { "", "System Default" },
         { "en", "English" },
         { "fr", "Français" },
         { "es", "Español" },
@@ -45,18 +46,34 @@ public class AppStrings : INotifyPropertyChanged
 
     private AppStrings()
     {
-        var savedLang = Preferences.Get("AppLanguage", "en");
+        var savedLang = Preferences.Get("AppLanguage", "");
+        if (string.IsNullOrEmpty(savedLang))
+        {
+            // Use system language, fall back to English if not supported
+            var systemLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+            savedLang = SupportedLanguages.ContainsKey(systemLang) ? systemLang : "en";
+        }
         _culture = new CultureInfo(savedLang);
         _zalgoMode = Preferences.Get("ZalgoMode", false);
     }
 
     public static string CurrentLanguage
     {
-        get => Instance._culture.Name;
+        get => Preferences.Get("AppLanguage", "");
         set
         {
-            Instance._culture = new CultureInfo(value);
             Preferences.Set("AppLanguage", value);
+            if (string.IsNullOrEmpty(value))
+            {
+                // Use system language, fall back to English if not supported
+                var systemLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+                var effectiveLang = SupportedLanguages.ContainsKey(systemLang) ? systemLang : "en";
+                Instance._culture = new CultureInfo(effectiveLang);
+            }
+            else
+            {
+                Instance._culture = new CultureInfo(value);
+            }
             Instance.OnPropertyChanged(null);
         }
     }
