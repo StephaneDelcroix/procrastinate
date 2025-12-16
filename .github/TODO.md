@@ -28,7 +28,7 @@
 - ~~simon game: use sound~~
 - ~~whack-a-mole: revert to hole-emojo and mouse-emoji (or others)~~
 - ~~snake: do not die when hitting a wall, but continue on the opposite side~~
-- tictactoe: it's ok to play randomly on the first 2 games in a row, then you should use some strategy, and at least try...
+- ~~tictactoe: it's ok to play randomly on the first 2 games in a row, then you should use some strategy, and at least try...~~
 
 
 ## Tasks Page
