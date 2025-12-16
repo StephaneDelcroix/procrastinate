@@ -119,4 +119,14 @@
   <data name="TooHigh" xml:space="preserve"><value>📉 {0} je příliš VYSOKÉ!</value></data>
   <data name="ScoreAndMisses" xml:space="preserve"><value>Skóre: {0} | Minuto: {1}</value></data>
   <data name="StartGame30s" xml:space="preserve"><value>Spustit hru (30s)</value></data>
+  
+  <!-- Excuse Generator Settings -->
+  <data name="ExcuseEngine" xml:space="preserve"><value>Motor výmluv</value></data>
+  <data name="ExcuseEngineDesc" xml:space="preserve"><value>Vyberte, jak se generují výmluvy</value></data>
+  <data name="RandomGenerator" xml:space="preserve"><value>Náhodný generátor</value></data>
+  <data name="CloudAI" xml:space="preserve"><value>Cloud AI (Ollama)</value></data>
+  <data name="ApiEndpoint" xml:space="preserve"><value>API Endpoint</value></data>
+  <data name="ApiEndpointPlaceholder" xml:space="preserve"><value>http://localhost:11434</value></data>
+  <data name="AiModel" xml:space="preserve"><value>AI Model</value></data>
+  <data name="Generating" xml:space="preserve"><value>Generuji...</value></data>
 </root>

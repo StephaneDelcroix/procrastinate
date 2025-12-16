@@ -180,4 +180,14 @@ public class AppStrings : INotifyPropertyChanged
     public string TiltToMove => this["TiltToMove"];
     public string StartGame30s => this["StartGame30s"];
     public string Generate => this["Generate"];
+    
+    // Excuse engine settings
+    public string ExcuseEngine => this["ExcuseEngine"];
+    public string ExcuseEngineDesc => this["ExcuseEngineDesc"];
+    public string RandomGenerator => this["RandomGenerator"];
+    public string CloudAI => this["CloudAI"];
+    public string ApiEndpoint => this["ApiEndpoint"];
+    public string ApiEndpointPlaceholder => this["ApiEndpointPlaceholder"];
+    public string AiModel => this["AiModel"];
+    public string Generating => this["Generating"];
 }

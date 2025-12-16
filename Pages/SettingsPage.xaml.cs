@@ -1,4 +1,5 @@
 using procrastinate.Resources.Strings;
+using procrastinate.Services;
 
 namespace procrastinate.Pages;
 
@@ -28,6 +29,18 @@ public partial class SettingsPage : ContentPage
 
         // Load Zalgo mode
         ZalgoSwitch.IsToggled = AppStrings.IsZalgoMode;
+
+        // Load excuse engine settings
+        foreach (var mode in ExcuseService.AvailableModes)
+            ExcuseModePicker.Items.Add(mode.Value);
+        
+        var currentMode = ExcuseService.CurrentMode;
+        var modeIndex = ExcuseService.AvailableModes.Keys.ToList().IndexOf(currentMode);
+        ExcuseModePicker.SelectedIndex = modeIndex >= 0 ? modeIndex : 0;
+
+        ApiEndpointEntry.Text = Preferences.Get("ExcuseApiEndpoint", "");
+        AiModelEntry.Text = Preferences.Get("ExcuseAiModel", "llama3.2");
+        UpdateCloudSettingsVisibility();
     }
 
     private void OnLanguageChanged(object? sender, EventArgs e)
@@ -56,6 +69,30 @@ public partial class SettingsPage : ContentPage
     private void OnZalgoToggled(object? sender, ToggledEventArgs e)
     {
         AppStrings.IsZalgoMode = e.Value;
+    }
+
+    private void OnExcuseModeChanged(object? sender, EventArgs e)
+    {
+        if (ExcuseModePicker.SelectedIndex < 0) return;
+        
+        var modeKey = ExcuseService.AvailableModes.Keys.ElementAt(ExcuseModePicker.SelectedIndex);
+        ExcuseService.CurrentMode = modeKey;
+        UpdateCloudSettingsVisibility();
+    }
+
+    private void UpdateCloudSettingsVisibility()
+    {
+        CloudSettingsPanel.IsVisible = ExcuseService.CurrentMode == "cloud";
+    }
+
+    private void OnApiEndpointChanged(object? sender, TextChangedEventArgs e)
+    {
+        Preferences.Set("ExcuseApiEndpoint", e.NewTextValue ?? "");
+    }
+
+    private void OnAiModelChanged(object? sender, TextChangedEventArgs e)
+    {
+        Preferences.Set("ExcuseAiModel", e.NewTextValue ?? "llama3.2");
     }
 
     private void UpdatePreview(bool highContrast)

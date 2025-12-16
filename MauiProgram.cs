@@ -20,6 +20,7 @@ public static class MauiProgram
 
 		// Services
 		builder.Services.AddSingleton<StatsService>();
+		builder.Services.AddSingleton<ExcuseService>();
 		
 		// Pages
 		builder.Services.AddTransient<TasksPage>();

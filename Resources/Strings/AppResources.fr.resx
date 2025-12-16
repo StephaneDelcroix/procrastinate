@@ -119,4 +119,14 @@
   <data name="TooHigh" xml:space="preserve"><value>📉 {0} est trop HAUT!</value></data>
   <data name="ScoreAndMisses" xml:space="preserve"><value>Score: {0} | Ratés: {1}</value></data>
   <data name="StartGame30s" xml:space="preserve"><value>Démarrer (30s)</value></data>
+  
+  <!-- Excuse Generator Settings -->
+  <data name="ExcuseEngine" xml:space="preserve"><value>Moteur d'excuses</value></data>
+  <data name="ExcuseEngineDesc" xml:space="preserve"><value>Choisissez comment les excuses sont générées</value></data>
+  <data name="RandomGenerator" xml:space="preserve"><value>Générateur aléatoire</value></data>
+  <data name="CloudAI" xml:space="preserve"><value>IA Cloud (Ollama)</value></data>
+  <data name="ApiEndpoint" xml:space="preserve"><value>Point d'accès API</value></data>
+  <data name="ApiEndpointPlaceholder" xml:space="preserve"><value>http://localhost:11434</value></data>
+  <data name="AiModel" xml:space="preserve"><value>Modèle IA</value></data>
+  <data name="Generating" xml:space="preserve"><value>Génération...</value></data>
 </root>

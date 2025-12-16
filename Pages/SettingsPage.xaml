@@ -90,6 +90,54 @@
                 </VerticalStackLayout>
             </Border>
 
+            <!-- Excuse Engine -->
+            <Border BackgroundColor="{DynamicResource CardBackground}" 
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="Transparent"
+                    Padding="20">
+                <VerticalStackLayout Spacing="16">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="&#xf075;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Primary}" VerticalOptions="Center"/>
+                        <Label Text="{Binding ExcuseEngine, Source={x:Static strings:AppStrings.Instance}}" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               TextColor="{DynamicResource Gray200}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <Label Text="{Binding ExcuseEngineDesc, Source={x:Static strings:AppStrings.Instance}}" 
+                           FontSize="13" 
+                           TextColor="{DynamicResource Gray400}"/>
+                    
+                    <Picker x:Name="ExcuseModePicker"
+                            TextColor="{DynamicResource Gray100}"
+                            BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                            SelectedIndexChanged="OnExcuseModeChanged"/>
+
+                    <VerticalStackLayout x:Name="CloudSettingsPanel" Spacing="12" IsVisible="False">
+                        <Entry x:Name="ApiEndpointEntry"
+                               Placeholder="{Binding ApiEndpointPlaceholder, Source={x:Static strings:AppStrings.Instance}}"
+                               TextColor="{DynamicResource Gray100}"
+                               PlaceholderColor="{DynamicResource Gray400}"
+                               BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                               TextChanged="OnApiEndpointChanged"/>
+                        
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="{Binding AiModel, Source={x:Static strings:AppStrings.Instance}}" 
+                                   FontSize="14" 
+                                   TextColor="{DynamicResource Gray300}"
+                                   VerticalOptions="Center"/>
+                            <Entry x:Name="AiModelEntry"
+                                   Text="llama3.2"
+                                   WidthRequest="150"
+                                   TextColor="{DynamicResource Gray100}"
+                                   BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                                   TextChanged="OnAiModelChanged"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
             <!-- Theme Preview -->
             <Border BackgroundColor="{DynamicResource CardBackground}" 
                     StrokeShape="RoundRectangle 16"
