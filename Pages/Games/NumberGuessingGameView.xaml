@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
+             x:Class="procrastinate.Pages.Games.NumberGuessingGameView">
+    <VerticalStackLayout Spacing="12">
+        <Label x:Name="ResultLabel" 
+               Text="{Binding ThinkingOfNumber, Source={x:Static strings:AppStrings.Instance}}" 
+               HorizontalOptions="Center" 
+               FontSize="16" 
+               TextColor="{DynamicResource Gray300}"/>
+        <Entry x:Name="GuessEntry"
+               Placeholder="{Binding EnterGuess, Source={x:Static strings:AppStrings.Instance}}"
+               Keyboard="Numeric"
+               HorizontalOptions="Fill"
+               BackgroundColor="{DynamicResource CardBackgroundAlt}"
+               TextColor="{DynamicResource Gray100}"
+               PlaceholderColor="{DynamicResource Gray500}"/>
+        <Button x:Name="GuessBtn" 
+                Text="{Binding Guess, Source={x:Static strings:AppStrings.Instance}}"
+                BackgroundColor="{DynamicResource Primary}" 
+                TextColor="{DynamicResource SurfaceBackground}" 
+                CornerRadius="12" 
+                HeightRequest="44"
+                Clicked="OnGuessClicked"/>
+        <Label x:Name="AttemptsLabel" 
+               Text="Attempts: 0" 
+               HorizontalOptions="Center" 
+               FontSize="14" 
+               TextColor="{DynamicResource Gray500}"/>
+        <Button x:Name="NewGameBtn" 
+                Text="{Binding NewGame, Source={x:Static strings:AppStrings.Instance}}"
+                BackgroundColor="{DynamicResource CardBackgroundAlt}" 
+                TextColor="{DynamicResource Gray200}" 
+                CornerRadius="12" 
+                HeightRequest="44"
+                Clicked="OnNewGameClicked"/>
+    </VerticalStackLayout>
+</ContentView>

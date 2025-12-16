@@ -164,4 +164,19 @@ public class AppStrings : INotifyPropertyChanged
     public string ExcusesGeneratedStat => this["ExcusesGeneratedStat"];
     public string GamesPlayed => this["GamesPlayed"];
     public string AchievementUnlocked => this["AchievementUnlocked"];
+    
+    // Game strings
+    public string ClickMe => this["ClickMe"];
+    public string StartChallenge => this["StartChallenge"];
+    public string Wait => this["Wait"];
+    public string Start => this["Start"];
+    public string TapStartToBegin => this["TapStartToBegin"];
+    public string StartGame => this["StartGame"];
+    public string NewGame => this["NewGame"];
+    public string ThinkingOfNumber => this["ThinkingOfNumber"];
+    public string EnterGuess => this["EnterGuess"];
+    public string Guess => this["Guess"];
+    public string YourTurn => this["YourTurn"];
+    public string TiltToMove => this["TiltToMove"];
+    public string StartGame30s => this["StartGame30s"];
 }

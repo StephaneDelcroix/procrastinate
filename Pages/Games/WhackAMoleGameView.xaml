@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
+             x:Class="procrastinate.Pages.Games.WhackAMoleGameView">
+    <VerticalStackLayout Spacing="16">
+        <Grid x:Name="GameGrid" ColumnSpacing="8" RowSpacing="8" HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Label x:Name="ScoreLabel" 
+               Text="Score: 0 | Misses: 0" 
+               HorizontalOptions="Center" 
+               FontSize="16" 
+               TextColor="{DynamicResource Gray300}"/>
+        <Button x:Name="StartBtn" 
+                Text="{Binding StartGame30s, Source={x:Static strings:AppStrings.Instance}}"
+                BackgroundColor="#A855F7" 
+                TextColor="White" 
+                CornerRadius="12" 
+                HeightRequest="44"
+                Clicked="OnStartClicked"/>
+    </VerticalStackLayout>
+</ContentView>
