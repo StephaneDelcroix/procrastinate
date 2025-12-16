@@ -19,7 +19,7 @@ public class CloudExcuseGenerator : IExcuseGenerator
     public async Task<string> GenerateExcuseAsync(string language)
     {
         if (!IsAvailable)
-            throw new InvalidOperationException("Groq API key not configured");
+            return "Cloud AI requires an API key. Configure it in Settings.";
 
         try
         {

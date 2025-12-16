@@ -40,14 +40,6 @@ public class ExcuseService
         var generator = GetCurrentGenerator();
         var usingAI = (CurrentMode == "cloud" || CurrentMode == "ondevice") && generator.IsAvailable;
         
-        // For cloud AI, fallback to random if not available (no API key)
-        // For on-device AI, let it generate an error message explaining why
-        if (!generator.IsAvailable && CurrentMode == "cloud")
-        {
-            generator = _generators["random"];
-            usingAI = false;
-        }
-        
         var result = await generator.GenerateExcuseAsync(language);
         
         if (usingAI)
