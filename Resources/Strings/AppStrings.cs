@@ -223,4 +223,9 @@ public class AppStrings : INotifyPropertyChanged
     public string OnDeviceAIHint => this["OnDeviceAIHint"];
     public string OnDeviceAIAvailable => this["OnDeviceAIAvailable"];
     public string OnDeviceAIUnavailable => this["OnDeviceAIUnavailable"];
+    
+    // About section
+    public string About => this["About"];
+    public string AboutDescription => this["AboutDescription"];
+    public string Author => this["Author"];
 }

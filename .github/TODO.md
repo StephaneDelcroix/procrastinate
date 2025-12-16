@@ -27,6 +27,8 @@
 - ~~simon game: use sound~~
 - whack-a-mole: revert to hole-emojo and mouse-emoji (or others)
 - ~~snake: do not die when hitting a wall, but continue on the opposite side~~
+- tictactoe: it's ok to ply randomly on the first 2 games in a row, then you should use some strategy, and at least try...
+
 
 ## Tasks Page
 - ~~I don't like the box in box feeling~~
@@ -41,4 +43,4 @@
 - ~~the settings for CloudAI should have a dropdown list with the models~~
 
 ## settings
-- create an about section, with author, where to find source, etc
+- ~~create an about section, with author, where to find source, etc~~

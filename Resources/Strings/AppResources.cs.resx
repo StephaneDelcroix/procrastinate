@@ -148,4 +148,13 @@
   <data name="StareAtCeiling" xml:space="preserve">
     <value>Zírat na strop</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>O aplikaci</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>Ultimátní anti-produktivní aplikace. Postavena s .NET MAUI a zdravým pohrdáním termíny.</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Vytvořil Stephane Delcroix</value>
+  </data>
 </root>

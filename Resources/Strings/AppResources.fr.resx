@@ -148,4 +148,13 @@
   <data name="StareAtCeiling" xml:space="preserve">
     <value>Fixer le plafond</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>L'application anti-productivité ultime. Construite avec .NET MAUI et un sain mépris des délais.</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Créé par Stephane Delcroix</value>
+  </data>
 </root>

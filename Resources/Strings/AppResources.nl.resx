@@ -148,4 +148,13 @@
   <data name="StareAtCeiling" xml:space="preserve">
     <value>Staar naar het plafond</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>Over</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>De ultieme anti-productiviteitsapp. Gebouwd met .NET MAUI en een gezonde minachting voor deadlines.</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Gemaakt door Stephane Delcroix</value>
+  </data>
 </root>

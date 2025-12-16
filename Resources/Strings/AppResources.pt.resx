@@ -148,4 +148,13 @@
   <data name="StareAtCeiling" xml:space="preserve">
     <value>Olhar para o teto</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>O aplicativo anti-produtividade definitivo. Construído com .NET MAUI e um saudável desprezo por prazos.</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Feito por Stephane Delcroix</value>
+  </data>
 </root>

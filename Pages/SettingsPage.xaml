@@ -212,6 +212,47 @@
                    TextColor="{DynamicResource Gray500}"
                    HorizontalOptions="Center"/>
 
+            <!-- About -->
+            <Border BackgroundColor="{DynamicResource CardBackground}" 
+                    StrokeShape="RoundRectangle 16"
+                    Stroke="Transparent"
+                    Padding="20"
+                    Margin="0,10,0,0">
+                <VerticalStackLayout Spacing="12">
+                    <HorizontalStackLayout Spacing="10">
+                        <Label Text="&#xf05a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Tertiary}" VerticalOptions="Center"/>
+                        <Label Text="{Binding About, Source={x:Static strings:AppStrings.Instance}}" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               TextColor="{DynamicResource Gray200}"
+                               VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                    
+                    <Label Text="{Binding AboutDescription, Source={x:Static strings:AppStrings.Instance}}"
+                           FontSize="14"
+                           TextColor="{DynamicResource Gray400}"/>
+                    
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="&#xf121;" FontFamily="FontAwesomeSolid" FontSize="14" TextColor="{DynamicResource Gray400}" VerticalOptions="Center"/>
+                        <Label Text="{Binding Author, Source={x:Static strings:AppStrings.Instance}}"
+                               FontSize="14"
+                               TextColor="{DynamicResource Gray300}"/>
+                    </HorizontalStackLayout>
+                    
+                    <HorizontalStackLayout Spacing="8">
+                        <Label Text="&#xf09b;" FontFamily="FontAwesomeBrands" FontSize="14" TextColor="{DynamicResource Gray400}" VerticalOptions="Center"/>
+                        <Label Text="github.com/StephaneDelcroix/procrastinate"
+                               FontSize="14"
+                               TextColor="{DynamicResource Primary}"
+                               TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnGitHubTapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+
             <!-- Version -->
             <Label x:Name="VersionLabel"
                    FontSize="12"

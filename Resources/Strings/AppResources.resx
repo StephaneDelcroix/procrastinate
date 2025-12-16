@@ -175,4 +175,13 @@
   <data name="StareAtCeiling" xml:space="preserve">
     <value>Stare at the ceiling</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutDescription" xml:space="preserve">
+    <value>The ultimate anti-productivity app. Built with .NET MAUI and a healthy disregard for deadlines.</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Made by Stephane Delcroix</value>
+  </data>
 </root>

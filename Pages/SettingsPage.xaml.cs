@@ -201,4 +201,13 @@ public partial class SettingsPage : ContentPage
             resources["Warm"] = Color.FromArgb("#FEF3C7");
         }
     }
+
+    private async void OnGitHubTapped(object? sender, EventArgs e)
+    {
+        try
+        {
+            await Launcher.OpenAsync("https://github.com/StephaneDelcroix/procrastinate");
+        }
+        catch { }
+    }
 }
