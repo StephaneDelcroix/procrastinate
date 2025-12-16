@@ -23,7 +23,8 @@ public class AppStrings : INotifyPropertyChanged
         { "es", "Español" },
         { "pt", "Português" },
         { "nl", "Nederlands" },
-        { "cs", "Čeština" }
+        { "cs", "Čeština" },
+        { "qps-ploc", "Z̸̡a̷̢l̵̨g̶̡o̷̢" }
     };
 
     private AppStrings()

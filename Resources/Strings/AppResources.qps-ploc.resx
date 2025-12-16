@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- General -->
+  <data name="AppName" xml:space="preserve"><value>P̸̫̠r̗͟ō̸͉c̱̭̒r̷͎̬a̍s̴̢͎̀t̛͔i̸̤͈n̷̤̓̎a̴̘̔͢ẗe̤</value></data>
+  <data name="Settings" xml:space="preserve"><value>S͍͝e̸t̷͍͗̒t͔̤̉̈́ì̞̜͆n̻̯͋̆g̈̊s̶̛̅</value></data>
+  <data name="Accessibility" xml:space="preserve"><value>A̩̐ͅc̶͒͜ces̘̘̋s̴̳i̾̉b̺͐͟i̺̿̅ͅl̲it͘ý͚</value></data>
+  <data name="HighContrastMode" xml:space="preserve"><value>H̺̞̏ì̵̩g̛̠͗h̜̽͜͡ C̵o̗n̴̚t̵̛̛̬̠r̷ā̶̻s̴t̆͆ M̶͓͛od̸ë̦́͆</value></data>
+  <data name="HighContrastDesc" xml:space="preserve"><value>U̮̳̚͝s̡̊e̷ h̭̀̕i̴̳͎g̖̓͋h̎ë̠̗̓r̙̲ c̓o̷ǹ̴̼̚t̶̻̔̆ȑ̴̠a̼͓s̸̮t̷̺͈ c̩̞̀͌o̴̠̊̏l̸̢̻̿͆o̵̧r͓̍̾s̶̨͉̊͂ f̷̮̩͋̓or̶̳ b͔et̘͎̄t͆̈e͊r̩̻͊ v̭̬i̸͚̘̓̈s̵̭̝ï̷̪ḃ̴̠ìl̵̡͇͑̕i̶ͅt͙̓̓ỳ͚͚</value></data>
+  <data name="ThemePreview" xml:space="preserve"><value>T̷͙h̸̋͘ḙ̏m̷̨̙̿ê̸͍͇̆ P͎̅ͅr̕e͉v̶̾ie̸͞w̵̧̫̄̑</value></data>
+  <data name="CurrentTheme" xml:space="preserve"><value>C̵̠̾u̴̜̠r̥̐͛ř̷̤e̶̻̯͝n̶͓̻t̷̘: {0} T̶̞h̵͕̦́́e̸̫͟m̰̯̑͞e͎͌</value></data>
+  <data name="DefaultTheme" xml:space="preserve"><value>D͔ĕ͢f̨a̴͕̾ư̖͟l̷̥̣t̷̐</value></data>
+  <data name="HighContrast" xml:space="preserve"><value>H͈̱̋͛i̴̖g̴h̴̥̍̔͜ C̨̼ó̴̈n̫̈̒ẗ̵́̓r̸͓̭̽as̯͛̂t̷̩̀̽</value></data>
+  <data name="ChangesApply" xml:space="preserve"><value>C̶͚̘h̷̦̤̑a͉̜̿n̔g̷͠e̴̩̒s̋͒ a̤̍̊p̵͜p̨̜̎͡l̵̑͞y̵ i̤m̸͟m̵̨͞e̷̱̹͞d̷͛ǐ̷̯a̷t̴̅̋e̶̿̽l̴̘̞̀ý̝</value></data>
+  <data name="Language" xml:space="preserve"><value>L̴̰̿̅a̷̛͔͛n̥̝̿g̵̒u̿̽a̓͋ḡ̶e̴̝̰</value></data>
+  
+  <!-- Tasks -->
+  <data name="TodaysTasks" xml:space="preserve"><value>T̈͝o̴̧̳d̈͂a̵͌y̶͉'s͔̀͟ T̮ä́ͅsk̴̝͎͆̿ṣ̵͖͗́</value></data>
+  <data name="YourProductivityList" xml:space="preserve"><value>Y̰̜̋̿ö̦́u̴̖͗̾r͢ p͚̌̿r̟͛ȏ̬ḍ̵͗ǔ͇c̙̏̚ṭ̸̏͗ǐv̌i̕ty̷͓̲ l̸̟í̸s͕̫͛̍ṯ̵͕͆̔:</value></data>
+  <data name="TakeABreak" xml:space="preserve"><value>Tà̴̘͍͋kȇ̬̙ å̴̛̳͉ b̸͊̋r̵̓̀e̸͕̝a̽̋k̷̤̕ͅ</value></data>
+  <data name="DoingGreat" xml:space="preserve"><value>Yoŭ̺̤̌'ř̸e̷̻̍̎ d̖o̲̽͗i̶̝̊n̂̂ğ͉ g̷̕r̬e͂̈â̳̬̓t͙̞̑͡! O͐̏n̘l̵y̮̭ 1̷̲ t̵́͒a̧͔s͉̓ͅk̢̜̀͐ to̜̅̿d̴͙̹͛͊a̸͚̓y̴̾́!</value></data>
+  <data name="AddMoreTasks" xml:space="preserve"><value>A͈̦̔d͇̅̇d̿ M̴̄͝o̴͋̀r̺͙ě͙͚ T̶̬͢ą̸̃͊͢s̷̗̓k͇͢s̅</value></data>
+  <data name="Congratulations" xml:space="preserve"><value>🎉 C̸̭̠o͇̖n͐͘g̴͢r̵ͅa̶̟t̷u̴̿̋l͔̲a̷̤ͅtỉ̠o̗͊n̷͔̍s̷̤͒! Y̝o̠u̴̥ c̶͕̭̒ȯm̷̱ṕ̵̺͐l̷͆e̴̻t̵̨͒́e̸̟̓͘d̴̻̳̓̐ Ạ̶̈́̾L̵̹L͎ y̍o̖̬u̵͠r̩̈́̾ t̜͔̄a̞͈sk̹͕̄͗s̵̗͈̎!</value></data>
+  <data name="NeedAnotherBreak" xml:space="preserve"><value>W̵̏ā̛i̸̲̥t̶̺... y̴̫͇ou͛ s̛̞t̷̤̏i̵ͅll͕̈ n̵̒̓e̊̅e̞̊̓d̵͆ a̶͎̯͒͞n̶̮ot̶͓h̵̃e̵͛r̶̳ b͈̉́r̷͌̌e̪͢a̙̝k̖̹̊!</value></data>
+  
+  <!-- Games -->
+  <data name="MiniGames" xml:space="preserve"><value>M̕ǐ̓͜ñ͙̳i͑-G̶̨͓͆a̵m̂̐ẻ̴̹̆s̶̜</value></data>
+  <data name="ProductivityOverrated" xml:space="preserve"><value>B͛̓è͚͋c̸̗a̷̱͡u͛͞s̸̲̬e̹ p͊̐r̶͈o̖͍du̷c̴͕͉̒̃ẗ̶̙́̊i̞̅̚v̥͑͠i̦t̴̀̍y i̸͒͊s̸͘ o͔v̈́e̸͑̉r̼ra͎̓̿t̅̀e͎̖d̈͡!</value></data>
+  <data name="ShuffleGames" xml:space="preserve"><value>S̶h̸̫̠̀ụ͉͛f̬̂͜f̷̥̏l̸͕͎e̻ G̘͍̿͠a̵̽̑m͋̈́è̳s̄̕</value></data>
+  <data name="Score" xml:space="preserve"><value>S̻͠c̷̒o̻̹̓͋r̢e̺͇: {0}</value></data>
+  <data name="GameOver" xml:space="preserve"><value>G͚͐ǎ̷̠̅͜m̦̩͊e̵̋͘ O̭̺v̴́͛ē͞r̴! F̖̄i͒͐͟n̶͉̅a̦͇̽̽l̸̻͈̈͌ S̴̤̒c̴͉̜ō̷̘̊re̴̝: {0}</value></data>
+  <data name="StartGame" xml:space="preserve"><value>S̶͇͖̋͂t̒a̶̦r̷̽t̵͙͉ G̸̦ḁ̾͆m̀̎e̴̹͘</value></data>
+  <data name="NewGame" xml:space="preserve"><value>N̸̒e̸̙͈w͍ G̊a̓ḿ̡e̷̦͈͞</value></data>
+  <data name="YourTurn" xml:space="preserve"><value>Ý͖o̧͂u͠ṟ͔̂̉ t̴̗u̶͂r͗n̸̜͛ (X̶̗̟͐̚)</value></data>
+  <data name="AIThinking" xml:space="preserve"><value>Ḁ̷̼́I̵̞͍̎͝ t̶̚hi̝̩̽ņ̵̖̑̑k̙̹ī̛͚̣n̑gͅ...</value></data>
+  <data name="YouWin" xml:space="preserve"><value>Ẏ̸̩̟̅o̚u̸̢̳ w̗ḯ͢ͅn̸͗͛! 🎉</value></data>
+  <data name="AIWins" xml:space="preserve"><value>A̸ͅI̷̪̹͊ w̷i̷͕̮͛n͂̈s̵͂̑! 🤖</value></data>
+  <data name="Draw" xml:space="preserve"><value>I̵̲̹̓t̷̲̃̂'ś̷͡ a̶͔͒ d̬̻͒r̴ăw̸͖̆̅͜!</value></data>
+  <data name="Clicks" xml:space="preserve"><value>C̸̡̯͒l͙̪̑̅i̧̊̄c̴̑̊k̴̘̃̊ͅs̵̭͠: {0}</value></data>
+  <data name="StartChallenge" xml:space="preserve"><value>S̵̛͉̎t̟̜͆͠a̶̛r̭͛ṫ̵̝͟ C̷̎h̲͐a͌l̸̳̚l͓è͉̯͞n̷g̞͉e̞͝</value></data>
+  <data name="WaitForGreen" xml:space="preserve"><value>W͎͑a̧̭͗i̗t̯̓ f̴̢͂͆ő͇̟r̆͟ g̵̜̊r͂e̸͎̗͑ēn̸̪̒̓!</value></data>
+  <data name="TapNow" xml:space="preserve"><value>Ț͆A̷̙P̪̽ Ń̸O̵͚͑̽W̟͂!</value></data>
+  <data name="TooEarly" xml:space="preserve"><value>T̬̝͝ô̠̘o̸̥͔̊ e̷̤̦̎͐a̻̬r̶̾l̽̒y̴͘! T̛r̷͎̜y͑̕ ạ̵g̱͕̅́ā̊ī̮͘͜n̼̳͋͡.</value></data>
+  <data name="ReactionTime" xml:space="preserve"><value>R̷̓̓e͍͈͊̊ả̵ć̴̕t̵̺i͐̅o̤̚n̴͔̒̓ͅ t̵͈̐i̸͢ḿ̶̜̑e̸͋: {0}m̡̫̒͘s̶̯</value></data>
+  <data name="TapStartToBegin" xml:space="preserve"><value>T̴̟̙̃a̷̮ͅp̵̢̺͊̓ 'S̴̥̬̑t̴̘͎̑a̲͊͝r̴̘̬t͍͑' ẗ́o͑ b̬̘̑ḙ̶̓̽g̷͆͞i̕͜ñ͜</value></data>
+  
+  <!-- Excuses -->
+  <data name="ExcuseGenerator" xml:space="preserve"><value>E̒̀͟x͘c̭̭̈́u̯ͅsͅe̹̝̒ G̸̛̑͟ě̢̟͘n͇e̵r̚a̵̹̖͐̀t̶̨̬ȏͅr̭</value></data>
+  <data name="NeedAReason" xml:space="preserve"><value>N̷͒e̶͗e̛̻d̷̐ ḁ̸̢ r͐͜e͂̕a̶̐͞so̸̘͈n̸̋ t̴̃ô no̴͓̗t̷ d̴̝̀o̶͠ s̵̠o͎m̧͐et̯h̶̯̚i̇̾n̷̨̺̏̃g̷͓? W̵̄̉ȅ̴̖͈ g̥̉̌o̷̞̊͊͢t͉̰ y̫̑ǒ̸͕͗͜u̶!</value></data>
+  <data name="TapForExcuse" xml:space="preserve"><value>T͔̲a͛p̤̠̀ t̠̫h̶̗̍ė̝̙̐ b̷̼͔̍u̴̓͐t̵t͋͟͜o̦͚n̷̺̞̿ f͓̤o͋̔ṙ a̍ f̵͕̐̕͜r̷̙͇e̦͆̚͟s̵h̸͎̾̓ e̸̬̝̊͗x̷̘́͆c̻̋̒ŭ̶s̸̜e̲̮͆!</value></data>
+  <data name="GenerateExcuse" xml:space="preserve"><value>G̘͕̔̃ȩ̐ń̶͞e̍̽r̡̼a̷t̖̗͑͒e̸̫ É̸͔̟̐x̶̜͟c̷͎̩͒̾us̶̡̉͢e̙̦̔̚</value></data>
+  <data name="CopyToClipboard" xml:space="preserve"><value>Ć̷̈́ȏ̸̧͓ṕ̶͇͍ý̷̟ t̶̯̙o̶͔ C̵͍l̷̾i̵̞͍p͈̘b̵͚͑o̴à̸̞͔r̵̪̜͗d͚͖̋͗</value></data>
+  <data name="Copied" xml:space="preserve"><value>C͍o̶͇̔̃͜p̶̲̈́̕i̴ē̢̺d͔̬̀!</value></data>
+  <data name="ExcusesGenerated" xml:space="preserve"><value>Ë̵̅x͍͕͌c̪̈́̓͢u̧ͅs̫̿͊͜e͎͘s̶̈̊ g̴̜̐͜e̶̝̠̍n̑̃ë̱͠r̼̣̒a͟t̵͜e̽͠d̷͌̀ t̷̞͚̑͐ō̸̰̄d̆a̶͚̘y̵͓͐̒: {0}</value></data>
+  
+  <!-- Stats -->
+  <data name="YourStats" xml:space="preserve"><value>Y̭͌́o̲͌̀u̬r̷ S͇̜t̜a̬̦̕t̟̖͘s̶</value></data>
+  <data name="BeProud" xml:space="preserve"><value>B̸̖e̘̥ p̷ro̸̯u̸̽͆d͌͋ o̵̺͉̕f̵ y͎̫̑̑ő̷͇͟u̼̞͘r̶͖͓̎ a͆̈́c̴̢̗c̵̗̊̊ô̭͚m̴̭͌́͟p͓͕̕l̵̓͠i̵̤s̴͡h̵̘̲͛m̵͖̣̕ê̵̗̎n̶̈̌t̷͈̥s̟͔͑!</value></data>
+  <data name="TasksAvoided" xml:space="preserve"><value>Ţ̷̎͑ás̹͛̅ḱ̸̔s̴͑ A̴̺v͌o͂i̶͔̱͒͛d̄͋ed̮̏͜</value></data>
+  <data name="BreaksTaken" xml:space="preserve"><value>B̵͈̾r̸͟e̖̣͠a̶͋̎ks̟͗ T̫̓a̷̒̀͟k̴̪̿̊͢è͠n̴͉̚͞</value></data>
+  <data name="ExcusesGeneratedStat" xml:space="preserve"><value>E̵̖̘x͗̇c̶͞u̵̳̥s̴̬͔̋̕es̷̲̳͐ G͙̪ȩ̷n̘̗e̵r͉̦á̪̅t̳̜̎ë̸ͅd̊̈́</value></data>
+  <data name="GamesPlayed" xml:space="preserve"><value>G̷͚͗a̢͈̐͛m̥̫̋e͑͘s͔̫̈́̉ P̴͎̦̄͝ĺ̕á̸̯y̶̛̚ȇd̸̛̹͛</value></data>
+  <data name="AchievementUnlocked" xml:space="preserve"><value>A̴͗c̷̛̜̋h̷̕į̬͒͑e͍͎v̶͆̊e̴m̵͈͒̉e̶̺͉͂͆n̽t̶͎̪̐ U̷͂nl͍̫͒̆o̸͚͂c̀k̞̞̈̅ed̶͈̿</value></data>
+  <data name="GettingStarted" xml:space="preserve"><value>G̴̫͕̈́e̸͍͈ẗ̵͒͟t̶͍̍͟i̙n̷̻͠g̷̼͖̅̽ S̸̰͂̀t̸̫̪a̓̕r̵te̿͗ḋ: Oṕ̸e̵̛͗n̶͊̾ t̴͢͡h̵̭e̶̦̽ a̶p̘̐̅p̫͌̈͢!</value></data>
+  <data name="BeginnerProcrastinator" xml:space="preserve"><value>B̼̈́ēg͂i̫n̯n̴̠͙e̙͈r̦̦͞ P͚̘r̴͓͎o͔͍cr̞̜a̎s͡͝t̡̩̓͝i̺n̷̯̅ͅa̶̒͌t̽̈́o͉̺̎͡r̸̨̹</value></data>
+  <data name="LegendaryProcrastinator" xml:space="preserve"><value>L̯͖E̢̥͌͠G̀̀Ē͙̆N͂Ḍ̷Ã͚̇R̵̒Y̴̗̲̌́ P̢̢R̴͙O̴̖̻̍Ĉ̷͝Ȑ̵̼́AS̸͑T̷͍Į͘N̷A̶̼̯T̪O͔̿͢R̶̮͍̔͡</value></data>
+  
+  <!-- Game names -->
+  <data name="SimonSays" xml:space="preserve"><value>Ş͂͘͢ḭ̴̹̓̈ḿ̢͎o̭̓̚n͕̔͜͠ S̸̰̕͢ȁ̴̓y̎͛s̶̛̤</value></data>
+  <data name="SimonSaysDesc" xml:space="preserve"><value>W̳a̸͎̞t̃́c̶̬̾h̷͍̆̀ t̸͔͓̃̓h̷͍͙͑̀e̸̙̓͡ p̶͈̠͐a͐͂ṭ̠t͗̚ȅ̱r̔n̷̟̒̕ͅ a͎n̵̓͑d̡͓̎ r̠͘͡è̏p̍e̵͓͈̎a̶͚̅͒t̵̞ i̵͋t͉̐͆!</value></data>
+  <data name="ClickSpeed" xml:space="preserve"><value>Ç̵̙l̵͂́i̸̲̳͛c̴̈́k̵̺ S̮͒͞p̵e̲̣̾͞e͔͜d̴̨̡</value></data>
+  <data name="ClickSpeedDesc" xml:space="preserve"><value>H̷͚o͚̘̚w m̉a̵̍̀n̴͔̮̅y̨̫͐ c̛l̶i̶̡̭͒c̻̦͑̈ḳ̵s̜͋͗ í̠͠n̵̉ 5̸͖͗ ŝ̝̉͜e̱͚c̵o̷̡̯͆n̶̩̮d̴̻͍ŝ̵͌?</value></data>
+  <data name="ReactionTimeGame" xml:space="preserve"><value>R̺ȅ̵͉̯̊a̷͆͗c̷͉t̶͘i̖̒̉o̶̜̬̔ṇ́͗ T̬͋i̝̺m̼͒͠ę̦͘</value></data>
+  <data name="ReactionTimeDesc" xml:space="preserve"><value>W̸̝͑̀a̸̩i͇͟t̵̝̤͒ f̀͐o̵ŕ̵͠ g̷͚͜ȓe̸͈͍e̴͖n̠̑̾, t̴͓̘h̬̓͛ẽ̶̛̜n̷̽͆ t̿̊ą̡͂p̢!</value></data>
+  <data name="TicTacToe" xml:space="preserve"><value>Ț̋̀i̵̎͟c T̶̞a̷͉c̠̪ T̡̺ò̵̡̬e̶͍͙</value></data>
+  <data name="TicTacToeDesc" xml:space="preserve"><value>C͈̀̕l̸̀͘a̵͎̖s̴s̤ȋ̸͘c̜͉ X͔̐̃ a̼̎n͉͎̈d̵ O̥̊ g̴̢a̷̕m̵̖̆e̶̫!</value></data>
+  <data name="Minesweeper" xml:space="preserve"><value>M̵͍̭i̶ͅn̻͐͗e̴̼̳̽̈s̮̅͛w̼̑e̶̞̝̐̀e̴p̴̯͊è̷̤̫̂r̴͔̿̽</value></data>
+  <data name="MinesweeperDesc" xml:space="preserve"><value>F̝́͐ͅi̶n̸͉̣d̶̳ a̡̽͘l̽ĺͅͅ s̷̕͢ạ̦̇̕f̸̙͈̽̚e̶̩ c̴̍e̥̦l̶̾̈l̹̋s̸̠͂!</value></data>
+  <data name="TiltSnake" xml:space="preserve"><value>Tĩ̴̗̞̿l̷̼̻t̴̀ S̷̿̐n̺̼͑̕a̷k̡͖e̋͘</value></data>
+  <data name="TiltSnakeDesc" xml:space="preserve"><value>T̴͟i̋̀l̛͜tͅ y̸o̴̥̬ụ̷̒r̿ p̵̦͈̀͂ho̷̯̺n̴ẽ̷̀ ť̗͈̆o̴ g̡̳̎̄ù̲̯̍į̎d̷̳͐e̴͐ t͔h̶e̵̪̤̊ s̜͈̀̔na̴̪͒͟k̴͛̂ę̔!</value></data>
+  <data name="MemoryMatch" xml:space="preserve"><value>M̵͎̦e̠̙͌m͑͂or̲͝y M̵̭at̲̯c̾̂h̸̽</value></data>
+  <data name="MemoryMatchDesc" xml:space="preserve"><value>Fî͇̩̏n̙͞d͕̗̈́͆ m̸̾͌à̪̓ţ̶͒ch̸̳̟͊̄ḭ̃̆ǹ͔g p̶͌̀ã̹i̶̯͒̓r̦͊s̸͕̉!</value></data>
+  <data name="NumberGuess" xml:space="preserve"><value>Ṋ̷ͅu͓̇̇mḃé̫͍͝r G̶̏̑u̷̝͞é̢͍̕s̊̿s̛̓</value></data>
+  <data name="NumberGuessDesc" xml:space="preserve"><value>Ģ̵̣u̴͚ès̯s̸ t̏͡h̷͙e̷̺͋͟ n̶̪̦͒̎u̴m̰̗͒͑bè̵̾ṛ̻̿̀ 1̝-1͘͠0̸͓̅͡0̸̎!</value></data>
+  <data name="WhackAMole" xml:space="preserve"><value>W̪̌͌h̔̕a͒c̷̨̻̑̌k͍̉͜-a̼̻͂̕-M̄ö̷̢͚́l̓e̸͙̦</value></data>
+  <data name="WhackAMoleDesc" xml:space="preserve"><value>T̳̽̄a͚͇̔͊p̝̌ t̸͔h̷͛͢e m̷̭ol̾̓ě̴̄s̴ͅ ả̷s̴͎ f̴̡as̰̺t̶̋̀ ạ̴̬̾͞s y̳͘o̶u̴̾ c̶̓̕ȧn̴̘!</value></data>
+  
+  <!-- Additional game strings -->
+  <data name="ClickMe" xml:space="preserve"><value>C̷̕͢͡l͍͈̓̇i̢̢͌ĉ̵̺͕k͉ M̻͌e̵̖͒͝!</value></data>
+  <data name="FinalClicks" xml:space="preserve"><value>F̵̦̃i̴̧̱͆̌na̗͍͠l̅̓: {0} c͜l̵̥͌i̸̘̮̇c̸̥k̴̗͛͂s̸̓̕! ({1:F1}/s̰̼̀̀e̢͒̚c̴̈́̀)</value></data>
+  <data name="Wait" xml:space="preserve"><value>W̵̆ăi̶̻t̴̘͙̍̇...</value></data>
+  <data name="Start" xml:space="preserve"><value>S̨̱̈̓ṭ̪̓̚a̸̡̨͑r̷͋͊t̷</value></data>
+  <data name="TooSoon" xml:space="preserve"><value>T̕ō͇͚ő̶̡ s̪͋̍ö̴́͆o͈̰̓̐n̶̨͙!</value></data>
+  <data name="Done" xml:space="preserve"><value>D̶o͔n̶͐e̷͘͟͝!</value></data>
+  <data name="FindSafeCells" xml:space="preserve"><value>F̺̦͞͝i̵̛͕̇n̻͆̓͢d̪͙͋̽ t̅͡ẖ̵̨ẻ̷̡ s̵̞ă͝f̗́é̒ c͌e̶͓̒͢͠l̥l̘s! ({0} m̯i͛n̸̐͘e͔̬̾s̳̔)</value></data>
+  <data name="BoomGameOver" xml:space="preserve"><value>B̪̬͝o̹̪̕ö̶̆m̸̮! G͚͛͠ͅa̖͋̾͢m̕ͅe̒ ov̴̠̼̇͝e͎̊́͟r̸͇̓́͜ 💥</value></data>
+  <data name="TiltToMove" xml:space="preserve"><value>T̸̬̪̕i̶̫̹l̓ẗ́ p͚̏ȟ̯̙͠o̴͎̒͞n̓ê̶̠̤̾ t̖͌o̘͆̕ m̍͟͜ǫ̶̝̓v̸̼e!</value></data>
+  <data name="AccelerometerNotAvailable" xml:space="preserve"><value>Â̷͙͙̊c̢̥̒̆ć͙̺e̷l̴͠ęr̶̪o̵̎m̶e̴͢tè͝r̗͙̃ ņ̀̋ͅó̷͙̪ẗ́ a̙v̳̱a̝͞i̅͘ļ̴̾͞a̴͕͕b̶̖l͚e̶̩</value></data>
+  <data name="GameOverScore" xml:space="preserve"><value>G̷̫͞a̷m̔e̶͊ O͇̕v̷̞̜̐e̛̻͆ŗ̶̙̽! S̸̋c̴̛͎̏őͅr̅͑ẽ: {0}</value></data>
+  <data name="MovesAndPairs" xml:space="preserve"><value>M͍o̶̭̍̂v̵̗e̷̽̔s̯̱͊: {0} | P̞̉a̶̓ir̸͓͆̚ͅs͈͘: {1}/{2}</value></data>
+  <data name="WinInMoves" xml:space="preserve"><value>Y̾o̶̳̥̓̕ù̅ w̵̪̾̆͜i͔n̸͉ i̳̫n̶̝̗ {0} m̃o͑v̶͈̙̆é̥ș! 🎉</value></data>
+  <data name="ThinkingOfNumber" xml:space="preserve"><value>Í̸̯'ṁ̡̚ tḫ̼͑͡i̶͉̙n̶͇͂͑k͔ị̓ǹ͈̐g̚ of̵͉̬͑̓ ä̶͓́̐ n̸̢̜u̵͓̚m̴̤̳̂́b̛̜̦e̶͗r͇͔͠ 1̶̺̆-1̳0̶̦ͅ0̺...</value></data>
+  <data name="Attempts" xml:space="preserve"><value>A̷̒̄ţ̷̠t̴̊͠ẽ̴m̟͍̆̅p̸̗͍t̴͖̭s̅: {0}</value></data>
+  <data name="EnterGuess" xml:space="preserve"><value>E̶̓n̸t̴̬e̴͌r̷ yo̵̪̔̕u̥͔͋͛r̍ g̴̨̚ũ̓ę͊͛s̮s̵͇̾̅</value></data>
+  <data name="Guess" xml:space="preserve"><value>G̷̦ū̡͙e̶̼ss̶͖͖͡!</value></data>
+  <data name="EnterNumber1to100" xml:space="preserve"><value>P̼͉l͡e̵a̙s͒ͅe͈ ệ̋n͓͐t͇͙e̾͌r̷̠̽̊ a͍͒͌ n̲um̴̨b̬͜e̵͇͆͋͟ṙ̵͡ 1-1̶̼̥̑̎0̚0̸͓̎͂͢</value></data>
+  <data name="Correct" xml:space="preserve"><value>🎉 C̒ȏ͓̗r̲̓r̷̥̠̎͗ë̷̬́c̵͔t̸̠͓̒͡! I͘ṫ̷̠̉ w̸̌̕a̡͔̎s̶̡̮̒ {0}!</value></data>
+  <data name="TooLow" xml:space="preserve"><value>📈 {0} i̵̙̫ș̸ t̩ó̵̹͞ó̗̀ L̵̥O̳W̶͕̙!</value></data>
+  <data name="TooHigh" xml:space="preserve"><value>📉 {0} i̬̊́s͇̐͛ t̲̙̀̃ó̸̑o̵ Ḩ̸̝͗Í̸̳̅G̟͆̈H̵̺̠́͡!</value></data>
+  <data name="ScoreAndMisses" xml:space="preserve"><value>S̵̤̠̏̕c̜oṛ̸e̴̪̱͠: {0} | M̷͔̏i̷̪͌s̴̋s̪e̸s̸͈̼: {1}</value></data>
+  <data name="StartGame30s" xml:space="preserve"><value>S̰͆tȃ͇̲r͕̿t̷̪̙ G̾a̵͔̪͂m̕é̠ (3̦̺̓0̴͌͌s̝̆̚)</value></data>
+</root>
