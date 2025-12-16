@@ -39,6 +39,7 @@ When asked to "do a release" or "release checklist":
    - Add new section in `CHANGELOG.md` with version and date
    - List all changes since last release (use git log)
    - Categories: Added, Changed, Fixed, Removed
+   - **Also update README.md** if features or screenshots changed
 
 5. **Update Collage**
    - Take fresh screenshots of all 4 tabs
