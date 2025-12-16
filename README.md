@@ -52,6 +52,7 @@ The app uses Groq's `llama-3.1-8b-instant` model which is fast and free (with ge
 
 - [.NET MAUI](https://dotnet.microsoft.com/apps/maui) - Cross-platform framework
 - [Groq](https://groq.com/) - Fast AI inference (optional)
+- [GitHub Copilot CLI](https://githubnext.com/projects/copilot-cli) - AI pair programmer that helped build this app
 - C# - Because even procrastinators have standards
 - FontAwesome - For beautiful icons
 
