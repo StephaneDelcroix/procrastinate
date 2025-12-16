@@ -122,7 +122,7 @@
                                Placeholder="{Binding GroqApiKeyPlaceholder, Source={x:Static strings:AppStrings.Instance}}"
                                IsPassword="True"
                                TextColor="{DynamicResource Gray100}"
-                               PlaceholderColor="{DynamicResource Gray400}"
+                                PlaceholderColor="{DynamicResource Gray400}"
                                BackgroundColor="{DynamicResource CardBackgroundAlt}"
                                TextChanged="OnGroqApiKeyChanged"/>
                         
@@ -131,12 +131,11 @@
                                    FontSize="14" 
                                    TextColor="{DynamicResource Gray300}"
                                    VerticalOptions="Center"/>
-                            <Entry x:Name="GroqModelEntry"
-                                   Text="llama-3.3-70b-versatile"
-                                   WidthRequest="200"
-                                   TextColor="{DynamicResource Gray100}"
-                                   BackgroundColor="{DynamicResource CardBackgroundAlt}"
-                                   TextChanged="OnGroqModelChanged"/>
+                            <Picker x:Name="GroqModelPicker"
+                                    WidthRequest="250"
+                                    TextColor="{DynamicResource Gray100}"
+                                    BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                                    SelectedIndexChanged="OnGroqModelChanged"/>
                         </HorizontalStackLayout>
                         
                         <Label Text="{Binding GroqGetKeyHint, Source={x:Static strings:AppStrings.Instance}}" 

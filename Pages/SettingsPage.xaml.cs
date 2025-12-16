@@ -5,6 +5,16 @@ namespace procrastinate.Pages;
 
 public partial class SettingsPage : ContentPage
 {
+    private static readonly string[] GroqModels = 
+    {
+        "llama-3.3-70b-versatile",
+        "llama-3.1-8b-instant",
+        "llama-3.2-1b-preview",
+        "llama-3.2-3b-preview",
+        "mixtral-8x7b-32768",
+        "gemma2-9b-it"
+    };
+
     public SettingsPage()
     {
         InitializeComponent();
@@ -39,7 +49,15 @@ public partial class SettingsPage : ContentPage
         ExcuseModePicker.SelectedIndex = modeIndex >= 0 ? modeIndex : 0;
 
         GroqApiKeyEntry.Text = Preferences.Get("GroqApiKey", "");
-        GroqModelEntry.Text = Preferences.Get("GroqModel", "llama-3.3-70b-versatile");
+        
+        // Load Groq models picker
+        foreach (var model in GroqModels)
+            GroqModelPicker.Items.Add(model);
+        
+        var savedModel = Preferences.Get("GroqModel", "llama-3.3-70b-versatile");
+        var modelIndex = Array.IndexOf(GroqModels, savedModel);
+        GroqModelPicker.SelectedIndex = modelIndex >= 0 ? modelIndex : 0;
+        
         UpdateAISettingsVisibility();
 
         // Display version
@@ -116,9 +134,11 @@ public partial class SettingsPage : ContentPage
         Preferences.Set("GroqApiKey", e.NewTextValue ?? "");
     }
 
-    private void OnGroqModelChanged(object? sender, TextChangedEventArgs e)
+    private void OnGroqModelChanged(object? sender, EventArgs e)
     {
-        Preferences.Set("GroqModel", e.NewTextValue ?? "llama-3.3-70b-versatile");
+        if (GroqModelPicker.SelectedIndex < 0) return;
+        var model = GroqModels[GroqModelPicker.SelectedIndex];
+        Preferences.Set("GroqModel", model);
     }
 
     private void UpdatePreview(bool highContrast)

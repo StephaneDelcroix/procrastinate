@@ -38,7 +38,7 @@
 - ~~give info about API usage for AI excuses, keep scores on games~~
 
 ## excuses page
-- the settings for CloudAI should have a dropdown list with the models
+- ~~the settings for CloudAI should have a dropdown list with the models~~
 
 ## settings
 - create an about section, with author, where to find source, etc
