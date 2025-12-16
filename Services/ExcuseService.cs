@@ -22,7 +22,7 @@ public class ExcuseService
     public static readonly Dictionary<string, string> AvailableModes = new()
     {
         { "random", "Random Generator" },
-        { "cloud", "Cloud AI (Ollama)" }
+        { "cloud", "Cloud AI (Groq)" }
     };
 
     public IExcuseGenerator GetCurrentGenerator()
