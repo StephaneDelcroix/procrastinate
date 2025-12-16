@@ -50,6 +50,8 @@ Take screenshot: `xcrun simctl io <UDID> screenshot output.png`
   - Subtitle "The Ultimate Anti-Productivity App"
   - Multi-language tagline (English, French, Spanish, Portuguese, Dutch & Czech)
 - **Screenshots**: All 4 tabs (Tasks, Games, Excuses, Stats) scaled ~20%
+  - **Language**: English
+  - **Zalgo mode**: OFF
 - **Footer**:
   - Feature labels under each screenshot
   - Funny user testimonial with 5-star rating
