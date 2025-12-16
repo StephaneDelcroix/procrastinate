@@ -10,7 +10,7 @@ Why be productive when you can procrastinate in style? This app helps you embrac
 
 - **📋 Tasks** - Track all the things you're definitely going to do... later
 - **🎮 Mini-Games** - 9 addictive games including Simon Says, Minesweeper, Tic Tac Toe, Snake, and more! Favorite your best games for priority shuffling
-- **🎭 Excuses** - Generate creative excuses for why you didn't finish that thing
+- **🎭 Excuses** - Generate creative excuses for why you didn't finish that thing (with optional AI-powered generation via Groq)
 - **📊 Stats** - View your procrastination statistics and feel accomplished about doing nothing
 - **♿ Accessibility** - High contrast mode for better visibility
 - **⚙️ Settings** - Customize your procrastination experience
@@ -28,9 +28,27 @@ Procrastinate like a local! The app is fully translated in:
 | Nederlands | 🇳🇱 |
 | Čeština | 🇨🇿 |
 
+## 🤖 AI-Powered Excuses (Optional)
+
+The app can generate creative excuses using AI! Two modes are available:
+
+- **Random** (default) - Uses built-in random excuse templates (no API key needed)
+- **AI (Cloud)** - Uses Groq's free API for more creative, context-aware excuses
+
+### Setting up Groq API
+
+1. Get a free API key from [Groq Console](https://console.groq.com/)
+2. Open the app Settings
+3. Select "AI (Cloud)" for Excuse Mode
+4. Enter your Groq API key
+5. Enjoy AI-generated excuses!
+
+The app uses Groq's `llama-3.1-8b-instant` model which is fast and free.
+
 ## 🛠️ Built With
 
 - [.NET MAUI](https://dotnet.microsoft.com/apps/maui) - Cross-platform framework
+- [Groq](https://groq.com/) - Fast AI inference (optional)
 - C# - Because even procrastinators have standards
 - FontAwesome - For beautiful icons
 
