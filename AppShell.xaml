@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:procrastinate"
     xmlns:pages="clr-namespace:procrastinate.Pages"
+    xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
     Title="Procrastinator's Helper">
 
     <Shell.Resources>
@@ -22,22 +23,22 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Tasks" ContentTemplate="{DataTemplate pages:TasksPage}" Route="TasksPage">
+        <ShellContent Title="{Binding TabTasks, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:TasksPage}" Route="TasksPage">
             <ShellContent.Icon>
                 <FontImageSource Glyph="&#xf46d;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
             </ShellContent.Icon>
         </ShellContent>
-        <ShellContent Title="Games" ContentTemplate="{DataTemplate pages:GamesPage}" Route="GamesPage">
+        <ShellContent Title="{Binding TabGames, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:GamesPage}" Route="GamesPage">
             <ShellContent.Icon>
                 <FontImageSource Glyph="&#xf11b;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
             </ShellContent.Icon>
         </ShellContent>
-        <ShellContent Title="Excuses" ContentTemplate="{DataTemplate pages:ExcusePage}" Route="ExcusePage">
+        <ShellContent Title="{Binding TabExcuses, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:ExcusePage}" Route="ExcusePage">
             <ShellContent.Icon>
                 <FontImageSource Glyph="&#xf630;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
             </ShellContent.Icon>
         </ShellContent>
-        <ShellContent Title="Stats" ContentTemplate="{DataTemplate pages:StatsPage}" Route="StatsPage">
+        <ShellContent Title="{Binding TabStats, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:StatsPage}" Route="StatsPage">
             <ShellContent.Icon>
                 <FontImageSource Glyph="&#xf201;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
             </ShellContent.Icon>

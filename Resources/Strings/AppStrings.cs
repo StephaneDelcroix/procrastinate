@@ -128,6 +128,10 @@ public class AppStrings : INotifyPropertyChanged
     // Properties for direct XAML binding
     public string AppName => this["AppName"];
     public string Settings => this["Settings"];
+    public string TabTasks => this["TabTasks"];
+    public string TabGames => this["TabGames"];
+    public string TabExcuses => this["TabExcuses"];
+    public string TabStats => this["TabStats"];
     public string Accessibility => this["Accessibility"];
     public string HighContrastMode => this["HighContrastMode"];
     public string HighContrastDesc => this["HighContrastDesc"];

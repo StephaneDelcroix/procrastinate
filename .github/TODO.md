@@ -7,6 +7,6 @@
 - mini-games views should leverage XAML (skipped - large refactoring)
 - ~~all pages: if there's no scrolling, top-align (not center)~~
 - ~~simon mini-game: make the button square (they're rectangle) with a small gutter~~
-- generated excuses aren't zalgo if zalgo setting is picked
+- ~~generated excuses aren't zalgo if zalgo setting is picked~~
 - Tab label (at bottom) aren't zalgo, if zalgo is set
 - popup shown on 'add more task' isn't zalgo, if zalgo is set

@@ -20,6 +20,10 @@
   <!-- General -->
   <data name="AppName" xml:space="preserve"><value>Procrastinate</value></data>
   <data name="Settings" xml:space="preserve"><value>Settings</value></data>
+  <data name="TabTasks" xml:space="preserve"><value>Tasks</value></data>
+  <data name="TabGames" xml:space="preserve"><value>Games</value></data>
+  <data name="TabExcuses" xml:space="preserve"><value>Excuses</value></data>
+  <data name="TabStats" xml:space="preserve"><value>Stats</value></data>
   <data name="Accessibility" xml:space="preserve"><value>Accessibility</value></data>
   <data name="HighContrastMode" xml:space="preserve"><value>High Contrast Mode</value></data>
   <data name="HighContrastDesc" xml:space="preserve"><value>Use higher contrast colors for better visibility</value></data>
