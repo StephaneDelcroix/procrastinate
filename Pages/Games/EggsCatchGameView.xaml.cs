@@ -6,7 +6,7 @@ public partial class EggsCatchGameView : ContentView
 {
     private readonly Label[,] _eggLabels = new Label[3, 4];
     private readonly Label[] _basketLabels = new Label[4];
-    private readonly bool[,] _eggs = new bool[3, 4]; // row, column - egg present
+    private readonly int[] _eggRows = new int[4]; // -1 = no egg, 0-2 = row position
     private int _basketPosition = 1; // 0-3 position
     private int _score;
     private int _misses;
@@ -20,6 +20,7 @@ public partial class EggsCatchGameView : ContentView
         InitializeComponent();
         InitializeLabels();
         UpdateBasket();
+        ClearEggs();
     }
 
     private void InitializeLabels()
@@ -29,6 +30,12 @@ public partial class EggsCatchGameView : ContentView
         _eggLabels[2, 0] = Egg20; _eggLabels[2, 1] = Egg21; _eggLabels[2, 2] = Egg22; _eggLabels[2, 3] = Egg23;
         
         _basketLabels[0] = Basket0; _basketLabels[1] = Basket1; _basketLabels[2] = Basket2; _basketLabels[3] = Basket3;
+    }
+
+    private void ClearEggs()
+    {
+        for (int col = 0; col < 4; col++)
+            _eggRows[col] = -1;
     }
 
     private void UpdateBasket()
@@ -41,7 +48,7 @@ public partial class EggsCatchGameView : ContentView
     {
         for (int row = 0; row < 3; row++)
             for (int col = 0; col < 4; col++)
-                _eggLabels[row, col].Text = _eggs[row, col] ? "O" : "";
+                _eggLabels[row, col].Text = _eggRows[col] == row ? "O" : "";
     }
 
     private void OnLeftClicked(object? sender, EventArgs e)
@@ -76,11 +83,7 @@ public partial class EggsCatchGameView : ContentView
         LeftBtn.IsEnabled = true;
         RightBtn.IsEnabled = true;
         
-        // Clear all eggs
-        for (int row = 0; row < 3; row++)
-            for (int col = 0; col < 4; col++)
-                _eggs[row, col] = false;
-        
+        ClearEggs();
         UpdateBasket();
         UpdateEggDisplay();
         UpdateScore();
@@ -90,8 +93,7 @@ public partial class EggsCatchGameView : ContentView
 
     private async Task GameLoop()
     {
-        int speed = 600; // ms between updates
-        int spawnChance = 30; // % chance to spawn egg in each column
+        int speed = 500;
 
         try
         {
@@ -99,45 +101,64 @@ public partial class EggsCatchGameView : ContentView
             {
                 await Task.Delay(speed, _cts.Token);
 
-                // Move eggs down
+                // Count eggs about to land (row 2)
+                int eggsLanding = 0;
+                int landingCol = -1;
                 for (int col = 0; col < 4; col++)
                 {
-                    // Check if bottom egg reaches basket row
-                    if (_eggs[2, col])
+                    if (_eggRows[col] == 2)
                     {
+                        eggsLanding++;
+                        landingCol = col;
+                    }
+                }
+
+                // Move eggs down, but stagger landings
+                for (int col = 0; col < 4; col++)
+                {
+                    if (_eggRows[col] == 2)
+                    {
+                        // Only let ONE egg land per tick
+                        if (eggsLanding > 1 && col != landingCol)
+                        {
+                            // Hold this egg, it lands next tick
+                            continue;
+                        }
+                        
+                        // Egg reaches bottom
                         if (_basketPosition == col)
                         {
-                            // Caught!
                             _score++;
                         }
                         else
                         {
-                            // Missed!
                             _misses++;
                         }
-                        _eggs[2, col] = false;
+                        _eggRows[col] = -1;
                     }
-
-                    // Shift eggs down
-                    for (int row = 2; row > 0; row--)
-                        _eggs[row, col] = _eggs[row - 1, col];
-                    
-                    _eggs[0, col] = false;
+                    else if (_eggRows[col] >= 0)
+                    {
+                        _eggRows[col]++;
+                    }
                 }
 
-                // Spawn new eggs at top (random columns)
+                // Spawn new egg in a random empty column (only spawn one at a time)
+                var emptyCols = new List<int>();
                 for (int col = 0; col < 4; col++)
+                    if (_eggRows[col] == -1)
+                        emptyCols.Add(col);
+                
+                if (emptyCols.Count > 0 && Random.Shared.Next(100) < 40)
                 {
-                    if (Random.Shared.Next(100) < spawnChance)
-                        _eggs[0, col] = true;
+                    int spawnCol = emptyCols[Random.Shared.Next(emptyCols.Count)];
+                    _eggRows[spawnCol] = 0;
                 }
 
                 UpdateEggDisplay();
                 UpdateScore();
 
                 // Speed up as score increases
-                speed = Math.Max(200, 600 - (_score * 20));
-                spawnChance = Math.Min(50, 30 + (_score / 5));
+                speed = Math.Max(250, 500 - (_score * 15));
             }
         }
         catch (TaskCanceledException) { }

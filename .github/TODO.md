@@ -20,6 +20,6 @@
 ## Games
 - ~~add a game like "game & Watch" "mickey mouse" (aka eggs) game~~
 - ~~add a game that randomly creates a LEGO minifigure~~
-- clickspeed: ScoreLabel should use a binding to update, without a trigger from code. same for most games using UpdateXXX methods to update labels
+- ~~clickspeed: ScoreLabel should use a binding to update~~
 - egg catch: no need to place the eggs on a grid, you can change their position. also, multiple eggs shouldn't land at the same time, or it's impossible to catch
 - minifig: use real LEGO minifig parts
