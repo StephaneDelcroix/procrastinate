@@ -23,10 +23,10 @@ public class SimonSaysGame : MiniGame
         _startBtn = new Button { Text = AppStrings.GetString("StartGame"), BackgroundColor = Color.FromArgb("#14B8A6"), TextColor = Color.FromArgb("#0F172A"), CornerRadius = 12, HeightRequest = 44 };
         _startBtn.Clicked += OnStartClicked;
 
-        _redBtn = new Button { BackgroundColor = Color.FromArgb("#EF4444"), CornerRadius = 12 };
-        _greenBtn = new Button { BackgroundColor = Color.FromArgb("#22C55E"), CornerRadius = 12 };
-        _blueBtn = new Button { BackgroundColor = Color.FromArgb("#3B82F6"), CornerRadius = 12 };
-        _yellowBtn = new Button { BackgroundColor = Color.FromArgb("#EAB308"), CornerRadius = 12 };
+        _redBtn = new Button { BackgroundColor = Color.FromArgb("#EF4444"), CornerRadius = 12, WidthRequest = 90, HeightRequest = 90 };
+        _greenBtn = new Button { BackgroundColor = Color.FromArgb("#22C55E"), CornerRadius = 12, WidthRequest = 90, HeightRequest = 90 };
+        _blueBtn = new Button { BackgroundColor = Color.FromArgb("#3B82F6"), CornerRadius = 12, WidthRequest = 90, HeightRequest = 90 };
+        _yellowBtn = new Button { BackgroundColor = Color.FromArgb("#EAB308"), CornerRadius = 12, WidthRequest = 90, HeightRequest = 90 };
 
         _redBtn.Clicked += (s, e) => OnColorClicked(0);
         _greenBtn.Clicked += (s, e) => OnColorClicked(1);
@@ -35,16 +35,16 @@ public class SimonSaysGame : MiniGame
 
         var grid = new Grid
         {
-            ColumnDefinitions = { new ColumnDefinition(), new ColumnDefinition() },
-            RowDefinitions = { new RowDefinition(80), new RowDefinition(80) },
-            WidthRequest = 200,
+            ColumnDefinitions = { new ColumnDefinition(new GridLength(95)), new ColumnDefinition(new GridLength(95)) },
+            RowDefinitions = { new RowDefinition(new GridLength(95)), new RowDefinition(new GridLength(95)) },
+            ColumnSpacing = 8,
+            RowSpacing = 8,
             HorizontalOptions = LayoutOptions.Center
         };
         grid.Add(_redBtn, 0, 0);
         grid.Add(_greenBtn, 1, 0);
         grid.Add(_blueBtn, 0, 1);
         grid.Add(_yellowBtn, 1, 1);
-        grid.SetColumnSpan(_redBtn, 1);
 
         return new VerticalStackLayout
         {
