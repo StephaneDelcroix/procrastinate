@@ -50,4 +50,4 @@
 - ~~the Theme Preview should be in the same box as Accessibility~~
 
 ## others
-- take note in the instruction. make sur to update the README when you update the Changelog
+- ~~take note in the instruction. make sur to update the README when you update the Changelog~~
