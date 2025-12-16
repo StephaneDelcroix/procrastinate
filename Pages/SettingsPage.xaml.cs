@@ -25,6 +25,9 @@ public partial class SettingsPage : ContentPage
         HighContrastSwitch.IsToggled = isHighContrast;
         UpdatePreview(isHighContrast);
         UpdateThemeLabel(isHighContrast);
+
+        // Load Zalgo mode
+        ZalgoSwitch.IsToggled = AppStrings.IsZalgoMode;
     }
 
     private void OnLanguageChanged(object? sender, EventArgs e)
@@ -48,6 +51,11 @@ public partial class SettingsPage : ContentPage
         UpdatePreview(e.Value);
         ApplyTheme(e.Value);
         UpdateThemeLabel(e.Value);
+    }
+
+    private void OnZalgoToggled(object? sender, ToggledEventArgs e)
+    {
+        AppStrings.IsZalgoMode = e.Value;
     }
 
     private void UpdatePreview(bool highContrast)

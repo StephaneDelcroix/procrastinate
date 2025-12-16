@@ -13,6 +13,23 @@ public class AppStrings : INotifyPropertyChanged
         new("procrastinate.Resources.Strings.AppResources", typeof(AppStrings).Assembly);
 
     private CultureInfo _culture;
+    private bool _zalgoMode;
+
+    // Zalgo combining characters
+    private static readonly char[] ZalgoUp = {
+        '\u0300', '\u0301', '\u0302', '\u0303', '\u0304', '\u0305', '\u0306', '\u0307',
+        '\u0308', '\u0309', '\u030a', '\u030b', '\u030c', '\u030d', '\u030e', '\u030f',
+        '\u0310', '\u0311', '\u0312', '\u0313', '\u0314', '\u0315', '\u031a', '\u031b',
+        '\u033d', '\u033e', '\u033f', '\u0340', '\u0341', '\u0342', '\u0343', '\u0344'
+    };
+    private static readonly char[] ZalgoDown = {
+        '\u0316', '\u0317', '\u0318', '\u0319', '\u031c', '\u031d', '\u031e', '\u031f',
+        '\u0320', '\u0321', '\u0322', '\u0323', '\u0324', '\u0325', '\u0326', '\u0327',
+        '\u0328', '\u0329', '\u032a', '\u032b', '\u032c', '\u032d', '\u032e', '\u032f',
+        '\u0330', '\u0331', '\u0332', '\u0333', '\u0339', '\u033a', '\u033b', '\u033c'
+    };
+    private static readonly char[] ZalgoMid = { '\u0334', '\u0335', '\u0336', '\u0337', '\u0338' };
+    private static readonly Random _random = new();
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -23,32 +40,74 @@ public class AppStrings : INotifyPropertyChanged
         { "es", "Español" },
         { "pt", "Português" },
         { "nl", "Nederlands" },
-        { "cs", "Čeština" },
-        { "qps-ploc", "Z̸̡a̷̢l̵̨g̶̡o̷̢" }
+        { "cs", "Čeština" }
     };
 
     private AppStrings()
     {
         var savedLang = Preferences.Get("AppLanguage", "en");
         _culture = new CultureInfo(savedLang);
+        _zalgoMode = Preferences.Get("ZalgoMode", false);
     }
 
     public static string CurrentLanguage
     {
-        get => Instance._culture.TwoLetterISOLanguageName;
+        get => Instance._culture.Name;
         set
         {
             Instance._culture = new CultureInfo(value);
             Preferences.Set("AppLanguage", value);
-            Instance.OnPropertyChanged(null); // Notify all properties changed
+            Instance.OnPropertyChanged(null);
+        }
+    }
+
+    public static bool IsZalgoMode
+    {
+        get => Instance._zalgoMode;
+        set
+        {
+            Instance._zalgoMode = value;
+            Preferences.Set("ZalgoMode", value);
+            Instance.OnPropertyChanged(null);
         }
     }
 
     public string this[string key] => GetString(key);
 
+    private static string Zalgoify(string text)
+    {
+        if (string.IsNullOrEmpty(text)) return text;
+        
+        var result = new System.Text.StringBuilder();
+        bool inPlaceholder = false;
+        
+        foreach (char c in text)
+        {
+            // Track if we're inside a format placeholder like {0}
+            if (c == '{') inPlaceholder = true;
+            else if (c == '}') inPlaceholder = false;
+            
+            result.Append(c);
+            
+            // Only add zalgo to letters/digits outside of placeholders
+            if (!inPlaceholder && c != '}' && char.IsLetterOrDigit(c))
+            {
+                // Add 0-2 combining characters above, middle, and below
+                for (int i = 0; i < _random.Next(0, 3); i++)
+                    result.Append(ZalgoUp[_random.Next(ZalgoUp.Length)]);
+                for (int i = 0; i < _random.Next(0, 2); i++)
+                    result.Append(ZalgoMid[_random.Next(ZalgoMid.Length)]);
+                for (int i = 0; i < _random.Next(0, 3); i++)
+                    result.Append(ZalgoDown[_random.Next(ZalgoDown.Length)]);
+            }
+        }
+        return result.ToString();
+    }
+
     public static string GetString(string key)
     {
-        return _resourceManager.GetString(key, Instance._culture) ?? key;
+        var text = _resourceManager.GetString(key, Instance._culture) ?? key;
+        return Instance._zalgoMode ? Zalgoify(text) : text;
     }
 
     public static string GetString(string key, params object[] args)
@@ -72,6 +131,8 @@ public class AppStrings : INotifyPropertyChanged
     public string Accessibility => this["Accessibility"];
     public string HighContrastMode => this["HighContrastMode"];
     public string HighContrastDesc => this["HighContrastDesc"];
+    public string ZalgoMode => this["ZalgoMode"];
+    public string ZalgoModeDesc => this["ZalgoModeDesc"];
     public string ThemePreview => this["ThemePreview"];
     public string DefaultTheme => this["DefaultTheme"];
     public string HighContrast => this["HighContrast"];

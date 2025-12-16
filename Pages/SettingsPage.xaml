@@ -69,6 +69,22 @@
                                 Toggled="OnHighContrastToggled"
                                 VerticalOptions="Center"/>
                     </Grid>
+
+                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+                        <VerticalStackLayout Grid.Column="0" Spacing="4">
+                            <Label Text="{Binding ZalgoMode, Source={x:Static strings:AppStrings.Instance}}" 
+                                   FontSize="16" 
+                                   TextColor="{StaticResource Gray100}"/>
+                            <Label Text="{Binding ZalgoModeDesc, Source={x:Static strings:AppStrings.Instance}}" 
+                                   FontSize="13" 
+                                   TextColor="{StaticResource Gray400}"/>
+                        </VerticalStackLayout>
+                        <Switch x:Name="ZalgoSwitch" 
+                                Grid.Column="1"
+                                OnColor="{StaticResource Tertiary}"
+                                Toggled="OnZalgoToggled"
+                                VerticalOptions="Center"/>
+                    </Grid>
                 </VerticalStackLayout>
             </Border>
 

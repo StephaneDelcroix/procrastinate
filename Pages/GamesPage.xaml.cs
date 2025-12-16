@@ -103,7 +103,8 @@ public partial class GamesPage : ContentPage
             Text = game.Icon,
             FontFamily = "FontAwesomeSolid",
             FontSize = 20,
-            TextColor = Color.FromArgb(game.IconColor)
+            TextColor = Color.FromArgb(game.IconColor),
+            VerticalOptions = LayoutOptions.Center
         };
 
         var titleLabel = new Label
