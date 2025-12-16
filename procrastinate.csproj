@@ -74,6 +74,12 @@
 		</EmbeddedResource>
 	</ItemGroup>
 
+	<!-- iOS signing configuration -->
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+		<CodesignProvision>procrastinate</CodesignProvision>
+		<CodesignKey>Apple Distribution: Mobile Inception SCRIS (2AX62Z4ETG)</CodesignKey>
+	</PropertyGroup>
+
 	<!-- Native iOS Framework for Foundation Models wrapper -->
 	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
 		<NativeReference Include="Platforms\iOS\FMWrapper.xcframework">

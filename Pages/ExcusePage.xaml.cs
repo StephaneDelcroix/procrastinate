@@ -43,6 +43,7 @@ public partial class ExcusePage : ContentPage
         // Reset image state
         ExcuseImage.IsVisible = false;
         GenerateImageBtn.IsVisible = false;
+        ShareIconBtn.IsVisible = false;
         
         // Show loading state
         GenerateBtn.IsEnabled = false;
@@ -58,8 +59,9 @@ public partial class ExcusePage : ContentPage
             _statsService.IncrementExcusesGenerated();
             UpdateCounterLabel();
             
-            // Show the generate image button
+            // Show the generate image and share buttons
             GenerateImageBtn.IsVisible = true;
+            ShareIconBtn.IsVisible = true;
         }
         catch (Exception ex)
         {
