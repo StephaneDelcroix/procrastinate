@@ -129,4 +129,7 @@
   <data name="ApiEndpointPlaceholder" xml:space="preserve"><value>http://localhost:11434</value></data>
   <data name="AiModel" xml:space="preserve"><value>Modelo de IA</value></data>
   <data name="Generating" xml:space="preserve"><value>Generando...</value></data>
+  <data name="GroqApiKeyLabel" xml:space="preserve"><value>Clave API Groq</value></data>
+  <data name="GroqApiKeyPlaceholder" xml:space="preserve"><value>Ingresa tu clave API Groq</value></data>
+  <data name="GroqGetKeyHint" xml:space="preserve"><value>Obtén tu clave gratis en console.groq.com</value></data>
 </root>

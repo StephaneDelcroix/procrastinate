@@ -38,8 +38,8 @@ public partial class SettingsPage : ContentPage
         var modeIndex = ExcuseService.AvailableModes.Keys.ToList().IndexOf(currentMode);
         ExcuseModePicker.SelectedIndex = modeIndex >= 0 ? modeIndex : 0;
 
-        ApiEndpointEntry.Text = Preferences.Get("ExcuseApiEndpoint", "");
-        AiModelEntry.Text = Preferences.Get("ExcuseAiModel", "llama3.2");
+        GroqApiKeyEntry.Text = Preferences.Get("GroqApiKey", "");
+        GroqModelEntry.Text = Preferences.Get("GroqModel", "llama-3.3-70b-versatile");
         UpdateCloudSettingsVisibility();
     }
 
@@ -85,14 +85,14 @@ public partial class SettingsPage : ContentPage
         CloudSettingsPanel.IsVisible = ExcuseService.CurrentMode == "cloud";
     }
 
-    private void OnApiEndpointChanged(object? sender, TextChangedEventArgs e)
+    private void OnGroqApiKeyChanged(object? sender, TextChangedEventArgs e)
     {
-        Preferences.Set("ExcuseApiEndpoint", e.NewTextValue ?? "");
+        Preferences.Set("GroqApiKey", e.NewTextValue ?? "");
     }
 
-    private void OnAiModelChanged(object? sender, TextChangedEventArgs e)
+    private void OnGroqModelChanged(object? sender, TextChangedEventArgs e)
     {
-        Preferences.Set("ExcuseAiModel", e.NewTextValue ?? "llama3.2");
+        Preferences.Set("GroqModel", e.NewTextValue ?? "llama-3.3-70b-versatile");
     }
 
     private void UpdatePreview(bool highContrast)

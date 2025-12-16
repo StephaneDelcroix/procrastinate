@@ -124,9 +124,12 @@
   <data name="ExcuseEngine" xml:space="preserve"><value>Moteur d'excuses</value></data>
   <data name="ExcuseEngineDesc" xml:space="preserve"><value>Choisissez comment les excuses sont générées</value></data>
   <data name="RandomGenerator" xml:space="preserve"><value>Générateur aléatoire</value></data>
-  <data name="CloudAI" xml:space="preserve"><value>IA Cloud (Ollama)</value></data>
+  <data name="CloudAI" xml:space="preserve"><value>IA Cloud (Groq)</value></data>
   <data name="ApiEndpoint" xml:space="preserve"><value>Point d'accès API</value></data>
   <data name="ApiEndpointPlaceholder" xml:space="preserve"><value>http://localhost:11434</value></data>
   <data name="AiModel" xml:space="preserve"><value>Modèle IA</value></data>
   <data name="Generating" xml:space="preserve"><value>Génération...</value></data>
+  <data name="GroqApiKeyLabel" xml:space="preserve"><value>Clé API Groq</value></data>
+  <data name="GroqApiKeyPlaceholder" xml:space="preserve"><value>Entrez votre clé API Groq</value></data>
+  <data name="GroqGetKeyHint" xml:space="preserve"><value>Obtenez votre clé gratuite sur console.groq.com</value></data>
 </root>

@@ -190,4 +190,7 @@ public class AppStrings : INotifyPropertyChanged
     public string ApiEndpointPlaceholder => this["ApiEndpointPlaceholder"];
     public string AiModel => this["AiModel"];
     public string Generating => this["Generating"];
+    public string GroqApiKeyLabel => this["GroqApiKeyLabel"];
+    public string GroqApiKeyPlaceholder => this["GroqApiKeyPlaceholder"];
+    public string GroqGetKeyHint => this["GroqGetKeyHint"];
 }
