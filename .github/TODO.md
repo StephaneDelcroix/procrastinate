@@ -10,5 +10,5 @@
 - ~~generated excuses aren't zalgo if zalgo setting is picked~~
 - ~~Tab label (at bottom) aren't zalgo, if zalgo is set~~
 - ~~popup shown on 'add more task' isn't zalgo, if zalgo is set~~
-- in settings page: icons and title (like accessibility) aren't vertically aligned
+- ~~in settings page: icons and title (like accessibility) aren't vertically aligned~~
 - settings still doesn't close on changing tab
