@@ -136,4 +136,16 @@
   <data name="OnDeviceAIHint" xml:space="preserve"><value>Používá Apple Intelligence na iOS 26+. Bez internetu, zcela soukromé.</value></data>
   <data name="OnDeviceAIAvailable" xml:space="preserve"><value>Apple Intelligence je připravena!</value></data>
   <data name="OnDeviceAIUnavailable" xml:space="preserve"><value>Vyžaduje iOS 26+ s povolenou Apple Intelligence</value></data>
+  <data name="TakeANap" xml:space="preserve">
+    <value>Dát si šlofíka</value>
+  </data>
+  <data name="GrabACoffee" xml:space="preserve">
+    <value>Dát si kafe</value>
+  </data>
+  <data name="StretchABit" xml:space="preserve">
+    <value>Protáhnout se</value>
+  </data>
+  <data name="StareAtCeiling" xml:space="preserve">
+    <value>Zírat na strop</value>
+  </data>
 </root>

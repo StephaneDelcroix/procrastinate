@@ -136,4 +136,16 @@
   <data name="OnDeviceAIHint" xml:space="preserve"><value>Gebruikt Apple Intelligence op iOS 26+. Geen internet nodig, volledig privé.</value></data>
   <data name="OnDeviceAIAvailable" xml:space="preserve"><value>Apple Intelligence is klaar!</value></data>
   <data name="OnDeviceAIUnavailable" xml:space="preserve"><value>Vereist iOS 26+ met Apple Intelligence ingeschakeld</value></data>
+  <data name="TakeANap" xml:space="preserve">
+    <value>Doe een dutje</value>
+  </data>
+  <data name="GrabACoffee" xml:space="preserve">
+    <value>Pak een koffie</value>
+  </data>
+  <data name="StretchABit" xml:space="preserve">
+    <value>Strek je even</value>
+  </data>
+  <data name="StareAtCeiling" xml:space="preserve">
+    <value>Staar naar het plafond</value>
+  </data>
 </root>

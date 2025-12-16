@@ -163,4 +163,16 @@
   <data name="AIExcuseCalls" xml:space="preserve"><value>AI API Calls</value></data>
   <data name="HighScores" xml:space="preserve"><value>High Scores</value></data>
   <data name="NoHighScoresYet" xml:space="preserve"><value>No high scores yet. Play some games!</value></data>
+  <data name="TakeANap" xml:space="preserve">
+    <value>Take a nap</value>
+  </data>
+  <data name="GrabACoffee" xml:space="preserve">
+    <value>Grab a coffee</value>
+  </data>
+  <data name="StretchABit" xml:space="preserve">
+    <value>Stretch a bit</value>
+  </data>
+  <data name="StareAtCeiling" xml:space="preserve">
+    <value>Stare at the ceiling</value>
+  </data>
 </root>

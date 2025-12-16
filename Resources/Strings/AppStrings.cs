@@ -121,6 +121,15 @@ public class AppStrings : INotifyPropertyChanged
         return result.ToString();
     }
 
+    // Break message variations - randomly picks one
+    private static readonly string[] BreakMessageKeys = { "TakeABreak", "TakeANap", "GrabACoffee", "StretchABit", "StareAtCeiling" };
+    
+    private string GetRandomBreakMessage()
+    {
+        var key = BreakMessageKeys[_random.Next(BreakMessageKeys.Length)];
+        return this[key];
+    }
+
     public static string GetString(string key)
     {
         var text = _resourceManager.GetString(key, Instance._culture) ?? key;
@@ -161,7 +170,7 @@ public class AppStrings : INotifyPropertyChanged
     public string Language => this["Language"];
     public string TodaysTasks => this["TodaysTasks"];
     public string YourProductivityList => this["YourProductivityList"];
-    public string TakeABreak => this["TakeABreak"];
+    public string TakeABreak => GetRandomBreakMessage();
     public string DoingGreat => this["DoingGreat"];
     public string AddMoreTasks => this["AddMoreTasks"];
     public string Congratulations => this["Congratulations"];

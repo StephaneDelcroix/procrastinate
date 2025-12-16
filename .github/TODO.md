@@ -18,6 +18,7 @@
 - ~~there's a shorthand to declare Grid Row/Col Definitions~~
 - ~~I'm too lazy to set the language. use system default by default. allow overriding in the settings~~
 - keep stats accross sessions, total per day, per week, month... with a nice chart
+- randomly enable zalgo 15% of the time
 
 ## Games
 - ~~add a game like "game & Watch" "mickey mouse" (aka eggs) game~~ (removed - didn't work)
@@ -31,7 +32,7 @@
 - ~~I don't like the box in box feeling~~
 - ~~clicking anywhere on the box (the checkbox or the label) should toggle the check~~
 - ~~more messages in the popup~~
-- randomly change the Task "take a break" to "do a nap" or things simlar
+- ~~randomly change the Task "take a break" to "do a nap" or things simlar~~
 
 ## Stats Page
 - ~~give info about API usage for AI excuses, keep scores on games~~
