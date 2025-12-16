@@ -37,13 +37,16 @@ The app can generate creative excuses using AI! Two modes are available:
 
 ### Setting up Groq API
 
-1. Get a free API key from [Groq Console](https://console.groq.com/)
-2. Open the app Settings
-3. Select "AI (Cloud)" for Excuse Mode
-4. Enter your Groq API key
-5. Enjoy AI-generated excuses!
+1. Go to [Groq Console](https://console.groq.com/) and sign up for a free account
+2. Navigate to **API Keys** in the left sidebar
+3. Click **Create API Key** and give it a name (e.g., "Procrastinate App")
+4. Copy the generated API key (it starts with `gsk_`)
+5. Open the Procrastinate app Settings (gear icon)
+6. Select "AI (Cloud)" for Excuse Mode
+7. Paste your Groq API key in the API Key field
+8. Enjoy AI-generated excuses!
 
-The app uses Groq's `llama-3.1-8b-instant` model which is fast and free.
+The app uses Groq's `llama-3.1-8b-instant` model which is fast and free (with generous rate limits).
 
 ## 🛠️ Built With
 
