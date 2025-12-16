@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
+             x:Class="procrastinate.Pages.Games.EggsCatchGameView">
+    <VerticalStackLayout Spacing="12">
+        <!-- Game area -->
+        <Grid x:Name="GameArea" 
+              WidthRequest="280" 
+              HeightRequest="200" 
+              BackgroundColor="{DynamicResource CardBackgroundAlt}"
+              HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Egg positions (4 columns x 3 rows for falling eggs) -->
+            <Label x:Name="Egg00" Grid.Row="0" Grid.Column="0" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="Egg01" Grid.Row="0" Grid.Column="1" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="Egg02" Grid.Row="0" Grid.Column="2" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="Egg03" Grid.Row="0" Grid.Column="3" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            
+            <Label x:Name="Egg10" Grid.Row="1" Grid.Column="0" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="Egg11" Grid.Row="1" Grid.Column="1" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="Egg12" Grid.Row="1" Grid.Column="2" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="Egg13" Grid.Row="1" Grid.Column="3" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            
+            <Label x:Name="Egg20" Grid.Row="2" Grid.Column="0" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="Egg21" Grid.Row="2" Grid.Column="1" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="Egg22" Grid.Row="2" Grid.Column="2" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="Egg23" Grid.Row="2" Grid.Column="3" Text="" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+            
+            <!-- Basket position indicator -->
+            <Label x:Name="Basket0" Grid.Row="3" Grid.Column="0" Text="" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{DynamicResource Secondary}"/>
+            <Label x:Name="Basket1" Grid.Row="3" Grid.Column="1" Text="" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{DynamicResource Secondary}"/>
+            <Label x:Name="Basket2" Grid.Row="3" Grid.Column="2" Text="" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{DynamicResource Secondary}"/>
+            <Label x:Name="Basket3" Grid.Row="3" Grid.Column="3" Text="" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{DynamicResource Secondary}"/>
+        </Grid>
+        
+        <!-- Controls -->
+        <HorizontalStackLayout Spacing="16" HorizontalOptions="Center">
+            <Button x:Name="LeftBtn" Text="&lt;" WidthRequest="60" HeightRequest="60" FontSize="24" 
+                    BackgroundColor="{DynamicResource CardBackgroundAlt}" TextColor="{DynamicResource Gray200}"
+                    CornerRadius="30" Clicked="OnLeftClicked"/>
+            <Button x:Name="RightBtn" Text="&gt;" WidthRequest="60" HeightRequest="60" FontSize="24"
+                    BackgroundColor="{DynamicResource CardBackgroundAlt}" TextColor="{DynamicResource Gray200}"
+                    CornerRadius="30" Clicked="OnRightClicked"/>
+        </HorizontalStackLayout>
+        
+        <Label x:Name="ScoreLabel" Text="Score: 0 | Misses: 0" HorizontalOptions="Center" FontSize="16" TextColor="{DynamicResource Gray300}"/>
+        <Button x:Name="StartBtn" Text="{Binding StartGame, Source={x:Static strings:AppStrings.Instance}}"
+                BackgroundColor="{DynamicResource Primary}" TextColor="{DynamicResource SurfaceBackground}"
+                CornerRadius="12" HeightRequest="44" Clicked="OnStartClicked"/>
+    </VerticalStackLayout>
+</ContentView>

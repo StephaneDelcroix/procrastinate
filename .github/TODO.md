@@ -1,7 +1,7 @@
 # Things to do in this app:
 
 ## BUGS
-- crash on navigating after opening the settings page
+- ~~crash on navigating after opening the settings page~~
 
 ## UI
 - ~~minigames: game icon not vertically aligned with text~~
@@ -19,4 +19,4 @@
 ## Games
 - add a game like "game & Watch" "mickey mouse" (aka eggs) game
 - add a game that randomly creates a LEGO minifigure
-
+- clickspeed: ScoreLabel should use a binding to update, without a trigger from code. same for most games using UpdateXXX methods to update labels

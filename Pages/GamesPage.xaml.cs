@@ -26,7 +26,8 @@ public partial class GamesPage : ContentPage
             new SnakeGame(),
             new MemoryMatchGame(),
             new NumberGuessingGame(),
-            new WhackAMoleGame()
+            new WhackAMoleGame(),
+            new EggsCatchGame()
         ];
 
         foreach (var game in _allGames)

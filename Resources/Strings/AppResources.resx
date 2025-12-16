@@ -64,6 +64,8 @@
   <data name="TapNow" xml:space="preserve"><value>TAP NOW!</value></data>
   <data name="TooEarly" xml:space="preserve"><value>Too early! Try again.</value></data>
   <data name="ReactionTime" xml:space="preserve"><value>Reaction time: {0}ms</value></data>
+  <data name="EggsCatch" xml:space="preserve"><value>Eggs Catch</value></data>
+  <data name="EggsCatchDesc" xml:space="preserve"><value>Catch falling eggs with your basket!</value></data>
   <data name="TapStartToBegin" xml:space="preserve"><value>Tap 'Start' to begin</value></data>
   
   <!-- Excuses -->
