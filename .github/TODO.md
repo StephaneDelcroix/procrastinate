@@ -42,7 +42,7 @@
 
 ## excuses page
 - ~~the settings for CloudAI should have a dropdown list with the models~~
-- when the excuse is generated, add the option to generate a cartoon-like image matching the excuse
+- ~~when the excuse is generated, add the option to generate a cartoon-like image matching the excuse~~
 - ~~replace the "copy" button by a "share", so we can copy, share by message, whatsapp, etc~~
 
 ## settings
