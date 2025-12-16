@@ -18,6 +18,51 @@ When asked to work on the TODO list (`.github/TODO.md`):
    - Strike through the completed task in TODO.md (use `~~task~~`)
 4. Move to the next task
 
+## Release Checklist
+
+When asked to "do a release" or "release checklist":
+
+1. **Build & Test iOS**
+   - `dotnet build -f net10.0-ios -c Release`
+   - Deploy to iOS Simulator and verify app works
+   - Test on physical device if available
+
+2. **Build & Test Android**
+   - `dotnet build -f net10.0-android -c Release`
+   - Deploy to Android Emulator and verify app works
+
+3. **Bump Version**
+   - Update `ApplicationDisplayVersion` in `procrastinate.csproj` (e.g., 1.0.0 → 1.1.0)
+   - Update `ApplicationVersion` (increment build number)
+
+4. **Update Changelog**
+   - Add new section in `CHANGELOG.md` with version and date
+   - List all changes since last release (use git log)
+   - Categories: Added, Changed, Fixed, Removed
+
+5. **Update Collage**
+   - Take fresh screenshots of all 4 tabs
+   - Regenerate `screenshots_collage.png` with new version number
+
+6. **Commit & Tag**
+   - `git add -A && git commit -m "Release vX.Y.Z"`
+   - `git tag vX.Y.Z`
+   - `git push && git push --tags`
+
+7. **Create GitHub Release**
+   - Use `gh release create vX.Y.Z --title "vX.Y.Z" --notes-file CHANGELOG.md` or with specific notes
+   - Attach collage image and any build artifacts
+
+8. **Publish to TestFlight** (iOS)
+   - Build for App Store: `dotnet publish -f net10.0-ios -c Release`
+   - Upload to App Store Connect via Transporter or `xcrun altool`
+   - Add release notes in TestFlight
+
+9. **Plan Party & Send Invites** 🎉
+   - Create calendar event
+   - Send Slack/Teams/email announcement
+   - Prepare celebratory GIFs
+
 ## iOS Simulator Interaction (macOS)
 
 To click/tap in iOS Simulator when `simctl io tap` doesn't exist, use AppleScript:
