@@ -88,7 +88,14 @@
                 CornerRadius="12"
                 Clicked="OnShareClicked">
             <Button.ImageSource>
-                <FontImageSource Glyph="&#xf1e0;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray300}" Size="16"/>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS">
+                        <FontImageSource Glyph="&#xf064;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray300}" Size="16"/>
+                    </On>
+                    <On Platform="Android">
+                        <FontImageSource Glyph="&#xf1e0;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray300}" Size="16"/>
+                    </On>
+                </OnPlatform>
             </Button.ImageSource>
         </Button>
 
