@@ -25,7 +25,7 @@
 - ~~add a game that randomly creates a LEGO minifigure~~ (removed - didn't work)
 - ~~clickspeed: ScoreLabel should use a binding to update~~
 - ~~simon game: use sound~~
-- whack-a-mole: revert to hole-emojo and mouse-emoji (or others)
+- ~~whack-a-mole: revert to hole-emojo and mouse-emoji (or others)~~
 - ~~snake: do not die when hitting a wall, but continue on the opposite side~~
 - tictactoe: it's ok to ply randomly on the first 2 games in a row, then you should use some strategy, and at least try...
 
@@ -44,3 +44,4 @@
 
 ## settings
 - ~~create an about section, with author, where to find source, etc~~
+- the Theme Preview should be in the same box as Accessibility

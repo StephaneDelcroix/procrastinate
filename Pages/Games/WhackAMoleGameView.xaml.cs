@@ -33,7 +33,7 @@ public partial class WhackAMoleGameView : ContentView
                     BackgroundColor = Color.FromArgb("#334155"),
                     FontSize = 36,
                     CornerRadius = 40,
-                    Text = "O"
+                    Text = "🕳️"
                 };
                 _holes[r, c].Clicked += (s, e) => OnHoleClicked(row, col);
                 GameGrid.Add(_holes[r, c], c, r);
@@ -55,7 +55,7 @@ public partial class WhackAMoleGameView : ContentView
 
         for (int r = 0; r < GridSize; r++)
             for (int c = 0; c < GridSize; c++)
-                _holes[r, c].Text = "O";
+                _holes[r, c].Text = "🕳️";
 
         var endTime = DateTime.Now.AddSeconds(30);
 
@@ -65,14 +65,14 @@ public partial class WhackAMoleGameView : ContentView
             {
                 int moleR = Random.Shared.Next(GridSize);
                 int moleC = Random.Shared.Next(GridSize);
-                _holes[moleR, moleC].Text = "X";
+                _holes[moleR, moleC].Text = "🐭";
 
                 var showTime = Random.Shared.Next(600, 1200);
                 await Task.Delay(showTime, _cts.Token);
 
-                if (_holes[moleR, moleC].Text == "X")
+                if (_holes[moleR, moleC].Text == "🐭")
                 {
-                    _holes[moleR, moleC].Text = "O";
+                    _holes[moleR, moleC].Text = "🕳️";
                     _misses++;
                     UpdateScore();
                 }
@@ -92,17 +92,17 @@ public partial class WhackAMoleGameView : ContentView
     {
         if (!_running) return;
 
-        if (_holes[row, col].Text == "X")
+        if (_holes[row, col].Text == "🐭")
         {
-            _holes[row, col].Text = "!";
+            _holes[row, col].Text = "💥";
             _score++;
             UpdateScore();
             Task.Delay(100).ContinueWith(_ =>
             {
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
-                    if (_holes[row, col].Text == "!")
-                        _holes[row, col].Text = "O";
+                    if (_holes[row, col].Text == "💥")
+                        _holes[row, col].Text = "🕳️";
                 });
             });
         }
