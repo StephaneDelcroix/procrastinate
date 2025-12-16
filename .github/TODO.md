@@ -1,7 +1,7 @@
 # Things to do in this app:
 
 ## UI
-- minigames: game icon not vertically aligned with text
+- ~~minigames: game icon not vertically aligned with text~~
 - when navigating tabs, settings page should close, if it's open
 - theme isn't applied on already created pages. use {DynamicResource}
 - mini-games views should leverage XAML
