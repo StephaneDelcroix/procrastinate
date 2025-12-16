@@ -4,18 +4,18 @@
              xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.TasksPage"
              Title="{Binding TodaysTasks, Source={x:Static strings:AppStrings.Instance}}"
-             BackgroundColor="{StaticResource SurfaceBackground}">
+             BackgroundColor="{DynamicResource SurfaceBackground}">
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto">
             <Label Text="{Binding TodaysTasks, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="18" FontAttributes="Bold" 
-                   TextColor="{StaticResource Gray100}"
+                   TextColor="{DynamicResource Gray100}"
                    VerticalOptions="Center"/>
             <Button Grid.Column="1" Text="&#xf013;" 
                     FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
-                    TextColor="{StaticResource Gray300}"
+                    TextColor="{DynamicResource Gray300}"
                     FontSize="20"
                     Clicked="OnSettingsClicked"
                     VerticalOptions="Center"/>
@@ -26,15 +26,15 @@
         <Label Text="&#xf46d;" 
                FontFamily="FontAwesomeSolid"
                FontSize="48" 
-               TextColor="{StaticResource Primary}"
+               TextColor="{DynamicResource Primary}"
                HorizontalOptions="Center"/>
         <Label Text="{Binding TodaysTasks, Source={x:Static strings:AppStrings.Instance}}" 
                FontSize="28" 
                FontAttributes="Bold"
-               TextColor="{StaticResource Primary}"
+               TextColor="{DynamicResource Primary}"
                HorizontalOptions="Center"/>
         
-        <Border BackgroundColor="{StaticResource CardBackground}" 
+        <Border BackgroundColor="{DynamicResource CardBackground}" 
                 StrokeShape="RoundRectangle 16"
                 Stroke="Transparent"
                 Padding="24">
@@ -44,25 +44,25 @@
             <VerticalStackLayout Spacing="16">
                 <Label Text="{Binding YourProductivityList, Source={x:Static strings:AppStrings.Instance}}" 
                        FontSize="14" 
-                       TextColor="{StaticResource Gray400}"/>
+                       TextColor="{DynamicResource Gray400}"/>
                 
-                <Border BackgroundColor="{StaticResource CardBackgroundAlt}"
+                <Border BackgroundColor="{DynamicResource CardBackgroundAlt}"
                         StrokeShape="RoundRectangle 12"
                         Stroke="Transparent"
                         Padding="16">
                     <HorizontalStackLayout Spacing="12">
                         <CheckBox x:Name="TaskCheckBox" 
-                                  Color="{StaticResource Primary}"
+                                  Color="{DynamicResource Primary}"
                                   CheckedChanged="OnTaskChecked"/>
                         <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
                             <Label Text="&#xf0f4;" 
                                    FontFamily="FontAwesomeSolid"
                                    FontSize="18" 
-                                   TextColor="{StaticResource Gray300}"
+                                   TextColor="{DynamicResource Gray300}"
                                    VerticalOptions="Center"/>
                             <Label Text="{Binding TakeABreak, Source={x:Static strings:AppStrings.Instance}}" 
                                    FontSize="18" 
-                                   TextColor="{StaticResource Gray100}"
+                                   TextColor="{DynamicResource Gray100}"
                                    VerticalOptions="Center"/>
                         </HorizontalStackLayout>
                     </HorizontalStackLayout>
@@ -73,19 +73,19 @@
         <Label x:Name="MotivationLabel"
                Text="{Binding DoingGreat, Source={x:Static strings:AppStrings.Instance}}"
                FontSize="14"
-               TextColor="{StaticResource Gray400}"
+               TextColor="{DynamicResource Gray400}"
                HorizontalOptions="Center"/>
         
         <Button x:Name="AddTaskBtn"
                 Clicked="OnAddTaskClicked"
-                BackgroundColor="{StaticResource CardBackgroundAlt}"
-                TextColor="{StaticResource Gray200}"
+                BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                TextColor="{DynamicResource Gray200}"
                 FontSize="16"
                 HeightRequest="50"
                 CornerRadius="12"
                 Text="{Binding AddMoreTasks, Source={x:Static strings:AppStrings.Instance}}">
             <Button.ImageSource>
-                <FontImageSource Glyph="&#xf067;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray300}" Size="16"/>
+                <FontImageSource Glyph="&#xf067;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray300}" Size="16"/>
             </Button.ImageSource>
         </Button>
     </VerticalStackLayout>

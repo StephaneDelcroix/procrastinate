@@ -4,18 +4,18 @@
              xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.GamesPage"
              Title="{Binding MiniGames, Source={x:Static strings:AppStrings.Instance}}"
-             BackgroundColor="{StaticResource SurfaceBackground}">
+             BackgroundColor="{DynamicResource SurfaceBackground}">
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto">
             <Label Text="{Binding MiniGames, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="18" FontAttributes="Bold" 
-                   TextColor="{StaticResource Gray100}"
+                   TextColor="{DynamicResource Gray100}"
                    VerticalOptions="Center"/>
             <Button Grid.Column="1" Text="&#xf013;" 
                     FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
-                    TextColor="{StaticResource Gray300}"
+                    TextColor="{DynamicResource Gray300}"
                     FontSize="20"
                     Clicked="OnSettingsClicked"
                     VerticalOptions="Center"/>
@@ -27,23 +27,23 @@
             <Label Text="&#xf11b;" 
                    FontFamily="FontAwesomeSolid"
                    FontSize="48" 
-                   TextColor="{StaticResource Secondary}"
+                   TextColor="{DynamicResource Secondary}"
                    HorizontalOptions="Center"/>
             <Label Text="{Binding MiniGames, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="28" 
                    FontAttributes="Bold"
-                   TextColor="{StaticResource Secondary}"
+                   TextColor="{DynamicResource Secondary}"
                    HorizontalOptions="Center"/>
             
             <Label Text="{Binding ProductivityOverrated, Source={x:Static strings:AppStrings.Instance}}"
                    FontSize="14"
-                   TextColor="{StaticResource Gray400}"
+                   TextColor="{DynamicResource Gray400}"
                    HorizontalOptions="Center"/>
 
             <Button x:Name="ShuffleBtn" 
                     FontSize="16"
-                    BackgroundColor="{StaticResource CardBackgroundAlt}"
-                    TextColor="{StaticResource Gray200}"
+                    BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                    TextColor="{DynamicResource Gray200}"
                     CornerRadius="12"
                     HeightRequest="44"
                     Clicked="OnShuffleClicked"/>

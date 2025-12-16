@@ -4,18 +4,18 @@
              xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
              x:Class="procrastinate.Pages.ExcusePage"
              Title="{Binding ExcuseGenerator, Source={x:Static strings:AppStrings.Instance}}"
-             BackgroundColor="{StaticResource SurfaceBackground}">
+             BackgroundColor="{DynamicResource SurfaceBackground}">
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto">
             <Label Text="{Binding ExcuseGenerator, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="18" FontAttributes="Bold" 
-                   TextColor="{StaticResource Gray100}"
+                   TextColor="{DynamicResource Gray100}"
                    VerticalOptions="Center"/>
             <Button Grid.Column="1" Text="&#xf013;" 
                     FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
-                    TextColor="{StaticResource Gray300}"
+                    TextColor="{DynamicResource Gray300}"
                     FontSize="20"
                     Clicked="OnSettingsClicked"
                     VerticalOptions="Center"/>
@@ -26,21 +26,21 @@
         <Label Text="&#xf630;" 
                FontFamily="FontAwesomeSolid"
                FontSize="48" 
-               TextColor="{StaticResource Tertiary}"
+               TextColor="{DynamicResource Tertiary}"
                HorizontalOptions="Center"/>
         <Label Text="{Binding ExcuseGenerator, Source={x:Static strings:AppStrings.Instance}}" 
                FontSize="28" 
                FontAttributes="Bold"
-               TextColor="{StaticResource Tertiary}"
+               TextColor="{DynamicResource Tertiary}"
                HorizontalOptions="Center"/>
         
         <Label Text="{Binding NeedAReason, Source={x:Static strings:AppStrings.Instance}}"
                FontSize="14"
-               TextColor="{StaticResource Gray400}"
+               TextColor="{DynamicResource Gray400}"
                HorizontalOptions="Center"
                HorizontalTextAlignment="Center"/>
         
-        <Border BackgroundColor="{StaticResource CardBackground}" 
+        <Border BackgroundColor="{DynamicResource CardBackground}" 
                 StrokeShape="RoundRectangle 20"
                 Stroke="Transparent"
                 Padding="28"
@@ -51,7 +51,7 @@
             <Label x:Name="ExcuseLabel"
                    Text="{Binding TapForExcuse, Source={x:Static strings:AppStrings.Instance}}"
                    FontSize="18"
-                   TextColor="{StaticResource Gray200}"
+                   TextColor="{DynamicResource Gray200}"
                    HorizontalTextAlignment="Center"
                    VerticalOptions="Center"/>
         </Border>
@@ -60,7 +60,7 @@
                 Text="{Binding GenerateExcuse, Source={x:Static strings:AppStrings.Instance}}"
                 FontSize="18"
                 HeightRequest="56"
-                BackgroundColor="{StaticResource Tertiary}"
+                BackgroundColor="{DynamicResource Tertiary}"
                 TextColor="White"
                 CornerRadius="14"
                 Clicked="OnGenerateClicked">
@@ -71,20 +71,20 @@
         
         <Button x:Name="CopyBtn"
                 Text="{Binding CopyToClipboard, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{StaticResource CardBackgroundAlt}"
-                TextColor="{StaticResource Gray200}"
+                BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                TextColor="{DynamicResource Gray200}"
                 HeightRequest="48"
                 CornerRadius="12"
                 Clicked="OnCopyClicked">
             <Button.ImageSource>
-                <FontImageSource Glyph="&#xf0c5;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray300}" Size="16"/>
+                <FontImageSource Glyph="&#xf0c5;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray300}" Size="16"/>
             </Button.ImageSource>
         </Button>
         
         <Label x:Name="CounterLabel"
                Text="Excuses generated today: 0"
                FontSize="13"
-               TextColor="{StaticResource Gray500}"
+               TextColor="{DynamicResource Gray500}"
                HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>
