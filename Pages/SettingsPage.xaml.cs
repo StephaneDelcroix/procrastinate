@@ -86,7 +86,9 @@ public partial class SettingsPage : ContentPage
     {
         Preferences.Set("HighContrastMode", e.Value);
         UpdatePreview(e.Value);
-        ApplyTheme(e.Value);
+        // Use AppTheme to switch - AppThemeBinding in XAML handles the rest
+        if (Application.Current != null)
+            Application.Current.UserAppTheme = e.Value ? AppTheme.Light : AppTheme.Dark;
         UpdateThemeLabel(e.Value);
     }
 
@@ -159,35 +161,6 @@ public partial class SettingsPage : ContentPage
             PreviewSecondary.BackgroundColor = Color.FromArgb("#81A1C1");
             PreviewTertiary.BackgroundColor = Color.FromArgb("#5E81AC");
             PreviewAccent.BackgroundColor = Color.FromArgb("#A3BE8C");
-        }
-    }
-
-    private void ApplyTheme(bool highContrast)
-    {
-        var resources = Application.Current?.Resources;
-        if (resources == null) return;
-
-        if (highContrast)
-        {
-            // Nord Light Theme - Snow Storm backgrounds with Frost accents
-            resources["Nord0"] = Color.FromArgb("#ECEFF4"); // Light background
-            resources["Nord1"] = Color.FromArgb("#E5E9F0");
-            resources["Nord2"] = Color.FromArgb("#D8DEE9");
-            resources["Nord3"] = Color.FromArgb("#4C566A");
-            resources["Nord4"] = Color.FromArgb("#434C5E"); // Dark text
-            resources["Nord5"] = Color.FromArgb("#3B4252");
-            resources["Nord6"] = Color.FromArgb("#2E3440");
-        }
-        else
-        {
-            // Nord Dark Theme - Polar Night backgrounds with Snow Storm text
-            resources["Nord0"] = Color.FromArgb("#2E3440");
-            resources["Nord1"] = Color.FromArgb("#3B4252");
-            resources["Nord2"] = Color.FromArgb("#434C5E");
-            resources["Nord3"] = Color.FromArgb("#4C566A");
-            resources["Nord4"] = Color.FromArgb("#D8DEE9");
-            resources["Nord5"] = Color.FromArgb("#E5E9F0");
-            resources["Nord6"] = Color.FromArgb("#ECEFF4");
         }
     }
 
