@@ -45,7 +45,7 @@
 - ~~replace the "copy" button by a "share", so we can copy, share by message, whatsapp, etc~~
 - ~~the share button isn't visible on mac. it should use the same icon as ios~~
 - ~~remove the option to generate images~~
-- below the generated excuse, add some info about the generator used, the time it took, the number of token,,, whatever you have for the generator. this is informative text, so it should be quite small
+- ~~below the generated excuse, add some info about the generator used, the time it took, the number of token,,, whatever you have for the generator. this is informative text, so it should be quite small~~
 - with zalgo random generator, the excuse itself should never use zalgo
 
 ## settings
