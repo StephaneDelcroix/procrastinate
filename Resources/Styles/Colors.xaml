@@ -4,37 +4,45 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <!-- Nord Theme - Arctic, north-bluish color palette -->
-    <!-- Dark theme based on Polar Night with Frost accents -->
+    <!-- https://www.nordtheme.com/docs/colors-and-palettes -->
     
-    <!-- Primary accent - Frost blue -->
-    <Color x:Key="Primary">#88C0D0</Color>
-    <Color x:Key="PrimaryDark">#8FBCBB</Color>
-    <Color x:Key="PrimaryDarkText">#2E3440</Color>
+    <!-- Polar Night - Dark backgrounds -->
+    <Color x:Key="Nord0">#2E3440</Color>
+    <Color x:Key="Nord1">#3B4252</Color>
+    <Color x:Key="Nord2">#434C5E</Color>
+    <Color x:Key="Nord3">#4C566A</Color>
     
-    <!-- Secondary - Nord blue -->
-    <Color x:Key="Secondary">#81A1C1</Color>
-    <Color x:Key="SecondaryDarkText">#88C0D0</Color>
+    <!-- Snow Storm - Light text -->
+    <Color x:Key="Nord4">#D8DEE9</Color>
+    <Color x:Key="Nord5">#E5E9F0</Color>
+    <Color x:Key="Nord6">#ECEFF4</Color>
     
-    <!-- Tertiary - Deep blue for buttons -->
-    <Color x:Key="Tertiary">#5E81AC</Color>
+    <!-- Frost - Accent colors -->
+    <Color x:Key="Nord7">#8FBCBB</Color>
+    <Color x:Key="Nord8">#88C0D0</Color>
+    <Color x:Key="Nord9">#81A1C1</Color>
+    <Color x:Key="Nord10">#5E81AC</Color>
+    
+    <!-- Aurora - Semantic colors -->
+    <Color x:Key="Nord11">#BF616A</Color>
+    <Color x:Key="Nord12">#D08770</Color>
+    <Color x:Key="Nord13">#EBCB8B</Color>
+    <Color x:Key="Nord14">#A3BE8C</Color>
+    <Color x:Key="Nord15">#B48EAD</Color>
 
+    <!-- Semantic aliases for convenience -->
+    <Color x:Key="Primary">#88C0D0</Color>
+    <Color x:Key="Secondary">#81A1C1</Color>
+    <Color x:Key="Tertiary">#5E81AC</Color>
+    
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
-    <Color x:Key="Magenta">#B48EAD</Color>
-    <Color x:Key="MidnightBlue">#2E3440</Color>
-    <Color x:Key="OffBlack">#2E3440</Color>
 
-    <!-- Card and surface colors - Polar Night -->
+    <!-- Surface colors -->
     <Color x:Key="CardBackground">#3B4252</Color>
-    <Color x:Key="CardBackgroundAlt">#434C5E</Color>
     <Color x:Key="SurfaceBackground">#2E3440</Color>
     
-    <!-- Accent colors - Aurora -->
-    <Color x:Key="Accent">#A3BE8C</Color>
-    <Color x:Key="AccentLight">#EBCB8B</Color>
-    <Color x:Key="Warm">#EBCB8B</Color>
-
-    <!-- Text colors - Snow Storm for dark theme -->
+    <!-- Text colors mapped to Snow Storm -->
     <Color x:Key="Gray100">#ECEFF4</Color>
     <Color x:Key="Gray200">#E5E9F0</Color>
     <Color x:Key="Gray300">#D8DEE9</Color>
@@ -44,18 +52,10 @@
     <Color x:Key="Gray900">#3B4252</Color>
     <Color x:Key="Gray950">#2E3440</Color>
 
+    <!-- Brushes -->
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
     <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
-
-    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
-    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
-    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
-    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
-    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
-    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
-    <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
-    <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
 </ResourceDictionary>
