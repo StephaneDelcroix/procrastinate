@@ -13,9 +13,9 @@
                Placeholder="{Binding EnterGuess, Source={x:Static strings:AppStrings.Instance}}"
                Keyboard="Numeric"
                HorizontalOptions="Fill"
-               BackgroundColor="{DynamicResource Nord1Alt}"
+               BackgroundColor="{DynamicResource Nord2}"
                TextColor="{DynamicResource Nord6}"
-               PlaceholderColor="{DynamicResource Nord3}"/>
+               PlaceholderColor="{DynamicResource Nord4}"/>
         <Button x:Name="GuessBtn" 
                 Text="{Binding Guess, Source={x:Static strings:AppStrings.Instance}}"
                 BackgroundColor="{DynamicResource Nord8}" 
@@ -30,7 +30,7 @@
                TextColor="{DynamicResource Nord3}"/>
         <Button x:Name="NewGameBtn" 
                 Text="{Binding NewGame, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource Nord1Alt}" 
+                BackgroundColor="{DynamicResource Nord2}" 
                 TextColor="{DynamicResource Nord5}" 
                 CornerRadius="12" 
                 HeightRequest="44"

@@ -20,7 +20,7 @@
                TextColor="{DynamicResource Nord4}"/>
         <Button x:Name="StartBtn" 
                 Text="{Binding StartChallenge, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource Nord1Alt}" 
+                BackgroundColor="{DynamicResource Nord2}" 
                 TextColor="{DynamicResource Nord5}" 
                 CornerRadius="12" 
                 HeightRequest="44"
