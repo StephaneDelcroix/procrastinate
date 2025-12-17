@@ -47,6 +47,7 @@
 - ~~remove the option to generate images~~
 - ~~below the generated excuse, add some info about the generator used, the time it took, the number of token,,, whatever you have for the generator. this is informative text, so it should be quite small~~
 - with zalgo random generator, the excuse itself should never use zalgo
+- move the label with generator info above the button
 
 ## settings
 - ~~create an about section, with author, where to find source, etc~~

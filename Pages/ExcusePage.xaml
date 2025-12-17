@@ -79,6 +79,13 @@
             </Button>
         </Grid>
         
+        <Label x:Name="GeneratorInfoLabel"
+               IsVisible="False"
+               FontSize="11"
+               TextColor="{DynamicResource Gray500}"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"/>
+        
         <Button x:Name="GenerateBtn"
                 Text="{Binding GenerateExcuse, Source={x:Static strings:AppStrings.Instance}}"
                 FontSize="18"
@@ -91,13 +98,6 @@
                 <FontImageSource Glyph="&#xf522;" FontFamily="FontAwesomeSolid" Color="White" Size="18"/>
             </Button.ImageSource>
         </Button>
-        
-        <Label x:Name="GeneratorInfoLabel"
-               IsVisible="False"
-               FontSize="11"
-               TextColor="{DynamicResource Gray500}"
-               HorizontalOptions="Center"
-               HorizontalTextAlignment="Center"/>
         
         <Label x:Name="CounterLabel"
                Text="Excuses generated today: 0"

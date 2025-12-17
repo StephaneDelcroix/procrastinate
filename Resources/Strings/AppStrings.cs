@@ -133,9 +133,9 @@ public class AppStrings : INotifyPropertyChanged
     public static string GetString(string key)
     {
         var text = _resourceManager.GetString(key, Instance._culture) ?? key;
-        // When zalgo mode is on, apply randomly 15% of the time for readability
+        // When zalgo mode is on, apply randomly 8% of the time for readability
         // When off, never apply zalgo
-        var applyZalgo = Instance._zalgoMode && _random.Next(100) < 15;
+        var applyZalgo = Instance._zalgoMode && _random.Next(100) < 8;
         return applyZalgo ? Zalgoify(text) : text;
     }
 
