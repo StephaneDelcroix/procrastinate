@@ -30,7 +30,7 @@
 - ~~snake: do not die when hitting a wall, but continue on the opposite side~~
 - ~~tictactoe: it's ok to play randomly on the first 2 games in a row, then you should use some strategy, and at least try...~~
 - ~~memory games use letters. it should use emoji, like animals, or fruits~~
-- minesweeper: use long click to flag a bomb
+- ~~minesweeper: use long click to flag a bomb~~
 
 ## Tasks Page
 - ~~I don't like the box in box feeling~~

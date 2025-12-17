@@ -9,6 +9,7 @@ public partial class MinesweeperGameView : ContentView
     private readonly Button[,] _cells = new Button[Size, Size];
     private readonly bool[,] _isMine = new bool[Size, Size];
     private readonly bool[,] _revealed = new bool[Size, Size];
+    private readonly bool[,] _flagged = new bool[Size, Size];
     private bool _gameOver;
     private bool _firstClick = true;
     
@@ -35,7 +36,9 @@ public partial class MinesweeperGameView : ContentView
             {
                 var row = r;
                 var col = c;
-                _cells[r, c] = new Button
+                
+                // Use a Border with gesture recognizers for better touch handling
+                var btn = new Button
                 {
                     BackgroundColor = Color.FromArgb("#434C5E"),
                     TextColor = Colors.White,
@@ -43,8 +46,30 @@ public partial class MinesweeperGameView : ContentView
                     CornerRadius = 6,
                     Padding = 0
                 };
-                _cells[r, c].Clicked += (s, e) => OnCellClicked(row, col);
-                GameGrid.Add(_cells[r, c], c, r);
+                
+                // Track press time for long-press detection
+                DateTime pressStart = DateTime.MinValue;
+                
+                btn.Pressed += (s, e) => pressStart = DateTime.Now;
+                btn.Released += (s, e) =>
+                {
+                    if (_gameOver) return;
+                    var duration = DateTime.Now - pressStart;
+                    if (duration.TotalMilliseconds > 400)
+                    {
+                        // Long press = flag
+                        if (!_revealed[row, col])
+                            ToggleFlag(row, col);
+                    }
+                    else
+                    {
+                        // Short press = reveal
+                        OnCellClicked(row, col);
+                    }
+                };
+                
+                _cells[r, c] = btn;
+                GameGrid.Add(btn, c, r);
             }
         }
     }
@@ -61,6 +86,7 @@ public partial class MinesweeperGameView : ContentView
             {
                 _isMine[r, c] = false;
                 _revealed[r, c] = false;
+                _flagged[r, c] = false;
                 _cells[r, c].Text = "";
                 _cells[r, c].BackgroundColor = Color.FromArgb("#434C5E");
                 _cells[r, c].IsEnabled = true;
@@ -71,6 +97,17 @@ public partial class MinesweeperGameView : ContentView
     }
 
     private void OnResetClicked(object? sender, EventArgs e) => ResetGame();
+
+    private void ToggleFlag(int row, int col)
+    {
+        if (_revealed[row, col]) return;
+        
+        _flagged[row, col] = !_flagged[row, col];
+        _cells[row, col].Text = _flagged[row, col] ? "🚩" : "";
+        _cells[row, col].BackgroundColor = _flagged[row, col] 
+            ? Color.FromArgb("#5E81AC") 
+            : Color.FromArgb("#434C5E");
+    }
 
     private void PlaceMines(int safeRow, int safeCol)
     {
@@ -89,7 +126,7 @@ public partial class MinesweeperGameView : ContentView
 
     private void OnCellClicked(int row, int col)
     {
-        if (_gameOver || _revealed[row, col]) return;
+        if (_gameOver || _revealed[row, col] || _flagged[row, col]) return;
 
         if (_firstClick)
         {
