@@ -6,7 +6,7 @@ public class ClickSpeedGame : MiniGame
 {
     public override string Name => AppStrings.GetString("ClickSpeed");
     public override string Icon => "\uf0e7";
-    public override string IconColor => "#F59E0B";
+    public override string IconColor => "#D08770";
     public override string Description => AppStrings.GetString("ClickSpeedDesc");
 
     private ClickSpeedGameView? _gameView;

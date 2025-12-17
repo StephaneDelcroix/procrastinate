@@ -10,7 +10,7 @@ public class AppStrings : INotifyPropertyChanged
     public static AppStrings Instance => _instance.Value;
 
     private static readonly ResourceManager _resourceManager = 
-        new("procrastinate.Services.AppResources", typeof(AppStrings).Assembly);
+        new("procrastinate.Resources.Strings.AppResources", typeof(AppStrings).Assembly);
 
     private CultureInfo _culture;
     private bool _zalgoMode;

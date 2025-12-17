@@ -8,7 +8,7 @@
                 Text="{Binding Wait, Source={x:Static strings:AppStrings.Instance}}"
                 HeightRequest="80" 
                 FontSize="22" 
-                BackgroundColor="#EF4444" 
+                BackgroundColor="#BF616A" 
                 TextColor="White" 
                 CornerRadius="16" 
                 IsEnabled="False"

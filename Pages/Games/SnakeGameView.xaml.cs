@@ -34,7 +34,7 @@ public partial class SnakeGameView : ContentView
         {
             for (int c = 0; c < GridSize; c++)
             {
-                _cells[r, c] = new BoxView { BackgroundColor = Color.FromArgb("#0F172A"), CornerRadius = 4 };
+                _cells[r, c] = new BoxView { BackgroundColor = Color.FromArgb("#2E3440"), CornerRadius = 4 };
                 GameGrid.Add(_cells[r, c], c, r);
             }
         }
@@ -133,11 +133,11 @@ public partial class SnakeGameView : ContentView
             for (int c = 0; c < GridSize; c++)
             {
                 if (_snake.Contains((r, c)))
-                    _cells[r, c].BackgroundColor = _snake[0] == (r, c) ? Color.FromArgb("#14B8A6") : Color.FromArgb("#5EEAD4");
+                    _cells[r, c].BackgroundColor = _snake[0] == (r, c) ? Color.FromArgb("#88C0D0") : Color.FromArgb("#8FBCBB");
                 else if (_food == (r, c))
-                    _cells[r, c].BackgroundColor = Color.FromArgb("#EF4444");
+                    _cells[r, c].BackgroundColor = Color.FromArgb("#BF616A");
                 else
-                    _cells[r, c].BackgroundColor = Color.FromArgb("#0F172A");
+                    _cells[r, c].BackgroundColor = Color.FromArgb("#2E3440");
             }
         }
     }

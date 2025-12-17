@@ -6,7 +6,7 @@ public class SnakeGame : MiniGame
 {
     public override string Name => AppStrings.GetString("TiltSnake");
     public override string Icon => "\uf7a0";
-    public override string IconColor => "#14B8A6";
+    public override string IconColor => "#88C0D0";
     public override string Description => AppStrings.GetString("TiltSnakeDesc");
 
     private SnakeGameView? _gameView;

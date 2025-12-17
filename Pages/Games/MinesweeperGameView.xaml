@@ -12,7 +12,7 @@
                TextColor="{DynamicResource Gray300}"/>
         <Button x:Name="ResetBtn" 
                 Text="{Binding NewGame, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="#22C55E" 
+                BackgroundColor="#A3BE8C" 
                 TextColor="{DynamicResource SurfaceBackground}" 
                 CornerRadius="12" 
                 HeightRequest="44"

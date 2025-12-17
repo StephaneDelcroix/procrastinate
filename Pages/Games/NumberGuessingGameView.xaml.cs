@@ -23,7 +23,7 @@ public partial class NumberGuessingGameView : ContentView
         _attempts = 0;
         _gameOver = false;
         ResultLabel.Text = AppStrings.GetString("ThinkingOfNumber");
-        ResultLabel.TextColor = Color.FromArgb("#CBD5E1");
+        ResultLabel.TextColor = Color.FromArgb("#D8DEE9");
         AttemptsLabel.Text = AppStrings.GetString("Attempts", 0);
         GuessEntry.Text = "";
         GuessEntry.IsEnabled = true;
@@ -45,7 +45,7 @@ public partial class NumberGuessingGameView : ContentView
         if (guess == _target)
         {
             ResultLabel.Text = AppStrings.GetString("Correct", _target);
-            ResultLabel.TextColor = Color.FromArgb("#22C55E");
+            ResultLabel.TextColor = Color.FromArgb("#A3BE8C");
             _gameOver = true;
             GuessEntry.IsEnabled = false;
             GuessBtn.IsEnabled = false;
@@ -53,12 +53,12 @@ public partial class NumberGuessingGameView : ContentView
         else if (guess < _target)
         {
             ResultLabel.Text = AppStrings.GetString("TooLow", guess);
-            ResultLabel.TextColor = Color.FromArgb("#3B82F6");
+            ResultLabel.TextColor = Color.FromArgb("#81A1C1");
         }
         else
         {
             ResultLabel.Text = AppStrings.GetString("TooHigh", guess);
-            ResultLabel.TextColor = Color.FromArgb("#EF4444");
+            ResultLabel.TextColor = Color.FromArgb("#BF616A");
         }
 
         GuessEntry.Text = "";

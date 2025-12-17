@@ -6,7 +6,7 @@ public class WhackAMoleGame : MiniGame
 {
     public override string Name => AppStrings.GetString("WhackAMole");
     public override string Icon => "\uf6d3";
-    public override string IconColor => "#A855F7";
+    public override string IconColor => "#B48EAD";
     public override string Description => AppStrings.GetString("WhackAMoleDesc");
 
     private WhackAMoleGameView? _gameView;

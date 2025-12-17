@@ -30,7 +30,7 @@ public partial class WhackAMoleGameView : ContentView
                 var col = c;
                 _holes[r, c] = new Button
                 {
-                    BackgroundColor = Color.FromArgb("#334155"),
+                    BackgroundColor = Color.FromArgb("#434C5E"),
                     FontSize = 36,
                     CornerRadius = 40,
                     Text = "🕳️"

@@ -6,7 +6,7 @@ public class SimonSaysGame : MiniGame
 {
     public override string Name => AppStrings.GetString("SimonSays");
     public override string Icon => "\uf111";
-    public override string IconColor => "#EF4444";
+    public override string IconColor => "#BF616A";
     public override string Description => AppStrings.GetString("SimonSaysDesc");
 
     private SimonSaysGameView? _gameView;

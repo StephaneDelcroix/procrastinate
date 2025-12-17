@@ -121,12 +121,12 @@ public partial class SettingsPage : ContentPage
         if (generator.IsAvailable)
         {
             OnDeviceAIStatusLabel.Text = AppStrings.Instance.OnDeviceAIAvailable;
-            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#14B8A6"); // Secondary/teal
+            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#88C0D0"); // Secondary/teal
         }
         else
         {
             OnDeviceAIStatusLabel.Text = AppStrings.Instance.OnDeviceAIUnavailable;
-            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#F59E0B"); // Primary/amber warning
+            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#D08770"); // Primary/amber warning
         }
     }
 

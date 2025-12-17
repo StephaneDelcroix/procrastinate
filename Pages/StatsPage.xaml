@@ -137,7 +137,7 @@
                 </VerticalStackLayout>
             </Border>
 
-            <Border BackgroundColor="#2D1F3D" 
+            <Border BackgroundColor="#3B4252" 
                     StrokeShape="RoundRectangle 16" 
                     Stroke="{DynamicResource Tertiary}"
                     StrokeThickness="1"

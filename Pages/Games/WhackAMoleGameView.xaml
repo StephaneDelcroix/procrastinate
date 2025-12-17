@@ -13,7 +13,7 @@
                TextColor="{DynamicResource Gray300}"/>
         <Button x:Name="StartBtn" 
                 Text="{Binding StartGame30s, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="#A855F7" 
+                BackgroundColor="#B48EAD" 
                 TextColor="White" 
                 CornerRadius="12" 
                 HeightRequest="44"

@@ -6,7 +6,7 @@ public class NumberGuessingGame : MiniGame
 {
     public override string Name => AppStrings.GetString("NumberGuess");
     public override string Icon => "\uf059";
-    public override string IconColor => "#F59E0B";
+    public override string IconColor => "#D08770";
     public override string Description => AppStrings.GetString("NumberGuessDesc");
 
     private NumberGuessingGameView? _gameView;

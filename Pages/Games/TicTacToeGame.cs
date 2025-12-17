@@ -6,7 +6,7 @@ public class TicTacToeGame : MiniGame
 {
     public override string Name => AppStrings.GetString("TicTacToe");
     public override string Icon => "\uf00a";
-    public override string IconColor => "#8B5CF6";
+    public override string IconColor => "#B48EAD";
     public override string Description => AppStrings.GetString("TicTacToeDesc");
 
     private TicTacToeGameView? _gameView;

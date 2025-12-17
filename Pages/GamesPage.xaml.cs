@@ -114,7 +114,7 @@ public partial class GamesPage : ContentPage
             Text = game.Name,
             FontSize = 20,
             FontAttributes = FontAttributes.Bold,
-            TextColor = Color.FromArgb("#F1F5F9"),
+            TextColor = Color.FromArgb("#ECEFF4"),
             VerticalOptions = LayoutOptions.Center
         };
 
@@ -124,7 +124,7 @@ public partial class GamesPage : ContentPage
             FontFamily = "FontAwesomeSolid",
             FontSize = 18,
             BackgroundColor = Colors.Transparent,
-            TextColor = game.IsFavorite ? Color.FromArgb("#EF4444") : Color.FromArgb("#64748B"),
+            TextColor = game.IsFavorite ? Color.FromArgb("#BF616A") : Color.FromArgb("#4C566A"),
             WidthRequest = 40,
             HeightRequest = 40,
             Padding = 0
@@ -133,7 +133,7 @@ public partial class GamesPage : ContentPage
         {
             game.IsFavorite = !game.IsFavorite;
             favBtn.Text = game.IsFavorite ? "\uf004" : "\uf08a";
-            favBtn.TextColor = game.IsFavorite ? Color.FromArgb("#EF4444") : Color.FromArgb("#64748B");
+            favBtn.TextColor = game.IsFavorite ? Color.FromArgb("#BF616A") : Color.FromArgb("#4C566A");
         };
 
         var header = new HorizontalStackLayout
@@ -147,7 +147,7 @@ public partial class GamesPage : ContentPage
         {
             Text = game.Description,
             FontSize = 14,
-            TextColor = Color.FromArgb("#94A3B8"),
+            TextColor = Color.FromArgb("#D8DEE9"),
             HorizontalOptions = LayoutOptions.Center
         };
 
@@ -161,7 +161,7 @@ public partial class GamesPage : ContentPage
 
         var border = new Border
         {
-            BackgroundColor = Color.FromArgb("#1E293B"),
+            BackgroundColor = Color.FromArgb("#3B4252"),
             StrokeShape = new RoundRectangle { CornerRadius = 16 },
             Stroke = Colors.Transparent,
             Padding = 20,

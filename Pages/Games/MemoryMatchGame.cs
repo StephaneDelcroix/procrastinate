@@ -6,7 +6,7 @@ public class MemoryMatchGame : MiniGame
 {
     public override string Name => AppStrings.GetString("MemoryMatch");
     public override string Icon => "\uf5fd";
-    public override string IconColor => "#EC4899";
+    public override string IconColor => "#B48EAD";
     public override string Description => AppStrings.GetString("MemoryMatchDesc");
 
     private MemoryMatchGameView? _gameView;

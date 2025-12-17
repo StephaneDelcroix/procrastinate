@@ -30,7 +30,7 @@ public partial class MemoryMatchGameView : ContentView
             var idx = i;
             _cards[i] = new Button
             {
-                BackgroundColor = Color.FromArgb("#334155"),
+                BackgroundColor = Color.FromArgb("#434C5E"),
                 TextColor = Colors.White,
                 FontSize = 24,
                 CornerRadius = 8,
@@ -64,7 +64,7 @@ public partial class MemoryMatchGameView : ContentView
             _cardValues[i] = values[i];
             _matched[i] = false;
             _cards[i].Text = "?";
-            _cards[i].BackgroundColor = Color.FromArgb("#334155");
+            _cards[i].BackgroundColor = Color.FromArgb("#434C5E");
             _cards[i].IsEnabled = true;
         }
 
@@ -78,7 +78,7 @@ public partial class MemoryMatchGameView : ContentView
         if (_checking || _matched[idx] || idx == _firstCard) return;
 
         _cards[idx].Text = _cardValues[idx];
-        _cards[idx].BackgroundColor = Color.FromArgb("#1E293B");
+        _cards[idx].BackgroundColor = Color.FromArgb("#3B4252");
 
         if (_firstCard == -1)
         {
@@ -97,8 +97,8 @@ public partial class MemoryMatchGameView : ContentView
             {
                 _matched[_firstCard] = true;
                 _matched[_secondCard] = true;
-                _cards[_firstCard].BackgroundColor = Color.FromArgb("#14B8A6");
-                _cards[_secondCard].BackgroundColor = Color.FromArgb("#14B8A6");
+                _cards[_firstCard].BackgroundColor = Color.FromArgb("#88C0D0");
+                _cards[_secondCard].BackgroundColor = Color.FromArgb("#88C0D0");
                 _pairsFound++;
                 UpdateStatus();
 
@@ -109,8 +109,8 @@ public partial class MemoryMatchGameView : ContentView
             {
                 _cards[_firstCard].Text = "?";
                 _cards[_secondCard].Text = "?";
-                _cards[_firstCard].BackgroundColor = Color.FromArgb("#334155");
-                _cards[_secondCard].BackgroundColor = Color.FromArgb("#334155");
+                _cards[_firstCard].BackgroundColor = Color.FromArgb("#434C5E");
+                _cards[_secondCard].BackgroundColor = Color.FromArgb("#434C5E");
             }
 
             _firstCard = -1;

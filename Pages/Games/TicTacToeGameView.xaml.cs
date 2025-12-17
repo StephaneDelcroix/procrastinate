@@ -27,7 +27,7 @@ public partial class TicTacToeGameView : ContentView
             var idx = i;
             _cells[i] = new Button
             {
-                BackgroundColor = Color.FromArgb("#334155"),
+                BackgroundColor = Color.FromArgb("#434C5E"),
                 TextColor = Colors.White,
                 FontSize = 28,
                 FontAttributes = FontAttributes.Bold,
@@ -60,7 +60,7 @@ public partial class TicTacToeGameView : ContentView
 
         _board[idx] = "X";
         _cells[idx].Text = "X";
-        _cells[idx].TextColor = Color.FromArgb("#14B8A6");
+        _cells[idx].TextColor = Color.FromArgb("#88C0D0");
 
         if (CheckWin("X"))
         {
@@ -87,7 +87,7 @@ public partial class TicTacToeGameView : ContentView
         {
             _board[aiMove] = "O";
             _cells[aiMove].Text = "O";
-            _cells[aiMove].TextColor = Color.FromArgb("#EF4444");
+            _cells[aiMove].TextColor = Color.FromArgb("#BF616A");
 
             if (CheckWin("O"))
             {

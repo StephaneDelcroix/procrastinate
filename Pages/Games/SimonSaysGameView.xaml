@@ -6,19 +6,19 @@
     <VerticalStackLayout Spacing="16">
         <Grid ColumnDefinitions="95,95" RowDefinitions="95,95" ColumnSpacing="8" RowSpacing="8" HorizontalOptions="Center">
             <Button x:Name="RedBtn" Grid.Row="0" Grid.Column="0" 
-                    BackgroundColor="#EF4444" CornerRadius="12" 
+                    BackgroundColor="#BF616A" CornerRadius="12" 
                     WidthRequest="90" HeightRequest="90"
                     Clicked="OnRedClicked"/>
             <Button x:Name="GreenBtn" Grid.Row="0" Grid.Column="1" 
-                    BackgroundColor="#22C55E" CornerRadius="12" 
+                    BackgroundColor="#A3BE8C" CornerRadius="12" 
                     WidthRequest="90" HeightRequest="90"
                     Clicked="OnGreenClicked"/>
             <Button x:Name="BlueBtn" Grid.Row="1" Grid.Column="0" 
-                    BackgroundColor="#3B82F6" CornerRadius="12" 
+                    BackgroundColor="#81A1C1" CornerRadius="12" 
                     WidthRequest="90" HeightRequest="90"
                     Clicked="OnBlueClicked"/>
             <Button x:Name="YellowBtn" Grid.Row="1" Grid.Column="1" 
-                    BackgroundColor="#EAB308" CornerRadius="12" 
+                    BackgroundColor="#EBCB8B" CornerRadius="12" 
                     WidthRequest="90" HeightRequest="90"
                     Clicked="OnYellowClicked"/>
         </Grid>

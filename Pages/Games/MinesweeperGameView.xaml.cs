@@ -37,7 +37,7 @@ public partial class MinesweeperGameView : ContentView
                 var col = c;
                 _cells[r, c] = new Button
                 {
-                    BackgroundColor = Color.FromArgb("#334155"),
+                    BackgroundColor = Color.FromArgb("#434C5E"),
                     TextColor = Colors.White,
                     FontSize = 16,
                     CornerRadius = 6,
@@ -62,7 +62,7 @@ public partial class MinesweeperGameView : ContentView
                 _isMine[r, c] = false;
                 _revealed[r, c] = false;
                 _cells[r, c].Text = "";
-                _cells[r, c].BackgroundColor = Color.FromArgb("#334155");
+                _cells[r, c].BackgroundColor = Color.FromArgb("#434C5E");
                 _cells[r, c].IsEnabled = true;
             }
         }
@@ -111,23 +111,23 @@ public partial class MinesweeperGameView : ContentView
         if (_isMine[row, col])
         {
             _cells[row, col].Text = "*";
-            _cells[row, col].BackgroundColor = Color.FromArgb("#EF4444");
+            _cells[row, col].BackgroundColor = Color.FromArgb("#BF616A");
             GameOver(false);
             return;
         }
 
         int count = CountAdjacentMines(row, col);
-        _cells[row, col].BackgroundColor = Color.FromArgb("#1E293B");
+        _cells[row, col].BackgroundColor = Color.FromArgb("#3B4252");
 
         if (count > 0)
         {
             _cells[row, col].Text = count.ToString();
             _cells[row, col].TextColor = count switch
             {
-                1 => Color.FromArgb("#3B82F6"),
-                2 => Color.FromArgb("#22C55E"),
-                3 => Color.FromArgb("#EF4444"),
-                _ => Color.FromArgb("#F59E0B")
+                1 => Color.FromArgb("#81A1C1"),
+                2 => Color.FromArgb("#A3BE8C"),
+                3 => Color.FromArgb("#BF616A"),
+                _ => Color.FromArgb("#D08770")
             };
         }
         else
@@ -174,7 +174,7 @@ public partial class MinesweeperGameView : ContentView
                 if (_isMine[r, c] && !_revealed[r, c])
                 {
                     _cells[r, c].Text = "X";
-                    _cells[r, c].BackgroundColor = Color.FromArgb("#7F1D1D");
+                    _cells[r, c].BackgroundColor = Color.FromArgb("#BF616A");
                 }
     }
 

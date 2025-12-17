@@ -103,13 +103,13 @@ public partial class StatsPage : ContentPage
     {
         var colors = new[]
         {
-            Color.FromArgb("#14B8A6"),
-            Color.FromArgb("#F59E0B"),
-            Color.FromArgb("#8B5CF6"),
-            Color.FromArgb("#EC4899"),
-            Color.FromArgb("#3B82F6"),
-            Color.FromArgb("#10B981"),
-            Color.FromArgb("#F97316")
+            Color.FromArgb("#88C0D0"),
+            Color.FromArgb("#D08770"),
+            Color.FromArgb("#B48EAD"),
+            Color.FromArgb("#B48EAD"),
+            Color.FromArgb("#81A1C1"),
+            Color.FromArgb("#A3BE8C"),
+            Color.FromArgb("#D08770")
         };
         return colors[index % colors.Length];
     }
