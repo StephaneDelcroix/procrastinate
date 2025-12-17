@@ -10,9 +10,9 @@ Why be productive when you can procrastinate in style? This app helps you embrac
 
 - **📋 Tasks** - Track all the things you're definitely going to do... later
 - **🎮 Mini-Games** - 9 addictive games including Simon Says, Minesweeper, Tic Tac Toe, Snake, and more! Favorite your best games for priority shuffling
-- **🎭 Excuses** - Generate creative excuses for why you didn't finish that thing (with optional AI-powered generation via Groq)
+- **🎭 Excuses** - Generate creative excuses for why you didn't finish that thing (with optional AI-powered generation)
 - **📊 Stats** - View your procrastination statistics and feel accomplished about doing nothing
-- **♿ Accessibility** - High contrast mode for better visibility
+- **🎨 Nord Theme** - Beautiful dark and light themes based on the [Nord](https://www.nordtheme.com/) color palette
 - **⚙️ Settings** - Customize your procrastination experience
 
 ## 🌍 Available in 6 Languages
@@ -30,12 +30,13 @@ Procrastinate like a local! The app is fully translated in:
 
 ## 🤖 AI-Powered Excuses (Optional)
 
-The app can generate creative excuses using AI! Two modes are available:
+The app can generate creative excuses using AI! Three modes are available:
 
 - **Random** (default) - Uses built-in random excuse templates (no API key needed)
-- **AI (Cloud)** - Uses Groq's free API for more creative, context-aware excuses
+- **AI (Cloud)** - Uses Groq's free API with `llama-3.3-70b-versatile` for creative, context-aware excuses
+- **AI (On-Device)** - Uses Apple Intelligence on supported iOS/macOS devices (no API key needed)
 
-### Setting up Groq API
+### Setting up Groq API (Cloud AI)
 
 1. Go to [Groq Console](https://console.groq.com/) and sign up for a free account
 2. Navigate to **API Keys** in the left sidebar
@@ -46,12 +47,14 @@ The app can generate creative excuses using AI! Two modes are available:
 7. Paste your Groq API key in the API Key field
 8. Enjoy AI-generated excuses!
 
-The app uses Groq's `llama-3.1-8b-instant` model which is fast and free (with generous rate limits).
+Groq offers a generous free tier with ~14,500 tokens per minute for the llama-3.3-70b model.
 
 ## 🛠️ Built With
 
-- [.NET MAUI](https://dotnet.microsoft.com/apps/maui) - Cross-platform framework
+- [.NET MAUI 10](https://dotnet.microsoft.com/apps/maui) - Cross-platform framework
+- [Nord Theme](https://www.nordtheme.com/) - Arctic, north-bluish color palette
 - [Groq](https://groq.com/) - Fast AI inference (optional)
+- [Apple Intelligence](https://developer.apple.com/apple-intelligence/) - On-device AI (optional, iOS 18.4+/macOS 15.4+)
 - [GitHub Copilot CLI](https://githubnext.com/projects/copilot-cli) - AI pair programmer that helped build this app
 - C# - Because even procrastinators have standards
 - FontAwesome - For beautiful icons
