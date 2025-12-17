@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -16,10 +17,12 @@ public class CloudExcuseGenerator : IExcuseGenerator
     private static readonly Lazy<HttpClient> _httpClient = new(() => 
         new HttpClient { Timeout = TimeSpan.FromSeconds(30) });
 
-    public async Task<string> GenerateExcuseAsync(string language)
+    public async Task<ExcuseResult> GenerateExcuseAsync(string language)
     {
+        var stopwatch = Stopwatch.StartNew();
+        
         if (!IsAvailable)
-            return "Cloud AI requires an API key. Configure it in Settings.";
+            return new ExcuseResult("Cloud AI requires an API key. Configure it in Settings.", Name, stopwatch.Elapsed);
 
         try
         {
@@ -62,13 +65,18 @@ public class CloudExcuseGenerator : IExcuseGenerator
                     if (!response.IsSuccessStatusCode)
                     {
                         var errorBody = await response.Content.ReadAsStringAsync();
-                        return $"API error ({response.StatusCode}): {errorBody}";
+                        stopwatch.Stop();
+                        return new ExcuseResult($"API error ({response.StatusCode}): {errorBody}", Name, stopwatch.Elapsed, Model: Model);
                     }
 
                     var responseBody = await response.Content.ReadAsStringAsync();
                     var result = JsonSerializer.Deserialize<GroqResponse>(responseBody);
+                    stopwatch.Stop();
                     
-                    return result?.Choices?.FirstOrDefault()?.Message?.Content?.Trim() ?? "The AI is also procrastinating...";
+                    var excuse = result?.Choices?.FirstOrDefault()?.Message?.Content?.Trim() ?? "The AI is also procrastinating...";
+                    var tokenCount = result?.Usage?.TotalTokens;
+                    
+                    return new ExcuseResult(excuse, Name, stopwatch.Elapsed, tokenCount, Model);
                 }
                 catch (Exception ex) when (retry < MaxRetries - 1)
                 {
@@ -77,11 +85,13 @@ public class CloudExcuseGenerator : IExcuseGenerator
                 }
             }
             
-            return $"Connection failed: {lastException?.Message ?? "Unknown error"}";
+            stopwatch.Stop();
+            return new ExcuseResult($"Connection failed: {lastException?.Message ?? "Unknown error"}", Name, stopwatch.Elapsed, Model: Model);
         }
         catch (Exception ex)
         {
-            return $"Cloud excuse failed: {ex.Message}";
+            stopwatch.Stop();
+            return new ExcuseResult($"Cloud excuse failed: {ex.Message}", Name, stopwatch.Elapsed, Model: Model);
         }
     }
 
@@ -105,11 +115,19 @@ public class CloudExcuseGenerator : IExcuseGenerator
     {
         [JsonPropertyName("choices")]
         public GroqChoice[]? Choices { get; set; }
+        [JsonPropertyName("usage")]
+        public GroqUsage? Usage { get; set; }
     }
 
     private class GroqChoice
     {
         [JsonPropertyName("message")]
         public GroqMessage? Message { get; set; }
+    }
+    
+    private class GroqUsage
+    {
+        [JsonPropertyName("total_tokens")]
+        public int TotalTokens { get; set; }
     }
 }

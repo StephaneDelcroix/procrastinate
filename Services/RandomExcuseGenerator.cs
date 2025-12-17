@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using procrastinate.Resources.Strings;
 
 namespace procrastinate.Services;
@@ -7,15 +8,19 @@ public class RandomExcuseGenerator : IExcuseGenerator
     public string Name => "Random";
     public bool IsAvailable => true;
 
-    public Task<string> GenerateExcuseAsync(string language)
+    public Task<ExcuseResult> GenerateExcuseAsync(string language)
     {
+        var stopwatch = Stopwatch.StartNew();
+        
         var (starters, middles, endings) = GetLocalizedExcuseParts(language);
         var starter = starters[Random.Shared.Next(starters.Length)];
         var middle = middles[Random.Shared.Next(middles.Length)];
         var ending = endings[Random.Shared.Next(endings.Length)];
 
         var excuse = $"{starter} {middle} {ending}";
-        return Task.FromResult(excuse);
+        stopwatch.Stop();
+        
+        return Task.FromResult(new ExcuseResult(excuse, Name, stopwatch.Elapsed));
     }
 
     private static (string[], string[], string[]) GetLocalizedExcuseParts(string language)

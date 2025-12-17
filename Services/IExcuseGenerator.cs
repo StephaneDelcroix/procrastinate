@@ -1,8 +1,16 @@
 namespace procrastinate.Services;
 
+public record ExcuseResult(
+    string Excuse,
+    string GeneratorName,
+    TimeSpan Duration,
+    int? TokenCount = null,
+    string? Model = null
+);
+
 public interface IExcuseGenerator
 {
     string Name { get; }
-    Task<string> GenerateExcuseAsync(string language);
+    Task<ExcuseResult> GenerateExcuseAsync(string language);
     bool IsAvailable { get; }
 }

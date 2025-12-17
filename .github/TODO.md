@@ -30,7 +30,6 @@
 - ~~snake: do not die when hitting a wall, but continue on the opposite side~~
 - ~~tictactoe: it's ok to play randomly on the first 2 games in a row, then you should use some strategy, and at least try...~~
 
-
 ## Tasks Page
 - ~~I don't like the box in box feeling~~
 - ~~clicking anywhere on the box (the checkbox or the label) should toggle the check~~
@@ -45,12 +44,13 @@
 - ~~when the excuse is generated, add the option to generate a cartoon-like image matching the excuse~~
 - ~~replace the "copy" button by a "share", so we can copy, share by message, whatsapp, etc~~
 - ~~the share button isn't visible on mac. it should use the same icon as ios~~
-- remove the option to generate images
+- ~~remove the option to generate images~~
 - below the generated excuse, add some info about the generator used, the time it took, the number of token,,, whatever you have for the generator. this is informative text, so it should be quite small
+- with zalgo random generator, the excuse itself should never use zalgo
 
 ## settings
 - ~~create an about section, with author, where to find source, etc~~
 - ~~the Theme Preview should be in the same box as Accessibility~~
-
+- when using zalgo random, reduce the amount of zalgo texts to 8%
 ## others
 - ~~take note in the instruction. make sur to update the README when you update the Changelog~~

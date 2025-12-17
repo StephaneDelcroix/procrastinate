@@ -35,7 +35,7 @@ public class ExcuseService
         return _generators.TryGetValue(mode, out var generator) ? generator : _generators["random"];
     }
 
-    public async Task<string> GenerateExcuseAsync(string language)
+    public async Task<ExcuseResult> GenerateExcuseAsync(string language)
     {
         var generator = GetCurrentGenerator();
         var usingAI = (CurrentMode == "cloud" || CurrentMode == "ondevice") && generator.IsAvailable;

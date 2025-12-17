@@ -92,6 +92,13 @@
             </Button.ImageSource>
         </Button>
         
+        <Label x:Name="GeneratorInfoLabel"
+               IsVisible="False"
+               FontSize="11"
+               TextColor="{DynamicResource Gray500}"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"/>
+        
         <Label x:Name="CounterLabel"
                Text="Excuses generated today: 0"
                FontSize="13"

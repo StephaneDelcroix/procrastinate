@@ -1,6 +1,7 @@
 #if IOS
 using Foundation;
 using ObjCRuntime;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 #endif
 
@@ -12,7 +13,7 @@ namespace procrastinate.Services;
 /// </summary>
 public class OnDeviceAIExcuseGenerator : IExcuseGenerator
 {
-    public string Name => "On-Device AI";
+    public string Name => "On-Device AI (Apple)";
     
     public bool IsAvailable
     {
@@ -36,19 +37,23 @@ public class OnDeviceAIExcuseGenerator : IExcuseGenerator
         }
     }
 
-    public async Task<string> GenerateExcuseAsync(string language)
+    public async Task<ExcuseResult> GenerateExcuseAsync(string language)
     {
 #if IOS
+        var stopwatch = Stopwatch.StartNew();
+        
         if (!OperatingSystem.IsIOSVersionAtLeast(26))
         {
-            return "On-device AI requires iOS 26+ with Apple Intelligence enabled.";
+            stopwatch.Stop();
+            return new ExcuseResult("On-device AI requires iOS 26+ with Apple Intelligence enabled.", Name, stopwatch.Elapsed);
         }
 
         try
         {
             if (!FMWrapperBridge.IsAvailable())
             {
-                return FMWrapperBridge.GetUnavailabilityReason();
+                stopwatch.Stop();
+                return new ExcuseResult(FMWrapperBridge.GetUnavailabilityReason(), Name, stopwatch.Elapsed);
             }
 
             var languageName = language switch
@@ -66,15 +71,23 @@ public class OnDeviceAIExcuseGenerator : IExcuseGenerator
             var instructions = "You are writing funny excuses in first person. Start naturally like 'I can't because...' or 'I would but...'. Keep it to one or two sentences. Be creative and absurd but make it sound like something a person would actually say.";
 
             var result = await FMWrapperBridge.GenerateTextAsync(prompt, instructions);
-            return result ?? "The on-device AI is also procrastinating...";
+            stopwatch.Stop();
+            
+            return new ExcuseResult(
+                result ?? "The on-device AI is also procrastinating...", 
+                Name, 
+                stopwatch.Elapsed,
+                Model: "Apple Intelligence"
+            );
         }
         catch (Exception ex)
         {
-            return $"On-device AI error: {ex.Message}";
+            stopwatch.Stop();
+            return new ExcuseResult($"On-device AI error: {ex.Message}", Name, stopwatch.Elapsed);
         }
 #else
         await Task.CompletedTask;
-        return "On-device AI is only available on iOS 26+ with Apple Intelligence.";
+        return new ExcuseResult("On-device AI is only available on iOS 26+ with Apple Intelligence.", Name, TimeSpan.Zero);
 #endif
     }
 }

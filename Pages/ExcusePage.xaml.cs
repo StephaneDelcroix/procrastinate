@@ -39,6 +39,7 @@ public partial class ExcusePage : ContentPage
         AppStrings.Refresh();
         
         ShareIconBtn.IsVisible = false;
+        GeneratorInfoLabel.IsVisible = false;
         
         // Show loading state
         GenerateBtn.IsEnabled = false;
@@ -46,13 +47,17 @@ public partial class ExcusePage : ContentPage
 
         try
         {
-            _currentExcuse = await _excuseService.GenerateExcuseAsync(AppStrings.CurrentLanguage);
+            var result = await _excuseService.GenerateExcuseAsync(AppStrings.CurrentLanguage);
+            _currentExcuse = result.Excuse;
             
             // Apply Zalgo if enabled
             ExcuseLabel.Text = AppStrings.IsZalgoMode ? AppStrings.Zalgoify(_currentExcuse) : _currentExcuse;
             
             _statsService.IncrementExcusesGenerated();
             UpdateCounterLabel();
+            
+            // Show generator info
+            UpdateGeneratorInfo(result);
             
             // Show the share button
             ShareIconBtn.IsVisible = true;
@@ -65,6 +70,26 @@ public partial class ExcusePage : ContentPage
         {
             GenerateBtn.IsEnabled = true;
         }
+    }
+
+    private void UpdateGeneratorInfo(ExcuseResult result)
+    {
+        var parts = new List<string> { result.GeneratorName };
+        
+        if (result.Model != null)
+        {
+            parts.Add(result.Model);
+        }
+        
+        parts.Add($"{result.Duration.TotalMilliseconds:F0}ms");
+        
+        if (result.TokenCount.HasValue)
+        {
+            parts.Add($"{result.TokenCount} tokens");
+        }
+        
+        GeneratorInfoLabel.Text = string.Join(" · ", parts);
+        GeneratorInfoLabel.IsVisible = true;
     }
 
     private async void OnShareClicked(object? sender, EventArgs e)
