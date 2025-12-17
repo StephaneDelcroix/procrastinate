@@ -4,7 +4,7 @@ namespace procrastinate.Pages.Games;
 
 public partial class MemoryMatchGameView : ContentView
 {
-    private readonly string[] _symbols = ["A", "B", "C", "D", "E", "F", "G", "H"];
+    private readonly string[] _symbols = ["🐶", "🐱", "🦊", "🐸", "🍎", "🍊", "🍇", "🍓"];
     private readonly Button[] _cards = new Button[16];
     private readonly string[] _cardValues = new string[16];
     private readonly bool[] _matched = new bool[16];
