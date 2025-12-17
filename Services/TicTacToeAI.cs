@@ -59,6 +59,7 @@ public static class TicTacToeAI
             {
                 var move = await GetOnDeviceMoveAsync(board);
                 if (move >= 0) return move;
+                // On-device failed, will try cloud next
             }
         }
         catch { }
@@ -70,7 +71,7 @@ public static class TicTacToeAI
             if (move >= 0) return move;
         }
 
-        LastDebugInfo = "⚙️ Using built-in strategy";
+        LastDebugInfo = "⚙️ Built-in strategy";
         return -1;
     }
 
@@ -80,8 +81,6 @@ public static class TicTacToeAI
         {
             var boardStr = FormatBoard(board);
             var prompt = $"TicTacToe as O. Board:\n{boardStr}\nReply with ONE digit (0-8) for empty (.) position.";
-
-            LastDebugInfo = $"🤖 Asking {Model}...\nBoard: {boardStr.Replace("\n", " | ")}";
 
             var request = new
             {
@@ -101,7 +100,7 @@ public static class TicTacToeAI
             var response = await _httpClient.Value.SendAsync(httpRequest);
             if (!response.IsSuccessStatusCode)
             {
-                LastDebugInfo = $"❌ API Error: {response.StatusCode}";
+                LastDebugInfo = $"☁️ {Model} · ❌ {response.StatusCode}";
                 return -1;
             }
 
@@ -122,16 +121,16 @@ public static class TicTacToeAI
                     int move = c - '0';
                     if (move >= 0 && move <= 8 && string.IsNullOrEmpty(board[move]))
                     {
-                        LastDebugInfo = $"🤖 {Model}\nQ: {boardStr.Replace("\n", " | ")}\nA: \"{content}\" → Move {move}";
+                        LastDebugInfo = $"☁️ {Model} · ✓ \"{content}\"";
                         return move;
                     }
                 }
             }
-            LastDebugInfo = $"⚠️ AI said \"{content}\" - invalid move";
+            LastDebugInfo = $"☁️ {Model} · ⚠️ \"{content}\" invalid";
         }
         catch (Exception ex)
         {
-            LastDebugInfo = $"❌ Error: {ex.Message}";
+            LastDebugInfo = $"☁️ Cloud AI · ❌ {ex.Message}";
         }
         
         return -1;
@@ -143,8 +142,6 @@ public static class TicTacToeAI
         {
             var boardStr = FormatBoard(board);
             var prompt = $"TicTacToe: You are O. Board:\n{boardStr}\nReply with ONE digit (0-8) for empty (.) position.";
-
-            LastDebugInfo = $"🍎 Asking Apple Intelligence...\nBoard: {boardStr.Replace("\n", " | ")}";
 
             var generator = new OnDeviceAIExcuseGenerator();
             if (!generator.IsAvailable)
@@ -163,16 +160,16 @@ public static class TicTacToeAI
                     int move = c - '0';
                     if (move >= 0 && move <= 8 && string.IsNullOrEmpty(board[move]))
                     {
-                        LastDebugInfo = $"🍎 Apple Intelligence\nQ: {boardStr.Replace("\n", " | ")}\nA: \"{content}\" → Move {move}";
+                        LastDebugInfo = $"🍎 Apple Intelligence · ✓ \"{content}\"";
                         return move;
                     }
                 }
             }
-            LastDebugInfo = $"⚠️ On-device AI said \"{content}\" - invalid";
+            LastDebugInfo = $"🍎 Apple Intelligence · ⚠️ \"{content}\" invalid";
         }
         catch (Exception ex)
         {
-            LastDebugInfo = $"❌ On-device error: {ex.Message}";
+            LastDebugInfo = $"🍎 Apple Intelligence · ❌ {ex.Message}";
         }
         
         return -1;
