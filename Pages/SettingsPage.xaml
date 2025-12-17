@@ -56,20 +56,19 @@
                                VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                     
-                    <!-- Theme Picker -->
                     <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
                         <VerticalStackLayout Grid.Column="0" Spacing="4">
-                            <Label Text="Theme" 
+                            <Label Text="{Binding HighContrastMode, Source={x:Static strings:AppStrings.Instance}}" 
                                    FontSize="16" 
                                    TextColor="{DynamicResource Gray100}"/>
-                            <Label Text="Choose your preferred color scheme" 
+                            <Label Text="{Binding HighContrastDesc, Source={x:Static strings:AppStrings.Instance}}" 
                                    FontSize="13" 
                                    TextColor="{DynamicResource Gray400}"/>
                         </VerticalStackLayout>
-                        <Picker x:Name="ThemePicker"
+                        <Switch x:Name="HighContrastSwitch" 
                                 Grid.Column="1"
-                                TextColor="{DynamicResource Gray100}"
-                                SelectedIndexChanged="OnThemeChanged"
+                                OnColor="{DynamicResource Primary}"
+                                Toggled="OnHighContrastToggled"
                                 VerticalOptions="Center"/>
                     </Grid>
 
@@ -113,14 +112,14 @@
                                 Stroke="Transparent"
                                 WidthRequest="50" HeightRequest="50"/>
                         <Border x:Name="PreviewAccent" 
-                                BackgroundColor="{DynamicResource Accent}"
+                                BackgroundColor="{DynamicResource AccentLight}"
                                 StrokeShape="RoundRectangle 8"
                                 Stroke="Transparent"
                                 WidthRequest="50" HeightRequest="50"/>
                     </HorizontalStackLayout>
                     
                     <Label x:Name="ThemeLabel"
-                           Text="Current: System Default"
+                           Text="Current: Default Theme"
                            FontSize="14"
                            TextColor="{DynamicResource Gray400}"
                            HorizontalOptions="Center"/>
