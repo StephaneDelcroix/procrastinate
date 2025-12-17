@@ -50,9 +50,8 @@ public partial class ExcusePage : ContentPage
             var result = await _excuseService.GenerateExcuseAsync(AppStrings.CurrentLanguage);
             _currentExcuse = result.Excuse;
             
-            // Apply Zalgo if enabled, but never for the Random generator
-            var shouldZalgo = AppStrings.IsZalgoMode && result.GeneratorName != "Random";
-            ExcuseLabel.Text = shouldZalgo ? AppStrings.Zalgoify(_currentExcuse) : _currentExcuse;
+            // Never apply Zalgo to the excuse itself
+            ExcuseLabel.Text = _currentExcuse;
             
             _statsService.IncrementExcusesGenerated();
             UpdateCounterLabel();
