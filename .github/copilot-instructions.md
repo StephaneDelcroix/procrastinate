@@ -70,46 +70,40 @@ When asked to "do a release" or "release checklist":
     - Take credit for everyone's work
     - Procrastinate on the next release
 
-## iOS Simulator Interaction (macOS)
+## iOS Simulator Interaction
 
-To click/tap in iOS Simulator when `simctl io tap` doesn't exist, use AppleScript:
+Use the Appium agent in `automation/appium_agent.py` for all simulator interactions:
 
 ```bash
-# Get window position and size first
-osascript -e '
-tell application "Simulator" to activate
-delay 0.3
-tell application "System Events"
-    tell process "Simulator"
-        set windowPos to position of window 1
-        set windowSize to size of window 1
-        return {windowPos, windowSize}
-    end tell
-end tell
-'
+# Start Appium server first
+appium --relaxed-security &
 
-# Click at specific coordinates (absolute screen position)
-osascript -e '
-tell application "Simulator" to activate
-delay 0.3
-tell application "System Events"
-    click at {windowX + relativeX, windowY + relativeY}
-end tell
-'
+# Navigate to tabs
+python3 automation/appium_agent.py --bundle-id org.reblochon.procrastinate --tap Stats
+
+# Click buttons
+python3 automation/appium_agent.py --bundle-id org.reblochon.procrastinate --tap ShuffleBtn
+
+# Get element text
+python3 automation/appium_agent.py --bundle-id org.reblochon.procrastinate --get-text ExcuseLabel
+
+# Take screenshot
+python3 automation/appium_agent.py --bundle-id org.reblochon.procrastinate --screenshot output.png
+
+# List buttons on current page
+python3 automation/appium_agent.py --bundle-id org.reblochon.procrastinate --list-buttons
+
+# Get page source XML (for debugging)
+python3 automation/appium_agent.py --bundle-id org.reblochon.procrastinate --page-source
 ```
 
-For tab bar navigation on iPhone 16 Pro (window ~456x972):
-- Tab bar is ~60px from window bottom
-- 4 tabs: centers at ~57, 171, 285, 399 from left edge of device area
-
-Take screenshot: `xcrun simctl io <UDID> screenshot output.png`
+See `automation/README.md` for more examples and element IDs.
 
 ## Taking App Screenshots for Collage
 
-1. Build and run: `dotnet build -f net10.0-ios && xcrun simctl install <UDID> bin/Debug/net10.0-ios/iossimulator-arm64/procrastinate.app && xcrun simctl launch <UDID> com.companyname.procrastinate`
-2. Use AppleScript clicks to navigate between tabs
-3. Use `xcrun simctl io <UDID> screenshot` for each page
-4. Create collage with Python/Pillow
+1. Build and run: `dotnet build -f net10.0-ios && xcrun simctl install booted bin/Debug/net10.0-ios/iossimulator-arm64/procrastinate.app && xcrun simctl launch booted org.reblochon.procrastinate`
+2. Use Appium agent to navigate and screenshot each tab
+3. Create collage with Python/Pillow
 
 ## Collage Style Preferences
 
@@ -128,17 +122,3 @@ Take screenshot: `xcrun simctl io <UDID> screenshot output.png`
   - Highlight AI features: "Cloud AI (Groq) or On-Device AI (Apple Intelligence)"
   - Funny user testimonial with 5-star rating
 - **No emojis** (they don't render properly in Pillow with system fonts)
-
-## Deep Linking
-
-The app supports deep linking to navigate directly to pages:
-
-```bash
-# Navigate to specific tabs
-xcrun simctl openurl booted "procrastinate://ExcusePage"
-xcrun simctl openurl booted "procrastinate://TasksPage"
-xcrun simctl openurl booted "procrastinate://GamesPage"
-xcrun simctl openurl booted "procrastinate://StatsPage"
-```
-
-This is faster than UI taps for navigation during automation/testing.
