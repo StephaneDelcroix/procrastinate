@@ -6,7 +6,8 @@
     xmlns:local="clr-namespace:procrastinate"
     xmlns:pages="clr-namespace:procrastinate.Pages"
     xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
-    Title="Procrastinator's Helper">
+    Title="Procrastinator's Helper"
+    FlyoutBehavior="Flyout">
 
     <Shell.Resources>
         <ResourceDictionary>
@@ -18,11 +19,12 @@
                 <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource Gray400}"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource Gray400}"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource Gray500}"/>
+                <Setter Property="Shell.FlyoutBackgroundColor" Value="{StaticResource CardBackground}"/>
             </Style>
         </ResourceDictionary>
     </Shell.Resources>
 
-    <TabBar>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="{Binding TabTasks, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:TasksPage}" Route="TasksPage">
             <ShellContent.Icon>
                 <FontImageSource Glyph="&#xf46d;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
@@ -43,6 +45,6 @@
                 <FontImageSource Glyph="&#xf201;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
             </ShellContent.Icon>
         </ShellContent>
-    </TabBar>
+    </FlyoutItem>
 
 </Shell>
