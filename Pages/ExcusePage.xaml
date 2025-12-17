@@ -76,7 +76,7 @@
                          Margin="0,0,8,8">
                 <Button.ImageSource>
                     <OnPlatform x:TypeArguments="ImageSource">
-                        <On Platform="iOS">
+                        <On Platform="iOS, MacCatalyst">
                             <FontImageSource Glyph="&#xe09a;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray200}" Size="18"/>
                         </On>
                         <On Platform="Android">
