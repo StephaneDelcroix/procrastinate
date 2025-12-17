@@ -17,4 +17,15 @@ public partial class App : Application
 	{
 		return new Window(new AppShell());
 	}
+
+	protected override async void OnAppLinkRequestReceived(Uri uri)
+	{
+		base.OnAppLinkRequestReceived(uri);
+
+		// Handle deep links like procrastinate://ExcusePage
+		if (uri.Host is string route && !string.IsNullOrEmpty(route))
+		{
+			await Shell.Current.GoToAsync($"//{route}");
+		}
+	}
 }

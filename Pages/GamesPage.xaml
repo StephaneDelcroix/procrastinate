@@ -13,6 +13,7 @@
                    TextColor="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"
                    VerticalOptions="Center"/>
             <Button Grid.Column="1" Text="&#xf013;" 
+                    AutomationId="SettingsBtn"
                     FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
                     TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"
@@ -41,6 +42,7 @@
                    HorizontalOptions="Center"/>
 
             <Button x:Name="ShuffleBtn" 
+                    AutomationId="ShuffleBtn"
                     FontSize="16"
                     BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}"
                     TextColor="{AppThemeBinding Light={StaticResource Nord1}, Dark={StaticResource Nord5}}"

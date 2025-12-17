@@ -13,6 +13,7 @@
                    TextColor="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"
                    VerticalOptions="Center"/>
             <Button Grid.Column="1" Text="&#xf013;" 
+                    AutomationId="SettingsBtn"
                     FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
                     TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"
@@ -52,6 +53,7 @@
                 </Border.GestureRecognizers>
                 <HorizontalStackLayout Spacing="12">
                     <CheckBox x:Name="TaskCheckBox" 
+                              AutomationId="TaskCheckBox"
                               Color="{StaticResource Nord8}"
                               CheckedChanged="OnTaskChecked"/>
                     <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
@@ -76,6 +78,7 @@
                HorizontalOptions="Center"/>
         
         <Button x:Name="AddTaskBtn"
+                AutomationId="AddTaskBtn"
                 Clicked="OnAddTaskClicked"
                 BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}"
                 TextColor="{AppThemeBinding Light={StaticResource Nord1}, Dark={StaticResource Nord5}}"

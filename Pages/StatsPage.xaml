@@ -13,6 +13,7 @@
                    TextColor="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"
                    VerticalOptions="Center"/>
             <Button Grid.Column="1" Text="&#xf013;" 
+                    AutomationId="SettingsBtn"
                     FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
                     TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"
@@ -47,7 +48,7 @@
                     <VerticalStackLayout Spacing="8">
                         <Label Text="&#xf05e;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{StaticResource Nord8}"/>
                         <Label Text="{Binding TasksAvoided, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
-                        <Label x:Name="TasksAvoidedLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Nord8}"/>
+                        <Label x:Name="TasksAvoidedLabel" AutomationId="TasksAvoidedLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Nord8}"/>
                     </VerticalStackLayout>
                 </Border>
 
@@ -67,7 +68,7 @@
                     <VerticalStackLayout Spacing="8">
                         <Label Text="&#xf630;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{StaticResource Nord10}"/>
                         <Label Text="{Binding ExcusesGeneratedStat, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
-                        <Label x:Name="ExcusesLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Nord10}"/>
+                        <Label x:Name="ExcusesLabel" AutomationId="ExcusesStatLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Nord10}"/>
                     </VerticalStackLayout>
                 </Border>
 

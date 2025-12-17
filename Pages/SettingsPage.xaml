@@ -35,6 +35,7 @@
                     </HorizontalStackLayout>
                     
                     <Picker x:Name="LanguagePicker"
+                            AutomationId="LanguagePicker"
                             TextColor="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"
                             BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}"
                             SelectedIndexChanged="OnLanguageChanged"/>
@@ -82,6 +83,7 @@
                                    TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
                         </VerticalStackLayout>
                         <Switch x:Name="ZalgoSwitch" 
+                                AutomationId="ZalgoSwitch"
                                 Grid.Column="1"
                                 OnColor="{StaticResource Nord10}"
                                 Toggled="OnZalgoToggled"
@@ -146,6 +148,7 @@
                            TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
                     
                     <Picker x:Name="ExcuseModePicker"
+                            AutomationId="ExcuseModePicker"
                             TextColor="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"
                             BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}"
                             SelectedIndexChanged="OnExcuseModeChanged"/>
@@ -155,6 +158,7 @@
                                FontSize="14" 
                                TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
                         <Entry x:Name="GroqApiKeyEntry"
+                               AutomationId="GroqApiKeyEntry"
                                Placeholder="{Binding GroqApiKeyPlaceholder, Source={x:Static strings:AppStrings.Instance}}"
                                IsPassword="True"
                                TextColor="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"

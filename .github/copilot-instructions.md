@@ -128,3 +128,17 @@ Take screenshot: `xcrun simctl io <UDID> screenshot output.png`
   - Highlight AI features: "Cloud AI (Groq) or On-Device AI (Apple Intelligence)"
   - Funny user testimonial with 5-star rating
 - **No emojis** (they don't render properly in Pillow with system fonts)
+
+## Deep Linking
+
+The app supports deep linking to navigate directly to pages:
+
+```bash
+# Navigate to specific tabs
+xcrun simctl openurl booted "procrastinate://ExcusePage"
+xcrun simctl openurl booted "procrastinate://TasksPage"
+xcrun simctl openurl booted "procrastinate://GamesPage"
+xcrun simctl openurl booted "procrastinate://StatsPage"
+```
+
+This is faster than UI taps for navigation during automation/testing.
