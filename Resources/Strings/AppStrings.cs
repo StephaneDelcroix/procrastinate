@@ -171,11 +171,10 @@ public class AppStrings : INotifyPropertyChanged
     public string TabExcuses => this["TabExcuses"];
     public string TabStats => this["TabStats"];
     public string Accessibility => this["Accessibility"];
-    public string ThemeSetting => this["ThemeSetting"];
-    public string ThemeSettingDesc => this["ThemeSettingDesc"];
-    public string ThemeSystem => this["ThemeSystem"];
-    public string ThemeLight => this["ThemeLight"];
-    public string ThemeDark => this["ThemeDark"];
+    public string HighContrastMode => this["HighContrastMode"];
+    public string HighContrastDesc => this["HighContrastDesc"];
+    public string DefaultTheme => this["DefaultTheme"];
+    public string HighContrast => this["HighContrast"];
     public string ZalgoMode => this["ZalgoMode"];
     public string ZalgoModeDesc => this["ZalgoModeDesc"];
     public string ThemePreview => this["ThemePreview"];

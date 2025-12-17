@@ -25,15 +25,14 @@
   <data name="TabExcuses" xml:space="preserve"><value>Excuses</value></data>
   <data name="TabStats" xml:space="preserve"><value>Stats</value></data>
   <data name="Accessibility" xml:space="preserve"><value>Appearance</value></data>
-  <data name="ThemeSetting" xml:space="preserve"><value>Theme</value></data>
-  <data name="ThemeSettingDesc" xml:space="preserve"><value>Choose your preferred color scheme</value></data>
-  <data name="ThemeSystem" xml:space="preserve"><value>System Default</value></data>
-  <data name="ThemeLight" xml:space="preserve"><value>Light</value></data>
-  <data name="ThemeDark" xml:space="preserve"><value>Dark</value></data>
+  <data name="HighContrastMode" xml:space="preserve"><value>Light Theme</value></data>
+  <data name="HighContrastDesc" xml:space="preserve"><value>Switch to Nord Light color scheme</value></data>
+  <data name="DefaultTheme" xml:space="preserve"><value>Dark</value></data>
+  <data name="HighContrast" xml:space="preserve"><value>Light</value></data>
   <data name="ZalgoMode" xml:space="preserve"><value>Zalgo Randomly</value></data>
   <data name="ZalgoModeDesc" xml:space="preserve"><value>Chaos appears when you least expect it</value></data>
   <data name="ThemePreview" xml:space="preserve"><value>Theme Preview</value></data>
-  <data name="CurrentTheme" xml:space="preserve"><value>Current: {0}</value></data>
+  <data name="CurrentTheme" xml:space="preserve"><value>Current: Nord {0}</value></data>
   <data name="ChangesApply" xml:space="preserve"><value>Changes apply immediately</value></data>
   <data name="Language" xml:space="preserve"><value>Language</value></data>
   
