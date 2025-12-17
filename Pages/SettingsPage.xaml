@@ -112,7 +112,7 @@
                                 Stroke="Transparent"
                                 WidthRequest="50" HeightRequest="50"/>
                         <Border x:Name="PreviewAccent" 
-                                BackgroundColor="{DynamicResource AccentLight}"
+                                BackgroundColor="{DynamicResource Nord13}"
                                 StrokeShape="RoundRectangle 8"
                                 Stroke="Transparent"
                                 WidthRequest="50" HeightRequest="50"/>

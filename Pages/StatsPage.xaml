@@ -27,12 +27,12 @@
             <Label Text="&#xf201;" 
                    FontFamily="FontAwesomeSolid"
                    FontSize="48" 
-                   TextColor="{DynamicResource AccentLight}"
+                   TextColor="{DynamicResource Nord13}"
                    HorizontalOptions="Center"/>
             <Label Text="{Binding YourStats, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="28" 
                    FontAttributes="Bold"
-                   TextColor="{DynamicResource AccentLight}"
+                   TextColor="{DynamicResource Nord13}"
                    HorizontalOptions="Center"/>
             
             <Label Text="{Binding BeProud, Source={x:Static strings:AppStrings.Instance}}"
@@ -75,9 +75,9 @@
                         StrokeShape="RoundRectangle 16" Stroke="Transparent" Padding="20"
                         Grid.Row="1" Grid.Column="1">
                     <VerticalStackLayout Spacing="8">
-                        <Label Text="&#xf11b;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{DynamicResource AccentLight}"/>
+                        <Label Text="&#xf11b;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{DynamicResource Nord13}"/>
                         <Label Text="{Binding GamesPlayed, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{DynamicResource Nord4}"/>
-                        <Label x:Name="GamesPlayedLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{DynamicResource AccentLight}"/>
+                        <Label x:Name="GamesPlayedLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{DynamicResource Nord13}"/>
                     </VerticalStackLayout>
                 </Border>
 
@@ -86,10 +86,10 @@
                         Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                     <VerticalStackLayout Spacing="8">
                         <HorizontalStackLayout Spacing="8">
-                            <Label Text="&#xf544;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{DynamicResource Warm}"/>
+                            <Label Text="&#xf544;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{DynamicResource Nord12}"/>
                             <Label Text="{Binding AIExcuseCalls, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{DynamicResource Nord4}" VerticalOptions="Center"/>
                         </HorizontalStackLayout>
-                        <Label x:Name="AICallsLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{DynamicResource Warm}"/>
+                        <Label x:Name="AICallsLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{DynamicResource Nord12}"/>
                     </VerticalStackLayout>
                 </Border>
             </Grid>
@@ -125,7 +125,7 @@
                     Padding="20">
                 <VerticalStackLayout Spacing="12">
                     <HorizontalStackLayout Spacing="8">
-                        <Label Text="&#xf091;" FontFamily="FontAwesomeSolid" FontSize="24" TextColor="{DynamicResource Warm}"/>
+                        <Label Text="&#xf091;" FontFamily="FontAwesomeSolid" FontSize="24" TextColor="{DynamicResource Nord12}"/>
                         <Label Text="{Binding HighScores, Source={x:Static strings:AppStrings.Instance}}" FontSize="18" FontAttributes="Bold" TextColor="{DynamicResource Nord6}" VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                     <VerticalStackLayout x:Name="HighScoresStack" Spacing="8">
@@ -143,9 +143,9 @@
                     StrokeThickness="1"
                     Padding="20">
                 <HorizontalStackLayout Spacing="16">
-                    <Label Text="&#xf091;" FontFamily="FontAwesomeSolid" FontSize="36" TextColor="{DynamicResource Warm}" VerticalOptions="Center"/>
+                    <Label Text="&#xf091;" FontFamily="FontAwesomeSolid" FontSize="36" TextColor="{DynamicResource Nord12}" VerticalOptions="Center"/>
                     <VerticalStackLayout Spacing="4" VerticalOptions="Center">
-                        <Label Text="{Binding AchievementUnlocked, Source={x:Static strings:AppStrings.Instance}}" FontSize="14" FontAttributes="Bold" TextColor="{DynamicResource Warm}"/>
+                        <Label Text="{Binding AchievementUnlocked, Source={x:Static strings:AppStrings.Instance}}" FontSize="14" FontAttributes="Bold" TextColor="{DynamicResource Nord12}"/>
                         <Label x:Name="AchievementLabel" 
                                Text="Loading achievement..."
                                FontSize="14"
