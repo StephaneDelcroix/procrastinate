@@ -17,11 +17,11 @@
                Text="{Binding TapStartToBegin, Source={x:Static strings:AppStrings.Instance}}" 
                HorizontalOptions="Center" 
                FontSize="16" 
-               TextColor="{DynamicResource Gray300}"/>
+               TextColor="{DynamicResource Nord4}"/>
         <Button x:Name="StartBtn" 
                 Text="{Binding Start, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource CardBackgroundAlt}" 
-                TextColor="{DynamicResource Gray200}" 
+                BackgroundColor="{DynamicResource Nord1Alt}" 
+                TextColor="{DynamicResource Nord5}" 
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnStartClicked"/>

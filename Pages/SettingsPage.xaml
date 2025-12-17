@@ -4,55 +4,55 @@
              xmlns:strings="clr-namespace:procrastinate.Services"
              x:Class="procrastinate.Pages.SettingsPage"
              Title="{Binding Settings, Source={x:Static strings:AppStrings.Instance}}"
-             BackgroundColor="{DynamicResource SurfaceBackground}">
+             BackgroundColor="{DynamicResource Nord0}">
 
     <ScrollView>
         <VerticalStackLayout Padding="24" Spacing="24">
             <Label Text="&#xf013;" 
                    FontFamily="FontAwesomeSolid"
                    FontSize="48" 
-                   TextColor="{DynamicResource Gray300}"
+                   TextColor="{DynamicResource Nord4}"
                    HorizontalOptions="Center"/>
             <Label Text="{Binding Settings, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="28" 
                    FontAttributes="Bold"
-                   TextColor="{DynamicResource Gray100}"
+                   TextColor="{DynamicResource Nord6}"
                    HorizontalOptions="Center"/>
 
             <!-- Language -->
-            <Border BackgroundColor="{DynamicResource CardBackground}" 
+            <Border BackgroundColor="{DynamicResource Nord1}" 
                     StrokeShape="RoundRectangle 16"
                     Stroke="Transparent"
                     Padding="20">
                 <VerticalStackLayout Spacing="16">
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="&#xf1ab;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Primary}" VerticalOptions="Center"/>
+                        <Label Text="&#xf1ab;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Nord8}" VerticalOptions="Center"/>
                         <Label Text="{Binding Language, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="18" 
                                FontAttributes="Bold"
-                               TextColor="{DynamicResource Gray200}"
+                               TextColor="{DynamicResource Nord5}"
                                VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                     
                     <Picker x:Name="LanguagePicker"
-                            TextColor="{DynamicResource Gray100}"
-                            BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                            TextColor="{DynamicResource Nord6}"
+                            BackgroundColor="{DynamicResource Nord1Alt}"
                             SelectedIndexChanged="OnLanguageChanged"/>
                 </VerticalStackLayout>
             </Border>
 
             <!-- Accessibility -->
-            <Border BackgroundColor="{DynamicResource CardBackground}" 
+            <Border BackgroundColor="{DynamicResource Nord1}" 
                     StrokeShape="RoundRectangle 16"
                     Stroke="Transparent"
                     Padding="20">
                 <VerticalStackLayout Spacing="16">
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="&#xf29a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Secondary}" VerticalOptions="Center"/>
+                        <Label Text="&#xf29a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Nord9}" VerticalOptions="Center"/>
                         <Label Text="{Binding Accessibility, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="18" 
                                FontAttributes="Bold"
-                               TextColor="{DynamicResource Gray200}"
+                               TextColor="{DynamicResource Nord5}"
                                VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                     
@@ -60,14 +60,14 @@
                         <VerticalStackLayout Grid.Column="0" Spacing="4">
                             <Label Text="{Binding HighContrastMode, Source={x:Static strings:AppStrings.Instance}}" 
                                    FontSize="16" 
-                                   TextColor="{DynamicResource Gray100}"/>
+                                   TextColor="{DynamicResource Nord6}"/>
                             <Label Text="{Binding HighContrastDesc, Source={x:Static strings:AppStrings.Instance}}" 
                                    FontSize="13" 
-                                   TextColor="{DynamicResource Gray400}"/>
+                                   TextColor="{DynamicResource Nord4}"/>
                         </VerticalStackLayout>
                         <Switch x:Name="HighContrastSwitch" 
                                 Grid.Column="1"
-                                OnColor="{DynamicResource Primary}"
+                                OnColor="{DynamicResource Nord8}"
                                 Toggled="OnHighContrastToggled"
                                 VerticalOptions="Center"/>
                     </Grid>
@@ -76,38 +76,38 @@
                         <VerticalStackLayout Grid.Column="0" Spacing="4">
                             <Label Text="{Binding ZalgoMode, Source={x:Static strings:AppStrings.Instance}}" 
                                    FontSize="16" 
-                                   TextColor="{DynamicResource Gray100}"/>
+                                   TextColor="{DynamicResource Nord6}"/>
                             <Label x:Name="ZalgoDescLabel"
                                    FontSize="13" 
-                                   TextColor="{DynamicResource Gray400}"/>
+                                   TextColor="{DynamicResource Nord4}"/>
                         </VerticalStackLayout>
                         <Switch x:Name="ZalgoSwitch" 
                                 Grid.Column="1"
-                                OnColor="{DynamicResource Tertiary}"
+                                OnColor="{DynamicResource Nord10}"
                                 Toggled="OnZalgoToggled"
                                 VerticalOptions="Center"/>
                     </Grid>
                     
                     <!-- Theme Preview -->
-                    <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Gray600}" Margin="0,8,0,8"/>
+                    <BoxView HeightRequest="1" BackgroundColor="{DynamicResource Nord2}" Margin="0,8,0,8"/>
                     
                     <Label Text="{Binding ThemePreview, Source={x:Static strings:AppStrings.Instance}}" 
                            FontSize="14" 
-                           TextColor="{DynamicResource Gray300}"/>
+                           TextColor="{DynamicResource Nord4}"/>
                     
                     <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
                         <Border x:Name="PreviewPrimary" 
-                                BackgroundColor="{DynamicResource Primary}"
+                                BackgroundColor="{DynamicResource Nord8}"
                                 StrokeShape="RoundRectangle 8"
                                 Stroke="Transparent"
                                 WidthRequest="50" HeightRequest="50"/>
                         <Border x:Name="PreviewSecondary" 
-                                BackgroundColor="{DynamicResource Secondary}"
+                                BackgroundColor="{DynamicResource Nord9}"
                                 StrokeShape="RoundRectangle 8"
                                 Stroke="Transparent"
                                 WidthRequest="50" HeightRequest="50"/>
                         <Border x:Name="PreviewTertiary" 
-                                BackgroundColor="{DynamicResource Tertiary}"
+                                BackgroundColor="{DynamicResource Nord10}"
                                 StrokeShape="RoundRectangle 8"
                                 Stroke="Transparent"
                                 WidthRequest="50" HeightRequest="50"/>
@@ -121,62 +121,62 @@
                     <Label x:Name="ThemeLabel"
                            Text="Current: Default Theme"
                            FontSize="14"
-                           TextColor="{DynamicResource Gray400}"
+                           TextColor="{DynamicResource Nord4}"
                            HorizontalOptions="Center"/>
                 </VerticalStackLayout>
             </Border>
 
             <!-- Excuse Engine -->
-            <Border BackgroundColor="{DynamicResource CardBackground}" 
+            <Border BackgroundColor="{DynamicResource Nord1}" 
                     StrokeShape="RoundRectangle 16"
                     Stroke="Transparent"
                     Padding="20">
                 <VerticalStackLayout Spacing="16">
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="&#xf075;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Primary}" VerticalOptions="Center"/>
+                        <Label Text="&#xf075;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Nord8}" VerticalOptions="Center"/>
                         <Label Text="{Binding ExcuseEngine, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="18" 
                                FontAttributes="Bold"
-                               TextColor="{DynamicResource Gray200}"
+                               TextColor="{DynamicResource Nord5}"
                                VerticalOptions="Center"/>
                     </HorizontalStackLayout>
 
                     <Label Text="{Binding ExcuseEngineDesc, Source={x:Static strings:AppStrings.Instance}}" 
                            FontSize="13" 
-                           TextColor="{DynamicResource Gray400}"/>
+                           TextColor="{DynamicResource Nord4}"/>
                     
                     <Picker x:Name="ExcuseModePicker"
-                            TextColor="{DynamicResource Gray100}"
-                            BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                            TextColor="{DynamicResource Nord6}"
+                            BackgroundColor="{DynamicResource Nord1Alt}"
                             SelectedIndexChanged="OnExcuseModeChanged"/>
 
                     <VerticalStackLayout x:Name="CloudSettingsPanel" Spacing="12" IsVisible="False">
                         <Label Text="{Binding GroqApiKeyLabel, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="14" 
-                               TextColor="{DynamicResource Gray300}"/>
+                               TextColor="{DynamicResource Nord4}"/>
                         <Entry x:Name="GroqApiKeyEntry"
                                Placeholder="{Binding GroqApiKeyPlaceholder, Source={x:Static strings:AppStrings.Instance}}"
                                IsPassword="True"
-                               TextColor="{DynamicResource Gray100}"
-                                PlaceholderColor="{DynamicResource Gray400}"
-                               BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                               TextColor="{DynamicResource Nord6}"
+                                PlaceholderColor="{DynamicResource Nord4}"
+                               BackgroundColor="{DynamicResource Nord1Alt}"
                                TextChanged="OnGroqApiKeyChanged"/>
                         
                         <HorizontalStackLayout Spacing="8">
                             <Label Text="{Binding AiModel, Source={x:Static strings:AppStrings.Instance}}" 
                                    FontSize="14" 
-                                   TextColor="{DynamicResource Gray300}"
+                                   TextColor="{DynamicResource Nord4}"
                                    VerticalOptions="Center"/>
                             <Picker x:Name="GroqModelPicker"
                                     WidthRequest="250"
-                                    TextColor="{DynamicResource Gray100}"
-                                    BackgroundColor="{DynamicResource CardBackgroundAlt}"
+                                    TextColor="{DynamicResource Nord6}"
+                                    BackgroundColor="{DynamicResource Nord1Alt}"
                                     SelectedIndexChanged="OnGroqModelChanged"/>
                         </HorizontalStackLayout>
                         
                         <Label Text="{Binding GroqGetKeyHint, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="12" 
-                               TextColor="{DynamicResource Gray500}"/>
+                               TextColor="{DynamicResource Nord3}"/>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout x:Name="OnDeviceAISettingsPanel" Spacing="12" IsVisible="False">
@@ -184,56 +184,56 @@
                             <Label Text="&#xf538;" 
                                    FontFamily="FontAwesomeSolid" 
                                    FontSize="16" 
-                                   TextColor="{DynamicResource Secondary}"
+                                   TextColor="{DynamicResource Nord9}"
                                    VerticalOptions="Center"/>
                             <Label x:Name="OnDeviceAIStatusLabel"
                                    FontSize="14" 
-                                   TextColor="{DynamicResource Gray300}"/>
+                                   TextColor="{DynamicResource Nord4}"/>
                         </HorizontalStackLayout>
                         <Label Text="{Binding OnDeviceAIHint, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="12" 
-                               TextColor="{DynamicResource Gray500}"/>
+                               TextColor="{DynamicResource Nord3}"/>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
             </Border>
 
             <Label Text="{Binding ChangesApply, Source={x:Static strings:AppStrings.Instance}}"
                    FontSize="13"
-                   TextColor="{DynamicResource Gray500}"
+                   TextColor="{DynamicResource Nord3}"
                    HorizontalOptions="Center"/>
 
             <!-- About -->
-            <Border BackgroundColor="{DynamicResource CardBackground}" 
+            <Border BackgroundColor="{DynamicResource Nord1}" 
                     StrokeShape="RoundRectangle 16"
                     Stroke="Transparent"
                     Padding="20"
                     Margin="0,10,0,0">
                 <VerticalStackLayout Spacing="12">
                     <HorizontalStackLayout Spacing="10">
-                        <Label Text="&#xf05a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Tertiary}" VerticalOptions="Center"/>
+                        <Label Text="&#xf05a;" FontFamily="FontAwesomeSolid" FontSize="18" TextColor="{DynamicResource Nord10}" VerticalOptions="Center"/>
                         <Label Text="{Binding About, Source={x:Static strings:AppStrings.Instance}}" 
                                FontSize="18" 
                                FontAttributes="Bold"
-                               TextColor="{DynamicResource Gray200}"
+                               TextColor="{DynamicResource Nord5}"
                                VerticalOptions="Center"/>
                     </HorizontalStackLayout>
                     
                     <Label Text="{Binding AboutDescription, Source={x:Static strings:AppStrings.Instance}}"
                            FontSize="14"
-                           TextColor="{DynamicResource Gray400}"/>
+                           TextColor="{DynamicResource Nord4}"/>
                     
                     <HorizontalStackLayout Spacing="8">
-                        <Label Text="&#xf121;" FontFamily="FontAwesomeSolid" FontSize="14" TextColor="{DynamicResource Gray400}" VerticalOptions="Center"/>
+                        <Label Text="&#xf121;" FontFamily="FontAwesomeSolid" FontSize="14" TextColor="{DynamicResource Nord4}" VerticalOptions="Center"/>
                         <Label Text="{Binding Author, Source={x:Static strings:AppStrings.Instance}}"
                                FontSize="14"
-                               TextColor="{DynamicResource Gray300}"/>
+                               TextColor="{DynamicResource Nord4}"/>
                     </HorizontalStackLayout>
                     
                     <HorizontalStackLayout Spacing="8">
-                        <Label Text="&#xf09b;" FontFamily="FontAwesomeBrands" FontSize="14" TextColor="{DynamicResource Gray400}" VerticalOptions="Center"/>
+                        <Label Text="&#xf09b;" FontFamily="FontAwesomeBrands" FontSize="14" TextColor="{DynamicResource Nord4}" VerticalOptions="Center"/>
                         <Label Text="github.com/StephaneDelcroix/procrastinate"
                                FontSize="14"
-                               TextColor="{DynamicResource Primary}"
+                               TextColor="{DynamicResource Nord8}"
                                TextDecorations="Underline">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnGitHubTapped"/>
@@ -246,7 +246,7 @@
             <!-- Version -->
             <Label x:Name="VersionLabel"
                    FontSize="12"
-                   TextColor="{DynamicResource Gray600}"
+                   TextColor="{DynamicResource Nord2}"
                    HorizontalOptions="Center"
                    Margin="0,20,0,0"/>
         </VerticalStackLayout>

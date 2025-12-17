@@ -4,21 +4,21 @@
              xmlns:strings="clr-namespace:procrastinate.Services"
              x:Class="procrastinate.Pages.Games.SnakeGameView">
     <VerticalStackLayout Spacing="12">
-        <Grid x:Name="GameGrid" ColumnSpacing="1" RowSpacing="1" HorizontalOptions="Center" BackgroundColor="{DynamicResource CardBackground}"/>
+        <Grid x:Name="GameGrid" ColumnSpacing="1" RowSpacing="1" HorizontalOptions="Center" BackgroundColor="{DynamicResource Nord1}"/>
         <Label x:Name="ScoreLabel" 
                Text="Score: 0" 
                HorizontalOptions="Center" 
                FontSize="16" 
-               TextColor="{DynamicResource Gray300}"/>
+               TextColor="{DynamicResource Nord4}"/>
         <Label x:Name="StatusLabel" 
                Text="{Binding TiltToMove, Source={x:Static strings:AppStrings.Instance}}" 
                HorizontalOptions="Center" 
                FontSize="12" 
-               TextColor="{DynamicResource Gray500}"/>
+               TextColor="{DynamicResource Nord3}"/>
         <Button x:Name="StartBtn" 
                 Text="{Binding StartGame, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource Secondary}" 
-                TextColor="{DynamicResource SurfaceBackground}" 
+                BackgroundColor="{DynamicResource Nord9}" 
+                TextColor="{DynamicResource Nord0}" 
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnStartClicked"/>

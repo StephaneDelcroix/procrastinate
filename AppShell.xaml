@@ -12,14 +12,14 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style TargetType="Shell" ApplyToDerivedTypes="True">
-                <Setter Property="Shell.BackgroundColor" Value="{DynamicResource SurfaceBackground}"/>
-                <Setter Property="Shell.ForegroundColor" Value="{DynamicResource Gray100}"/>
-                <Setter Property="Shell.TitleColor" Value="{DynamicResource Gray100}"/>
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource CardBackground}"/>
-                <Setter Property="Shell.TabBarForegroundColor" Value="{DynamicResource Gray400}"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource Gray400}"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource Gray500}"/>
-                <Setter Property="Shell.FlyoutBackgroundColor" Value="{DynamicResource CardBackground}"/>
+                <Setter Property="Shell.BackgroundColor" Value="{DynamicResource Nord0}"/>
+                <Setter Property="Shell.ForegroundColor" Value="{DynamicResource Nord6}"/>
+                <Setter Property="Shell.TitleColor" Value="{DynamicResource Nord6}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource Nord1}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{DynamicResource Nord4}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource Nord4}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource Nord3}"/>
+                <Setter Property="Shell.FlyoutBackgroundColor" Value="{DynamicResource Nord1}"/>
             </Style>
         </ResourceDictionary>
     </Shell.Resources>
@@ -28,22 +28,22 @@
     <TabBar x:Name="MobileTabBar">
         <ShellContent Title="{Binding TabTasks, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:TasksPage}" Route="TasksPage">
             <ShellContent.Icon>
-                <FontImageSource Glyph="&#xf46d;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+                <FontImageSource Glyph="&#xf46d;" FontFamily="FontAwesomeSolid" Color="{StaticResource Nord4}"/>
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="{Binding TabGames, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:GamesPage}" Route="GamesPage">
             <ShellContent.Icon>
-                <FontImageSource Glyph="&#xf11b;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+                <FontImageSource Glyph="&#xf11b;" FontFamily="FontAwesomeSolid" Color="{StaticResource Nord4}"/>
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="{Binding TabExcuses, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:ExcusePage}" Route="ExcusePage">
             <ShellContent.Icon>
-                <FontImageSource Glyph="&#xf630;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+                <FontImageSource Glyph="&#xf630;" FontFamily="FontAwesomeSolid" Color="{StaticResource Nord4}"/>
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="{Binding TabStats, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:StatsPage}" Route="StatsPage">
             <ShellContent.Icon>
-                <FontImageSource Glyph="&#xf201;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+                <FontImageSource Glyph="&#xf201;" FontFamily="FontAwesomeSolid" Color="{StaticResource Nord4}"/>
             </ShellContent.Icon>
         </ShellContent>
     </TabBar>
@@ -52,22 +52,22 @@
     <FlyoutItem x:Name="DesktopFlyout" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="{Binding TabTasks, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:TasksPage}" Route="TasksPageDesktop">
             <ShellContent.Icon>
-                <FontImageSource Glyph="&#xf46d;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+                <FontImageSource Glyph="&#xf46d;" FontFamily="FontAwesomeSolid" Color="{StaticResource Nord4}"/>
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="{Binding TabGames, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:GamesPage}" Route="GamesPageDesktop">
             <ShellContent.Icon>
-                <FontImageSource Glyph="&#xf11b;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+                <FontImageSource Glyph="&#xf11b;" FontFamily="FontAwesomeSolid" Color="{StaticResource Nord4}"/>
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="{Binding TabExcuses, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:ExcusePage}" Route="ExcusePageDesktop">
             <ShellContent.Icon>
-                <FontImageSource Glyph="&#xf630;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+                <FontImageSource Glyph="&#xf630;" FontFamily="FontAwesomeSolid" Color="{StaticResource Nord4}"/>
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="{Binding TabStats, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:StatsPage}" Route="StatsPageDesktop">
             <ShellContent.Icon>
-                <FontImageSource Glyph="&#xf201;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+                <FontImageSource Glyph="&#xf201;" FontFamily="FontAwesomeSolid" Color="{StaticResource Nord4}"/>
             </ShellContent.Icon>
         </ShellContent>
     </FlyoutItem>

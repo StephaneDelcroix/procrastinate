@@ -8,18 +8,18 @@
                Text="{Binding ThinkingOfNumber, Source={x:Static strings:AppStrings.Instance}}" 
                HorizontalOptions="Center" 
                FontSize="16" 
-               TextColor="{DynamicResource Gray300}"/>
+               TextColor="{DynamicResource Nord4}"/>
         <Entry x:Name="GuessEntry"
                Placeholder="{Binding EnterGuess, Source={x:Static strings:AppStrings.Instance}}"
                Keyboard="Numeric"
                HorizontalOptions="Fill"
-               BackgroundColor="{DynamicResource CardBackgroundAlt}"
-               TextColor="{DynamicResource Gray100}"
-               PlaceholderColor="{DynamicResource Gray500}"/>
+               BackgroundColor="{DynamicResource Nord1Alt}"
+               TextColor="{DynamicResource Nord6}"
+               PlaceholderColor="{DynamicResource Nord3}"/>
         <Button x:Name="GuessBtn" 
                 Text="{Binding Guess, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource Primary}" 
-                TextColor="{DynamicResource SurfaceBackground}" 
+                BackgroundColor="{DynamicResource Nord8}" 
+                TextColor="{DynamicResource Nord0}" 
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnGuessClicked"/>
@@ -27,11 +27,11 @@
                Text="Attempts: 0" 
                HorizontalOptions="Center" 
                FontSize="14" 
-               TextColor="{DynamicResource Gray500}"/>
+               TextColor="{DynamicResource Nord3}"/>
         <Button x:Name="NewGameBtn" 
                 Text="{Binding NewGame, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource CardBackgroundAlt}" 
-                TextColor="{DynamicResource Gray200}" 
+                BackgroundColor="{DynamicResource Nord1Alt}" 
+                TextColor="{DynamicResource Nord5}" 
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnNewGameClicked"/>

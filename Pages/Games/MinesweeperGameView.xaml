@@ -9,11 +9,11 @@
                Text="Find the safe cells!" 
                HorizontalOptions="Center" 
                FontSize="14" 
-               TextColor="{DynamicResource Gray300}"/>
+               TextColor="{DynamicResource Nord4}"/>
         <Button x:Name="ResetBtn" 
                 Text="{Binding NewGame, Source={x:Static strings:AppStrings.Instance}}"
                 BackgroundColor="#A3BE8C" 
-                TextColor="{DynamicResource SurfaceBackground}" 
+                TextColor="{DynamicResource Nord0}" 
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnResetClicked"/>

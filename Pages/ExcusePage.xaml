@@ -4,18 +4,18 @@
              xmlns:strings="clr-namespace:procrastinate.Services"
              x:Class="procrastinate.Pages.ExcusePage"
              Title="{Binding ExcuseGenerator, Source={x:Static strings:AppStrings.Instance}}"
-             BackgroundColor="{DynamicResource SurfaceBackground}">
+             BackgroundColor="{DynamicResource Nord0}">
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto">
             <Label Text="{Binding ExcuseGenerator, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="18" FontAttributes="Bold" 
-                   TextColor="{DynamicResource Gray100}"
+                   TextColor="{DynamicResource Nord6}"
                    VerticalOptions="Center"/>
             <Button Grid.Column="1" Text="&#xf013;" 
                     FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
-                    TextColor="{DynamicResource Gray300}"
+                    TextColor="{DynamicResource Nord4}"
                     FontSize="20"
                     Clicked="OnSettingsClicked"
                     VerticalOptions="Center"/>
@@ -27,22 +27,22 @@
         <Label Text="&#xf630;" 
                FontFamily="FontAwesomeSolid"
                FontSize="48" 
-               TextColor="{DynamicResource Tertiary}"
+               TextColor="{DynamicResource Nord10}"
                HorizontalOptions="Center"/>
         <Label Text="{Binding ExcuseGenerator, Source={x:Static strings:AppStrings.Instance}}" 
                FontSize="28" 
                FontAttributes="Bold"
-               TextColor="{DynamicResource Tertiary}"
+               TextColor="{DynamicResource Nord10}"
                HorizontalOptions="Center"/>
         
         <Label Text="{Binding NeedAReason, Source={x:Static strings:AppStrings.Instance}}"
                FontSize="14"
-               TextColor="{DynamicResource Gray400}"
+               TextColor="{DynamicResource Nord4}"
                HorizontalOptions="Center"
                HorizontalTextAlignment="Center"/>
         
         <Grid>
-            <Border BackgroundColor="{DynamicResource CardBackground}" 
+            <Border BackgroundColor="{DynamicResource Nord1}" 
                     StrokeShape="RoundRectangle 20"
                     Stroke="Transparent"
                     Padding="28"
@@ -54,7 +54,7 @@
                     <Label x:Name="ExcuseLabel"
                            Text="{Binding TapForExcuse, Source={x:Static strings:AppStrings.Instance}}"
                            FontSize="18"
-                           TextColor="{DynamicResource Gray200}"
+                           TextColor="{DynamicResource Nord5}"
                            HorizontalTextAlignment="Center"
                            VerticalOptions="Center"/>
                 </VerticalStackLayout>
@@ -69,10 +69,10 @@
                 <Button.ImageSource>
                     <OnPlatform x:TypeArguments="ImageSource">
                         <On Platform="iOS, MacCatalyst">
-                            <FontImageSource Glyph="&#xe09a;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray200}" Size="18"/>
+                            <FontImageSource Glyph="&#xe09a;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Nord5}" Size="18"/>
                         </On>
                         <On Platform="Android">
-                            <FontImageSource Glyph="&#xf1e0;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray200}" Size="18"/>
+                            <FontImageSource Glyph="&#xf1e0;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Nord5}" Size="18"/>
                         </On>
                     </OnPlatform>
                 </Button.ImageSource>
@@ -82,7 +82,7 @@
         <Label x:Name="GeneratorInfoLabel"
                IsVisible="False"
                FontSize="11"
-               TextColor="{DynamicResource Gray500}"
+               TextColor="{DynamicResource Nord3}"
                HorizontalOptions="Center"
                HorizontalTextAlignment="Center"
                Margin="0,-16,0,0"/>
@@ -91,7 +91,7 @@
                 Text="{Binding GenerateExcuse, Source={x:Static strings:AppStrings.Instance}}"
                 FontSize="18"
                 HeightRequest="56"
-                BackgroundColor="{DynamicResource Tertiary}"
+                BackgroundColor="{DynamicResource Nord10}"
                 TextColor="White"
                 CornerRadius="14"
                 Clicked="OnGenerateClicked">
@@ -103,7 +103,7 @@
         <Label x:Name="CounterLabel"
                Text="Excuses generated today: 0"
                FontSize="13"
-               TextColor="{DynamicResource Gray500}"
+               TextColor="{DynamicResource Nord3}"
                HorizontalOptions="Center"/>
     </VerticalStackLayout>
     </ScrollView>
