@@ -9,9 +9,9 @@ Why be productive when you can procrastinate in style? This app helps you embrac
 ## ✨ Features
 
 - **📋 Tasks** - Track all the things you're definitely going to do... later
-- **🎮 Mini-Games** - 9 addictive games including Simon Says, Minesweeper, Tic Tac Toe, Snake, and more! Favorite your best games for priority shuffling
+- **🎮 Mini-Games** - 9 addictive games including Simon Says, Minesweeper (with flag mode!), Tic Tac Toe (with AI opponent!), Snake, Memory Match, and more! Favorite your best games for priority shuffling
 - **🎭 Excuses** - Generate creative excuses for why you didn't finish that thing (with optional AI-powered generation)
-- **📊 Stats** - View your procrastination statistics and feel accomplished about doing nothing
+- **📊 Stats** - View your procrastination statistics including tasks avoided, games played, AI API calls, and total clicks
 - **🎨 Nord Theme** - Beautiful dark and light themes based on the [Nord](https://www.nordtheme.com/) color palette
 - **⚙️ Settings** - Customize your procrastination experience
 
@@ -28,13 +28,19 @@ Procrastinate like a local! The app is fully translated in:
 | Nederlands | 🇳🇱 |
 | Čeština | 🇨🇿 |
 
-## 🤖 AI-Powered Excuses (Optional)
+## 🤖 AI-Powered Features
+
+### AI Excuses
 
 The app can generate creative excuses using AI! Three modes are available:
 
 - **Random** (default) - Uses built-in random excuse templates (no API key needed)
 - **AI (Cloud)** - Uses Groq's free API with `llama-3.3-70b-versatile` for creative, context-aware excuses
 - **AI (On-Device)** - Uses Apple Intelligence on supported iOS/macOS devices (no API key needed)
+
+### AI Tic Tac Toe
+
+Play against a real AI! When Cloud AI or On-Device AI is available, the Tic Tac Toe game uses the LLM to choose its moves. The game displays which AI engine was used and its response for each move.
 
 ### Setting up Groq API (Cloud AI)
 
@@ -45,7 +51,7 @@ The app can generate creative excuses using AI! Three modes are available:
 5. Open the Procrastinate app Settings (gear icon)
 6. Select "AI (Cloud)" for Excuse Mode
 7. Paste your Groq API key in the API Key field
-8. Enjoy AI-generated excuses!
+8. Enjoy AI-generated excuses and AI-powered Tic Tac Toe!
 
 Groq offers a generous free tier with ~14,500 tokens per minute for the llama-3.3-70b model.
 
