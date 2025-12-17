@@ -41,7 +41,8 @@ public class AppStrings : INotifyPropertyChanged
         { "es", "Español" },
         { "pt", "Português" },
         { "nl", "Nederlands" },
-        { "cs", "Čeština" }
+        { "cs", "Čeština" },
+        { "uk", "Українська" }
     };
 
     private AppStrings()
