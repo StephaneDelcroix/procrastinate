@@ -8,18 +8,18 @@
                Text="{Binding ThinkingOfNumber, Source={x:Static strings:AppStrings.Instance}}" 
                HorizontalOptions="Center" 
                FontSize="16" 
-               TextColor="{DynamicResource Nord4}"/>
+               TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
         <Entry x:Name="GuessEntry"
                Placeholder="{Binding EnterGuess, Source={x:Static strings:AppStrings.Instance}}"
                Keyboard="Numeric"
                HorizontalOptions="Fill"
-               BackgroundColor="{DynamicResource Nord2}"
-               TextColor="{DynamicResource Nord6}"
-               PlaceholderColor="{DynamicResource Nord4}"/>
+               BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}"
+               TextColor="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"
+               PlaceholderColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
         <Button x:Name="GuessBtn" 
                 Text="{Binding Guess, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource Nord8}" 
-                TextColor="{DynamicResource Nord0}" 
+                BackgroundColor="{StaticResource Nord8}" 
+                TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Nord0}}" 
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnGuessClicked"/>
@@ -27,11 +27,11 @@
                Text="Attempts: 0" 
                HorizontalOptions="Center" 
                FontSize="14" 
-               TextColor="{DynamicResource Nord3}"/>
+               TextColor="{StaticResource Nord3}"/>
         <Button x:Name="NewGameBtn" 
                 Text="{Binding NewGame, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource Nord2}" 
-                TextColor="{DynamicResource Nord5}" 
+                BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}" 
+                TextColor="{AppThemeBinding Light={StaticResource Nord1}, Dark={StaticResource Nord5}}" 
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnNewGameClicked"/>

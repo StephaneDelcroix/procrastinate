@@ -8,7 +8,7 @@
                 Text="{Binding Wait, Source={x:Static strings:AppStrings.Instance}}"
                 HeightRequest="80" 
                 FontSize="22" 
-                BackgroundColor="#BF616A" 
+                BackgroundColor="{StaticResource Nord11}" 
                 TextColor="White" 
                 CornerRadius="16" 
                 IsEnabled="False"
@@ -17,11 +17,11 @@
                Text="{Binding TapStartToBegin, Source={x:Static strings:AppStrings.Instance}}" 
                HorizontalOptions="Center" 
                FontSize="16" 
-               TextColor="{DynamicResource Nord4}"/>
+               TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
         <Button x:Name="StartBtn" 
                 Text="{Binding Start, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource Nord2}" 
-                TextColor="{DynamicResource Nord5}" 
+                BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}" 
+                TextColor="{AppThemeBinding Light={StaticResource Nord1}, Dark={StaticResource Nord5}}" 
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnStartClicked"/>

@@ -6,19 +6,19 @@
     <VerticalStackLayout Spacing="16">
         <Grid ColumnDefinitions="95,95" RowDefinitions="95,95" ColumnSpacing="8" RowSpacing="8" HorizontalOptions="Center">
             <Button x:Name="RedBtn" Grid.Row="0" Grid.Column="0" 
-                    BackgroundColor="#BF616A" CornerRadius="12" 
+                    BackgroundColor="{StaticResource Nord11}" CornerRadius="12" 
                     WidthRequest="90" HeightRequest="90"
                     Clicked="OnRedClicked"/>
             <Button x:Name="GreenBtn" Grid.Row="0" Grid.Column="1" 
-                    BackgroundColor="#A3BE8C" CornerRadius="12" 
+                    BackgroundColor="{StaticResource Nord14}" CornerRadius="12" 
                     WidthRequest="90" HeightRequest="90"
                     Clicked="OnGreenClicked"/>
             <Button x:Name="BlueBtn" Grid.Row="1" Grid.Column="0" 
-                    BackgroundColor="#81A1C1" CornerRadius="12" 
+                    BackgroundColor="{StaticResource Nord9}" CornerRadius="12" 
                     WidthRequest="90" HeightRequest="90"
                     Clicked="OnBlueClicked"/>
             <Button x:Name="YellowBtn" Grid.Row="1" Grid.Column="1" 
-                    BackgroundColor="#EBCB8B" CornerRadius="12" 
+                    BackgroundColor="{StaticResource Nord13}" CornerRadius="12" 
                     WidthRequest="90" HeightRequest="90"
                     Clicked="OnYellowClicked"/>
         </Grid>
@@ -26,11 +26,11 @@
                Text="Score: 0" 
                HorizontalOptions="Center" 
                FontSize="16" 
-               TextColor="{DynamicResource Nord4}"/>
+               TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
         <Button x:Name="StartBtn" 
                 Text="{Binding StartGame, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource Nord9}" 
-                TextColor="{DynamicResource Nord0}" 
+                BackgroundColor="{StaticResource Nord9}" 
+                TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Nord0}}" 
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnStartClicked"/>

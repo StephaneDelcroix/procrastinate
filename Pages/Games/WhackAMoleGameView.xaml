@@ -10,10 +10,10 @@
                Text="Score: 0 | Misses: 0" 
                HorizontalOptions="Center" 
                FontSize="16" 
-               TextColor="{DynamicResource Nord4}"/>
+               TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
         <Button x:Name="StartBtn" 
                 Text="{Binding StartGame30s, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="#B48EAD" 
+                BackgroundColor="{StaticResource Nord15}" 
                 TextColor="White" 
                 CornerRadius="12" 
                 HeightRequest="44"

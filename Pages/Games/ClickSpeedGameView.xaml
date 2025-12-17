@@ -8,8 +8,8 @@
                 Text="{Binding ClickMe, Source={x:Static strings:AppStrings.Instance}}"
                 HeightRequest="80" 
                 FontSize="22" 
-                BackgroundColor="{DynamicResource Nord8}" 
-                TextColor="{DynamicResource Nord0}" 
+                BackgroundColor="{StaticResource Nord8}" 
+                TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Nord0}}" 
                 CornerRadius="16" 
                 IsEnabled="False"
                 Clicked="OnClickBtnClicked"/>
@@ -17,11 +17,11 @@
                Text="{Binding ScoreText}" 
                HorizontalOptions="Center" 
                FontSize="16" 
-               TextColor="{DynamicResource Nord4}"/>
+               TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
         <Button x:Name="StartBtn" 
                 Text="{Binding StartChallenge, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource Nord2}" 
-                TextColor="{DynamicResource Nord5}" 
+                BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}" 
+                TextColor="{AppThemeBinding Light={StaticResource Nord1}, Dark={StaticResource Nord5}}" 
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnStartClicked"/>
