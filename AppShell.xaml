@@ -12,14 +12,14 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style TargetType="Shell" ApplyToDerivedTypes="True">
-                <Setter Property="Shell.BackgroundColor" Value="{DynamicResource Nord0}"/>
-                <Setter Property="Shell.ForegroundColor" Value="{DynamicResource Nord6}"/>
-                <Setter Property="Shell.TitleColor" Value="{DynamicResource Nord6}"/>
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource Nord1}"/>
-                <Setter Property="Shell.TabBarForegroundColor" Value="{DynamicResource Nord4}"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource Nord4}"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource Nord3}"/>
-                <Setter Property="Shell.FlyoutBackgroundColor" Value="{DynamicResource Nord1}"/>
+                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Light={StaticResource Nord6}, Dark={StaticResource Nord0}}"/>
+                <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"/>
+                <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Light={StaticResource Nord5}, Dark={StaticResource Nord1}}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Light={StaticResource Nord1}, Dark={StaticResource Nord4}}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Light={StaticResource Nord1}, Dark={StaticResource Nord4}}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource Nord3}"/>
+                <Setter Property="Shell.FlyoutBackgroundColor" Value="{AppThemeBinding Light={StaticResource Nord5}, Dark={StaticResource Nord1}}"/>
             </Style>
         </ResourceDictionary>
     </Shell.Resources>

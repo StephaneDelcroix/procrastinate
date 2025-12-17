@@ -4,18 +4,18 @@
              xmlns:strings="clr-namespace:procrastinate.Services"
              x:Class="procrastinate.Pages.GamesPage"
              Title="{Binding MiniGames, Source={x:Static strings:AppStrings.Instance}}"
-             BackgroundColor="{DynamicResource Nord0}">
+             BackgroundColor="{AppThemeBinding Light={StaticResource Nord6}, Dark={StaticResource Nord0}}">
 
     <Shell.TitleView>
         <Grid ColumnDefinitions="*,Auto">
             <Label Text="{Binding MiniGames, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="18" FontAttributes="Bold" 
-                   TextColor="{DynamicResource Nord6}"
+                   TextColor="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"
                    VerticalOptions="Center"/>
             <Button Grid.Column="1" Text="&#xf013;" 
                     FontFamily="FontAwesomeSolid"
                     BackgroundColor="Transparent"
-                    TextColor="{DynamicResource Nord4}"
+                    TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"
                     FontSize="20"
                     Clicked="OnSettingsClicked"
                     VerticalOptions="Center"/>
@@ -27,23 +27,23 @@
             <Label Text="&#xf11b;" 
                    FontFamily="FontAwesomeSolid"
                    FontSize="48" 
-                   TextColor="{DynamicResource Nord9}"
+                   TextColor="{StaticResource Nord9}"
                    HorizontalOptions="Center"/>
             <Label Text="{Binding MiniGames, Source={x:Static strings:AppStrings.Instance}}" 
                    FontSize="28" 
                    FontAttributes="Bold"
-                   TextColor="{DynamicResource Nord9}"
+                   TextColor="{StaticResource Nord9}"
                    HorizontalOptions="Center"/>
             
             <Label Text="{Binding ProductivityOverrated, Source={x:Static strings:AppStrings.Instance}}"
                    FontSize="14"
-                   TextColor="{DynamicResource Nord4}"
+                   TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"
                    HorizontalOptions="Center"/>
 
             <Button x:Name="ShuffleBtn" 
                     FontSize="16"
-                    BackgroundColor="{DynamicResource Nord1Alt}"
-                    TextColor="{DynamicResource Nord5}"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}"
+                    TextColor="{AppThemeBinding Light={StaticResource Nord1}, Dark={StaticResource Nord5}}"
                     CornerRadius="12"
                     HeightRequest="44"
                     Clicked="OnShuffleClicked"/>
