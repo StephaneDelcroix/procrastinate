@@ -5,6 +5,39 @@ All notable changes to Procrastinate will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2025-12-17
+
+### Added
+
+- **Nord Theme** - Complete redesign using the beautiful Nord color palette
+- **Mac Catalyst Flyout Navigation** - Sidebar navigation on macOS while keeping bottom tabs on iOS
+- **XAML Source Generation (XSG)** - Enabled for better compile-time performance
+- **Reusable Styles** - Extracted common XAML patterns into Styles.xaml
+
+### Changed
+
+- **Theme System** - Now uses `AppThemeBinding` instead of runtime color overwriting for cleaner theme switching
+- **Color System** - All colors now use official Nord naming (Nord0-Nord15)
+- **Excuses Page** - Generator info label moved closer to excuse box; excuses never use zalgo effect
+- **Settings Page** - Improved layout with Light Theme label restored
+- **Splash Screen** - Updated to Nord Polar Night background (#2E3440)
+- **App Icon** - Updated to Nord Frost accent (#5E81AC)
+
+### Fixed
+
+- **Share Button** - Now visible on Mac Catalyst
+- **Game Text Readability** - "Enter your guess" placeholder now readable in dark theme
+- **Stats Page** - Fixed crash caused by missing color references
+
+### Developer
+
+- Updated to .NET MAUI 10.0.20
+- Cleaned up Styles.xaml - removed unused styles
+- Moved AppStrings.cs from Resources/Strings to Services
+- All `DynamicResource` color references replaced with `AppThemeBinding`
+
+---
+
 ## [2.0.0] - 2025-12-16
 
 ### Added
