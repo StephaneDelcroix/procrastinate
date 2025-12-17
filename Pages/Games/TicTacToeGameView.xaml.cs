@@ -79,10 +79,12 @@ public partial class TicTacToeGameView : ContentView
         }
 
         _playerTurn = false;
-        StatusLabel.Text = AppStrings.GetString("AIThinking");
-        await Task.Delay(500);
+        StatusLabel.Text = TicTacToeAI.IsAvailable 
+            ? AppStrings.GetString("AIThinking") + " 🤖" 
+            : AppStrings.GetString("AIThinking");
+        await Task.Delay(300);
 
-        var aiMove = GetAIMove();
+        var aiMove = await GetAIMoveAsync();
         if (aiMove >= 0)
         {
             _board[aiMove] = "O";
@@ -146,6 +148,19 @@ public partial class TicTacToeGameView : ContentView
 
         // Fallback: random
         return empty[Random.Shared.Next(empty.Count)];
+    }
+
+    private async Task<int> GetAIMoveAsync()
+    {
+        // Try real AI if available
+        if (TicTacToeAI.IsAvailable)
+        {
+            var aiMove = await TicTacToeAI.GetMoveAsync(_board);
+            if (aiMove >= 0) return aiMove;
+        }
+        
+        // Fall back to built-in strategy
+        return GetAIMove();
     }
 
     private int FindWinningMove(string player)
