@@ -6,8 +6,8 @@
     xmlns:local="clr-namespace:procrastinate"
     xmlns:pages="clr-namespace:procrastinate.Pages"
     xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
-    Title="Procrastinator's Helper"
-    FlyoutBehavior="Flyout">
+    x:Name="ThisShell"
+    Title="Procrastinator's Helper">
 
     <Shell.Resources>
         <ResourceDictionary>
@@ -24,7 +24,8 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+    <!-- iOS: Bottom TabBar -->
+    <TabBar x:Name="MobileTabBar">
         <ShellContent Title="{Binding TabTasks, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:TasksPage}" Route="TasksPage">
             <ShellContent.Icon>
                 <FontImageSource Glyph="&#xf46d;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
@@ -41,6 +42,30 @@
             </ShellContent.Icon>
         </ShellContent>
         <ShellContent Title="{Binding TabStats, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:StatsPage}" Route="StatsPage">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xf201;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+    </TabBar>
+
+    <!-- Mac Catalyst: Flyout sidebar -->
+    <FlyoutItem x:Name="DesktopFlyout" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="{Binding TabTasks, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:TasksPage}" Route="TasksPageDesktop">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xf46d;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="{Binding TabGames, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:GamesPage}" Route="GamesPageDesktop">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xf11b;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="{Binding TabExcuses, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:ExcusePage}" Route="ExcusePageDesktop">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="&#xf630;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="{Binding TabStats, Source={x:Static strings:AppStrings.Instance}}" ContentTemplate="{DataTemplate pages:StatsPage}" Route="StatsPageDesktop">
             <ShellContent.Icon>
                 <FontImageSource Glyph="&#xf201;" FontFamily="FontAwesomeSolid" Color="{StaticResource Gray400}"/>
             </ShellContent.Icon>

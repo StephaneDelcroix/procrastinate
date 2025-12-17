@@ -12,8 +12,26 @@ public partial class AppShell : Shell
 		InitializeComponent();
 		Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
 		
+		// Configure platform-specific navigation
+		ConfigurePlatformNavigation();
+		
 		// Close settings page when tab changes
 		Navigated += OnShellNavigated;
+	}
+
+	private void ConfigurePlatformNavigation()
+	{
+#if MACCATALYST
+		// Mac Catalyst: Use Flyout sidebar, hide TabBar
+		MobileTabBar.IsVisible = false;
+		DesktopFlyout.IsVisible = true;
+		FlyoutBehavior = FlyoutBehavior.Flyout;
+#else
+		// iOS/Android: Use bottom TabBar, hide Flyout
+		MobileTabBar.IsVisible = true;
+		DesktopFlyout.IsVisible = false;
+		FlyoutBehavior = FlyoutBehavior.Disabled;
+#endif
 	}
 
 	private async void OnShellNavigated(object? sender, ShellNavigatedEventArgs e)
