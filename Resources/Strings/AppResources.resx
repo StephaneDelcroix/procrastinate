@@ -24,15 +24,15 @@
   <data name="TabGames" xml:space="preserve"><value>Games</value></data>
   <data name="TabExcuses" xml:space="preserve"><value>Excuses</value></data>
   <data name="TabStats" xml:space="preserve"><value>Stats</value></data>
-  <data name="Accessibility" xml:space="preserve"><value>Accessibility</value></data>
-  <data name="HighContrastMode" xml:space="preserve"><value>High Contrast Mode</value></data>
-  <data name="HighContrastDesc" xml:space="preserve"><value>Use higher contrast colors for better visibility</value></data>
+  <data name="Accessibility" xml:space="preserve"><value>Appearance</value></data>
+  <data name="HighContrastMode" xml:space="preserve"><value>Light Theme</value></data>
+  <data name="HighContrastDesc" xml:space="preserve"><value>Switch to Nord Light color scheme</value></data>
   <data name="ZalgoMode" xml:space="preserve"><value>Zalgo Randomly</value></data>
   <data name="ZalgoModeDesc" xml:space="preserve"><value>Chaos appears when you least expect it</value></data>
   <data name="ThemePreview" xml:space="preserve"><value>Theme Preview</value></data>
-  <data name="CurrentTheme" xml:space="preserve"><value>Current: {0} Theme</value></data>
-  <data name="DefaultTheme" xml:space="preserve"><value>Default</value></data>
-  <data name="HighContrast" xml:space="preserve"><value>High Contrast</value></data>
+  <data name="CurrentTheme" xml:space="preserve"><value>Current: Nord {0}</value></data>
+  <data name="DefaultTheme" xml:space="preserve"><value>Dark</value></data>
+  <data name="HighContrast" xml:space="preserve"><value>Light</value></data>
   <data name="ChangesApply" xml:space="preserve"><value>Changes apply immediately</value></data>
   <data name="Language" xml:space="preserve"><value>Language</value></data>
   

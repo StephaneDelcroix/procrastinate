@@ -145,17 +145,19 @@ public partial class SettingsPage : ContentPage
     {
         if (highContrast)
         {
-            PreviewPrimary.BackgroundColor = Color.FromArgb("#FFFF00");
-            PreviewSecondary.BackgroundColor = Color.FromArgb("#00FFFF");
-            PreviewTertiary.BackgroundColor = Color.FromArgb("#FF00FF");
-            PreviewAccent.BackgroundColor = Color.FromArgb("#00FF00");
+            // Nord Light preview
+            PreviewPrimary.BackgroundColor = Color.FromArgb("#5E81AC");
+            PreviewSecondary.BackgroundColor = Color.FromArgb("#81A1C1");
+            PreviewTertiary.BackgroundColor = Color.FromArgb("#88C0D0");
+            PreviewAccent.BackgroundColor = Color.FromArgb("#A3BE8C");
         }
         else
         {
-            PreviewPrimary.BackgroundColor = Color.FromArgb("#F59E0B");
-            PreviewSecondary.BackgroundColor = Color.FromArgb("#14B8A6");
-            PreviewTertiary.BackgroundColor = Color.FromArgb("#8B5CF6");
-            PreviewAccent.BackgroundColor = Color.FromArgb("#5EEAD4");
+            // Nord Dark preview
+            PreviewPrimary.BackgroundColor = Color.FromArgb("#88C0D0");
+            PreviewSecondary.BackgroundColor = Color.FromArgb("#81A1C1");
+            PreviewTertiary.BackgroundColor = Color.FromArgb("#5E81AC");
+            PreviewAccent.BackgroundColor = Color.FromArgb("#A3BE8C");
         }
     }
 
@@ -166,39 +168,41 @@ public partial class SettingsPage : ContentPage
 
         if (highContrast)
         {
-            resources["Primary"] = Color.FromArgb("#FFFF00");
-            resources["PrimaryDark"] = Color.FromArgb("#FFFF66");
-            resources["Secondary"] = Color.FromArgb("#00FFFF");
-            resources["SecondaryDarkText"] = Color.FromArgb("#00FFFF");
-            resources["Tertiary"] = Color.FromArgb("#FF00FF");
-            resources["AccentLight"] = Color.FromArgb("#00FF00");
-            resources["Accent"] = Color.FromArgb("#00FF00");
-            resources["CardBackground"] = Color.FromArgb("#000000");
-            resources["CardBackgroundAlt"] = Color.FromArgb("#1A1A1A");
-            resources["SurfaceBackground"] = Color.FromArgb("#000000");
-            resources["Gray100"] = Color.FromArgb("#FFFFFF");
-            resources["Gray200"] = Color.FromArgb("#FFFFFF");
-            resources["Gray300"] = Color.FromArgb("#FFFFFF");
-            resources["Gray400"] = Color.FromArgb("#CCCCCC");
-            resources["Warm"] = Color.FromArgb("#FFFF00");
+            // Nord Light Theme - Snow Storm backgrounds with Frost accents
+            resources["Primary"] = Color.FromArgb("#5E81AC");
+            resources["PrimaryDark"] = Color.FromArgb("#81A1C1");
+            resources["Secondary"] = Color.FromArgb("#5E81AC");
+            resources["SecondaryDarkText"] = Color.FromArgb("#5E81AC");
+            resources["Tertiary"] = Color.FromArgb("#5E81AC");
+            resources["AccentLight"] = Color.FromArgb("#A3BE8C");
+            resources["Accent"] = Color.FromArgb("#A3BE8C");
+            resources["CardBackground"] = Color.FromArgb("#E5E9F0");
+            resources["CardBackgroundAlt"] = Color.FromArgb("#D8DEE9");
+            resources["SurfaceBackground"] = Color.FromArgb("#ECEFF4");
+            resources["Gray100"] = Color.FromArgb("#2E3440");
+            resources["Gray200"] = Color.FromArgb("#3B4252");
+            resources["Gray300"] = Color.FromArgb("#434C5E");
+            resources["Gray400"] = Color.FromArgb("#4C566A");
+            resources["Warm"] = Color.FromArgb("#D08770");
         }
         else
         {
-            resources["Primary"] = Color.FromArgb("#F59E0B");
-            resources["PrimaryDark"] = Color.FromArgb("#FBBF24");
-            resources["Secondary"] = Color.FromArgb("#14B8A6");
-            resources["SecondaryDarkText"] = Color.FromArgb("#5EEAD4");
-            resources["Tertiary"] = Color.FromArgb("#8B5CF6");
-            resources["AccentLight"] = Color.FromArgb("#5EEAD4");
-            resources["Accent"] = Color.FromArgb("#14B8A6");
-            resources["CardBackground"] = Color.FromArgb("#1E293B");
-            resources["CardBackgroundAlt"] = Color.FromArgb("#334155");
-            resources["SurfaceBackground"] = Color.FromArgb("#0F172A");
-            resources["Gray100"] = Color.FromArgb("#F1F5F9");
-            resources["Gray200"] = Color.FromArgb("#E2E8F0");
-            resources["Gray300"] = Color.FromArgb("#CBD5E1");
-            resources["Gray400"] = Color.FromArgb("#94A3B8");
-            resources["Warm"] = Color.FromArgb("#FEF3C7");
+            // Nord Dark Theme - Polar Night backgrounds with Frost accents
+            resources["Primary"] = Color.FromArgb("#88C0D0");
+            resources["PrimaryDark"] = Color.FromArgb("#8FBCBB");
+            resources["Secondary"] = Color.FromArgb("#81A1C1");
+            resources["SecondaryDarkText"] = Color.FromArgb("#88C0D0");
+            resources["Tertiary"] = Color.FromArgb("#5E81AC");
+            resources["AccentLight"] = Color.FromArgb("#EBCB8B");
+            resources["Accent"] = Color.FromArgb("#A3BE8C");
+            resources["CardBackground"] = Color.FromArgb("#3B4252");
+            resources["CardBackgroundAlt"] = Color.FromArgb("#434C5E");
+            resources["SurfaceBackground"] = Color.FromArgb("#2E3440");
+            resources["Gray100"] = Color.FromArgb("#ECEFF4");
+            resources["Gray200"] = Color.FromArgb("#E5E9F0");
+            resources["Gray300"] = Color.FromArgb("#D8DEE9");
+            resources["Gray400"] = Color.FromArgb("#D8DEE9");
+            resources["Warm"] = Color.FromArgb("#EBCB8B");
         }
     }
 
