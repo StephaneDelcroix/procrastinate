@@ -77,7 +77,7 @@ public partial class StatsPage : ContentPage
             {
                 Text = date.ToString("ddd")[..2],
                 FontSize = 10,
-                TextColor = (Color)Application.Current!.Resources["Gray400"],
+                TextColor = (Color)Application.Current!.Resources["Nord4"],
                 HorizontalOptions = LayoutOptions.Center
             };
 
@@ -85,7 +85,7 @@ public partial class StatsPage : ContentPage
             {
                 Text = stats.Total > 0 ? stats.Total.ToString() : "",
                 FontSize = 9,
-                TextColor = (Color)Application.Current!.Resources["Gray300"],
+                TextColor = (Color)Application.Current!.Resources["Nord4"],
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.End,
                 Margin = new Thickness(0, 0, 0, 4)
@@ -136,7 +136,7 @@ public partial class StatsPage : ContentPage
             {
                 Text = $"{game}: {score}",
                 FontSize = 16,
-                TextColor = (Color)Application.Current!.Resources["Gray200"]
+                TextColor = (Color)Application.Current!.Resources["Nord5"]
             };
             HighScoresStack.Children.Add(scoreLabel);
         }
