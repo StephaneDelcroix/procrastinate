@@ -32,11 +32,17 @@
 
     <!-- Semantic aliases for convenience -->
     <Color x:Key="Primary">#88C0D0</Color>
+    <Color x:Key="PrimaryDark">#8FBCBB</Color>
+    <Color x:Key="PrimaryDarkText">#2E3440</Color>
     <Color x:Key="Secondary">#81A1C1</Color>
+    <Color x:Key="SecondaryDarkText">#88C0D0</Color>
     <Color x:Key="Tertiary">#5E81AC</Color>
     
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
+    <Color x:Key="Magenta">#B48EAD</Color>
+    <Color x:Key="MidnightBlue">#2E3440</Color>
+    <Color x:Key="OffBlack">#2E3440</Color>
 
     <!-- Surface colors -->
     <Color x:Key="CardBackground">#3B4252</Color>
