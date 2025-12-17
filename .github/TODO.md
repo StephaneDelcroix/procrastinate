@@ -29,7 +29,7 @@
 - ~~whack-a-mole: revert to hole-emojo and mouse-emoji (or others)~~
 - ~~snake: do not die when hitting a wall, but continue on the opposite side~~
 - ~~tictactoe: it's ok to play randomly on the first 2 games in a row, then you should use some strategy, and at least try...~~
-- memory games use letters. it should use emoji, like animals, or fruits
+- ~~memory games use letters. it should use emoji, like animals, or fruits~~
 
 ## Tasks Page
 - ~~I don't like the box in box feeling~~
@@ -40,7 +40,7 @@
 ## Stats Page
 - ~~give info about API usage for AI excuses, keep scores on games~~
 - ~~there's a small visual glitch in the corner of the bars of the chart, due to rounded corners and unmatching background~~
-- count the number of clicks on the app
+- ~~count the number of clicks on the app~~
 
 ## excuses page
 - ~~the settings for CloudAI should have a dropdown list with the models~~

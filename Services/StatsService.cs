@@ -10,8 +10,11 @@ public class StatsService
     private Dictionary<string, DailyStat> _dailyStats = [];
     private Dictionary<string, int> _gameHighScores = [];
 
+    public static StatsService? Instance { get; private set; }
+
     public StatsService()
     {
+        Instance = this;
         LoadStats();
     }
 
@@ -20,6 +23,7 @@ public class StatsService
     public int GamesPlayed => _dailyStats.Values.Sum(s => s.GamesPlayed);
     public int BreaksTaken => _dailyStats.Values.Sum(s => s.BreaksTaken);
     public int AIExcuseCalls => _dailyStats.Values.Sum(s => s.AIExcuseCalls);
+    public int TotalClicks => _dailyStats.Values.Sum(s => s.TotalClicks);
     public IReadOnlyDictionary<string, int> GameHighScores => _gameHighScores;
 
     // Today's stats
@@ -113,6 +117,12 @@ public class StatsService
         SaveStats();
     }
 
+    public void IncrementClicks()
+    {
+        GetOrCreateToday().TotalClicks++;
+        SaveStats();
+    }
+
     public void UpdateHighScore(string gameName, int score)
     {
         if (!_gameHighScores.TryGetValue(gameName, out var current) || score > current)
@@ -159,6 +169,7 @@ public class DailyStat
     public int GamesPlayed { get; set; }
     public int BreaksTaken { get; set; }
     public int AIExcuseCalls { get; set; }
+    public int TotalClicks { get; set; }
     
     public int Total => TasksAvoided + ExcusesGenerated + GamesPlayed + BreaksTaken;
 }

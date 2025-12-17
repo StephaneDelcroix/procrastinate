@@ -32,6 +32,7 @@ public partial class StatsPage : ContentPage
         ExcusesLabel.Text = _statsService.ExcusesGenerated.ToString();
         GamesPlayedLabel.Text = _statsService.GamesPlayed.ToString();
         AICallsLabel.Text = _statsService.AIExcuseCalls.ToString();
+        TotalClicksLabel.Text = _statsService.TotalClicks.ToString();
 
         RefreshHighScores();
 

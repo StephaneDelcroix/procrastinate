@@ -41,7 +41,7 @@
                    TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"
                    HorizontalOptions="Center"/>
 
-            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="12">
                 <Border BackgroundColor="{AppThemeBinding Light={StaticResource Nord5}, Dark={StaticResource Nord1}}" 
                         StrokeShape="RoundRectangle 16" Stroke="Transparent" Padding="20"
                         Grid.Row="0" Grid.Column="0">
@@ -84,13 +84,21 @@
 
                 <Border BackgroundColor="{AppThemeBinding Light={StaticResource Nord5}, Dark={StaticResource Nord1}}" 
                         StrokeShape="RoundRectangle 16" Stroke="Transparent" Padding="20"
-                        Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                        Grid.Row="2" Grid.Column="0">
                     <VerticalStackLayout Spacing="8">
-                        <HorizontalStackLayout Spacing="8">
-                            <Label Text="&#xf544;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{StaticResource Nord12}"/>
-                            <Label Text="{Binding AIExcuseCalls, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}" VerticalOptions="Center"/>
-                        </HorizontalStackLayout>
+                        <Label Text="&#xf544;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{StaticResource Nord12}"/>
+                        <Label Text="{Binding AIExcuseCalls, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
                         <Label x:Name="AICallsLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Nord12}"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border BackgroundColor="{AppThemeBinding Light={StaticResource Nord5}, Dark={StaticResource Nord1}}" 
+                        StrokeShape="RoundRectangle 16" Stroke="Transparent" Padding="20"
+                        Grid.Row="2" Grid.Column="1">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="&#xf245;" FontFamily="FontAwesomeSolid" FontSize="28" TextColor="{StaticResource Nord15}"/>
+                        <Label Text="{Binding TotalClicks, Source={x:Static strings:AppStrings.Instance}}" FontSize="12" TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
+                        <Label x:Name="TotalClicksLabel" Text="0" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Nord15}"/>
                     </VerticalStackLayout>
                 </Border>
             </Grid>

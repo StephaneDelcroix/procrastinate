@@ -201,6 +201,7 @@ public class AppStrings : INotifyPropertyChanged
     public string BreaksTaken => this["BreaksTaken"];
     public string ExcusesGeneratedStat => this["ExcusesGeneratedStat"];
     public string GamesPlayed => this["GamesPlayed"];
+    public string TotalClicks => this["TotalClicks"];
     public string AchievementUnlocked => this["AchievementUnlocked"];
     
     // Game strings
