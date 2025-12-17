@@ -77,7 +77,7 @@
                             <Label Text="{Binding ZalgoMode, Source={x:Static strings:AppStrings.Instance}}" 
                                    FontSize="16" 
                                    TextColor="{DynamicResource Gray100}"/>
-                            <Label Text="{Binding ZalgoModeDesc, Source={x:Static strings:AppStrings.Instance}}" 
+                            <Label x:Name="ZalgoDescLabel"
                                    FontSize="13" 
                                    TextColor="{DynamicResource Gray400}"/>
                         </VerticalStackLayout>

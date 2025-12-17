@@ -54,7 +54,7 @@ public class AppStrings : INotifyPropertyChanged
             savedLang = SupportedLanguages.ContainsKey(systemLang) ? systemLang : "en";
         }
         _culture = new CultureInfo(savedLang);
-        _zalgoMode = Preferences.Get("ZalgoMode", false);
+        _zalgoMode = Preferences.Get("ZalgoMode", true); // Default ON
     }
 
     public static string CurrentLanguage

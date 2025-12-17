@@ -37,8 +37,10 @@ public partial class SettingsPage : ContentPage
         UpdatePreview(isHighContrast);
         UpdateThemeLabel(isHighContrast);
 
-        // Load Zalgo mode
+        // Load Zalgo mode - always show zalgo text for the description
         ZalgoSwitch.IsToggled = AppStrings.IsZalgoMode;
+        var zalgoDesc = AppStrings.Instance["ZalgoModeDesc"];
+        ZalgoDescLabel.Text = AppStrings.Zalgoify(zalgoDesc);
 
         // Load excuse engine settings
         foreach (var mode in ExcuseService.AvailableModes)

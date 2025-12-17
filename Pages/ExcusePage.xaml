@@ -84,7 +84,8 @@
                FontSize="11"
                TextColor="{DynamicResource Gray500}"
                HorizontalOptions="Center"
-               HorizontalTextAlignment="Center"/>
+               HorizontalTextAlignment="Center"
+               Margin="0,-16,0,0"/>
         
         <Button x:Name="GenerateBtn"
                 Text="{Binding GenerateExcuse, Source={x:Static strings:AppStrings.Instance}}"
