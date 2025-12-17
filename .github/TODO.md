@@ -44,7 +44,7 @@
 - ~~the settings for CloudAI should have a dropdown list with the models~~
 - ~~when the excuse is generated, add the option to generate a cartoon-like image matching the excuse~~
 - ~~replace the "copy" button by a "share", so we can copy, share by message, whatsapp, etc~~
-- the share button isn't visible on mac. it should use the same icon as ios
+- ~~the share button isn't visible on mac. it should use the same icon as ios~~
 - remove the option to generate images
 - below the generated excuse, add some info about the generator used, the time it took, the number of token,,, whatever you have for the generator. this is informative text, so it should be quite small
 

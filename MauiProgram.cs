@@ -23,7 +23,6 @@ public static class MauiProgram
 		builder.Services.AddSingleton(AudioManager.Current);
 		builder.Services.AddSingleton<StatsService>();
 		builder.Services.AddSingleton<ExcuseService>();
-		builder.Services.AddSingleton<ImageGeneratorService>();
 		
 		// Pages
 		builder.Services.AddTransient<TasksPage>();

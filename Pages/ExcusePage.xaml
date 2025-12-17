@@ -57,14 +57,6 @@
                            TextColor="{DynamicResource Gray200}"
                            HorizontalTextAlignment="Center"
                            VerticalOptions="Center"/>
-                    <Image x:Name="ExcuseImage"
-                           IsVisible="False"
-                           HeightRequest="200"
-                           Aspect="AspectFit"/>
-                    <ActivityIndicator x:Name="ImageLoadingIndicator"
-                                       IsVisible="False"
-                                       IsRunning="False"
-                                       Color="{DynamicResource Tertiary}"/>
                 </VerticalStackLayout>
             </Border>
             <Button x:Name="ShareIconBtn"
@@ -97,19 +89,6 @@
                 Clicked="OnGenerateClicked">
             <Button.ImageSource>
                 <FontImageSource Glyph="&#xf522;" FontFamily="FontAwesomeSolid" Color="White" Size="18"/>
-            </Button.ImageSource>
-        </Button>
-        
-        <Button x:Name="GenerateImageBtn"
-                Text="{Binding GenerateCartoon, Source={x:Static strings:AppStrings.Instance}}"
-                BackgroundColor="{DynamicResource CardBackgroundAlt}"
-                TextColor="{DynamicResource Gray200}"
-                HeightRequest="48"
-                CornerRadius="12"
-                IsVisible="False"
-                Clicked="OnGenerateImageClicked">
-            <Button.ImageSource>
-                <FontImageSource Glyph="&#xf03e;" FontFamily="FontAwesomeSolid" Color="{DynamicResource Gray300}" Size="16"/>
             </Button.ImageSource>
         </Button>
         
