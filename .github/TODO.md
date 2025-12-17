@@ -38,6 +38,7 @@
 
 ## Stats Page
 - ~~give info about API usage for AI excuses, keep scores on games~~
+- ~~there's a small visual glitch in the corner of the bars of the chart, due to rounded corners and unmatching background~~
 
 ## excuses page
 - ~~the settings for CloudAI should have a dropdown list with the models~~
@@ -56,6 +57,8 @@
 - ~~when using zalgo random, reduce the amount of zalgo texts to 8%~~
 - ~~the "Chaos appears... " label should always be zalgo, whatever the state of the switch~~
 - ~~default for zalgo random should be on~~
+- ~~make sure the default model is llama3.3.70b-versatile (check the name)~~
+- ~~in the dropdown for model selection, do not list decommissioned models~~
 
 ## others
 - ~~take note in the instruction. make sur to update the README when you update the Changelog~~

@@ -1,3 +1,4 @@
+using Microsoft.Maui.Controls.Shapes;
 using procrastinate.Services;
 
 namespace procrastinate.Pages;
@@ -65,10 +66,11 @@ public partial class StatsPage : ContentPage
                 RowDefinitions = [new RowDefinition(GridLength.Star), new RowDefinition(GridLength.Auto)]
             };
 
-            var bar = new BoxView
+            var bar = new Border
             {
-                Color = GetBarColor(i),
-                CornerRadius = 4,
+                BackgroundColor = GetBarColor(i),
+                StrokeShape = new RoundRectangle { CornerRadius = new CornerRadius(4, 4, 0, 0) },
+                Stroke = Colors.Transparent,
                 HeightRequest = Math.Max(4, 80 * heightPercent),
                 VerticalOptions = LayoutOptions.End
             };
