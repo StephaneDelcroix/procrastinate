@@ -1,5 +1,5 @@
 using procrastinate.Pages;
-using procrastinate.Resources.Strings;
+using procrastinate.Services;
 
 namespace procrastinate;
 

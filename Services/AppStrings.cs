@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Resources;
 
-namespace procrastinate.Resources.Strings;
+namespace procrastinate.Services;
 
 public class AppStrings : INotifyPropertyChanged
 {
@@ -10,7 +10,7 @@ public class AppStrings : INotifyPropertyChanged
     public static AppStrings Instance => _instance.Value;
 
     private static readonly ResourceManager _resourceManager = 
-        new("procrastinate.Resources.Strings.AppResources", typeof(AppStrings).Assembly);
+        new("procrastinate.Services.AppResources", typeof(AppStrings).Assembly);
 
     private CultureInfo _culture;
     private bool _zalgoMode;

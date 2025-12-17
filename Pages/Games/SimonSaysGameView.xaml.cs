@@ -1,5 +1,5 @@
 using Plugin.Maui.Audio;
-using procrastinate.Resources.Strings;
+using procrastinate.Services;
 
 namespace procrastinate.Pages.Games;
 

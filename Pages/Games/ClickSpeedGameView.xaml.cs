@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using procrastinate.Resources.Strings;
+using procrastinate.Services;
 
 namespace procrastinate.Pages.Games;
 

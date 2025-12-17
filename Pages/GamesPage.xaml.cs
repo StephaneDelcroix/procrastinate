@@ -1,6 +1,5 @@
 using Microsoft.Maui.Controls.Shapes;
 using procrastinate.Pages.Games;
-using procrastinate.Resources.Strings;
 using procrastinate.Services;
 
 namespace procrastinate.Pages;

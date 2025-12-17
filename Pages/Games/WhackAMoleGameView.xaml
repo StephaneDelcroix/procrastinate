@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:strings="clr-namespace:procrastinate.Resources.Strings"
+             xmlns:strings="clr-namespace:procrastinate.Services"
              x:Class="procrastinate.Pages.Games.WhackAMoleGameView">
     <VerticalStackLayout Spacing="16">
         <Grid x:Name="GameGrid" ColumnDefinitions="80,80,80" RowDefinitions="80,80,80" ColumnSpacing="8" RowSpacing="8" HorizontalOptions="Center">
