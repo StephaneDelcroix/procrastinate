@@ -46,7 +46,7 @@ public partial class ExcusePage : ContentPage
 
         try
         {
-            var result = await _excuseService.GenerateExcuseAsync(AppStrings.CurrentLanguage);
+            var result = await _excuseService.GenerateExcuseAsync(AppStrings.EffectiveLanguage);
             _currentExcuse = result.Excuse;
             
             // Never apply Zalgo to the excuse itself

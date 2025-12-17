@@ -78,6 +78,23 @@ public class AppStrings : INotifyPropertyChanged
         }
     }
 
+    /// <summary>
+    /// Returns the actual language being used (resolves "System Default" to the actual language code)
+    /// </summary>
+    public static string EffectiveLanguage
+    {
+        get
+        {
+            var saved = Preferences.Get("AppLanguage", "");
+            if (!string.IsNullOrEmpty(saved))
+                return saved;
+            
+            // Resolve system language
+            var systemLang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+            return SupportedLanguages.ContainsKey(systemLang) ? systemLang : "en";
+        }
+    }
+
     public static bool IsZalgoMode
     {
         get => Instance._zalgoMode;

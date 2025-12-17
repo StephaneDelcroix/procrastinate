@@ -52,7 +52,7 @@
 - ~~with zalgo random generator, the excuse itself should never use zalgo~~
 - ~~move the label with generator info above the button~~
 - ~~move the informative label closer to the excuse box~~
-- when the app uses 'default language', excuses are generated in english. when default language is used, you should detect it and use that in the generator
+- ~~when the app uses 'default language', excuses are generated in english. when default language is used, you should detect it and use that in the generator~~
 
 ## settings
 - ~~create an about section, with author, where to find source, etc~~
