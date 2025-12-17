@@ -18,5 +18,12 @@
                 CornerRadius="12" 
                 HeightRequest="44"
                 Clicked="OnResetClicked"/>
+        <Label x:Name="AIDebugLabel" 
+               Text="" 
+               HorizontalOptions="Center" 
+               FontSize="10" 
+               MaximumWidthRequest="300"
+               LineBreakMode="WordWrap"
+               TextColor="{StaticResource Nord4}"/>
     </VerticalStackLayout>
 </ContentView>

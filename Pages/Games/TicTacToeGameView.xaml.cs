@@ -82,9 +82,14 @@ public partial class TicTacToeGameView : ContentView
         StatusLabel.Text = TicTacToeAI.IsAvailable 
             ? AppStrings.GetString("AIThinking") + " 🤖" 
             : AppStrings.GetString("AIThinking");
+        AIDebugLabel.Text = "";
         await Task.Delay(300);
 
         var aiMove = await GetAIMoveAsync();
+        
+        // Show AI debug info
+        AIDebugLabel.Text = TicTacToeAI.LastDebugInfo;
+        
         if (aiMove >= 0)
         {
             _board[aiMove] = "O";

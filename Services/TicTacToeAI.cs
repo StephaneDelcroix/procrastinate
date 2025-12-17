@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -14,6 +15,11 @@ public static class TicTacToeAI
     
     private static readonly Lazy<HttpClient> _httpClient = new(() => 
         new HttpClient { Timeout = TimeSpan.FromSeconds(10) });
+
+    /// <summary>
+    /// Last AI conversation for debugging display
+    /// </summary>
+    public static string LastDebugInfo { get; private set; } = "";
 
     /// <summary>
     /// Check if AI is available (cloud API key configured or on-device AI available)
@@ -43,6 +49,8 @@ public static class TicTacToeAI
     /// <returns>Index 0-8 for the move, or -1 on failure</returns>
     public static async Task<int> GetMoveAsync(string[] board)
     {
+        LastDebugInfo = "";
+        
         // Try on-device AI first if available
         try
         {
@@ -62,6 +70,7 @@ public static class TicTacToeAI
             if (move >= 0) return move;
         }
 
+        LastDebugInfo = "⚙️ Using built-in strategy";
         return -1;
     }
 
@@ -70,21 +79,9 @@ public static class TicTacToeAI
         try
         {
             var boardStr = FormatBoard(board);
-            var prompt = $"""
-                You are playing TicTacToe as O. The board positions are numbered 0-8:
-                0|1|2
-                -----
-                3|4|5
-                -----
-                6|7|8
-                
-                Current board state:
-                {boardStr}
-                
-                X = opponent, O = you, . = empty
-                
-                What is your next move? Reply with ONLY a single digit (0-8) for an empty position. Nothing else.
-                """;
+            var prompt = $"TicTacToe as O. Board:\n{boardStr}\nReply with ONE digit (0-8) for empty (.) position.";
+
+            LastDebugInfo = $"🤖 Asking {Model}...\nBoard: {boardStr.Replace("\n", " | ")}";
 
             var request = new
             {
@@ -102,7 +99,11 @@ public static class TicTacToeAI
             httpRequest.Headers.Add("Authorization", $"Bearer {ApiKey}");
             
             var response = await _httpClient.Value.SendAsync(httpRequest);
-            if (!response.IsSuccessStatusCode) return -1;
+            if (!response.IsSuccessStatusCode)
+            {
+                LastDebugInfo = $"❌ API Error: {response.StatusCode}";
+                return -1;
+            }
 
             var responseBody = await response.Content.ReadAsStringAsync();
             var result = JsonSerializer.Deserialize<JsonElement>(responseBody);
@@ -120,13 +121,17 @@ public static class TicTacToeAI
                 {
                     int move = c - '0';
                     if (move >= 0 && move <= 8 && string.IsNullOrEmpty(board[move]))
+                    {
+                        LastDebugInfo = $"🤖 {Model}\nQ: {boardStr.Replace("\n", " | ")}\nA: \"{content}\" → Move {move}";
                         return move;
+                    }
                 }
             }
+            LastDebugInfo = $"⚠️ AI said \"{content}\" - invalid move";
         }
-        catch
+        catch (Exception ex)
         {
-            // Fall through to return -1
+            LastDebugInfo = $"❌ Error: {ex.Message}";
         }
         
         return -1;
@@ -137,14 +142,15 @@ public static class TicTacToeAI
         try
         {
             var boardStr = FormatBoard(board);
-            var prompt = $"""
-                TicTacToe: You are O. Board (0-8): 
-                {boardStr}
-                Reply with ONE digit (0-8) for an empty (.) position.
-                """;
+            var prompt = $"TicTacToe: You are O. Board:\n{boardStr}\nReply with ONE digit (0-8) for empty (.) position.";
+
+            LastDebugInfo = $"🍎 Asking Apple Intelligence...\nBoard: {boardStr.Replace("\n", " | ")}";
 
             var generator = new OnDeviceAIExcuseGenerator();
-            if (!generator.IsAvailable) return -1;
+            if (!generator.IsAvailable)
+            {
+                return -1;
+            }
 
             var result = await generator.GenerateExcuseAsync(prompt);
             var content = result.Excuse;
@@ -156,13 +162,17 @@ public static class TicTacToeAI
                 {
                     int move = c - '0';
                     if (move >= 0 && move <= 8 && string.IsNullOrEmpty(board[move]))
+                    {
+                        LastDebugInfo = $"🍎 Apple Intelligence\nQ: {boardStr.Replace("\n", " | ")}\nA: \"{content}\" → Move {move}";
                         return move;
+                    }
                 }
             }
+            LastDebugInfo = $"⚠️ On-device AI said \"{content}\" - invalid";
         }
-        catch
+        catch (Exception ex)
         {
-            // Fall through
+            LastDebugInfo = $"❌ On-device error: {ex.Message}";
         }
         
         return -1;
