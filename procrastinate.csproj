@@ -29,8 +29,8 @@
 		<ApplicationId>org.reblochon.procrastinate</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>3.0.0</ApplicationDisplayVersion>
-		<ApplicationVersion>3</ApplicationVersion>
+		<ApplicationDisplayVersion>4.0.0</ApplicationDisplayVersion>
+		<ApplicationVersion>4</ApplicationVersion>
 
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
 		<WindowsPackageType>None</WindowsPackageType>

@@ -5,6 +5,26 @@ All notable changes to Procrastinate will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2025-12-17
+
+### Added
+
+- **TicTacToe AI Integration** - TicTacToe now uses real AI (Cloud AI via Groq or On-Device Apple Intelligence) to play against you
+- **AI Engine Info Label** - Shows which AI engine was used and the response for each move
+- **Minesweeper Flag Mode** - Long-press to flag suspected bombs with 🚩
+- **Click Counter** - Stats page now tracks total button clicks across the app
+- **Memory Game Emojis** - Memory match now uses fun emoji (🐶🐱🦊🐸🍎🍊🍇🍓) instead of letters
+
+### Changed
+
+- **Excuses Language Detection** - When using "System Default" language, excuses are now generated in the actual system language instead of defaulting to English
+- **Copilot Instructions** - Updated to use Appium agent for iOS automation
+
+### Fixed
+
+- **Chart Bar Corners** - Fixed visual glitch in stats chart due to rounded corners
+- **Deprecated Groq Models** - Removed deprecated models from the selection dropdown
+
 ## [3.0.0] - 2025-12-17
 
 ### Added
