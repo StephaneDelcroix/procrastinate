@@ -12,14 +12,14 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style TargetType="Shell" ApplyToDerivedTypes="True">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource SurfaceBackground}"/>
-                <Setter Property="Shell.ForegroundColor" Value="{StaticResource Gray100}"/>
-                <Setter Property="Shell.TitleColor" Value="{StaticResource Gray100}"/>
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource CardBackground}"/>
-                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource Gray400}"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource Gray400}"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource Gray500}"/>
-                <Setter Property="Shell.FlyoutBackgroundColor" Value="{StaticResource CardBackground}"/>
+                <Setter Property="Shell.BackgroundColor" Value="{DynamicResource SurfaceBackground}"/>
+                <Setter Property="Shell.ForegroundColor" Value="{DynamicResource Gray100}"/>
+                <Setter Property="Shell.TitleColor" Value="{DynamicResource Gray100}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource CardBackground}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{DynamicResource Gray400}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource Gray400}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource Gray500}"/>
+                <Setter Property="Shell.FlyoutBackgroundColor" Value="{DynamicResource CardBackground}"/>
             </Style>
         </ResourceDictionary>
     </Shell.Resources>
