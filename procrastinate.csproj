@@ -20,7 +20,7 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		
 		<!-- Enable XAML Source Generator (XSG) -->
-		<EnableXamlSourceGenerator>true</EnableXamlSourceGenerator>
+		<MauiXamlInflator>SourceGen</MauiXamlInflator>
 
 		<!-- Display name -->
 		<ApplicationTitle>procrastinate</ApplicationTitle>
