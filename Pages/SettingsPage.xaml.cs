@@ -183,6 +183,7 @@ public partial class SettingsPage : ContentPage
             resources["Gray200"] = Color.FromArgb("#3B4252");
             resources["Gray300"] = Color.FromArgb("#434C5E");
             resources["Gray400"] = Color.FromArgb("#4C566A");
+            resources["Gray500"] = Color.FromArgb("#5E6779");
             resources["Warm"] = Color.FromArgb("#D08770");
         }
         else
@@ -201,7 +202,8 @@ public partial class SettingsPage : ContentPage
             resources["Gray100"] = Color.FromArgb("#ECEFF4");
             resources["Gray200"] = Color.FromArgb("#E5E9F0");
             resources["Gray300"] = Color.FromArgb("#D8DEE9");
-            resources["Gray400"] = Color.FromArgb("#D8DEE9");
+            resources["Gray400"] = Color.FromArgb("#B0B8C7");
+            resources["Gray500"] = Color.FromArgb("#7B88A1");
             resources["Warm"] = Color.FromArgb("#EBCB8B");
         }
     }
