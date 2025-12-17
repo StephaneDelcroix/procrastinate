@@ -4,58 +4,70 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <!-- Nord Theme - Arctic, north-bluish color palette -->
-    <!-- Dark theme based on Polar Night with Frost accents -->
     
-    <!-- Primary accent - Frost blue -->
-    <Color x:Key="Primary">#88C0D0</Color>
-    <Color x:Key="PrimaryDark">#8FBCBB</Color>
-    <Color x:Key="PrimaryDarkText">#2E3440</Color>
-    
-    <!-- Secondary - Nord blue -->
-    <Color x:Key="Secondary">#81A1C1</Color>
-    <Color x:Key="SecondaryDarkText">#88C0D0</Color>
-    
-    <!-- Tertiary - Deep blue for buttons -->
-    <Color x:Key="Tertiary">#5E81AC</Color>
+    <!-- ==================== DARK THEME (Polar Night) ==================== -->
+    <Color x:Key="PrimaryDark">#88C0D0</Color>
+    <Color x:Key="PrimaryDarkAlt">#8FBCBB</Color>
+    <Color x:Key="SecondaryDark">#81A1C1</Color>
+    <Color x:Key="TertiaryDark">#5E81AC</Color>
+    <Color x:Key="AccentDark">#A3BE8C</Color>
+    <Color x:Key="AccentAltDark">#EBCB8B</Color>
+    <Color x:Key="WarmDark">#EBCB8B</Color>
+    <Color x:Key="SurfaceBackgroundDark">#2E3440</Color>
+    <Color x:Key="CardBackgroundDark">#3B4252</Color>
+    <Color x:Key="CardBackgroundAltDark">#434C5E</Color>
+    <!-- Text on dark (Snow Storm) -->
+    <Color x:Key="TextPrimaryDark">#ECEFF4</Color>
+    <Color x:Key="TextSecondaryDark">#E5E9F0</Color>
+    <Color x:Key="TextTertiaryDark">#D8DEE9</Color>
+    <Color x:Key="TextMutedDark">#7B88A1</Color>
+    <Color x:Key="TextDividerDark">#434C5E</Color>
 
+    <!-- ==================== LIGHT THEME (Snow Storm) ==================== -->
+    <Color x:Key="PrimaryLight">#5E81AC</Color>
+    <Color x:Key="PrimaryLightAlt">#81A1C1</Color>
+    <Color x:Key="SecondaryLight">#5E81AC</Color>
+    <Color x:Key="TertiaryLight">#5E81AC</Color>
+    <Color x:Key="AccentLight">#A3BE8C</Color>
+    <Color x:Key="AccentAltLight">#D08770</Color>
+    <Color x:Key="WarmLight">#D08770</Color>
+    <Color x:Key="SurfaceBackgroundLight">#ECEFF4</Color>
+    <Color x:Key="CardBackgroundLight">#E5E9F0</Color>
+    <Color x:Key="CardBackgroundAltLight">#D8DEE9</Color>
+    <!-- Text on light (Polar Night) -->
+    <Color x:Key="TextPrimaryLight">#2E3440</Color>
+    <Color x:Key="TextSecondaryLight">#3B4252</Color>
+    <Color x:Key="TextTertiaryLight">#434C5E</Color>
+    <Color x:Key="TextMutedLight">#5E6779</Color>
+    <Color x:Key="TextDividerLight">#D8DEE9</Color>
+
+    <!-- Static colors -->
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
     <Color x:Key="Magenta">#B48EAD</Color>
-    <Color x:Key="MidnightBlue">#2E3440</Color>
-    <Color x:Key="OffBlack">#2E3440</Color>
 
-    <!-- Card and surface colors - Polar Night -->
+    <!-- ==================== BACKWARDS COMPATIBLE (DynamicResource) ==================== -->
+    <!-- These are needed for pages using DynamicResource - they won't auto-switch themes -->
+    <!-- but will use the dark theme colors as default -->
+    <Color x:Key="Primary">#88C0D0</Color>
+    <Color x:Key="Secondary">#81A1C1</Color>
+    <Color x:Key="Tertiary">#5E81AC</Color>
+    <Color x:Key="Accent">#A3BE8C</Color>
+    <Color x:Key="Warm">#EBCB8B</Color>
+    <Color x:Key="SurfaceBackground">#2E3440</Color>
     <Color x:Key="CardBackground">#3B4252</Color>
     <Color x:Key="CardBackgroundAlt">#434C5E</Color>
-    <Color x:Key="SurfaceBackground">#2E3440</Color>
-    
-    <!-- Accent colors - Aurora -->
-    <Color x:Key="Accent">#A3BE8C</Color>
-    <Color x:Key="AccentLight">#EBCB8B</Color>
-    <Color x:Key="Warm">#EBCB8B</Color>
-
-    <!-- Text colors - Snow Storm for dark theme -->
     <Color x:Key="Gray100">#ECEFF4</Color>
     <Color x:Key="Gray200">#E5E9F0</Color>
     <Color x:Key="Gray300">#D8DEE9</Color>
     <Color x:Key="Gray400">#B0B8C7</Color>
     <Color x:Key="Gray500">#7B88A1</Color>
     <Color x:Key="Gray600">#434C5E</Color>
-    <Color x:Key="Gray900">#3B4252</Color>
-    <Color x:Key="Gray950">#2E3440</Color>
 
-    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
-    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
-    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}"/>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{AppThemeBinding Light={StaticResource SecondaryLight}, Dark={StaticResource SecondaryDark}}"/>
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{AppThemeBinding Light={StaticResource TertiaryLight}, Dark={StaticResource TertiaryDark}}"/>
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
     <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
-
-    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
-    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
-    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
-    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}"/>
-    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}"/>
-    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
-    <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
-    <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
 </ResourceDictionary>

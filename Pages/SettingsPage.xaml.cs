@@ -15,6 +15,8 @@ public partial class SettingsPage : ContentPage
         "gemma2-9b-it"
     };
 
+    private static readonly string[] ThemeOptions = { "system", "light", "dark" };
+
     public SettingsPage()
     {
         InitializeComponent();
@@ -31,11 +33,16 @@ public partial class SettingsPage : ContentPage
         var langIndex = AppStrings.SupportedLanguages.Keys.ToList().IndexOf(savedLang);
         LanguagePicker.SelectedIndex = langIndex >= 0 ? langIndex : 0;
 
-        // Load high contrast
-        var isHighContrast = Preferences.Get("HighContrastMode", false);
-        HighContrastSwitch.IsToggled = isHighContrast;
-        UpdatePreview(isHighContrast);
-        UpdateThemeLabel(isHighContrast);
+        // Load theme picker
+        ThemePicker.Items.Add("System Default");
+        ThemePicker.Items.Add("Light");
+        ThemePicker.Items.Add("Dark");
+        
+        var savedTheme = Preferences.Get("AppTheme", "system");
+        var themeIndex = Array.IndexOf(ThemeOptions, savedTheme);
+        ThemePicker.SelectedIndex = themeIndex >= 0 ? themeIndex : 0;
+        UpdateThemeLabel();
+        ApplyTheme(savedTheme);
 
         // Load Zalgo mode
         ZalgoSwitch.IsToggled = AppStrings.IsZalgoMode;
@@ -72,21 +79,29 @@ public partial class SettingsPage : ContentPage
         
         var langCode = AppStrings.SupportedLanguages.Keys.ElementAt(LanguagePicker.SelectedIndex);
         AppStrings.CurrentLanguage = langCode;
-        UpdateThemeLabel(Preferences.Get("HighContrastMode", false));
+        UpdateThemeLabel();
     }
 
-    private void UpdateThemeLabel(bool isHighContrast)
+    private void UpdateThemeLabel()
     {
-        var themeName = isHighContrast ? AppStrings.GetString("HighContrast") : AppStrings.GetString("DefaultTheme");
-        ThemeLabel.Text = AppStrings.GetString("CurrentTheme", themeName);
+        var themeIndex = ThemePicker.SelectedIndex >= 0 ? ThemePicker.SelectedIndex : 0;
+        var themeName = themeIndex switch
+        {
+            1 => "Light",
+            2 => "Dark",
+            _ => "System Default"
+        };
+        ThemeLabel.Text = $"Current: {themeName}";
     }
 
-    private void OnHighContrastToggled(object? sender, ToggledEventArgs e)
+    private void OnThemeChanged(object? sender, EventArgs e)
     {
-        Preferences.Set("HighContrastMode", e.Value);
-        UpdatePreview(e.Value);
-        ApplyTheme(e.Value);
-        UpdateThemeLabel(e.Value);
+        if (ThemePicker.SelectedIndex < 0) return;
+        
+        var theme = ThemeOptions[ThemePicker.SelectedIndex];
+        Preferences.Set("AppTheme", theme);
+        ApplyTheme(theme);
+        UpdateThemeLabel();
     }
 
     private void OnZalgoToggled(object? sender, ToggledEventArgs e)
@@ -120,12 +135,12 @@ public partial class SettingsPage : ContentPage
         if (generator.IsAvailable)
         {
             OnDeviceAIStatusLabel.Text = AppStrings.Instance.OnDeviceAIAvailable;
-            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#14B8A6"); // Secondary/teal
+            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#A3BE8C"); // Nord green
         }
         else
         {
             OnDeviceAIStatusLabel.Text = AppStrings.Instance.OnDeviceAIUnavailable;
-            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#F59E0B"); // Primary/amber warning
+            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#EBCB8B"); // Nord yellow warning
         }
     }
 
@@ -141,71 +156,16 @@ public partial class SettingsPage : ContentPage
         Preferences.Set("GroqModel", model);
     }
 
-    private void UpdatePreview(bool highContrast)
+    private void ApplyTheme(string theme)
     {
-        if (highContrast)
+        if (Application.Current == null) return;
+        
+        Application.Current.UserAppTheme = theme switch
         {
-            // Nord Light preview
-            PreviewPrimary.BackgroundColor = Color.FromArgb("#5E81AC");
-            PreviewSecondary.BackgroundColor = Color.FromArgb("#81A1C1");
-            PreviewTertiary.BackgroundColor = Color.FromArgb("#88C0D0");
-            PreviewAccent.BackgroundColor = Color.FromArgb("#A3BE8C");
-        }
-        else
-        {
-            // Nord Dark preview
-            PreviewPrimary.BackgroundColor = Color.FromArgb("#88C0D0");
-            PreviewSecondary.BackgroundColor = Color.FromArgb("#81A1C1");
-            PreviewTertiary.BackgroundColor = Color.FromArgb("#5E81AC");
-            PreviewAccent.BackgroundColor = Color.FromArgb("#A3BE8C");
-        }
-    }
-
-    private void ApplyTheme(bool highContrast)
-    {
-        var resources = Application.Current?.Resources;
-        if (resources == null) return;
-
-        if (highContrast)
-        {
-            // Nord Light Theme - Snow Storm backgrounds with Frost accents
-            resources["Primary"] = Color.FromArgb("#5E81AC");
-            resources["PrimaryDark"] = Color.FromArgb("#81A1C1");
-            resources["Secondary"] = Color.FromArgb("#5E81AC");
-            resources["SecondaryDarkText"] = Color.FromArgb("#5E81AC");
-            resources["Tertiary"] = Color.FromArgb("#5E81AC");
-            resources["AccentLight"] = Color.FromArgb("#A3BE8C");
-            resources["Accent"] = Color.FromArgb("#A3BE8C");
-            resources["CardBackground"] = Color.FromArgb("#E5E9F0");
-            resources["CardBackgroundAlt"] = Color.FromArgb("#D8DEE9");
-            resources["SurfaceBackground"] = Color.FromArgb("#ECEFF4");
-            resources["Gray100"] = Color.FromArgb("#2E3440");
-            resources["Gray200"] = Color.FromArgb("#3B4252");
-            resources["Gray300"] = Color.FromArgb("#434C5E");
-            resources["Gray400"] = Color.FromArgb("#4C566A");
-            resources["Gray500"] = Color.FromArgb("#5E6779");
-            resources["Warm"] = Color.FromArgb("#D08770");
-        }
-        else
-        {
-            // Nord Dark Theme - Polar Night backgrounds with Frost accents
-            resources["Primary"] = Color.FromArgb("#88C0D0");
-            resources["PrimaryDark"] = Color.FromArgb("#8FBCBB");
-            resources["Secondary"] = Color.FromArgb("#81A1C1");
-            resources["SecondaryDarkText"] = Color.FromArgb("#88C0D0");
-            resources["Tertiary"] = Color.FromArgb("#5E81AC");
-            resources["AccentLight"] = Color.FromArgb("#EBCB8B");
-            resources["Accent"] = Color.FromArgb("#A3BE8C");
-            resources["CardBackground"] = Color.FromArgb("#3B4252");
-            resources["CardBackgroundAlt"] = Color.FromArgb("#434C5E");
-            resources["SurfaceBackground"] = Color.FromArgb("#2E3440");
-            resources["Gray100"] = Color.FromArgb("#ECEFF4");
-            resources["Gray200"] = Color.FromArgb("#E5E9F0");
-            resources["Gray300"] = Color.FromArgb("#D8DEE9");
-            resources["Gray400"] = Color.FromArgb("#B0B8C7");
-            resources["Gray500"] = Color.FromArgb("#7B88A1");
-            resources["Warm"] = Color.FromArgb("#EBCB8B");
-        }
+            "light" => AppTheme.Light,
+            "dark" => AppTheme.Dark,
+            _ => AppTheme.Unspecified // System default
+        };
     }
 
     private async void OnGitHubTapped(object? sender, EventArgs e)

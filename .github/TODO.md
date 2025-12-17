@@ -46,12 +46,17 @@
 - ~~the share button isn't visible on mac. it should use the same icon as ios~~
 - ~~remove the option to generate images~~
 - ~~below the generated excuse, add some info about the generator used, the time it took, the number of token,,, whatever you have for the generator. this is informative text, so it should be quite small~~
-- ~~with zalgo random generator, the excuse itself should never use zalgo~~
+- with zalgo random generator, the excuse itself should never use zalgo
 - ~~move the label with generator info above the button~~
+- move the informative label closer to the excuse box
 
 ## settings
 - ~~create an about section, with author, where to find source, etc~~
 - ~~the Theme Preview should be in the same box as Accessibility~~
 - ~~when using zalgo random, reduce the amount of zalgo texts to 8%~~
+- the "Chaos appears... " label should always be zalgo, whatever the state of the switch
+- default for zalgo random should be on
+
 ## others
 - ~~take note in the instruction. make sur to update the README when you update the Changelog~~
+- maui 10.0.20 was just released on nuget. use that. enable XSG
