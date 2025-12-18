@@ -45,6 +45,17 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(UseMonoRuntime)' == 'false'">
+		<PublishReadyToRun>true</PublishReadyToRun>
+		<PublishReadyToRunComposite>true</PublishReadyToRunComposite>
+		<AndroidEnableMarshalMethods>false</AndroidEnableMarshalMethods>
+		<PublishReadyToRunCrossgen2ExtraArgs>--partial</PublishReadyToRunCrossgen2ExtraArgs>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(UseMonoRuntime)' == 'false'">
+		<_ReadyToRunPgoFiles Include="$(MSBuildThisFileDirectory)\profiles\*.mibc" />
+	</ItemGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#5E81AC" />
