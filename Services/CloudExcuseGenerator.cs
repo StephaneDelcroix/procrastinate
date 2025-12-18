@@ -33,6 +33,7 @@ public class CloudExcuseGenerator : IExcuseGenerator
                 "pt" => "Portuguese",
                 "nl" => "Dutch",
                 "cs" => "Czech",
+                "uk" => "Ukrainian",
                 _ => "English"
             };
 
