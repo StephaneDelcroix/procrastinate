@@ -5,7 +5,8 @@ namespace procrastinate.Pages.Games;
 public partial class SnakeGameView : ContentView
 {
     private const int GridSize = 10;
-    private const int CellSize = 28;
+    private const int MaxGridWidth = 280; // Max total grid width in pixels
+    private int _cellSize;
     private readonly List<(int r, int c)> _snake = [];
     private (int r, int c) _food;
     private (int dr, int dc) _direction = (0, 1);
@@ -24,10 +25,13 @@ public partial class SnakeGameView : ContentView
 
     private void CreateGrid()
     {
+        // Calculate cell size to fit within max width
+        _cellSize = (MaxGridWidth - (GridSize - 1)) / GridSize; // Account for spacing
+        
         for (int i = 0; i < GridSize; i++)
         {
-            GameGrid.ColumnDefinitions.Add(new ColumnDefinition(CellSize));
-            GameGrid.RowDefinitions.Add(new RowDefinition(CellSize));
+            GameGrid.ColumnDefinitions.Add(new ColumnDefinition(_cellSize));
+            GameGrid.RowDefinitions.Add(new RowDefinition(_cellSize));
         }
 
         for (int r = 0; r < GridSize; r++)
