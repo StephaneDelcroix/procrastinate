@@ -29,8 +29,8 @@
 		<ApplicationId>org.reblochon.procrastinate</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>4.2.0</ApplicationDisplayVersion>
-		<ApplicationVersion>6</ApplicationVersion>
+		<ApplicationDisplayVersion>4.2.1</ApplicationDisplayVersion>
+		<ApplicationVersion>7</ApplicationVersion>
 
 		<!-- Use CoreCLR instead of Mono on Android -->
 		<UseMonoRuntime>false</UseMonoRuntime>
