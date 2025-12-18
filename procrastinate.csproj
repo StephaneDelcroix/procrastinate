@@ -29,8 +29,11 @@
 		<ApplicationId>org.reblochon.procrastinate</ApplicationId>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>4.0.0</ApplicationDisplayVersion>
-		<ApplicationVersion>4</ApplicationVersion>
+		<ApplicationDisplayVersion>4.1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>5</ApplicationVersion>
+
+		<!-- Use CoreCLR instead of Mono on Android -->
+		<UseMonoRuntime>false</UseMonoRuntime>
 
 		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
 		<WindowsPackageType>None</WindowsPackageType>
