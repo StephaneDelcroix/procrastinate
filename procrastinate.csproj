@@ -45,14 +45,14 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(UseMonoRuntime)' == 'false'">
+	<PropertyGroup Condition="'$(UseMonoRuntime)' == 'false' AND '$(Configuration)' == 'Release'">
 		<PublishReadyToRun>true</PublishReadyToRun>
 		<PublishReadyToRunComposite>true</PublishReadyToRunComposite>
 		<AndroidEnableMarshalMethods>false</AndroidEnableMarshalMethods>
 		<PublishReadyToRunCrossgen2ExtraArgs>--partial</PublishReadyToRunCrossgen2ExtraArgs>
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(UseMonoRuntime)' == 'false'">
+	<ItemGroup Condition="'$(UseMonoRuntime)' == 'false' AND '$(Configuration)' == 'Release'">
 		<_ReadyToRunPgoFiles Include="$(MSBuildThisFileDirectory)\profiles\*.mibc" />
 	</ItemGroup>
 
