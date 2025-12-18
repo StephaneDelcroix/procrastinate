@@ -22,12 +22,23 @@ public class ExcuseService
         set => Preferences.Set("ExcuseMode", value);
     }
 
-    public static readonly Dictionary<string, string> AvailableModes = new()
+    public static Dictionary<string, string> AvailableModes
     {
-        { "random", "Random Generator" },
-        { "cloud", "Cloud AI (Groq)" },
-        { "ondevice", "On-Device AI (Apple)" }
-    };
+        get
+        {
+            var modes = new Dictionary<string, string>
+            {
+                { "random", "Random Generator" },
+                { "cloud", "Cloud AI (Groq)" }
+            };
+            
+            // Apple Intelligence only available on iOS/macOS
+#if IOS || MACCATALYST
+            modes.Add("ondevice", "On-Device AI (Apple)");
+#endif
+            return modes;
+        }
+    }
 
     public IExcuseGenerator GetCurrentGenerator()
     {

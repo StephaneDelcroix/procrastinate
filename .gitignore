@@ -13,3 +13,4 @@ obj/
 *.keystore
 *.jks
 automation/
+*.mibc

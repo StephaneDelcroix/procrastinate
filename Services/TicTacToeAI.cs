@@ -30,6 +30,7 @@ public static class TicTacToeAI
         {
             if (!string.IsNullOrEmpty(ApiKey)) return true;
             
+#if IOS || MACCATALYST
             try
             {
                 var onDevice = new OnDeviceAIExcuseGenerator();
@@ -39,6 +40,9 @@ public static class TicTacToeAI
             {
                 return false;
             }
+#else
+            return false;
+#endif
         }
     }
 
@@ -51,7 +55,8 @@ public static class TicTacToeAI
     {
         LastDebugInfo = "";
         
-        // Try on-device AI first if available
+#if IOS || MACCATALYST
+        // Try on-device AI first if available (Apple platforms only)
         try
         {
             var onDevice = new OnDeviceAIExcuseGenerator();
@@ -63,6 +68,7 @@ public static class TicTacToeAI
             }
         }
         catch { }
+#endif
 
         // Fall back to cloud AI
         if (!string.IsNullOrEmpty(ApiKey))
