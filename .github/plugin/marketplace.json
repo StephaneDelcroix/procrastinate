@@ -1,0 +1,22 @@
+{
+  "name": "procrastinate-plugins",
+  "metadata": {
+    "description": "Copilot plugins for the Procrastinate app",
+    "version": "1.0.0"
+  },
+  "owner": {
+    "name": "Stephane Delcroix",
+    "email": "stephane@delcroix.org"
+  },
+  "plugins": [
+    {
+      "name": "appium-automation",
+      "source": "plugins/appium-automation",
+      "description": "Cross-platform mobile app automation using Appium. Supports iOS Simulator, Android Emulator, and Mac Catalyst.",
+      "version": "1.0.1",
+      "skills": [
+        "./skills/appium-automation"
+      ]
+    }
+  ]
+}

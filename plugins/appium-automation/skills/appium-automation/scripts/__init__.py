@@ -1,0 +1,1 @@
+# Appium automation scripts
