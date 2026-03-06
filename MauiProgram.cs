@@ -22,7 +22,7 @@ public static class MauiProgram
 
 		// Register Apple Intelligence chat client (iOS/macOS only)
 #if IOS || MACCATALYST
-#pragma warning disable CA1416
+#pragma warning disable CA1416, MAUIAI0001
 		try
 		{
 			var appleClient = new Microsoft.Maui.Essentials.AI.AppleIntelligenceChatClient();
@@ -33,7 +33,7 @@ public static class MauiProgram
 		{
 			System.Diagnostics.Debug.WriteLine($"Apple Intelligence not available: {ex.Message}");
 		}
-#pragma warning restore CA1416
+#pragma warning restore CA1416, MAUIAI0001
 #endif
 
 		// Services
