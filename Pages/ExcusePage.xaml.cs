@@ -39,10 +39,48 @@ public partial class ExcusePage : ContentPage
         
         ShareIconBtn.IsVisible = false;
         GeneratorInfoLabel.IsVisible = false;
+        PipelineStageLabel.IsVisible = false;
+        AgentReasoningBorder.IsVisible = false;
+        AgentReasoningContent.IsVisible = false;
+        AgentOutputStack.Children.Clear();
         
         // Show loading state
         GenerateBtn.IsEnabled = false;
         ExcuseLabel.Text = AppStrings.GetString("Generating");
+
+        // Wire up pipeline stage callback for agent pipeline mode
+        _excuseService.OnPipelineStageChanged = (stage) =>
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                PipelineStageLabel.Text = stage;
+                PipelineStageLabel.IsVisible = true;
+            });
+        };
+
+        // Wire up agent reasoning output
+        _excuseService.OnAgentOutput = (agentName, output) =>
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                var card = new VerticalStackLayout { Spacing = 4 };
+                card.Children.Add(new Label
+                {
+                    Text = agentName,
+                    FontSize = 13,
+                    FontAttributes = FontAttributes.Bold,
+                    TextColor = Color.FromArgb("#EBCB8B") // Nord13
+                });
+                card.Children.Add(new Label
+                {
+                    Text = output,
+                    FontSize = 12,
+                    TextColor = Color.FromArgb("#D8DEE9"), // Nord4
+                    LineBreakMode = LineBreakMode.WordWrap
+                });
+                AgentOutputStack.Children.Add(card);
+            });
+        };
 
         try
         {
@@ -57,6 +95,10 @@ public partial class ExcusePage : ContentPage
             
             // Show generator info
             UpdateGeneratorInfo(result);
+            
+            // Show reasoning panel if pipeline mode produced agent outputs
+            if (AgentOutputStack.Children.Count > 0)
+                AgentReasoningBorder.IsVisible = true;
             
             // Show the share button
             ShareIconBtn.IsVisible = true;
@@ -106,5 +148,11 @@ public partial class ExcusePage : ContentPage
             Text = _currentExcuse,
             Title = AppStrings.GetString("ShareExcuse")
         });
+    }
+
+    private void OnToggleReasoning(object? sender, EventArgs e)
+    {
+        AgentReasoningContent.IsVisible = !AgentReasoningContent.IsVisible;
+        ReasoningToggleIcon.Text = AgentReasoningContent.IsVisible ? "\uf077" : "\uf078"; // chevron-up / chevron-down
     }
 }

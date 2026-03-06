@@ -13,6 +13,35 @@ public class OnDeviceAIExcuseGenerator : IExcuseGenerator
 
     public string Name => "On-Device AI (Apple)";
 
+    public static readonly string[] RandomTopics =
+    [
+        "a pet", "the weather", "technology", "food", "sleep",
+        "aliens", "a mysterious stranger", "time travel", "gravity",
+        "a horoscope", "a dream", "a fortune cookie", "the internet",
+        "a conspiracy theory", "a cosmic event", "socks", "a squirrel",
+        "a parallel universe", "a broken clock", "invisible forces",
+        "a wizard", "quantum physics", "a haunted toaster", "yoga",
+        "a pigeon", "my neighbor's cat", "a banana peel", "magnets",
+        "a black hole", "my goldfish", "a rogue umbrella", "quicksand",
+        "a cursed elevator", "my WiFi", "a haunted parking lot",
+        "a sentient roomba", "a possessed microwave", "my shoes",
+        "a time-traveling snail", "a dancing cactus", "my shadow",
+        "a suspicious cloud", "an enchanted burrito", "a talking fridge",
+        "a rogue shopping cart", "my evil twin", "a philosophical duck",
+        "a vampire accountant", "a teleporting sandwich", "solar flares",
+        "my karma", "a runaway flamingo", "an angry seagull",
+        "a melodramatic houseplant", "a judgmental owl", "moon phases",
+        "a passive-aggressive GPS", "a ninja hamster", "a broken zipper",
+        "a vengeful parking meter", "an existential crisis", "a glitch in the matrix"
+    ];
+
+    public static readonly string[] StarterPhrases =
+    [
+        "I can't because", "I would but", "Sorry, unfortunately",
+        "I tried, however", "I'd love to, but", "It's impossible since",
+        "I must decline because", "Not today because", "I was going to, but"
+    ];
+
     public OnDeviceAIExcuseGenerator(IChatClient? chatClient = null)
     {
         _chatClient = chatClient;
@@ -43,36 +72,8 @@ public class OnDeviceAIExcuseGenerator : IExcuseGenerator
             };
 
             // Randomize the prompt so the on-device model doesn't return the same answer
-            var topics = new[]
-            {
-                "a pet", "the weather", "technology", "food", "sleep",
-                "aliens", "a mysterious stranger", "time travel", "gravity",
-                "a horoscope", "a dream", "a fortune cookie", "the internet",
-                "a conspiracy theory", "a cosmic event", "socks", "a squirrel",
-                "a parallel universe", "a broken clock", "invisible forces",
-                "a wizard", "quantum physics", "a haunted toaster", "yoga",
-                "a pigeon", "my neighbor's cat", "a banana peel", "magnets",
-                "a black hole", "my goldfish", "a rogue umbrella", "quicksand",
-                "a cursed elevator", "my WiFi", "a haunted parking lot",
-                "a sentient roomba", "a possessed microwave", "my shoes",
-                "a time-traveling snail", "a dancing cactus", "my shadow",
-                "a suspicious cloud", "an enchanted burrito", "a talking fridge",
-                "a rogue shopping cart", "my evil twin", "a philosophical duck",
-                "a vampire accountant", "a teleporting sandwich", "solar flares",
-                "my karma", "a runaway flamingo", "an angry seagull",
-                "a melodramatic houseplant", "a judgmental owl", "moon phases",
-                "a passive-aggressive GPS", "a ninja hamster", "a broken zipper",
-                "a vengeful parking meter", "an existential crisis", "a glitch in the matrix"
-            };
-            var starters = new[]
-            {
-                "I can't because", "I would but", "Sorry, unfortunately",
-                "I tried, however", "I'd love to, but", "It's impossible since",
-                "I must decline because", "Not today because", "I was going to, but"
-            };
-
-            var topic = topics[Random.Shared.Next(topics.Length)];
-            var starter = starters[Random.Shared.Next(starters.Length)];
+            var topic = RandomTopics[Random.Shared.Next(RandomTopics.Length)];
+            var starter = StarterPhrases[Random.Shared.Next(StarterPhrases.Length)];
 
             var prompt = $"Write a single short humorous fictional excuse about {topic}. Start with '{starter}'. Make it silly and absurd. Write it in {languageName}. Just the excuse, nothing else.";
 
