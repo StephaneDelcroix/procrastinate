@@ -73,20 +73,26 @@ public partial class ExcusePage : ContentPage
 
     private void UpdateGeneratorInfo(ExcuseResult result)
     {
-        var parts = new List<string> { result.GeneratorName };
-        
+        var parts = new List<string>();
+
+        // Show MEAI badge for AI-powered generators
+        if (result.GeneratorName.Contains("AI"))
+            parts.Add("MEAI");
+
+        parts.Add(result.GeneratorName);
+
         if (result.Model != null)
         {
             parts.Add(result.Model);
         }
-        
+
         parts.Add($"{result.Duration.TotalMilliseconds:F0}ms");
-        
+
         if (result.TokenCount.HasValue)
         {
             parts.Add($"{result.TokenCount} tokens");
         }
-        
+
         GeneratorInfoLabel.Text = string.Join(" · ", parts);
         GeneratorInfoLabel.IsVisible = true;
     }

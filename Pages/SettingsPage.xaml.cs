@@ -119,16 +119,15 @@ public partial class SettingsPage : ContentPage
 
     private void UpdateOnDeviceAIStatus()
     {
-        var generator = _excuseService.GetCurrentGenerator();
-        if (generator is OnDeviceAIExcuseGenerator onDevice && onDevice.IsAvailable)
+        if (_excuseService.IsOnDeviceAvailable)
         {
-            OnDeviceAIStatusLabel.Text = AppStrings.Instance.OnDeviceAIAvailable;
-            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#88C0D0"); // Secondary/teal
+            OnDeviceAIStatusLabel.Text = "✅ " + AppStrings.Instance.OnDeviceAIAvailable + " (via MEAI IChatClient)";
+            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#88C0D0");
         }
         else
         {
             OnDeviceAIStatusLabel.Text = AppStrings.Instance.OnDeviceAIUnavailable;
-            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#D08770"); // Primary/amber warning
+            OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#D08770");
         }
     }
 

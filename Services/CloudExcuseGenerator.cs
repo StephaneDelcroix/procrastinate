@@ -6,7 +6,9 @@ namespace procrastinate.Services;
 public class CloudExcuseGenerator : IExcuseGenerator
 {
     public string Name => "Cloud AI (Groq)";
-    public bool IsAvailable => !string.IsNullOrEmpty(ApiKey);
+    public bool IsAvailable => IsCloudAvailable;
+
+    public static bool IsCloudAvailable => !string.IsNullOrEmpty(ApiKey);
 
     private static string ApiKey => Preferences.Get("GroqApiKey", "");
     private static string ApiEndpoint => Preferences.Get("GroqApiEndpoint", "https://api.groq.com/openai/v1");
