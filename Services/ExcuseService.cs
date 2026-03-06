@@ -99,7 +99,10 @@ public class ExcuseService
 
                 // Use whichever scored better
                 if (retryScore > score)
+                {
                     result = retry with { Model = result.Model + " (retry)" };
+                    score = retryScore;
+                }
             }
 
             // Append quality score to model info

@@ -8,6 +8,7 @@ namespace procrastinate.Services;
 public class TicTacToeAI
 {
     private readonly IChatClient? _onDeviceClient;
+    private IChatClient? _cloudClient;
 
     public TicTacToeAI(IChatClient? onDeviceClient = null)
     {
@@ -19,7 +20,7 @@ public class TicTacToeAI
     /// </summary>
     public string LastDebugInfo { get; private set; } = "";
 
-    private static string ApiKey => Preferences.Get("GroqApiKey", "");
+    private static string ApiKey => CloudExcuseGenerator.GetApiKey();
     private static string Model => Preferences.Get("GroqModel", "llama-3.3-70b-versatile");
 
     /// <summary>
@@ -41,18 +42,21 @@ public class TicTacToeAI
             if (move >= 0) return move;
         }
 
-        // Fall back to cloud AI
+        // Fall back to cloud AI (reuse client across moves)
         if (!string.IsNullOrEmpty(ApiKey))
         {
             try
             {
-                using var cloudClient = CloudExcuseGenerator.CreateChatClient();
-                var move = await GetMoveFromClientAsync(cloudClient, board, $"☁️ {Model}");
+                _cloudClient ??= CloudExcuseGenerator.CreateChatClient();
+                var move = await GetMoveFromClientAsync(_cloudClient, board, $"☁️ {Model}");
                 if (move >= 0) return move;
             }
             catch (Exception ex)
             {
                 LastDebugInfo = $"☁️ Cloud AI · ❌ {ex.Message}";
+                // Reset client on error so next call creates a fresh one
+                (_cloudClient as IDisposable)?.Dispose();
+                _cloudClient = null;
             }
         }
 

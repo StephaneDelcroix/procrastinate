@@ -22,6 +22,13 @@ public partial class ExcusePage : ContentPage
         UpdateCounterLabel();
     }
 
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        _excuseService.OnPipelineStageChanged = null;
+        _excuseService.OnAgentOutput = null;
+    }
+
     private void UpdateCounterLabel()
     {
         CounterLabel.Text = AppStrings.GetString("ExcusesGenerated", _statsService.ExcusesGenerated);

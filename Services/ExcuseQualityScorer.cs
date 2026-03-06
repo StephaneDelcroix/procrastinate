@@ -22,6 +22,10 @@ public static class ExcuseQualityScorer
         "Sorry, a philosophical duck won't leave my porch and I need to hear its argument first."
     };
 
+    // Cache golden embeddings to avoid recomputing on every call
+    private static GeneratedEmbeddings<Embedding<float>>? _cachedGoldenEmbeddings;
+    private static IEmbeddingGenerator<string, Embedding<float>>? _cachedGenerator;
+
     /// <summary>
     /// Score an excuse against golden examples. Returns 0.0 to 1.0 (higher = more similar to good excuses).
     /// </summary>
@@ -30,20 +34,22 @@ public static class ExcuseQualityScorer
         string excuse)
     {
         if (embeddingGenerator is null || string.IsNullOrWhiteSpace(excuse))
-            return 0.5f; // neutral score when embeddings unavailable
+            return 0.5f;
 
         try
         {
-            // Get embedding for the generated excuse
             var excuseEmbeddings = await embeddingGenerator.GenerateAsync([excuse]);
             var excuseVector = excuseEmbeddings[0].Vector;
 
-            // Get embeddings for golden excuses
-            var goldenEmbeddings = await embeddingGenerator.GenerateAsync(GoldenExcuses.ToList());
+            // Reuse cached golden embeddings if same generator instance
+            if (_cachedGoldenEmbeddings is null || _cachedGenerator != embeddingGenerator)
+            {
+                _cachedGoldenEmbeddings = await embeddingGenerator.GenerateAsync(GoldenExcuses.ToList());
+                _cachedGenerator = embeddingGenerator;
+            }
 
-            // Compute max cosine similarity against golden set
             float maxSimilarity = 0f;
-            foreach (var golden in goldenEmbeddings)
+            foreach (var golden in _cachedGoldenEmbeddings)
             {
                 var similarity = CosineSimilarity(excuseVector, golden.Vector);
                 if (similarity > maxSimilarity)
@@ -54,7 +60,7 @@ public static class ExcuseQualityScorer
         }
         catch
         {
-            return 0.5f; // fallback on error
+            return 0.5f;
         }
     }
 
@@ -73,6 +79,6 @@ public static class ExcuseQualityScorer
         }
 
         var denom = MathF.Sqrt(magA) * MathF.Sqrt(magB);
-        return denom == 0 ? 0 : dot / denom;
+        return denom < 1e-10f ? 0f : dot / denom;
     }
 }

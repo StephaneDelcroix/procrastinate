@@ -13,7 +13,7 @@ public class CustomEndpointExcuseGenerator : IExcuseGenerator
     public bool IsAvailable => !string.IsNullOrEmpty(Endpoint) && !string.IsNullOrEmpty(Model);
 
     private static string Endpoint => Preferences.Get("CustomAIEndpoint", "");
-    private static string ApiKey => Preferences.Get("CustomAIApiKey", "");
+    private static string ApiKey => SecureStorage.GetAsync("CustomAIApiKey").GetAwaiter().GetResult() ?? "";
     private static string Model => Preferences.Get("CustomAIModel", "");
 
     public async Task<ExcuseResult> GenerateExcuseAsync(string language)

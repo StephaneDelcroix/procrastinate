@@ -12,6 +12,10 @@ public record OnnxModelInfo(
 public class OnnxModelManager
 {
     private static readonly HttpClient _httpClient = new() { Timeout = TimeSpan.FromMinutes(60) };
+    private static readonly SemaphoreSlim _downloadLock = new(1, 1);
+
+    // Pinned commit SHA for reproducible downloads
+    private const string PinnedRevision = "4afb4415e36dbe8f2a1165e30ac4e4b10d2f29dd";
 
     public static readonly OnnxModelInfo[] AvailableModels =
     [
@@ -42,62 +46,84 @@ public class OnnxModelManager
         IProgress<(long downloaded, long total, string file)>? progress = null,
         CancellationToken ct = default)
     {
-        var modelDir = GetModelDirectory(model.Id);
-        Directory.CreateDirectory(modelDir);
+        if (!await _downloadLock.WaitAsync(0, ct))
+            throw new InvalidOperationException("A download is already in progress.");
 
-        // List files from HuggingFace API
-        var apiUrl = $"https://huggingface.co/api/models/{model.HuggingFaceRepo}/tree/main/{model.SubFolder}";
-        var json = await _httpClient.GetStringAsync(apiUrl, ct);
-        var entries = JsonSerializer.Deserialize<JsonElement[]>(json) ?? [];
-
-        var files = new List<(string name, long size)>();
-        long totalSize = 0;
-
-        foreach (var entry in entries)
+        try
         {
-            if (entry.GetProperty("type").GetString() != "file") continue;
-            var path = entry.GetProperty("path").GetString()!;
-            var name = Path.GetFileName(path);
-            if (name.EndsWith(".py")) continue;
-            var size = entry.GetProperty("size").GetInt64();
-            // For LFS files, use the actual LFS size
-            if (entry.TryGetProperty("lfs", out var lfs))
-                size = lfs.GetProperty("size").GetInt64();
-            files.Add((name, size));
-            totalSize += size;
-        }
+            var modelDir = GetModelDirectory(model.Id);
+            Directory.CreateDirectory(modelDir);
 
-        long downloaded = 0;
-        foreach (var (name, size) in files)
-        {
-            ct.ThrowIfCancellationRequested();
-            var filePath = Path.Combine(modelDir, name);
+            // List files from HuggingFace API (pinned revision)
+            var apiUrl = $"https://huggingface.co/api/models/{model.HuggingFaceRepo}/tree/{PinnedRevision}/{model.SubFolder}";
+            var json = await _httpClient.GetStringAsync(apiUrl, ct);
+            var entries = JsonSerializer.Deserialize<JsonElement[]>(json) ?? [];
 
-            // Skip already downloaded files with correct size
-            if (File.Exists(filePath) && new FileInfo(filePath).Length == size)
+            var files = new List<(string name, long size)>();
+            long totalSize = 0;
+
+            foreach (var entry in entries)
             {
-                downloaded += size;
-                progress?.Report((downloaded, totalSize, $"✓ {name}"));
-                continue;
+                if (entry.GetProperty("type").GetString() != "file") continue;
+                var path = entry.GetProperty("path").GetString()!;
+                var name = Path.GetFileName(path);
+                if (name.EndsWith(".py")) continue;
+                var size = entry.GetProperty("size").GetInt64();
+                if (entry.TryGetProperty("lfs", out var lfs))
+                    size = lfs.GetProperty("size").GetInt64();
+                files.Add((name, size));
+                totalSize += size;
             }
 
-            var url = $"https://huggingface.co/{model.HuggingFaceRepo}/resolve/main/{model.SubFolder}/{name}";
-            progress?.Report((downloaded, totalSize, $"⬇ {name}"));
-
-            using var resp = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, ct);
-            resp.EnsureSuccessStatusCode();
-
-            await using var stream = await resp.Content.ReadAsStreamAsync(ct);
-            await using var fs = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None, 81920);
-
-            var buffer = new byte[81920];
-            int bytesRead;
-            while ((bytesRead = await stream.ReadAsync(buffer, ct)) > 0)
+            long downloaded = 0;
+            foreach (var (name, size) in files)
             {
-                await fs.WriteAsync(buffer.AsMemory(0, bytesRead), ct);
-                downloaded += bytesRead;
+                ct.ThrowIfCancellationRequested();
+                var filePath = Path.Combine(modelDir, name);
+
+                // Skip already downloaded files with correct size
+                if (File.Exists(filePath) && new FileInfo(filePath).Length == size)
+                {
+                    downloaded += size;
+                    progress?.Report((downloaded, totalSize, $"✓ {name}"));
+                    continue;
+                }
+
+                var url = $"https://huggingface.co/{model.HuggingFaceRepo}/resolve/{PinnedRevision}/{model.SubFolder}/{name}";
                 progress?.Report((downloaded, totalSize, $"⬇ {name}"));
+
+                var tmpPath = filePath + ".tmp";
+                try
+                {
+                    using var resp = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead, ct);
+                    resp.EnsureSuccessStatusCode();
+
+                    await using var stream = await resp.Content.ReadAsStreamAsync(ct);
+                    await using var fs = new FileStream(tmpPath, FileMode.Create, FileAccess.Write, FileShare.None, 81920);
+
+                    var buffer = new byte[81920];
+                    int bytesRead;
+                    while ((bytesRead = await stream.ReadAsync(buffer, ct)) > 0)
+                    {
+                        await fs.WriteAsync(buffer.AsMemory(0, bytesRead), ct);
+                        downloaded += bytesRead;
+                        progress?.Report((downloaded, totalSize, $"⬇ {name}"));
+                    }
+                }
+                catch
+                {
+                    // Clean up partial temp file on failure
+                    try { File.Delete(tmpPath); } catch { }
+                    throw;
+                }
+
+                // Atomic rename: only replaces target after full download
+                File.Move(tmpPath, filePath, overwrite: true);
             }
+        }
+        finally
+        {
+            _downloadLock.Release();
         }
     }
 

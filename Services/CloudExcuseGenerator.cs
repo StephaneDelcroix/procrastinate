@@ -8,9 +8,9 @@ public class CloudExcuseGenerator : IExcuseGenerator
     public string Name => "Cloud AI (Groq)";
     public bool IsAvailable => IsCloudAvailable;
 
-    public static bool IsCloudAvailable => !string.IsNullOrEmpty(ApiKey);
+    public static bool IsCloudAvailable => !string.IsNullOrEmpty(GetApiKey());
 
-    private static string ApiKey => Preferences.Get("GroqApiKey", "");
+    internal static string GetApiKey() => SecureStorage.GetAsync("GroqApiKey").GetAwaiter().GetResult() ?? "";
     private static string ApiEndpoint => Preferences.Get("GroqApiEndpoint", "https://api.groq.com/openai/v1");
     private static string Model => Preferences.Get("GroqModel", "llama-3.3-70b-versatile");
 
@@ -60,7 +60,7 @@ public class CloudExcuseGenerator : IExcuseGenerator
     internal static IChatClient CreateChatClient()
     {
         return new OpenAI.OpenAIClient(
-                new System.ClientModel.ApiKeyCredential(ApiKey),
+                new System.ClientModel.ApiKeyCredential(GetApiKey()),
                 new OpenAI.OpenAIClientOptions { Endpoint = new Uri(ApiEndpoint) })
             .GetChatClient(Model)
             .AsIChatClient();

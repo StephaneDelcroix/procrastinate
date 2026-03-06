@@ -49,7 +49,7 @@ public partial class SettingsPage : ContentPage
         var modeIndex = ExcuseService.AvailableModes.Keys.ToList().IndexOf(currentMode);
         ExcuseModePicker.SelectedIndex = modeIndex >= 0 ? modeIndex : 0;
 
-        GroqApiKeyEntry.Text = Preferences.Get("GroqApiKey", "");
+        GroqApiKeyEntry.Text = SecureStorage.GetAsync("GroqApiKey").GetAwaiter().GetResult() ?? "";
         
         // Load Groq models picker
         foreach (var model in GroqModels)
@@ -144,7 +144,7 @@ public partial class SettingsPage : ContentPage
 
     private void OnGroqApiKeyChanged(object? sender, TextChangedEventArgs e)
     {
-        Preferences.Set("GroqApiKey", e.NewTextValue ?? "");
+        _ = SecureStorage.SetAsync("GroqApiKey", e.NewTextValue ?? "");
     }
 
     private void OnGroqModelChanged(object? sender, EventArgs e)
@@ -186,7 +186,7 @@ public partial class SettingsPage : ContentPage
     private void LoadCustomEndpointSettings()
     {
         CustomEndpointEntry.Text = Preferences.Get("CustomAIEndpoint", "");
-        CustomApiKeyEntry.Text = Preferences.Get("CustomAIApiKey", "");
+        CustomApiKeyEntry.Text = SecureStorage.GetAsync("CustomAIApiKey").GetAwaiter().GetResult() ?? "";
         CustomModelEntry.Text = Preferences.Get("CustomAIModel", "");
     }
 
@@ -197,7 +197,7 @@ public partial class SettingsPage : ContentPage
 
     private void OnCustomApiKeyChanged(object? sender, TextChangedEventArgs e)
     {
-        Preferences.Set("CustomAIApiKey", e.NewTextValue ?? "");
+        _ = SecureStorage.SetAsync("CustomAIApiKey", e.NewTextValue ?? "");
     }
 
     private void OnCustomModelChanged(object? sender, TextChangedEventArgs e)
