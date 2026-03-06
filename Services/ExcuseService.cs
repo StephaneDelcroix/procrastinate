@@ -51,6 +51,7 @@ public class ExcuseService
             modes.Add("pipeline", "🤖 AI Agent Pipeline (3 agents)");
             modes.Add("custom", "Custom Endpoint (BYOM)");
             modes.Add("embedded", "📦 Embedded ONNX Model (offline)");
+            modes.Add("embedded_pipeline", "🧠 Embedded Agent Pipeline (3 models)");
             return modes;
         }
     }
@@ -74,6 +75,7 @@ public class ExcuseService
             "pipeline" => new AgentPipelineExcuseGenerator(_onDeviceChatClient) { OnStageChanged = OnPipelineStageChanged, OnAgentOutput = OnAgentOutput },
             "custom" => new CustomEndpointExcuseGenerator(),
             "embedded" => new EmbeddedModelExcuseGenerator(),
+            "embedded_pipeline" => new EmbeddedAgentPipelineExcuseGenerator(_onDeviceChatClient) { OnStageChanged = OnPipelineStageChanged, OnAgentOutput = OnAgentOutput },
             _ => _randomGenerator
         };
     }

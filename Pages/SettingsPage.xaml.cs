@@ -115,6 +115,7 @@ public partial class SettingsPage : ContentPage
         PipelineSettingsPanel.IsVisible = ExcuseService.CurrentMode == "pipeline";
         CustomEndpointPanel.IsVisible = ExcuseService.CurrentMode == "custom";
         EmbeddedModelPanel.IsVisible = ExcuseService.CurrentMode == "embedded";
+        EmbeddedPipelinePanel.IsVisible = ExcuseService.CurrentMode == "embedded_pipeline";
         
         if (ExcuseService.CurrentMode == "ondevice")
         {
@@ -127,6 +128,10 @@ public partial class SettingsPage : ContentPage
         if (ExcuseService.CurrentMode == "embedded")
         {
             UpdateEmbeddedModelStatus();
+        }
+        if (ExcuseService.CurrentMode == "embedded_pipeline")
+        {
+            UpdateEmbeddedPipelineStatus();
         }
     }
 
@@ -310,5 +315,24 @@ public partial class SettingsPage : ContentPage
         OnnxGenAIChatClient.UnloadCached();
         OnnxModelManager.DeleteModel(model.Id);
         UpdateEmbeddedModelStatus();
+    }
+
+    // -- Embedded Agent Pipeline --
+
+    private void UpdateEmbeddedPipelineStatus()
+    {
+        var llama3b = OnnxModelManager.IsModelDownloaded("llama-3.2-3b-int4");
+        var llama1b = OnnxModelManager.IsModelDownloaded("llama-3.2-1b-int4");
+        var aiAvail = _excuseService.IsOnDeviceAvailable;
+
+        var status = new List<string>();
+        status.Add(aiAvail ? "✅ Apple Intelligence" : "❌ Apple Intelligence");
+        status.Add(llama3b ? "✅ Llama 3.2 3B" : "❌ Llama 3.2 3B");
+        status.Add(llama1b ? "✅ Llama 3.2 1B" : "❌ Llama 3.2 1B");
+
+        EmbeddedPipelineStatusLabel.Text = string.Join("  ·  ", status);
+        EmbeddedPipelineStatusLabel.TextColor = (aiAvail && llama3b && llama1b)
+            ? Color.FromArgb("#A3BE8C")
+            : Color.FromArgb("#D08770");
     }
 }
