@@ -88,7 +88,29 @@ public class AgentPipelineExcuseGenerator : IExcuseGenerator
         catch (Exception ex)
         {
             stopwatch.Stop();
-            return new ExcuseResult($"Pipeline error: {ex.Message}", Name, stopwatch.Elapsed);
+            System.Diagnostics.Debug.WriteLine($"Pipeline error: {ex}");
+
+            var friendly = ex.Message switch
+            {
+                string m when m.Contains("content", StringComparison.OrdinalIgnoreCase) &&
+                              m.Contains("unsafe", StringComparison.OrdinalIgnoreCase)
+                    => "The AI thought that excuse was too spicy! Try again for a tamer one. 🌶️",
+                string m when m.Contains("content", StringComparison.OrdinalIgnoreCase) &&
+                              m.Contains("filter", StringComparison.OrdinalIgnoreCase)
+                    => "The AI's content filter kicked in — apparently that excuse was TOO creative. Try again! 🎨",
+                string m when m.Contains("timeout", StringComparison.OrdinalIgnoreCase) ||
+                              m.Contains("timed out", StringComparison.OrdinalIgnoreCase)
+                    => "Even the AI is procrastinating! It took too long. Try again. ⏰",
+                string m when m.Contains("network", StringComparison.OrdinalIgnoreCase) ||
+                              m.Contains("connection", StringComparison.OrdinalIgnoreCase)
+                    => "No connection — the AI agents are on a coffee break. Check your network. ☕",
+                string m when m.Contains("rate limit", StringComparison.OrdinalIgnoreCase) ||
+                              m.Contains("429", StringComparison.OrdinalIgnoreCase)
+                    => "Too many excuses requested! The AI needs a breather. Wait a moment. 😮‍💨",
+                _ => "The excuse factory had a hiccup. Give it another shot! 🏭"
+            };
+
+            return new ExcuseResult(friendly, Name, stopwatch.Elapsed);
         }
         finally
         {

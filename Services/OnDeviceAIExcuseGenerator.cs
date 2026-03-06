@@ -92,7 +92,8 @@ public class OnDeviceAIExcuseGenerator : IExcuseGenerator
         catch (Exception ex)
         {
             stopwatch.Stop();
-            return new ExcuseResult($"On-device AI error: {ex.Message}", Name, stopwatch.Elapsed);
+            System.Diagnostics.Debug.WriteLine($"On-device AI error: {ex}");
+            return new ExcuseResult("The on-device AI got stage fright. Give it another try! 🎭", Name, stopwatch.Elapsed);
         }
     }
 }

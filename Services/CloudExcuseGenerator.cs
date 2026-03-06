@@ -52,7 +52,8 @@ public class CloudExcuseGenerator : IExcuseGenerator
         catch (Exception ex)
         {
             stopwatch.Stop();
-            return new ExcuseResult($"Cloud excuse failed: {ex.Message}", Name, stopwatch.Elapsed, Model: Model);
+            System.Diagnostics.Debug.WriteLine($"Cloud excuse error: {ex}");
+            return new ExcuseResult("The cloud AI is napping. Try again or switch to on-device! ☁️💤", Name, stopwatch.Elapsed, Model: Model);
         }
     }
 

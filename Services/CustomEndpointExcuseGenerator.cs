@@ -58,7 +58,8 @@ public class CustomEndpointExcuseGenerator : IExcuseGenerator
         catch (Exception ex)
         {
             stopwatch.Stop();
-            return new ExcuseResult($"Custom AI error: {ex.Message}", Name, stopwatch.Elapsed, Model: Model);
+            System.Diagnostics.Debug.WriteLine($"Custom AI error: {ex}");
+            return new ExcuseResult("The custom model tripped over its own neurons. Check the endpoint and try again! 🧠", Name, stopwatch.Elapsed, Model: Model);
         }
     }
 

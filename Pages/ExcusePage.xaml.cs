@@ -69,13 +69,15 @@ public partial class ExcusePage : ContentPage
                     Text = agentName,
                     FontSize = 13,
                     FontAttributes = FontAttributes.Bold,
-                    TextColor = Color.FromArgb("#EBCB8B") // Nord13
+                    TextColor = Color.FromArgb("#EBCB8B") // Nord13 — yellow, high contrast on both themes
                 });
                 card.Children.Add(new Label
                 {
                     Text = output,
-                    FontSize = 12,
-                    TextColor = Color.FromArgb("#D8DEE9"), // Nord4
+                    FontSize = 13,
+                    TextColor = Application.Current?.RequestedTheme == AppTheme.Light
+                        ? Color.FromArgb("#2E3440")   // Nord0 — dark text on light bg
+                        : Color.FromArgb("#ECEFF4"),   // Nord6 — bright text on dark bg
                     LineBreakMode = LineBreakMode.WordWrap
                 });
                 AgentOutputStack.Children.Add(card);
@@ -105,7 +107,8 @@ public partial class ExcusePage : ContentPage
         }
         catch (Exception ex)
         {
-            ExcuseLabel.Text = $"Error: {ex.Message}";
+            System.Diagnostics.Debug.WriteLine($"Excuse generation error: {ex}");
+            ExcuseLabel.Text = "Something went wrong. Tap to try again! 🔄";
         }
         finally
         {
