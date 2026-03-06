@@ -60,25 +60,28 @@ public class EmbeddedAgentPipelineExcuseGenerator : IExcuseGenerator
             OnStageChanged?.Invoke("🔍 Apple Intelligence: Researching...");
             var researchMessages = new List<ChatMessage>
             {
-                new(ChatRole.User, $"You are a creative comedy researcher. Come up with a bizarre, funny, and detailed scenario involving {GetRandomElement()} that could be used as an excuse for not doing work. Include specific details like names, locations, and consequences. Describe what happened step by step in 3-5 sentences. Be wildly creative and specific.")
+                new(ChatRole.User, $"Come up with one short bizarre funny scenario involving {GetRandomElement()} as an excuse for not working. Maximum 2 sentences.")
             };
             using var researchCts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
             var researchResponse = await _onDeviceChatClient.GetResponseAsync(researchMessages, cancellationToken: researchCts.Token);
             var scenario = researchResponse.Text?.Trim() ?? "";
+            // Truncate to keep within Llama's context window
+            if (scenario.Length > 300)
+                scenario = scenario[..300];
             OnAgentOutput?.Invoke("🔍 Apple Intelligence", scenario);
 
             // Agent 2: Writer (Llama 3.2 3B) — crafts the excuse
             OnStageChanged?.Invoke("✍️ Llama 3B: Writing...");
             var rawExcuse = await RunAgentAsync(WriterModelId,
-                "You are a comedy writer who turns scenarios into hilarious first-person excuses. You must incorporate the key details from the scenario provided. Write a natural-sounding excuse in 2-3 sentences.",
-                $"Here is a detailed scenario that happened to me:\n\n\"{scenario}\"\n\nUsing ALL the key details from that scenario, write a funny first-person excuse in {languageName} explaining why I can't do work today. Start with 'Sorry' or 'I can't' and reference the specific details from the scenario.");
+                "You turn scenarios into short funny first-person excuses. 1-2 sentences max.",
+                $"Scenario: {scenario}\n\nWrite a funny excuse in {languageName} based on that. Start with 'Sorry'. 1-2 sentences only.");
             OnAgentOutput?.Invoke("✍️ Llama 3B Writer", rawExcuse);
 
             // Agent 3: Editor (Llama 3.2 1B) — polishes
             OnStageChanged?.Invoke("✨ Llama 1B: Polishing...");
             var finalExcuse = await RunAgentAsync(EditorModelId,
-                $"You are a comedy editor. You polish excuses to be funnier and more natural-sounding. Keep the same language ({languageName}). Output ONLY the polished excuse.",
-                $"Polish this excuse to be funnier and more natural. Keep it in {languageName}. Keep it to 1-2 sentences:\n\n{rawExcuse}\n\nJust the polished excuse, nothing else.");
+                "You polish excuses to be funnier. Keep it short. Same language.",
+                $"Polish this excuse in {languageName}, keep 1-2 sentences:\n\n{rawExcuse}");
             OnAgentOutput?.Invoke("✨ Llama 1B Editor", finalExcuse.Trim());
 
             OnStageChanged?.Invoke("✅ Done!");
