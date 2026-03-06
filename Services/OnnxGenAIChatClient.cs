@@ -13,6 +13,7 @@ public class OnnxGenAIChatClient : IChatClient
 {
     private readonly Model _model;
     private readonly Tokenizer _tokenizer;
+    private readonly ChatTemplate _template;
     private bool _disposed;
 
     public ChatClientMetadata Metadata { get; }
@@ -22,7 +23,7 @@ public class OnnxGenAIChatClient : IChatClient
     private static string? _cachedPath;
     private static int _activeInferences;
 
-    public static OnnxGenAIChatClient GetOrCreate(string modelPath, string modelName = "ONNX Local")
+    public static OnnxGenAIChatClient GetOrCreate(string modelPath, string modelName = "ONNX Local", ChatTemplate template = ChatTemplate.Phi3)
     {
         lock (_lock)
         {
@@ -34,7 +35,7 @@ public class OnnxGenAIChatClient : IChatClient
                 _cached.DisposeInternal();
             }
 
-            _cached = new OnnxGenAIChatClient(modelPath, modelName);
+            _cached = new OnnxGenAIChatClient(modelPath, modelName, template);
             _cachedPath = modelPath;
             return _cached;
         }
@@ -53,10 +54,11 @@ public class OnnxGenAIChatClient : IChatClient
         }
     }
 
-    private OnnxGenAIChatClient(string modelPath, string modelName)
+    private OnnxGenAIChatClient(string modelPath, string modelName, ChatTemplate template)
     {
         _model = new Model(modelPath);
         _tokenizer = new Tokenizer(_model);
+        _template = template;
         Metadata = new ChatClientMetadata("OnnxRuntimeGenAI");
     }
 
@@ -72,7 +74,7 @@ public class OnnxGenAIChatClient : IChatClient
             {
                 if (_disposed) throw new ObjectDisposedException(nameof(OnnxGenAIChatClient));
 
-                var prompt = FormatChatPrompt(chatMessages);
+                var prompt = FormatChatPrompt(chatMessages, _template);
                 using var sequences = _tokenizer.Encode(prompt);
 
                 using var genParams = new GeneratorParams(_model);
@@ -126,24 +128,39 @@ public class OnnxGenAIChatClient : IChatClient
         _model?.Dispose();
     }
 
-    private static string FormatChatPrompt(IEnumerable<ChatMessage> messages)
+    private static string FormatChatPrompt(IEnumerable<ChatMessage> messages, ChatTemplate template)
     {
         var sb = new StringBuilder();
-        foreach (var msg in messages)
+        if (template == ChatTemplate.Llama3)
         {
-            var role = msg.Role == ChatRole.System ? "system"
-                     : msg.Role == ChatRole.User ? "user"
-                     : "assistant";
-            sb.Append($"<|{role}|>\n{msg.Text}<|end|>\n");
+            sb.Append("<|begin_of_text|>");
+            foreach (var msg in messages)
+            {
+                var role = msg.Role == ChatRole.System ? "system"
+                         : msg.Role == ChatRole.User ? "user"
+                         : "assistant";
+                sb.Append($"<|start_header_id|>{role}<|end_header_id|>\n\n{msg.Text}<|eot_id|>");
+            }
+            sb.Append("<|start_header_id|>assistant<|end_header_id|>\n\n");
         }
-        sb.Append("<|assistant|>\n");
+        else
+        {
+            foreach (var msg in messages)
+            {
+                var role = msg.Role == ChatRole.System ? "system"
+                         : msg.Role == ChatRole.User ? "user"
+                         : "assistant";
+                sb.Append($"<|{role}|>\n{msg.Text}<|end|>\n");
+            }
+            sb.Append("<|assistant|>\n");
+        }
         return sb.ToString();
     }
 
     private static string CleanOutput(string text)
     {
         text = text.Trim();
-        foreach (var marker in new[] { "<|end|>", "<|endoftext|>", "<|assistant|>" })
+        foreach (var marker in new[] { "<|end|>", "<|endoftext|>", "<|assistant|>", "<|eot_id|>", "<|end_of_text|>" })
         {
             var idx = text.IndexOf(marker, StringComparison.Ordinal);
             if (idx >= 0) text = text[..idx].Trim();

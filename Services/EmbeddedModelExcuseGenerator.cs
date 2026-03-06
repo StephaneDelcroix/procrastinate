@@ -36,7 +36,7 @@ public class EmbeddedModelExcuseGenerator : IExcuseGenerator
 
         try
         {
-            var client = OnnxGenAIChatClient.GetOrCreate(modelPath, modelInfo.Name);
+            var client = OnnxGenAIChatClient.GetOrCreate(modelPath, modelInfo.Name, modelInfo.Template);
 
             var topic = OnDeviceAIExcuseGenerator.RandomTopics[
                 Random.Shared.Next(OnDeviceAIExcuseGenerator.RandomTopics.Length)];

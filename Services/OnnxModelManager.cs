@@ -2,13 +2,16 @@ using System.Text.Json;
 
 namespace procrastinate.Services;
 
+public enum ChatTemplate { Phi3, Llama3 }
+
 public record OnnxModelInfo(
     string Id,
     string Name,
     string HuggingFaceRepo,
     string SubFolder,
     long EstimatedSizeBytes,
-    string PinnedRevision);
+    string PinnedRevision,
+    ChatTemplate Template = ChatTemplate.Phi3);
 
 public class OnnxModelManager
 {
@@ -21,17 +24,19 @@ public class OnnxModelManager
             "microsoft/Phi-3-mini-4k-instruct-onnx",
             "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
             2_725_535_000L,
-            "4afb4415e36dbe8f2a1165e30ac4e4b10d2f29dd"),
+            "5f5f794c1c23c9d5ee142af85df02a6cc52d6945"),
         new("llama-3.2-1b-int4", "Llama 3.2 1B INT4 (1.7 GB)",
             "onnx-community/Llama-3.2-1B-Instruct-GENAI-ONNX",
             "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
             1_866_090_000L,
-            "e983c740a38fcfa57fb4d124b18b644974c3d966"),
+            "e983c740a38fcfa57fb4d124b18b644974c3d966",
+            ChatTemplate.Llama3),
         new("llama-3.2-3b-int4", "Llama 3.2 3B INT4 (3.4 GB)",
             "onnx-community/Llama-3.2-3B-Instruct-GENAI-ONNX",
             "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
             3_661_007_000L,
-            "5db5cdb5b0c8c440264ca0f16f5ec3351e753add")
+            "5db5cdb5b0c8c440264ca0f16f5ec3351e753add",
+            ChatTemplate.Llama3)
     ];
 
     public static string GetModelDirectory(string modelId)

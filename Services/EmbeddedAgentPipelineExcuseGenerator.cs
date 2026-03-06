@@ -60,8 +60,8 @@ public class EmbeddedAgentPipelineExcuseGenerator : IExcuseGenerator
             OnStageChanged?.Invoke("🔍 Apple Intelligence: Researching...");
             var researchMessages = new List<ChatMessage>
             {
-                new(ChatRole.System, "You are a creative comedy researcher. Your job is to come up with an absurd, unexpected scenario that could be used as an excuse. Output ONLY the scenario in 1-2 sentences. Be wildly creative."),
-                new(ChatRole.User, $"Come up with a bizarre, funny scenario involving {GetRandomElement()}. Make it unexpected and absurd. Just the scenario, nothing else.")
+                new(ChatRole.System, "You are a creative comedy researcher. Your job is to come up with a detailed absurd scenario that could be used as an excuse for not doing work. Be specific with names, places, and events. Output 3-5 sentences describing the scenario vividly."),
+                new(ChatRole.User, $"Come up with a bizarre, funny, and detailed scenario involving {GetRandomElement()}. Include specific details like names, locations, and consequences. Describe what happened step by step. Be wildly creative and specific.")
             };
             var researchResponse = await _onDeviceChatClient.GetResponseAsync(researchMessages);
             var scenario = researchResponse.Text?.Trim() ?? "";
@@ -70,8 +70,8 @@ public class EmbeddedAgentPipelineExcuseGenerator : IExcuseGenerator
             // Agent 2: Writer (Llama 3.2 3B) — crafts the excuse
             OnStageChanged?.Invoke("✍️ Llama 3B: Writing...");
             var rawExcuse = await RunAgentAsync(WriterModelId,
-                "You are a comedy writer. You turn scenarios into first-person excuses that sound like something a real person would say. Keep it to 1-2 sentences. Start with 'I' or 'Sorry'.",
-                $"Turn this scenario into a funny first-person excuse in {languageName}:\n\n{scenario}\n\nJust the excuse, nothing else.");
+                "You are a comedy writer who turns scenarios into hilarious first-person excuses. You must incorporate the key details from the scenario provided. Write a natural-sounding excuse in 2-3 sentences.",
+                $"Here is a detailed scenario that happened to me:\n\n\"{scenario}\"\n\nUsing ALL the key details from that scenario, write a funny first-person excuse in {languageName} explaining why I can't do work today. Start with 'Sorry' or 'I can't' and reference the specific details from the scenario.");
             OnAgentOutput?.Invoke("✍️ Llama 3B Writer", rawExcuse);
 
             // Agent 3: Editor (Llama 3.2 1B) — polishes
@@ -102,7 +102,7 @@ public class EmbeddedAgentPipelineExcuseGenerator : IExcuseGenerator
     {
         var modelPath = OnnxModelManager.GetModelDirectory(modelId);
         var modelInfo = OnnxModelManager.AvailableModels.First(m => m.Id == modelId);
-        var client = OnnxGenAIChatClient.GetOrCreate(modelPath, modelInfo.Name);
+        var client = OnnxGenAIChatClient.GetOrCreate(modelPath, modelInfo.Name, modelInfo.Template);
 
         var messages = new List<ChatMessage>
         {
@@ -112,7 +112,7 @@ public class EmbeddedAgentPipelineExcuseGenerator : IExcuseGenerator
 
         var response = await client.GetResponseAsync(messages, new ChatOptions
         {
-            MaxOutputTokens = 150,
+            MaxOutputTokens = 256,
             Temperature = 0.9f
         });
 
