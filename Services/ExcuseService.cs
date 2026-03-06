@@ -50,7 +50,9 @@ public class ExcuseService
 #endif
             modes.Add("pipeline", "🤖 AI Agent Pipeline (3 agents)");
             modes.Add("custom", "Custom Endpoint (BYOM)");
+#if !IOS
             modes.Add("embedded", "📦 Embedded ONNX Model (offline)");
+#endif
             return modes;
         }
     }
