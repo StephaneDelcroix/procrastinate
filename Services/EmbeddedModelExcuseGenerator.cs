@@ -5,7 +5,6 @@ namespace procrastinate.Services;
 
 /// <summary>
 /// Generates excuses using an embedded ONNX model running entirely on-device.
-/// On iOS, this is not available (use Apple Intelligence instead); works on Android/macCatalyst.
 /// </summary>
 public class EmbeddedModelExcuseGenerator : IExcuseGenerator
 {
@@ -13,21 +12,11 @@ public class EmbeddedModelExcuseGenerator : IExcuseGenerator
 
     public string Name => "Embedded ONNX AI";
 
-    public EmbeddedModelExcuseGenerator(string modelId = "phi3-mini-int4")
+    public EmbeddedModelExcuseGenerator(string? modelId = null)
     {
-        _modelId = modelId;
+        _modelId = modelId ?? Preferences.Get("EmbeddedOnnxModelId", "phi3-mini-int4");
     }
 
-#if IOS
-    public bool IsAvailable => false;
-
-    public Task<ExcuseResult> GenerateExcuseAsync(string language)
-    {
-        return Task.FromResult(new ExcuseResult(
-            "Embedded ONNX model is not available on iOS. Use Apple Intelligence instead!",
-            Name, TimeSpan.Zero));
-    }
-#else
     public bool IsAvailable => OnnxModelManager.IsModelDownloaded(_modelId);
 
     public async Task<ExcuseResult> GenerateExcuseAsync(string language)
@@ -47,7 +36,7 @@ public class EmbeddedModelExcuseGenerator : IExcuseGenerator
 
         try
         {
-            var client = OnnxGenAIChatClient.GetOrCreate(modelPath, modelInfo.Name);
+            var client = OnnxGenAIChatClient.GetOrCreate(modelPath, modelInfo.Name, modelInfo.Template);
 
             var topic = OnDeviceAIExcuseGenerator.RandomTopics[
                 Random.Shared.Next(OnDeviceAIExcuseGenerator.RandomTopics.Length)];
@@ -82,5 +71,4 @@ public class EmbeddedModelExcuseGenerator : IExcuseGenerator
             return new ExcuseResult($"Error running embedded model: {ex.Message}", Name, stopwatch.Elapsed);
         }
     }
-#endif
 }
