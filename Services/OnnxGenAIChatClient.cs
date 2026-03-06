@@ -1,4 +1,3 @@
-#if !IOS
 using System.Runtime.CompilerServices;
 using System.Text;
 using Microsoft.Extensions.AI;
@@ -117,6 +116,8 @@ public class OnnxGenAIChatClient : IChatClient
     public object? GetService(Type serviceType, object? key = null)
         => serviceType.IsAssignableFrom(GetType()) ? this : null;
 
+    public void Dispose() => DisposeInternal();
+
     private void DisposeInternal()
     {
         if (_disposed) return;
@@ -150,4 +151,3 @@ public class OnnxGenAIChatClient : IChatClient
         return text;
     }
 }
-#endif

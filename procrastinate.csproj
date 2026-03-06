@@ -79,7 +79,7 @@
 		<PackageReference Include="Microsoft.Maui.Essentials.AI" Version="10.0.50-ci.main.26126.2" />
 		<PackageReference Include="Microsoft.Extensions.AI" Version="10.0.0" />
 		<PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.0.0-preview.1.25559.3" />
-		<PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI" Version="0.12.2" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'ios'" />
+		<PackageReference Include="Microsoft.ML.OnnxRuntimeGenAI" Version="0.12.2" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 		<PackageReference Include="Plugin.Maui.Audio" Version="4.0.0" />
 	</ItemGroup>
@@ -93,6 +93,31 @@
 			<DependentUpon>AppResources.resx</DependentUpon>
 		</EmbeddedResource>
 	</ItemGroup>
+
+	<!-- ONNX Runtime native references for iOS (packages target net9.0-ios, needs manual ref for net10.0-ios) -->
+	<ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios' AND ('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+		<NativeReference Include="$(NuGetPackageRoot)microsoft.ml.onnxruntime/1.24.1/runtimes/ios/native/onnxruntime.xcframework.zip">
+			<Kind>Static</Kind>
+			<IsCxx>True</IsCxx>
+			<SmartLink>True</SmartLink>
+			<ForceLoad>True</ForceLoad>
+			<LinkerFlags>-lc++</LinkerFlags>
+			<WeakFrameworks>CoreML</WeakFrameworks>
+		</NativeReference>
+		<NativeReference Include="$(NuGetPackageRoot)microsoft.ml.onnxruntimegenai/0.12.2/runtimes/ios/native/onnxruntime-genai.xcframework.zip">
+			<Kind>Static</Kind>
+			<IsCxx>True</IsCxx>
+			<SmartLink>True</SmartLink>
+			<ForceLoad>True</ForceLoad>
+			<LinkerFlags>-lc++</LinkerFlags>
+			<WeakFrameworks>CoreML</WeakFrameworks>
+		</NativeReference>
+	</ItemGroup>
+
+	<!-- ORT custom ops stub required for static linking on iOS -->
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+		<MtouchExtraArgs>$(MtouchExtraArgs) --gcc_flags "-x c Platforms/iOS/OrtExtensionsStub.c"</MtouchExtraArgs>
+	</PropertyGroup>
 
 	<!-- iOS signing configuration -->
 	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">

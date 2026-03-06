@@ -307,9 +307,7 @@ public partial class SettingsPage : ContentPage
             "Delete", "Cancel");
         if (!confirm) return;
 
-#if !IOS
         OnnxGenAIChatClient.UnloadCached();
-#endif
         OnnxModelManager.DeleteModel(model.Id);
         UpdateEmbeddedModelStatus();
     }
