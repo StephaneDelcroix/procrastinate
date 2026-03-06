@@ -60,7 +60,7 @@ public class EmbeddedAgentPipelineExcuseGenerator : IExcuseGenerator
             OnStageChanged?.Invoke("🔍 Apple Intelligence: Researching...");
             var researchMessages = new List<ChatMessage>
             {
-                new(ChatRole.User, $"Come up with one short bizarre funny scenario involving {GetRandomElement()} as an excuse for not working. Maximum 2 sentences.")
+                new(ChatRole.User, $"Write a short funny fictional story about {GetRandomElement()}. Make it silly and absurd. Maximum 2 sentences.")
             };
             using var researchCts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
             var researchResponse = await _onDeviceChatClient.GetResponseAsync(researchMessages, cancellationToken: researchCts.Token);
