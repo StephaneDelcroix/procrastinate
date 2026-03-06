@@ -1,3 +1,5 @@
+using Microsoft.Extensions.AI;
+
 namespace procrastinate.Services;
 
 public class ExcuseService
@@ -5,14 +7,14 @@ public class ExcuseService
     private readonly Dictionary<string, IExcuseGenerator> _generators;
     private readonly StatsService _stats;
     
-    public ExcuseService(StatsService stats)
+    public ExcuseService(StatsService stats, IChatClient? onDeviceChatClient = null)
     {
         _stats = stats;
         _generators = new Dictionary<string, IExcuseGenerator>
         {
             { "random", new RandomExcuseGenerator() },
             { "cloud", new CloudExcuseGenerator() },
-            { "ondevice", new OnDeviceAIExcuseGenerator() }
+            { "ondevice", new OnDeviceAIExcuseGenerator(onDeviceChatClient) }
         };
     }
 

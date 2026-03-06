@@ -11,8 +11,11 @@ public partial class SettingsPage : ContentPage
         "gemma2-9b-it"
     };
 
-    public SettingsPage()
+    private readonly ExcuseService _excuseService;
+
+    public SettingsPage(ExcuseService excuseService)
     {
+        _excuseService = excuseService;
         InitializeComponent();
         LoadSettings();
     }
@@ -116,8 +119,8 @@ public partial class SettingsPage : ContentPage
 
     private void UpdateOnDeviceAIStatus()
     {
-        var generator = new OnDeviceAIExcuseGenerator();
-        if (generator.IsAvailable)
+        var generator = _excuseService.GetCurrentGenerator();
+        if (generator is OnDeviceAIExcuseGenerator onDevice && onDevice.IsAvailable)
         {
             OnDeviceAIStatusLabel.Text = AppStrings.Instance.OnDeviceAIAvailable;
             OnDeviceAIStatusLabel.TextColor = Color.FromArgb("#88C0D0"); // Secondary/teal
