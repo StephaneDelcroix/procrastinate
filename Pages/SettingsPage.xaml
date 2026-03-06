@@ -279,6 +279,17 @@
                         <Label Text="Run a full language model entirely on-device using ONNX Runtime GenAI. No server, no internet, full privacy." 
                                FontSize="12" 
                                TextColor="{StaticResource Nord3}"/>
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="Model" 
+                                   FontSize="14" 
+                                   TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"
+                                   VerticalOptions="Center"/>
+                            <Picker x:Name="EmbeddedModelPicker"
+                                    WidthRequest="280"
+                                    TextColor="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}"
+                                    SelectedIndexChanged="OnEmbeddedModelPickerChanged"/>
+                        </HorizontalStackLayout>
                         <Label x:Name="EmbeddedModelStatusLabel"
                                FontSize="14" 
                                TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>

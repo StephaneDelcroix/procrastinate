@@ -7,6 +7,8 @@ public partial class SettingsPage : ContentPage
     private static readonly string[] GroqModels = 
     {
         "llama-3.3-70b-versatile",
+        "llama-3.2-3b-preview",
+        "llama-3.2-1b-preview",
         "llama-3.1-8b-instant",
         "gemma2-9b-it"
     };
@@ -209,9 +211,24 @@ public partial class SettingsPage : ContentPage
 
     private CancellationTokenSource? _downloadCts;
 
+    private OnnxModelInfo SelectedEmbeddedModel =>
+        OnnxModelManager.AvailableModels[
+            Math.Max(0, Math.Min(EmbeddedModelPicker.SelectedIndex, OnnxModelManager.AvailableModels.Length - 1))];
+
     private void UpdateEmbeddedModelStatus()
     {
-        var model = OnnxModelManager.AvailableModels[0];
+        // Populate picker if empty
+        if (EmbeddedModelPicker.Items.Count == 0)
+        {
+            foreach (var m in OnnxModelManager.AvailableModels)
+                EmbeddedModelPicker.Items.Add(m.Name);
+
+            var savedId = Preferences.Get("EmbeddedOnnxModelId", "phi3-mini-int4");
+            var idx = Array.FindIndex(OnnxModelManager.AvailableModels, m => m.Id == savedId);
+            EmbeddedModelPicker.SelectedIndex = idx >= 0 ? idx : 0;
+        }
+
+        var model = SelectedEmbeddedModel;
         if (OnnxModelManager.IsModelDownloaded(model.Id))
         {
             var size = OnnxModelManager.GetDownloadedSize(model.Id);
@@ -232,9 +249,17 @@ public partial class SettingsPage : ContentPage
         }
     }
 
+    private void OnEmbeddedModelPickerChanged(object? sender, EventArgs e)
+    {
+        if (EmbeddedModelPicker.SelectedIndex < 0) return;
+        var model = SelectedEmbeddedModel;
+        Preferences.Set("EmbeddedOnnxModelId", model.Id);
+        UpdateEmbeddedModelStatus();
+    }
+
     private async void OnDownloadEmbeddedModel(object? sender, EventArgs e)
     {
-        var model = OnnxModelManager.AvailableModels[0];
+        var model = SelectedEmbeddedModel;
         _downloadCts?.Cancel();
         _downloadCts = new CancellationTokenSource();
 
@@ -275,12 +300,13 @@ public partial class SettingsPage : ContentPage
 
     private async void OnDeleteEmbeddedModel(object? sender, EventArgs e)
     {
+        var model = SelectedEmbeddedModel;
+        var sizeGB = model.EstimatedSizeBytes / (1024.0 * 1024 * 1024);
         var confirm = await DisplayAlert("Delete Model",
-            "Delete the downloaded ONNX model? This frees ~2.5 GB of storage.",
+            $"Delete the downloaded {model.Name}? This frees ~{sizeGB:F1} GB of storage.",
             "Delete", "Cancel");
         if (!confirm) return;
 
-        var model = OnnxModelManager.AvailableModels[0];
 #if !IOS
         OnnxGenAIChatClient.UnloadCached();
 #endif

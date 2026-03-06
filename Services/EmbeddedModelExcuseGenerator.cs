@@ -13,9 +13,9 @@ public class EmbeddedModelExcuseGenerator : IExcuseGenerator
 
     public string Name => "Embedded ONNX AI";
 
-    public EmbeddedModelExcuseGenerator(string modelId = "phi3-mini-int4")
+    public EmbeddedModelExcuseGenerator(string? modelId = null)
     {
-        _modelId = modelId;
+        _modelId = modelId ?? Preferences.Get("EmbeddedOnnxModelId", "phi3-mini-int4");
     }
 
 #if IOS

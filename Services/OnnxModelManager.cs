@@ -7,22 +7,31 @@ public record OnnxModelInfo(
     string Name,
     string HuggingFaceRepo,
     string SubFolder,
-    long EstimatedSizeBytes);
+    long EstimatedSizeBytes,
+    string PinnedRevision);
 
 public class OnnxModelManager
 {
     private static readonly HttpClient _httpClient = new() { Timeout = TimeSpan.FromMinutes(60) };
     private static readonly SemaphoreSlim _downloadLock = new(1, 1);
 
-    // Pinned commit SHA for reproducible downloads
-    private const string PinnedRevision = "4afb4415e36dbe8f2a1165e30ac4e4b10d2f29dd";
-
     public static readonly OnnxModelInfo[] AvailableModels =
     [
         new("phi3-mini-int4", "Phi-3 Mini INT4 (2.5 GB)",
             "microsoft/Phi-3-mini-4k-instruct-onnx",
             "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
-            2_725_535_000L)
+            2_725_535_000L,
+            "4afb4415e36dbe8f2a1165e30ac4e4b10d2f29dd"),
+        new("llama-3.2-1b-int4", "Llama 3.2 1B INT4 (1.7 GB)",
+            "onnx-community/Llama-3.2-1B-Instruct-GENAI-ONNX",
+            "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
+            1_866_090_000L,
+            "e983c740a38fcfa57fb4d124b18b644974c3d966"),
+        new("llama-3.2-3b-int4", "Llama 3.2 3B INT4 (3.4 GB)",
+            "onnx-community/Llama-3.2-3B-Instruct-GENAI-ONNX",
+            "cpu_and_mobile/cpu-int4-rtn-block-32-acc-level-4",
+            3_661_007_000L,
+            "5db5cdb5b0c8c440264ca0f16f5ec3351e753add")
     ];
 
     public static string GetModelDirectory(string modelId)
@@ -55,7 +64,7 @@ public class OnnxModelManager
             Directory.CreateDirectory(modelDir);
 
             // List files from HuggingFace API (pinned revision)
-            var apiUrl = $"https://huggingface.co/api/models/{model.HuggingFaceRepo}/tree/{PinnedRevision}/{model.SubFolder}";
+            var apiUrl = $"https://huggingface.co/api/models/{model.HuggingFaceRepo}/tree/{model.PinnedRevision}/{model.SubFolder}";
             var json = await _httpClient.GetStringAsync(apiUrl, ct);
             var entries = JsonSerializer.Deserialize<JsonElement[]>(json) ?? [];
 
@@ -89,7 +98,7 @@ public class OnnxModelManager
                     continue;
                 }
 
-                var url = $"https://huggingface.co/{model.HuggingFaceRepo}/resolve/{PinnedRevision}/{model.SubFolder}/{name}";
+                var url = $"https://huggingface.co/{model.HuggingFaceRepo}/resolve/{model.PinnedRevision}/{model.SubFolder}/{name}";
                 progress?.Report((downloaded, totalSize, $"⬇ {name}"));
 
                 var tmpPath = filePath + ".tmp";
