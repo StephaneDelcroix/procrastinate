@@ -60,10 +60,10 @@ public class EmbeddedAgentPipelineExcuseGenerator : IExcuseGenerator
             OnStageChanged?.Invoke("🔍 Apple Intelligence: Researching...");
             var researchMessages = new List<ChatMessage>
             {
-                new(ChatRole.System, "You are a creative comedy researcher. Your job is to come up with a detailed absurd scenario that could be used as an excuse for not doing work. Be specific with names, places, and events. Output 3-5 sentences describing the scenario vividly."),
-                new(ChatRole.User, $"Come up with a bizarre, funny, and detailed scenario involving {GetRandomElement()}. Include specific details like names, locations, and consequences. Describe what happened step by step. Be wildly creative and specific.")
+                new(ChatRole.User, $"You are a creative comedy researcher. Come up with a bizarre, funny, and detailed scenario involving {GetRandomElement()} that could be used as an excuse for not doing work. Include specific details like names, locations, and consequences. Describe what happened step by step in 3-5 sentences. Be wildly creative and specific.")
             };
-            var researchResponse = await _onDeviceChatClient.GetResponseAsync(researchMessages);
+            using var researchCts = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+            var researchResponse = await _onDeviceChatClient.GetResponseAsync(researchMessages, cancellationToken: researchCts.Token);
             var scenario = researchResponse.Text?.Trim() ?? "";
             OnAgentOutput?.Invoke("🔍 Apple Intelligence", scenario);
 
