@@ -7,6 +7,8 @@ public partial class SettingsPage : ContentPage
     private static readonly string[] GroqModels = 
     {
         "llama-3.3-70b-versatile",
+        "llama-3.2-3b-preview",
+        "llama-3.2-1b-preview",
         "llama-3.1-8b-instant",
         "gemma2-9b-it"
     };
@@ -113,6 +115,7 @@ public partial class SettingsPage : ContentPage
         PipelineSettingsPanel.IsVisible = ExcuseService.CurrentMode == "pipeline";
         CustomEndpointPanel.IsVisible = ExcuseService.CurrentMode == "custom";
         EmbeddedModelPanel.IsVisible = ExcuseService.CurrentMode == "embedded";
+        EmbeddedPipelinePanel.IsVisible = ExcuseService.CurrentMode == "embedded_pipeline";
         
         if (ExcuseService.CurrentMode == "ondevice")
         {
@@ -125,6 +128,10 @@ public partial class SettingsPage : ContentPage
         if (ExcuseService.CurrentMode == "embedded")
         {
             UpdateEmbeddedModelStatus();
+        }
+        if (ExcuseService.CurrentMode == "embedded_pipeline")
+        {
+            UpdateEmbeddedPipelineStatus();
         }
     }
 
@@ -209,9 +216,24 @@ public partial class SettingsPage : ContentPage
 
     private CancellationTokenSource? _downloadCts;
 
+    private OnnxModelInfo SelectedEmbeddedModel =>
+        OnnxModelManager.AvailableModels[
+            Math.Max(0, Math.Min(EmbeddedModelPicker.SelectedIndex, OnnxModelManager.AvailableModels.Length - 1))];
+
     private void UpdateEmbeddedModelStatus()
     {
-        var model = OnnxModelManager.AvailableModels[0];
+        // Populate picker if empty
+        if (EmbeddedModelPicker.Items.Count == 0)
+        {
+            foreach (var m in OnnxModelManager.AvailableModels)
+                EmbeddedModelPicker.Items.Add(m.Name);
+
+            var savedId = Preferences.Get("EmbeddedOnnxModelId", "phi3-mini-int4");
+            var idx = Array.FindIndex(OnnxModelManager.AvailableModels, m => m.Id == savedId);
+            EmbeddedModelPicker.SelectedIndex = idx >= 0 ? idx : 0;
+        }
+
+        var model = SelectedEmbeddedModel;
         if (OnnxModelManager.IsModelDownloaded(model.Id))
         {
             var size = OnnxModelManager.GetDownloadedSize(model.Id);
@@ -232,9 +254,17 @@ public partial class SettingsPage : ContentPage
         }
     }
 
+    private void OnEmbeddedModelPickerChanged(object? sender, EventArgs e)
+    {
+        if (EmbeddedModelPicker.SelectedIndex < 0) return;
+        var model = SelectedEmbeddedModel;
+        Preferences.Set("EmbeddedOnnxModelId", model.Id);
+        UpdateEmbeddedModelStatus();
+    }
+
     private async void OnDownloadEmbeddedModel(object? sender, EventArgs e)
     {
-        var model = OnnxModelManager.AvailableModels[0];
+        var model = SelectedEmbeddedModel;
         _downloadCts?.Cancel();
         _downloadCts = new CancellationTokenSource();
 
@@ -275,16 +305,34 @@ public partial class SettingsPage : ContentPage
 
     private async void OnDeleteEmbeddedModel(object? sender, EventArgs e)
     {
+        var model = SelectedEmbeddedModel;
+        var sizeGB = model.EstimatedSizeBytes / (1024.0 * 1024 * 1024);
         var confirm = await DisplayAlert("Delete Model",
-            "Delete the downloaded ONNX model? This frees ~2.5 GB of storage.",
+            $"Delete the downloaded {model.Name}? This frees ~{sizeGB:F1} GB of storage.",
             "Delete", "Cancel");
         if (!confirm) return;
 
-        var model = OnnxModelManager.AvailableModels[0];
-#if !IOS
         OnnxGenAIChatClient.UnloadCached();
-#endif
         OnnxModelManager.DeleteModel(model.Id);
         UpdateEmbeddedModelStatus();
+    }
+
+    // -- Embedded Agent Pipeline --
+
+    private void UpdateEmbeddedPipelineStatus()
+    {
+        var llama3b = OnnxModelManager.IsModelDownloaded("llama-3.2-3b-int4");
+        var llama1b = OnnxModelManager.IsModelDownloaded("llama-3.2-1b-int4");
+        var aiAvail = _excuseService.IsOnDeviceAvailable;
+
+        var status = new List<string>();
+        status.Add(aiAvail ? "✅ Apple Intelligence" : "❌ Apple Intelligence");
+        status.Add(llama3b ? "✅ Llama 3.2 3B" : "❌ Llama 3.2 3B");
+        status.Add(llama1b ? "✅ Llama 3.2 1B" : "❌ Llama 3.2 1B");
+
+        EmbeddedPipelineStatusLabel.Text = string.Join("  ·  ", status);
+        EmbeddedPipelineStatusLabel.TextColor = (aiAvail && llama3b && llama1b)
+            ? Color.FromArgb("#A3BE8C")
+            : Color.FromArgb("#D08770");
     }
 }

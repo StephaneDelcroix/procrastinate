@@ -279,6 +279,17 @@
                         <Label Text="Run a full language model entirely on-device using ONNX Runtime GenAI. No server, no internet, full privacy." 
                                FontSize="12" 
                                TextColor="{StaticResource Nord3}"/>
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="Model" 
+                                   FontSize="14" 
+                                   TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"
+                                   VerticalOptions="Center"/>
+                            <Picker x:Name="EmbeddedModelPicker"
+                                    WidthRequest="280"
+                                    TextColor="{AppThemeBinding Light={StaticResource Nord0}, Dark={StaticResource Nord6}}"
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource Nord4}, Dark={StaticResource Nord2}}"
+                                    SelectedIndexChanged="OnEmbeddedModelPickerChanged"/>
+                        </HorizontalStackLayout>
                         <Label x:Name="EmbeddedModelStatusLabel"
                                FontSize="14" 
                                TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
@@ -305,6 +316,27 @@
                                 CornerRadius="10"
                                 HeightRequest="44"
                                 Clicked="OnDeleteEmbeddedModel"/>
+                    </VerticalStackLayout>
+
+                    <!-- Embedded Agent Pipeline (multi-model) -->
+                    <VerticalStackLayout x:Name="EmbeddedPipelinePanel" Spacing="12" IsVisible="False">
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="&#xf544;" 
+                                   FontFamily="FontAwesomeSolid" 
+                                   FontSize="16" 
+                                   TextColor="{StaticResource Nord13}"
+                                   VerticalOptions="Center"/>
+                            <Label Text="Embedded Agent Pipeline"
+                                   FontSize="14" 
+                                   FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
+                        </HorizontalStackLayout>
+                        <Label Text="Apple Intelligence (researcher) → Llama 3.2 3B (writer) → Llama 3.2 1B (editor). Download both Llama models in Embedded ONNX mode." 
+                               FontSize="12" 
+                               TextColor="{StaticResource Nord3}"/>
+                        <Label x:Name="EmbeddedPipelineStatusLabel"
+                               FontSize="14" 
+                               TextColor="{AppThemeBinding Light={StaticResource Nord3}, Dark={StaticResource Nord4}}"/>
                     </VerticalStackLayout>
                 </VerticalStackLayout>
             </Border>
