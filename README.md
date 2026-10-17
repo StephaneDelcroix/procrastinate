@@ -15,7 +15,7 @@ Why be productive when you can procrastinate in style? This app helps you embrac
 - **🎨 Nord Theme** - Beautiful dark and light themes based on the [Nord](https://www.nordtheme.com/) color palette
 - **⚙️ Settings** - Customize your procrastination experience
 
-## 🌍 Available in 6 Languages
+## 🌍 Available in 7 Languages
 
 Procrastinate like a local! The app is fully translated in:
 
@@ -27,6 +27,7 @@ Procrastinate like a local! The app is fully translated in:
 | Português | 🇧🇷 |
 | Nederlands | 🇳🇱 |
 | Čeština | 🇨🇿 |
+| Українська | 🇺🇦 |
 
 ## 🤖 AI-Powered Features
 
